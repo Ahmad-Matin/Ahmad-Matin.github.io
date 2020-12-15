@@ -199,4 +199,7 @@ a.menu-category{
 }
 
 
+li.price {
+    list-style :none;
+}
 
