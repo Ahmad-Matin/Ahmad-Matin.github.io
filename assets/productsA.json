@@ -61,7 +61,7 @@
         "size":null,
         "img":"https://images.pexels.com/photos/2846337/pexels-photo-2846337.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260",
         "description":"",
-        "price":[1.0]
+        "price":[[null,1.0]]
     },
     {
         "name":"Milk Shake",
@@ -69,7 +69,7 @@
         "size":null,
         "img":"https://images.pexels.com/photos/3625372/pexels-photo-3625372.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260",
         "description":"",
-        "price":[1.3]
+        "price":[[null,1.3]]
     },
     {
         "name":"Cheese Cake",
@@ -77,6 +77,6 @@
         "size":null,
         "img":"https://images.pexels.com/photos/4040696/pexels-photo-4040696.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260",
         "description":"",
-        "price":[1.2]
+        "price":[[null,1.2]]
     }
 ]
