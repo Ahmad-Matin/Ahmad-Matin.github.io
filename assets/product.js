@@ -42,7 +42,7 @@ function addSides(item) {
         <li class="list-group-item d-flex justify-content-around">
         <div>${food[0]}</div> 
         <div>$${food[1]}</div> 
-        <div><a class="btn btn-primary">Add to Cart</a></div>
+        <div><button class="btn btn-primary">Add to Cart</button></div>
         </li>`}).join(" ")} 
     </div>        
     </div>
@@ -66,6 +66,7 @@ function addDesserts(item) {
         <li class="list-group-item d-flex justify-content-between">
         <div>$${food[1]}</div> 
         <div><a class="btn btn-primary">Add to Cart</a></div>
+        <div><a class="btn btn-warning edit" href="about-us.html">Edit</a></div>
         </li>`}).join(" ")} 
     </div>        
     </div>
@@ -81,23 +82,45 @@ function fetchProductList() {
     fetch("../assets/productsA.json")
         .then((response) => response.json())
         .then(response => {
-            for (let i = 0; i < response.length; i++) {
-                switch (response[i].type) {
-                    case ("burger"):
-                        addBurger(response[i]);
-                        break;
-                    case ("sides"):
-                        addSides(response[i]);
-                        break;
-                    case ("dessert"):
-                        addDesserts(response[i]);
-                        break;
-                    } 
-                }
             const productsJson = JSON.stringify(response);
             localStorage.setItem('products', productsJson);
         })
 }
 
 
+
+
+
+function loadProductsFromStorage() {
+    if (localStorage.getItem('products')) {
+        const productsJson = localStorage.getItem('products');
+        const products = JSON.parse(productsJson);
+        // reset html
+        for (let i = 0; i < products.length; i++) {
+            switch (products[i].type) {
+                case ("burger"):
+                    addBurger(products[i]);
+                    break;
+                case ("sides"):
+                    addSides(products[i]);
+                    break;
+                case ("dessert"):
+                    addDesserts(products[i]);
+                    break;
+                } 
+            }
+        }
+    }
+    
+
+
 fetchProductList();
+//loadProductsFromStorage();
+
+
+const editButtons = document.getElementsByClassName('edit')
+console.log(editButtons);
+for (let i = 0; i < editButtons.length; i++) {
+    console.log('looped')
+  
+   }
