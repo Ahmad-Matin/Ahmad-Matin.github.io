@@ -10,19 +10,19 @@ function addBurger(item) {
 
     const itemHTML =
         ` <div class="col my-2">
-    <div class="card-body align-items-center border rounded p-0 shadow-sm">
-            <img src="${item.img}" class="card-img-top rounded-top menu-img">
+        <div class="card-body align-items-center border rounded p-0 pb-4 shadow-sm">
+        <img src="${item.img}" class="card-img-top rounded-top menu-img">
             <div class="d-flex justify-content-between px-4 pt-4">
                     <h5 class="card-title mr-auto">${item.name}</h5>
                     <h5 class="card-text ml-auto">$${item.price}</h5>
             </div>
             <div class="card-body">
-                <div class="d-flex px-4 pt-2 pb-4 justify-content-between flex-wrap">
+                <div class="d-flex px-4 pt-2 pb-2 justify-content-between flex-wrap">
                 <!--<input type="number" id="quantity" class="form-control quantity-container mr-2 mb-2" value="1">-->
-                    <a class="btn btn-primary add align-self-center">Add to Cart</a>
+                    <a class="btn btn-primary add align-self-center" href="#cart-section">Add to Cart</a>
                 </div>
                 <div class="d-flex justify-content-start">
-                    <a class="btn btn-warning edit mx-4 my-2 hide" href="#update-container">Edit</a>
+                <a class="btn btn-warning edit mx-4 mt-2 hide" href="#update-container">Edit</a>
                 </div>
 
             </div>
@@ -38,19 +38,19 @@ function addSides(item) {
 
     const itemHTML =
         ` <div class="col my-2">
-    <div class="card-body align-items-center border rounded p-0 shadow-sm">
+    <div class="card-body align-items-center border rounded p-0 pb-4 shadow-sm">
             <img src="${item.img}" class="card-img-top rounded-top menu-img">
             <div class="d-flex justify-content-between px-4 pt-4">
                     <h5 class="card-title mr-auto">${item.name}</h5>
                     <h5 class="card-text ml-auto">$${item.price}</h5>
             </div>
             <div class="card-body">
-                <div class="d-flex px-4 pt-2 pb-4 justify-content-between flex-wrap">
-                <!--<input type="number" id="quantity" class="form-control quantity-container mr-2 mb-2" value="1">-->
-                <a class="btn btn-primary add">Add to Cart</a>
+            <div class="d-flex px-4 pt-2 pb-2 justify-content-between flex-wrap">
+            <!--<input type="number" id="quantity" class="form-control quantity-container mr-2 mb-2" value="1">-->
+                <a class="btn btn-primary add" href="#cart-section">Add to Cart</a>
                 </div>
                 <div class="d-flex justify-content-start">
-                    <a class="btn btn-warning edit mx-4 my-2 hide" href="#update-container">Edit</a>
+                <a class="btn btn-warning edit mx-4 mt-2 hide" href="#update-container">Edit</a>
                 </div>
 
             </div>
@@ -65,19 +65,19 @@ function addDesserts(item) {
 
     const itemHTML =
         ` <div class="col my-2">
-    <div class="card-body align-items-center border rounded p-0 shadow-sm">
-            <img src="${item.img}" class="card-img-top rounded-top menu-img">
+        <div class="card-body align-items-center border rounded p-0 pb-4 shadow-sm">
+        <img src="${item.img}" class="card-img-top rounded-top menu-img">
             <div class="d-flex justify-content-between px-4 pt-4">
                     <h5 class="card-title mr-auto">${item.name}</h5>
                     <h5 class="card-text ml-auto">$${item.price}</h5>
             </div>
             <div class="card-body">
-                <div class="d-flex px-4 pt-2 pb-4 justify-content-between flex-wrap">
-                <!--<input type="number" id="quantity" class="form-control quantity-container mr-2 mb-2" value="1">-->
-                <a class="btn btn-primary add">Add to Cart</a>
+            <div class="d-flex px-4 pt-2 pb-2 justify-content-between flex-wrap">
+            <!--<input type="number" id="quantity" class="form-control quantity-container mr-2 mb-2" value="1">-->
+                <a class="btn btn-primary add" href="#cart-section">Add to Cart</a>
                 </div>
                 <div class="d-flex justify-content-start">
-                    <a class="btn btn-warning edit mx-4 my-2 hide" href="#update-container">Edit</a>
+                <a class="btn btn-warning edit mx-4 mt-2 hide" href="#update-container">Edit</a>
                 </div>
 
             </div>
@@ -96,19 +96,46 @@ function fetchProductList() {
         fetch("../assets/productsA.json")
             .then((response) => response.json())
             .then(response => {
-                const productsJson = JSON.stringify(response);
+                let productsJson = JSON.stringify(response);
                 localStorage.setItem('products', productsJson);
+                let products = JSON.parse(productsJson);
+                for (let i = 0; i < products.length; i++) {
+                    switch (products[i].type) {
+                        case ("burger"):
+                            addBurger(products[i]);
+                            break;
+                        case ("sides"):
+                            addSides(products[i]);
+                            break;
+                        case ("dessert"):
+                            addDesserts(products[i]);
+                            break;
+                    }
+                }
             })
+    } else {
+        let productsJson = localStorage.getItem('products');
+        let products = JSON.parse(productsJson);
+        for (let i = 0; i < products.length; i++) {
+            switch (products[i].type) {
+                case ("burger"):
+                    addBurger(products[i]);
+                    break;
+                case ("sides"):
+                    addSides(products[i]);
+                    break;
+                case ("dessert"):
+                    addDesserts(products[i]);
+                    break;
+            }
+        }
     }
 }
 
-
-
-const productsJson = localStorage.getItem('products');
-const products = JSON.parse(productsJson);
-
-
+/*
 function loadProductsFromStorage() {
+let productsJson = localStorage.getItem('products');
+let products = JSON.parse(productsJson);
     for (let i = 0; i < products.length; i++) {
         switch (products[i].type) {
             case ("burger"):
@@ -123,8 +150,7 @@ function loadProductsFromStorage() {
         }
     }
 }
-
-
+*/
 
 //CHECKOUT
 
@@ -170,6 +196,9 @@ function loadCartItemsFromStorage() {
     }
 }
 
+fetchProductList();
+loadCartItemsFromStorage();
+
 const cartTotal = document.getElementById("cart-total");
 const itemsInCart = cart.children;
 
@@ -187,9 +216,7 @@ function updateCartTotal() {
     }
     cartTotal.innerText = `$${total}`;
 }
-fetchProductList();
-loadProductsFromStorage();
-loadCartItemsFromStorage();
+
 
 const editButtons = document.getElementsByClassName('edit')
 
@@ -250,6 +277,8 @@ function createCartItem(productId, productName, productType, productImg, product
 
 for (let i = 0; i < addToCartButtons.length; i++) {
     addToCartButtons[i].addEventListener('click', () => {
+        let productsJson = localStorage.getItem('products');
+        let products = JSON.parse(productsJson);
         let productId = products[i].id;
         let productName = products[i].name;
         let productType = products[i].type;
@@ -338,7 +367,7 @@ document.querySelector("#checkout-container").addEventListener('click', (e) => {
 
                 }
             }
-           else if (cartItems[i].quantity <= 1) {
+            else if (cartItems[i].quantity <= 1) {
                 if (productName == cartItems[i].name) {
                     let itemInCart = e.target.parentElement.parentElement.parentElement;
                     cartItems.splice(cartItems.indexOf(cartItems[i]), 1)
@@ -392,16 +421,20 @@ function loadItemDetails(productInfo) {
 
 for (let i = 0; i < editButtons.length; i++) {
     editButtons[i].addEventListener('click', () => {
+        let productsJson = localStorage.getItem('products');
+        let products = JSON.parse(productsJson);
         loadItemDetails(products[i]);
     })
 }
 
 function updateProduct() {
+    let productsJson = localStorage.getItem('products');
+    let products = JSON.parse(productsJson);
     let productId = document.getElementById("product-id").innerText;
     let updatedName = document.getElementById("productName").value;
     let updatedType = document.getElementById("productType").value;
     let updatedPrice = document.getElementById("productPrice").value;
-    let textPattern = /^[a-zA-Z0-9_]+( [a-zA-Z0-9_]+)*$/;
+    let textPattern = /^\w+( \w+)*$/;
 
 
     if (updatedName == "") {
@@ -420,6 +453,7 @@ function updateProduct() {
 
 
     for (let i = 0; i < products.length; i++) {
+        
         if (productId == products[i].id) {
             products[i].name = updatedName;
             products[i].type = updatedType;
@@ -428,7 +462,7 @@ function updateProduct() {
     }
 
     localStorage.setItem('products', JSON.stringify(products));
-    loadProductsFromStorage();
+    fetchProductList();
     window.location.reload();
 
 }
@@ -476,7 +510,7 @@ function addNewProduct() {
     products.push(newProduct);
     console.log(products);
     localStorage.setItem('products', JSON.stringify(products));
-    loadProductsFromStorage();
+    fetchProductList();
     window.location.reload();
 
 }
