@@ -1,13 +1,13 @@
 window.onscroll = function() {scrollFunction()};
 function scrollFunction() {
-    var navbar = document.getElementById("navigation");
+    var navbar = document.getElementById("custom-navigation");
     var navlink = document.querySelector("a.navbar-dark.navbar-nav.nav-link");
     
-    if (document.body.scrollTop > 300 || document.documentElement.scrollTop > 300)  {
+    if (document.body.scrollTop > 500 || document.documentElement.scrollTop > 500)  {
       navbar.classList.add('custom-navbar-scroll');
 
     }
-    else if (document.body.scrollTop < 300 || document.documentElement.scrollTop < 300)  {
+    else if (document.body.scrollTop < 500 || document.documentElement.scrollTop < 500)  {
         navbar.classList.remove('custom-navbar-scroll');
       }
 }
