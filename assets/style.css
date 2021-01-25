@@ -1,20 +1,38 @@
 
-p, a {
-    font-family: "Quicksand", sans-serif;
+p, h5, a {
+ font-family: "Lato", sans-serif;
 }
 
-h1, h2, h3, h4, h5, h6 {
-    font-family: "Quicksand", sans-serif;
+h1, h2, h3 {
+    font-family: "Josefin Sans", sans-serif;
+}
+
+h1, h2, h3, h5, a {
     font-weight: 700;
 }
 
 h1 {
     font-size: 10rem;
 }
+
+h2 {
+    font-size: 8rem;
+}
+
+h3 {
+    font-size: 2rem;
+}
 .custom-button {
     width: 10rem;
 }
 
+.josefin-sans {
+    font-family: "Josefin Sans", sans-serif;
+}
+
+.lato-font {
+    font-family: "Lato", sans-serif;
+}
 
 .custom-navbar {
     font-weight: 600;
@@ -22,13 +40,21 @@ h1 {
 }
 
 .custom-navbar-scroll {
-    background-color: rgb(255, 176, 72);
-    font-size: 1.2rem;
+    background-color: rgb(4, 157, 177);
+    font-size: 1.5rem;
+    font-weight: 700;
+}
+
+.navbar-dark .navbar-toggler {
+    color: white;
+    border-color: white;
 }
 
 .navbar-dark .navbar-nav .nav-link {
     color: #fff;
 } 
+
+
 
 .custom-heading {
     height: 20rem;
@@ -89,7 +115,7 @@ h1 {
 }
 
 .search-bar {
-    background-color: rgb(255, 176, 72);
+    background-color: rgb(255, 202, 132);
     border: none;
     padding: 5% 2%;
 }
@@ -150,11 +176,6 @@ h1 {
 
 /* PRODUCT PAGES */
 
-#products-navigation {
-    background-color: rgb(1, 82, 86);
-
-}
-
 .hide{
     display: none;
 }
@@ -199,35 +220,36 @@ h1 {
 }
 
  .menu-categories {
-    background-color: rgb(4, 177, 154);
+    background-color: rgb(255, 200, 50);
     position: sticky;
     top: 70px;
     z-index: 100;
 }
 
 a.menu-category{
-    color: #fff;
+    color: #000;
     font-weight: 700;
     margin: 0 1%;
     text-decoration: none;
     font-size: 1.5rem;
-    border-bottom: 3px solid white;
+    border-bottom: 3px solid black;
 }
+
 
 
 /* CART */
 
 
-.green-background{
-    background-color: rgb(1, 82, 86);
+.blue-background{
+    background-color: rgb(4, 157, 177);
 }
 
 
 
-li.price {
+/*li.price {
     list-style-type :none;
 }
-
+*/
 li.checkout-item{
     list-style-type: none;
     
@@ -259,6 +281,37 @@ li.checkout-item{
 }
 
 
+.add {
+    background-color: rgb(4, 157, 177);
+    color: #fff;
+}
+
+
+/* LOGIN */
+.login-img {
+    height: 100vh;
+    object-fit: cover;
+}
+
+#sign-up-button {
+    font-weight: 700;
+    color: rgb(4, 157, 177);
+}
+
+#sign-up-button:hover{
+    border-bottom: 1px solid rgb(4, 157, 177);
+}
+
+.login-heading {
+    padding: 4% 2%;
+    border: 3px solid white;
+    color: #fff;
+    font-size: 5.5rem;
+    background-color: rgba(204, 204, 204, 0.158);
+}
+
+
+
 
 @media only screen and (max-width: 600px) {
 
@@ -277,9 +330,47 @@ li.checkout-item{
     .carousel-text h1{
         font-size: 3rem;
     }
+    
+    /*ORDER PAGE*/
+
+    h5.card-title {
+        text-align: center;
+    }
 
     #checkout-section {
         display:none;
     }
 
+    .menu-heading-2 {
+        border: none;
+        font-size: 5rem;
+    }
+
+    .menu-heading {
+        border: none;
+        font-size: 5rem;
+        background-color: rgba(255, 255, 255, 0);
+
+        }
+
+    /* LOGIN PAGE */
+    #login-banner {
+        display:none;
+    }
+    
+    .login-heading {
+        display:none;
+    }
+        
 }
+
+@media only screen and (max-width: 700px) {
+    /* LOGIN PAGE */
+    #login-banner {
+        display:hidden;
+    }
+    
+    .login-heading {
+        display:none;
+    }
+} 

@@ -23,7 +23,10 @@
 
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@400;500;600;700&family=Lato:wght@400;700&display=swap" rel="stylesheet">
 
+    
     <title>Final Project Task 3</title>
 
     <!--JS -->
@@ -43,7 +46,7 @@
             </button>
 
             <div class="collapse navbar-collapse" id="navbarText">
-                <ul class="navbar-nav mr-auto">
+                <ul class="navbar-nav mr-auto mx-3">
                     <li class="nav-item">
                         <a class="nav-link custom-navlink" href="../index.html">Home</a>
                     </li>
@@ -53,7 +56,7 @@
                 </ul>
             </div>
             <div class="collapse navbar-collapse" id="navbarText">
-                <ul class="navbar-nav ml-auto">
+                <ul class="navbar-nav ml-auto mx-3">
                     <li class="nav-item ">
                         <a class="nav-link custom-navlink" href="login.html">Login <span
                                 class="sr-only">(current)</span></a>
@@ -98,12 +101,12 @@
 
     <!--MENU-->
 
-    <div class="container-fluid d-flex row row-sm-1 mx-0">
+    <div class="container-fluid d-flex flex-wrap-reverse row row-sm-1 mx-0">
 
 
 
 
-        <div id="products" class="col-7">
+        <div id="products" class="col-md-7 col-sm-7 col-xs-1">
             <div class="container-fluid m-0 py-3 p-0">
                 <div class="card justify-content-center mx-auto border-0" style="width: 100%">
                     <h3 class="card-title px-4 py-4">Burgers</h3>
@@ -143,22 +146,22 @@
         </div>
         <!--END MENU-->
         <!--CHECKOUT-->
-        <div class="card my-4 py-4 col-5">
-            <h2 class="card-title my-4 mx-4 text-center">Checkout</h2>
+        <div id="cart-section" class="card py-4 col-md-5 col-sm-5 col-xs-1">
+            <h3 class="card-title my-4 mx-4 text-center">Cart</h3>
 
             <ul class="p-0 m-0">
                 <li id="empty-cart" class="card checkout-item, border-0 hide">
                     <h5 class="card-title col py-4 text-center">Your cart is empty.</h5>
                 </li>
-                <ul id="checkout-container" class="p-0 m-0">
+                <ul id="checkout-container" class="p-0 m-0 list-unstyled ">
                 </ul>
             </ul>
 
 
             <div id="cart-checkout" class="hide">
                 <div class="card my-4 border-0 d-flex flex-row flex-wrap justify-content-between mx-4">
-                    <h2 class="card-title text-center">Total:</h2>
-                    <h2 id="cart-total" class="card-title text-center"></h2>
+                    <h3 class="card-title text-center lato-font">Total:</h3>
+                    <h3 id="cart-total" class="card-title text-center lato-font"></h3>
                 </div>
 
                 <div class="d-flex flex-column justify-content-end">
@@ -174,8 +177,8 @@
 
     <!-- FOOTER -->
 
-    <div class="container-fluid footer my-4">
-        <a class="btn btn-info" id="show-admin-buttons">Admin</a>
+    <div class="container-fluid footer">
+        <a class="btn btn-success m-4" id="show-admin-buttons">Admin</a>
         <a class="btn btn-warning hide" id="add-new-item" href="#update-container">Add Item</a>
     </div>
     <!--END FOOTER-->
