@@ -19,7 +19,7 @@ function addBurger(item) {
             <div class="card-body">
                 <div class="d-flex px-4 pt-2 pb-2 justify-content-between flex-wrap">
                 <!--<input type="number" id="quantity" class="form-control quantity-container mr-2 mb-2" value="1">-->
-                    <a class="btn btn-primary add align-self-center" href="#cart-section">Add to Cart</a>
+                    <a class="btn add align-self-center" href="#cart-section">Add to Cart</a>
                 </div>
                 <div class="d-flex justify-content-start">
                 <a class="btn btn-warning edit mx-4 mt-2 hide" href="#update-container">Edit</a>
@@ -47,8 +47,8 @@ function addSides(item) {
             <div class="card-body">
             <div class="d-flex px-4 pt-2 pb-2 justify-content-between flex-wrap">
             <!--<input type="number" id="quantity" class="form-control quantity-container mr-2 mb-2" value="1">-->
-                <a class="btn btn-primary add" href="#cart-section">Add to Cart</a>
-                </div>
+            <a class="btn add align-self-center" href="#cart-section">Add to Cart</a>
+            </div>
                 <div class="d-flex justify-content-start">
                 <a class="btn btn-warning edit mx-4 mt-2 hide" href="#update-container">Edit</a>
                 </div>
@@ -74,8 +74,8 @@ function addDesserts(item) {
             <div class="card-body">
             <div class="d-flex px-4 pt-2 pb-2 justify-content-between flex-wrap">
             <!--<input type="number" id="quantity" class="form-control quantity-container mr-2 mb-2" value="1">-->
-                <a class="btn btn-primary add" href="#cart-section">Add to Cart</a>
-                </div>
+            <a class="btn add align-self-center" href="#cart-section">Add to Cart</a>
+            </div>
                 <div class="d-flex justify-content-start">
                 <a class="btn btn-warning edit mx-4 mt-2 hide" href="#update-container">Edit</a>
                 </div>
@@ -166,9 +166,9 @@ function showCartItems() {
             `
     <div class="d-flex flex-wrap align-items-center justify-content-between">
         <img src=${cartItems[i].img} class="img-fluid checkout-item-img rounded p-0 mx-4 my-2 col-xs-8">
-        <div class="d-flex flex-row align-items-center p-0 my-2 mx-4 w-100 justify-content-between">
-            <h5 class="card-title p-0 my-0 text-center">${cartItems[i].name}</h5>
-            <h5 class="card-title p-0 my-0 text-right item-price">$${cartItems[i].price}</h5>
+        <div class="d-flex flex-row row align-items-center p-0 my-2 mx-4 w-100 justify-content-between">
+            <h5 class="card-title col-sm-12 col-md-8 p-0 my-2 text-left">${cartItems[i].name}</h5>
+            <h5 class="card-title col-sm-12 col-md-4 p-0 my-2 text-right item-price">$${cartItems[i].price}</h5>
         </div>
         <div class="d-flex col p-0 my-2 mx-4 justify-content-between align-items-center cart-quantity-container">
             <button class="btn btn-warning px-3 remove-button rounded-0">-</button>
@@ -182,6 +182,23 @@ function showCartItems() {
         cart.appendChild(cartItemInfo);
     }
 }
+
+
+function updateCartTotal() {
+    let total = 0;
+    let cartTotal = document.getElementById("cart-total");
+    let itemsInCart = cart.children;
+    for (let i = 0; i < itemsInCart.length; i++) {
+        const itemPriceElement = itemsInCart[i].children[0].children[1].children[1].innerText.replace('$', '');
+        const itemPrice = parseFloat(itemPriceElement);
+        const itemQuantityElement = (itemsInCart[i].children[0].children[2].children[1].innerText);
+        const itemQuantity = parseInt(itemQuantityElement);
+        const itemCost = ((itemPrice * 100) * (itemQuantity * 10) / 1000);
+        total = total + itemCost;
+    }
+    cartTotal.innerText = `$${total}`;
+}
+
 
 
 function loadCartItemsFromStorage() {
@@ -203,19 +220,6 @@ const cartTotal = document.getElementById("cart-total");
 const itemsInCart = cart.children;
 
 
-
-function updateCartTotal() {
-    let total = 0;
-    for (let i = 0; i < itemsInCart.length; i++) {
-        const itemPriceElement = itemsInCart[i].children[0].children[1].children[1].innerText.replace('$', '');
-        const itemPrice = parseFloat(itemPriceElement);
-        const itemQuantityElement = (itemsInCart[i].children[0].children[2].children[1].innerText);
-        const itemQuantity = parseInt(itemQuantityElement);
-        const itemCost = ((itemPrice * 100) * (itemQuantity * 10) / 1000);
-        total = total + itemCost;
-    }
-    cartTotal.innerText = `$${total}`;
-}
 
 
 const editButtons = document.getElementsByClassName('edit')
@@ -245,9 +249,9 @@ function addItemsToCart(product) {
         `
     <div class="d-flex flex-wrap align-items-center justify-content-between">
         <img src=${product.img} class="img-fluid checkout-item-img rounded p-0 mx-4 my-2 col-xs-8">
-        <div class="d-flex flex-row align-items-center p-0 my-2 mx-4 w-100 justify-content-between">
-            <h5 class="card-title p-0 my-0 text-center">${product.name}</h5>
-            <h5 class="card-title p-0 my-0 text-right item-price">$${product.price}</h5>
+        <div class="d-flex flex-row row align-items-center p-0 my-2 mx-4 w-100 justify-content-between">
+           <h5 class="card-title col-sm-12 col-md-8 p-0 my-2 text-left">${product.name}</h5>
+           <h5 class="card-title col-sm-12 col-md-4 p-0 my-2 text-right item-price">$${product.price}</h5>
         </div>
         <div class="d-flex col p-0 my-2 mx-4 justify-content-between align-items-center cart-quantity-container">
             <button class="btn btn-warning px-3 remove-button rounded-0">-</button>
@@ -402,8 +406,11 @@ function loadItemDetails(productInfo) {
     const editItemHTML =
         `<div class="col my-2">
             <form>
-                <div class="form-group">
-                    <h5>ID:<span id="product-id">${productInfo.id}</span></h5>
+            <div class="form-group card p-3 shadow-sm">
+            <div class="d-flex justify-content-between p-0">  
+            <h5 class="p-0">ID:<span id="product-id">${productInfo.id}</span></h5>
+            <button class="btn btn-danger add-button px-3 rounded">x</button>
+            </div>
                     <label for="productName">Name</label>
                     <input type="text" class="form-control" id="productName" value="${productInfo.name}" pattern="[a-zA-Z]+" required >
                     <label for="productType">Type</label>
@@ -475,12 +482,17 @@ addButton.addEventListener('click', () => {
 
 
 function addProductContainer() {
+    let productsJson = localStorage.getItem('products');
+    let products = JSON.parse(productsJson);
     const addItemHTML =
         `<div class="col my-2">
 <form>
-    <div class="form-group">
-          <h5>ID:<span id="product-id">${products.length}</span></h5>
-        <label for="productName">Name</label>
+    <div class="form-group card p-3 shadow-sm">
+        <div class="d-flex justify-content-between p-0">  
+        <h5 class="p-0">ID:<span id="product-id">${products.length}</span></h5>
+        <button class="btn btn-danger add-button px-3 rounded">x</button>
+        </div>
+          <label for="productName">Name</label>
         <input type="text" class="form-control" id="productName" required>
         <label for="productType">Type</label>
         <input type="text" class="form-control" id="productType" required>
