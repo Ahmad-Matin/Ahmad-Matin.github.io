@@ -193,8 +193,8 @@ function updateCartTotal() {
         const itemPrice = parseFloat(itemPriceElement);
         const itemQuantityElement = (itemsInCart[i].children[0].children[2].children[1].innerText);
         const itemQuantity = parseInt(itemQuantityElement);
-        const itemCost = ((itemPrice * 100) * (itemQuantity * 10) / 1000);
-        total = total + itemCost;
+        let itemCost = itemPrice * itemQuantity;
+        total = parseFloat((total + itemCost).toFixed(2));
     }
     cartTotal.innerText = `$${total}`;
 }
@@ -320,7 +320,7 @@ for (let i = 0; i < addToCartButtons.length; i++) {
         }
     })
 }
-// change item quantity in cart 
+// CHANGE ITEM QUANTITY IN CART 
 
 //increase cart item quantity 
 
