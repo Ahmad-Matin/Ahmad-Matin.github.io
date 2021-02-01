@@ -9,11 +9,18 @@ function validateForm(field, regex) {
     } else {
         field.classList.add("border-danger");
         field.classList.remove("border-success");
+        if (field.id == firstname ) {
+            const notice = document.createElement('li');
+            notice.innerHTML = 
+            `<p>Please only enter alphabet characters</p>`
+            field.parentElement.appendChild(notice);
+        }
+
     }
 }
 
 
-const inputs = document.querySelectorAll('input');
+const inputs = document.querySelectorAll('.register');
 
 inputs.forEach((input)=> {
     input.addEventListener('keyup',(e) => {
@@ -31,13 +38,14 @@ const newAddress = document.querySelector("#address");
 const newUnitNo = document.querySelector("#unitno");
 const newPostalCode = document.querySelector("#postalcode")
 const newEmail = document.querySelector("#email");
-const newPW = document.querySelector("#password");
-const cfmnewPw = document.querySelector("#password2");
+const password = document.querySelector("#password");
 
 
 const patterns = {
-    loginEmail: /^[a-z]{1,60}$/i,
-    newFN: /[a-z]/i
+    firstname: /^[a-z]$/i,
+    lastname: /^[a-z]$/i,
+    password2: /^[\w!@-]{8,20}$/,
+    password: /^[\w!@-]{8,20}$/,
 }
 
 
