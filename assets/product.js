@@ -1,6 +1,6 @@
-const burgerContainer = document.getElementById("burgers");
+const burgerContainer = document.getElementById("burger");
 const sidesContainer = document.getElementById("sides");
-const dessertsContainer = document.getElementById("desserts");
+const dessertsContainer = document.getElementById("dessert");
 const cart = document.getElementById("checkout-container");
 const cartCheckOut = document.getElementById("cart-checkout");
 const emptyCartNotice = document.getElementById("empty-cart");
@@ -9,25 +9,25 @@ const emptyCartNotice = document.getElementById("empty-cart");
 function addBurger(item) {
 
     const itemHTML =
-        ` <div class="col my-2">
+    `
+    <div id ="${item.id}" class="col my-2">
         <div class="card-body align-items-center border rounded p-0 pb-4 shadow-sm">
-        <img src="${item.img}" class="card-img-top rounded-top menu-img">
+            <img src="${item.img}" class="card-img-top rounded-top menu-img">
             <div class="d-flex justify-content-between px-4 pt-4">
                     <h5 class="card-title mr-auto">${item.name}</h5>
                     <h5 class="card-text ml-auto">$${item.price}</h5>
             </div>
             <div class="card-body">
                 <div class="d-flex px-4 pt-2 pb-2 justify-content-between flex-wrap">
-                <!--<input type="number" id="quantity" class="form-control quantity-container mr-2 mb-2" value="1">-->
+                    <!--<input type="number" id="quantity" class="form-control quantity-container mr-2 mb-2" value="1">-->
                     <a class="btn add align-self-center" href="#cart-section">Add to Cart</a>
-                </div>
+                 </div>
                 <div class="d-flex justify-content-start">
-                <a class="btn btn-warning edit mx-4 mt-2 hide" href="#update-container">Edit</a>
+                  <a class="btn btn-warning edit mx-4 mt-2 hide" href="#update-container">Edit</a>
                 </div>
-
             </div>
+        </div>
     </div>
-</div>
 
 `;
 
@@ -37,26 +37,25 @@ function addBurger(item) {
 function addSides(item) {
 
     const itemHTML =
-        ` <div class="col my-2">
-    <div class="card-body align-items-center border rounded p-0 pb-4 shadow-sm">
+        ` 
+    <div id ="${item.id}" class="col my-2">
+        <div class="card-body align-items-center border rounded p-0 pb-4 shadow-sm">
             <img src="${item.img}" class="card-img-top rounded-top menu-img">
             <div class="d-flex justify-content-between px-4 pt-4">
                     <h5 class="card-title mr-auto">${item.name}</h5>
                     <h5 class="card-text ml-auto">$${item.price}</h5>
             </div>
             <div class="card-body">
-            <div class="d-flex px-4 pt-2 pb-2 justify-content-between flex-wrap">
-            <!--<input type="number" id="quantity" class="form-control quantity-container mr-2 mb-2" value="1">-->
-            <a class="btn add align-self-center" href="#cart-section">Add to Cart</a>
-            </div>
+                <div class="d-flex px-4 pt-2 pb-2 justify-content-between flex-wrap">
+                    <!--<input type="number" id="quantity" class="form-control quantity-container mr-2 mb-2" value="1">-->
+                    <a class="btn add align-self-center" href="#cart-section">Add to Cart</a>
+                 </div>
                 <div class="d-flex justify-content-start">
-                <a class="btn btn-warning edit mx-4 mt-2 hide" href="#update-container">Edit</a>
+                  <a class="btn btn-warning edit mx-4 mt-2 hide" href="#update-container">Edit</a>
                 </div>
-
             </div>
+        </div>
     </div>
-</div>
-
 `;
     sidesContainer.innerHTML += itemHTML;
 }
@@ -64,30 +63,32 @@ function addSides(item) {
 function addDesserts(item) {
 
     const itemHTML =
-        ` <div class="col my-2">
+        `
+     <div id ="${item.id}" class="col my-2">
         <div class="card-body align-items-center border rounded p-0 pb-4 shadow-sm">
-        <img src="${item.img}" class="card-img-top rounded-top menu-img">
+            <img src="${item.img}" class="card-img-top rounded-top menu-img">
             <div class="d-flex justify-content-between px-4 pt-4">
                     <h5 class="card-title mr-auto">${item.name}</h5>
                     <h5 class="card-text ml-auto">$${item.price}</h5>
             </div>
             <div class="card-body">
-            <div class="d-flex px-4 pt-2 pb-2 justify-content-between flex-wrap">
-            <!--<input type="number" id="quantity" class="form-control quantity-container mr-2 mb-2" value="1">-->
-            <a class="btn add align-self-center" href="#cart-section">Add to Cart</a>
-            </div>
+                <div class="d-flex px-4 pt-2 pb-2 justify-content-between flex-wrap">
+                    <!--<input type="number" id="quantity" class="form-control quantity-container mr-2 mb-2" value="1">-->
+                    <a class="btn add align-self-center" href="#cart-section">Add to Cart</a>
+                 </div>
                 <div class="d-flex justify-content-start">
-                <a class="btn btn-warning edit mx-4 mt-2 hide" href="#update-container">Edit</a>
+                  <a class="btn btn-warning edit mx-4 mt-2 hide" href="#update-container">Edit</a>
                 </div>
-
             </div>
+        </div>
     </div>
-</div>
 
 `;
 
     dessertsContainer.innerHTML += itemHTML;
 }
+
+const addToCartButtons = document.getElementsByClassName("add");
 
 
 function fetchProductList() {
@@ -218,16 +219,9 @@ loadCartItemsFromStorage();
 
 const cartTotal = document.getElementById("cart-total");
 const itemsInCart = cart.children;
-
-
-
-
 const editButtons = document.getElementsByClassName('edit')
-
 const editContainer = document.getElementById("update-container")
-
-
-const addToCartButtons = document.getElementsByClassName("add");
+// const addToCartButtons = document.getElementsByClassName("add");
 
 function storeItem(product) {
     if (localStorage.getItem('cartItems') == null) {
@@ -278,8 +272,47 @@ function createCartItem(productId, productName, productType, productImg, product
     }
 }
 
+document.querySelector("#products").addEventListener('click', (e) => {
+if (e.target.classList.contains("add")) {
+    let productId = e.target.parentElement.parentElement.parentElement.parentElement.attributes.id.value;
+    let productName = e.target.parentElement.parentElement.parentElement.children[1].children[0].innerText;
+    let productType = e.target.parentElement.parentElement.parentElement.parentElement.parentElement.attributes.id.value;
+    let productImg = e.target.parentElement.parentElement.parentElement.children[0].attributes.src.value;
+    let productPrice = e.target.parentElement.parentElement.parentElement.children[1].children[1].innerText.replace('$', '');
+    let itemNames = [];
+    for (let i = 0; i < itemsInCart.length; i++) {
+        let itemName = itemsInCart[i].children[0].children[1].children[0].innerText;
+        console.log(itemName);
+        itemNames.push(itemName);
+    }
 
-for (let i = 0; i < addToCartButtons.length; i++) {
+    if (itemNames.includes(productName)) {
+        let itemCartIndex = itemNames.indexOf(productName);
+        let itemQuantityElement = itemsInCart[itemCartIndex].children[0].children[2].children[1];
+        let itemQuantity = parseInt(itemQuantityElement.innerText);
+        itemQuantity = itemQuantity + 1;
+        itemQuantityElement.innerText = itemQuantity;
+        updateCartTotal();
+
+        let cartItems = JSON.parse(localStorage.getItem('cartItems'));
+        for (let i = 0; i < cartItems.length; i++) {
+            if (productName == cartItems[i].name) {
+                cartItems[i].quantity++;
+                localStorage.setItem('cartItems', JSON.stringify(cartItems))
+            }
+        }
+
+    } else {
+        const newCartItem = createCartItem(productId, productName, productType, productImg, productPrice);
+        newCartItem.quantity = 1
+        storeItem(newCartItem);
+        addItemsToCart(newCartItem);
+        updateCartTotal();
+    }
+      
+}
+});
+/*for (let i = 0; i < addToCartButtons.length; i++) {
     addToCartButtons[i].addEventListener('click', () => {
         let productsJson = localStorage.getItem('products');
         let products = JSON.parse(productsJson);
@@ -318,8 +351,10 @@ for (let i = 0; i < addToCartButtons.length; i++) {
             addItemsToCart(newCartItem);
             updateCartTotal();
         }
+      
     })
 }
+  */
 // CHANGE ITEM QUANTITY IN CART 
 
 //increase cart item quantity 
@@ -512,6 +547,8 @@ function addProductContainer() {
 //ADD NEW PRODUCT
 
 function addNewProduct() {
+    let productsJson = localStorage.getItem('products');
+    let products = JSON.parse(productsJson);
     let newId = document.getElementById("product-id").innerText;
     let newName = document.getElementById("productName").value;
     let newType = document.getElementById("productType").value;
