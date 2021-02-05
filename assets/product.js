@@ -219,8 +219,8 @@ loadCartItemsFromStorage();
 
 const cartTotal = document.getElementById("cart-total");
 const itemsInCart = cart.children;
-const editButtons = document.getElementsByClassName('edit')
-const editContainer = document.getElementById("update-container")
+// const editButtons = document.getElementsByClassName('edit')
+// const editContainer = document.getElementById("update-container")
 // const addToCartButtons = document.getElementsByClassName("add");
 
 function storeItem(product) {
@@ -435,149 +435,149 @@ function recheckCart() {
     }
 }
 
+//////MOVED TO ADMIN.JS////////
+// //UPDATE PRODUCT
+// function loadItemDetails(productInfo) {
+//     const editItemHTML =
+//         `<div class="col my-2">
+//             <form>
+//             <div class="form-group card p-3 shadow-sm">
+//             <div class="d-flex justify-content-between p-0">  
+//             <h5 class="p-0">ID:<span id="product-id">${productInfo.id}</span></h5>
+//             <button class="btn btn-danger add-button px-3 rounded">x</button>
+//             </div>
+//                     <label for="productName">Name</label>
+//                     <input type="text" class="form-control" id="productName" value="${productInfo.name}" pattern="[a-zA-Z]+" required >
+//                     <label for="productType">Type</label>
+//                     <input type="text" class="form-control" id="productType" value="${productInfo.type}" pattern="[a-zA-Z]+" required>
+//                     <label for="productPrice">Price</label>
+//                     <input type="number" class="form-control" id="productPrice" value="${productInfo.price}" pattern="[0-9]+" step="0.1" required>
+//                     <button id="updateButton" class="btn btn-success my-2" onclick="updateProduct()">Update</button>
+//                     </div>
+//                 </form>
+//             </div>
+//     `;
 
-//UPDATE PRODUCT
-function loadItemDetails(productInfo) {
-    const editItemHTML =
-        `<div class="col my-2">
-            <form>
-            <div class="form-group card p-3 shadow-sm">
-            <div class="d-flex justify-content-between p-0">  
-            <h5 class="p-0">ID:<span id="product-id">${productInfo.id}</span></h5>
-            <button class="btn btn-danger add-button px-3 rounded">x</button>
-            </div>
-                    <label for="productName">Name</label>
-                    <input type="text" class="form-control" id="productName" value="${productInfo.name}" pattern="[a-zA-Z]+" required >
-                    <label for="productType">Type</label>
-                    <input type="text" class="form-control" id="productType" value="${productInfo.type}" pattern="[a-zA-Z]+" required>
-                    <label for="productPrice">Price</label>
-                    <input type="number" class="form-control" id="productPrice" value="${productInfo.price}" pattern="[0-9]+" step="0.1" required>
-                    <button id="updateButton" class="btn btn-success my-2" onclick="updateProduct()">Update</button>
-                    </div>
-                </form>
-            </div>
-    `;
+//     editContainer.innerHTML += editItemHTML;
+// }
 
-    editContainer.innerHTML += editItemHTML;
-}
+// for (let i = 0; i < editButtons.length; i++) {
+//     editButtons[i].addEventListener('click', () => {
+//         let productsJson = localStorage.getItem('products');
+//         let products = JSON.parse(productsJson);
+//         loadItemDetails(products[i]);
+//     })
+// }
 
-for (let i = 0; i < editButtons.length; i++) {
-    editButtons[i].addEventListener('click', () => {
-        let productsJson = localStorage.getItem('products');
-        let products = JSON.parse(productsJson);
-        loadItemDetails(products[i]);
-    })
-}
-
-function updateProduct() {
-    let productsJson = localStorage.getItem('products');
-    let products = JSON.parse(productsJson);
-    let productId = document.getElementById("product-id").innerText;
-    let updatedName = document.getElementById("productName").value;
-    let updatedType = document.getElementById("productType").value;
-    let updatedPrice = document.getElementById("productPrice").value;
-    let textPattern = /^\w+( \w+)*$/;
-
-
-    if (updatedName == "") {
-        alert("Please enter product name");
-        return false;
-    } if (updatedType == "") {
-        alert("Please enter product type");
-        return false;
-    } if (updatedPrice == "") {
-        alert("Please enter product price");
-        return false;
-    } if (textPattern.test(updatedName) === false || textPattern.test(updatedType) === false) {
-        alert("Please enter only alphabet characters");
-        return false;
-    }
+// function updateProduct() {
+//     let productsJson = localStorage.getItem('products');
+//     let products = JSON.parse(productsJson);
+//     let productId = document.getElementById("product-id").innerText;
+//     let updatedName = document.getElementById("productName").value;
+//     let updatedType = document.getElementById("productType").value;
+//     let updatedPrice = document.getElementById("productPrice").value;
+//     let textPattern = /^\w+( \w+)*$/;
 
 
-    for (let i = 0; i < products.length; i++) {
+//     if (updatedName == "") {
+//         alert("Please enter product name");
+//         return false;
+//     } if (updatedType == "") {
+//         alert("Please enter product type");
+//         return false;
+//     } if (updatedPrice == "") {
+//         alert("Please enter product price");
+//         return false;
+//     } if (textPattern.test(updatedName) === false || textPattern.test(updatedType) === false) {
+//         alert("Please enter only alphabet characters");
+//         return false;
+//     }
+
+
+//     for (let i = 0; i < products.length; i++) {
         
-        if (productId == products[i].id) {
-            products[i].name = updatedName;
-            products[i].type = updatedType;
-            products[i].price = updatedPrice;
-        }
-    }
+//         if (productId == products[i].id) {
+//             products[i].name = updatedName;
+//             products[i].type = updatedType;
+//             products[i].price = updatedPrice;
+//         }
+//     }
 
-    localStorage.setItem('products', JSON.stringify(products));
-    fetchProductList();
-    window.location.reload();
+//     localStorage.setItem('products', JSON.stringify(products));
+//     fetchProductList();
+//     window.location.reload();
 
-}
+// }
 
-const addButton = document.getElementById("add-new-item");
-//console.log(addButton);
-addButton.addEventListener('click', () => {
-    addProductContainer();
-})
+// const addButton = document.getElementById("add-new-item");
+// //console.log(addButton);
+// addButton.addEventListener('click', () => {
+//     addProductContainer();
+// })
 
 
-function addProductContainer() {
-    let productsJson = localStorage.getItem('products');
-    let products = JSON.parse(productsJson);
-    const addItemHTML =
-        `<div class="col my-2">
-<form>
-    <div class="form-group card p-3 shadow-sm">
-        <div class="d-flex justify-content-between p-0">  
-        <h5 class="p-0">ID:<span id="product-id">${products.length}</span></h5>
-        <button class="btn btn-danger add-button px-3 rounded">x</button>
-        </div>
-          <label for="productName">Name</label>
-        <input type="text" class="form-control" id="productName" required>
-        <label for="productType">Type</label>
-        <input type="text" class="form-control" id="productType" required>
-        <label for="productPrice">Price</label>
-        <input type="text" class="form-control" id="productPrice" required>
-        <label for="productImage">Image Link</label>
-        <input type="text" class="form-control" id="productImage" required>
-        <button id="addButton" class="btn btn-success my-2" onclick="addNewProduct()">Add Item</button>
-        </div>
-    </form>
-</div>
-`;
+// function addProductContainer() {
+//     let productsJson = localStorage.getItem('products');
+//     let products = JSON.parse(productsJson);
+//     const addItemHTML =
+//         `<div class="col my-2">
+// <form>
+//     <div class="form-group card p-3 shadow-sm">
+//         <div class="d-flex justify-content-between p-0">  
+//         <h5 class="p-0">ID:<span id="product-id">${products.length}</span></h5>
+//         <button class="btn btn-danger add-button px-3 rounded">x</button>
+//         </div>
+//           <label for="productName">Name</label>
+//         <input type="text" class="form-control" id="productName" required>
+//         <label for="productType">Type</label>
+//         <input type="text" class="form-control" id="productType" required>
+//         <label for="productPrice">Price</label>
+//         <input type="text" class="form-control" id="productPrice" required>
+//         <label for="productImage">Image Link</label>
+//         <input type="text" class="form-control" id="productImage" required>
+//         <button id="addButton" class="btn btn-success my-2" onclick="addNewProduct()">Add Item</button>
+//         </div>
+//     </form>
+// </div>
+// `;
 
-    editContainer.innerHTML += addItemHTML;
-}
+//     editContainer.innerHTML += addItemHTML;
+// }
 
-//ADD NEW PRODUCT
+// //ADD NEW PRODUCT
 
-function addNewProduct() {
-    let productsJson = localStorage.getItem('products');
-    let products = JSON.parse(productsJson);
-    let newId = document.getElementById("product-id").innerText;
-    let newName = document.getElementById("productName").value;
-    let newType = document.getElementById("productType").value;
-    let newImg = document.getElementById("productImage").value;
-    let newPrice = document.getElementById("productPrice").value;
+// function addNewProduct() {
+//     let productsJson = localStorage.getItem('products');
+//     let products = JSON.parse(productsJson);
+//     let newId = document.getElementById("product-id").innerText;
+//     let newName = document.getElementById("productName").value;
+//     let newType = document.getElementById("productType").value;
+//     let newImg = document.getElementById("productImage").value;
+//     let newPrice = document.getElementById("productPrice").value;
 
-    const newProduct = createProduct(newId, newName, newType, newImg, newPrice);
-    products.push(newProduct);
-    console.log(products);
-    localStorage.setItem('products', JSON.stringify(products));
-    fetchProductList();
-    window.location.reload();
+//     const newProduct = createProduct(newId, newName, newType, newImg, newPrice);
+//     products.push(newProduct);
+//     console.log(products);
+//     localStorage.setItem('products', JSON.stringify(products));
+//     fetchProductList();
+//     window.location.reload();
 
-}
+// }
 
-function createProduct(productId, productName, productType, productImg, productPrice) {
-    return {
-        id: productId,
-        name: productName,
-        type: productType,
-        img: productImg,
-        price: productPrice,
-        description: null
-    }
-}
-const adminButtons = document.getElementById('show-admin-buttons');
-adminButtons.addEventListener('click', () => {
-    for (let i = 0; i < editButtons.length; i++) {
-        editButtons[i].classList.remove("hide");
-    }
-    addButton.classList.remove("hide");
-})
+// function createProduct(productId, productName, productType, productImg, productPrice) {
+//     return {
+//         id: productId,
+//         name: productName,
+//         type: productType,
+//         img: productImg,
+//         price: productPrice,
+//         description: null
+//     }
+// }
+// const adminButtons = document.getElementById('show-admin-buttons');
+// adminButtons.addEventListener('click', () => {
+//     for (let i = 0; i < editButtons.length; i++) {
+//         editButtons[i].classList.remove("hide");
+//     }
+//     addButton.classList.remove("hide");
+// })
