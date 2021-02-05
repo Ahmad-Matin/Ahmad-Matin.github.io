@@ -1,0 +1,205 @@
+
+p, a {
+    font-family: "Quicksand", sans-serif;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    font-family: "Quicksand", sans-serif;
+    font-weight: 700;
+}
+
+h1 {
+    font-size: 10rem;
+}
+.custom-button {
+    width: 10rem;
+}
+
+.custom-navbar {
+    font-weight: 600;
+    font-size: 1.5rem;
+}
+
+.custom-navbar-scroll {
+    background-color: rgb(255, 176, 72);
+    font-size: 1.2rem;
+}
+
+.navbar-dark .navbar-nav .nav-link {
+    color: #fff;
+} 
+
+.custom-heading {
+    height: 20rem;
+    text-align: center;
+    background-color: #fff;
+}
+
+.custom-heading h1 {
+    font-weight: 200;
+}
+
+.custom-heading p {
+    font-weight: 200;
+}
+
+
+.team-profile h4 {
+    font-weight: 700;
+}
+
+
+.profile-img {
+    border-radius: 100%;
+    object-fit:cover;
+    width: 70%;
+}
+
+
+.social-media-favicon {
+    width: 25px;
+    margin-right: 1%;
+}
+
+
+.custom-carousel {
+    width: 100%;
+    height: 70vh;
+    object-fit:cover;
+}
+
+.carousel-container {
+    position:relative;
+}
+
+.carousel-text {
+    position: absolute;
+    z-index: 1000;
+    top: 2rem;
+    right: 10rem;
+    padding: 2% 5%;
+    margin: 5% 2%;
+    color: #fff;
+    background-color: rgb(4, 177, 154);
+}
+
+.carousel-text h1 {
+    font-size: 5rem;
+}
+
+.search-bar {
+    background-color: rgb(255, 176, 72);
+    border: none;
+    padding: 5% 2%;
+}
+
+.search-button {
+    border-radius: 20px;
+    background-color:rgb(255, 176, 72);
+    border: 2px solid #000;
+    padding: 1% 8%;
+    color: #000;
+    font-family: "Quicksand", sans-serif;
+    font-weight: 600;
+}
+
+.search-button:hover {
+    background-color: rgb(49, 146, 133);
+    border: none;
+    color: #fff;
+}
+
+
+.search-input {
+    border-radius: 20px;
+    border: none;
+}
+
+.menu-img {
+    height: 20rem;
+    width: 100%;
+    object-fit: cover;
+}
+
+.card-body {
+    padding: 0;
+    padding-top: 5%;
+}
+
+:root {
+    --animate-duration: 1000ms;
+    --animate-delay: 1.5s;
+  }
+
+.button-2 {
+    background-color: rgb(4, 177, 154);
+    color: #fff;
+    border-radius: 20px;
+    font-family: "Quicksand";
+    font-weight: 700;
+}
+
+.button-2:hover {
+    background-color: rgb(49, 146, 133);
+    color: #fff;
+    border-radius: 20px;
+    font-family: "Quicksand";
+    font-weight: 700;
+}
+
+@media only screen and (max-width: 600px) {
+
+    .carousel-container {
+        display: flex;
+    }
+    .carousel-text {
+        justify-content: center;
+        align-content: center;
+        left: 0;
+        right: 0;
+        margin: 10% 10%;
+    
+    }
+
+    .carousel-text h1{
+        font-size: 3rem;
+    }
+
+}
+
+/* PRODUCT PAGES */
+
+.custom-banner {
+    width:100%;
+    height: 100vh;
+    object-fit: cover;
+}
+
+#banner {
+    display: flex;
+    justify-content: center;
+}
+
+.banner-text {
+        position: absolute;
+        z-index: 1000;
+        top: 20%;
+        padding: 2% 5%;
+        margin: 5% 2%;
+        color: #fff;
+}
+
+a.menu-category{
+    color: #000;
+    margin: 0 5%;
+    text-decoration: none;
+    font-size: 1.5rem;
+    padding-bottom: 2%;
+    border-bottom: 3px solid green;
+}
+
+
+li.price {
+    list-style :none;
+}
+
