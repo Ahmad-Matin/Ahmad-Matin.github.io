@@ -5,14 +5,14 @@ function scrollFunction() {
 
     
     
-    if (document.body.scrollTop > 500 || document.documentElement.scrollTop > 500)  {
+    if (document.body.scrollTop > 100 || document.documentElement.scrollTop > 100)  {
       navbar.classList.add('custom-navbar-scroll');
       for (let i = 0; i < navlinks.length; i++) {
         navlinks[i].style.color = "white";
       }
 
     }
-    else if (document.body.scrollTop < 500 || document.documentElement.scrollTop < 500)  {
+    else if (document.body.scrollTop < 100 || document.documentElement.scrollTop < 100)  {
         navbar.classList.remove('custom-navbar-scroll');
         for (let i = 0; i < navlinks.length; i++) {
           navlinks[i].style.color = "white";
