@@ -1,7 +1,8 @@
-package com.Task9.controller;
+package com.example.task10.Controllers;
 
-import com.Task9.model.Item;
-import com.Task9.repository.ItemRepository;
+
+import com.example.task10.Models.Item;
+import com.example.task10.Repository.ItemRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;

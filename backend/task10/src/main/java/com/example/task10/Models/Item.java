@@ -1,4 +1,4 @@
-package com.Task9.model;
+package com.example.task10.Models;
 
 import javax.persistence.*;
 import java.math.BigDecimal;

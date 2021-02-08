@@ -1,7 +1,8 @@
-package com.Task9.repository;
+package com.example.task10.Repository;
 
+import com.example.task10.Models.Item;
 import org.springframework.data.repository.CrudRepository;
-import com.Task9.model.Item;
+
 //import org.springframework.stereotype.Repository;
 
 //@Repository
