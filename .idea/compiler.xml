@@ -10,7 +10,7 @@
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
-      <module name="Ahmad-Matin.github.io" target="11" />
+      <module name="Ahmad-Matin.github.io" target="1.8" />
     </bytecodeTargetLevel>
   </component>
   <component name="JavacSettings">
