@@ -24,8 +24,6 @@
 
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@400;500;600;700&display=swap" rel="stylesheet">
-    <link rel="preconnect" href="https://fonts.gstatic.com">
-    <link href="https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@400;500;600;700&family=Lato:wght@400;700&display=swap" rel="stylesheet">
 
     <!--JS -->
     <script src="assets/script.js"></script>
@@ -76,17 +74,57 @@
 
     <!--END HEADER-->
 
-        <!--BANNER-->
-        <div id="banner">
-            <div class="main-title d-flex justify-content-center align-items-center position-relative">
-                <h1 class="main-heading position-absolute text-left">We make delicious burgers.</h1>
+
+
+    <!-- CAROUSEL -->
+    <div class="container-fluid px-0 mb-3 carousel-container">
+        <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
+            <ol class="carousel-indicators">
+                <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
+                <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
+                <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
+            </ol>
+            <div class="carousel-inner">
+                <div class="carousel-item active card">
+                    <img src="https://images.pexels.com/photos/566566/pexels-photo-566566.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260"
+                        class="custom-carousel" alt="...">
+                    <div class="carousel-text">
+                        <h1>Promo 1</h1>
+                        <p>This is about Promo 1</p>
+                    </div>
+                </div>
+
+                <div class="carousel-item card">
+                    <img src="https://images.pexels.com/photos/3186654/pexels-photo-3186654.jpeg?auto=compress&cs=tinysrgb&dpr=3&h=750&w=1260"
+                        class="custom-carousel" alt="...">
+                    <div class="carousel-text">
+                        <h1>Promo 2</h1>
+                        <p>This is about Promo 2</p>
+                    </div>
+                </div>
+
+                <div class="carousel-item card">
+                    <img src="https://images.pexels.com/photos/628776/pexels-photo-628776.jpeg?auto=compress&cs=tinysrgb&dpr=3&h=750&w=1260"
+                        class="custom-carousel" alt="...">
+                    <div class="carousel-text">
+                        <h1>Promo 3</h1>
+                        <p>This is about Promo 3</p>
+                    </div>
+                </div>
             </div>
+            <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
+                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                <span class="sr-only">Previous</span>
+            </a>
+            <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
+                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                <span class="sr-only">Next</span>
+            </a>
         </div>
-    
-    
-        <!--END BANNER -->
+    </div>
 
 
+   <!--END CAROUSEL-->
     <!--SEARCH-->
     <div class="container-fluid m-0 py-2">
         <div class="card m-0 search-bar">
