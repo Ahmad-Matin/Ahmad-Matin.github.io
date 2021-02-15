@@ -33,11 +33,11 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 		//DO NOT EDIT
 		//do not authenticate these APIs
 		web.ignoring()
-				.antMatchers("/js/**")
+				.antMatchers("/assets/**")
 				.antMatchers("/user-photos/**")
 				.antMatchers("/products/**")
 				.antMatchers("/posts/**")
-				.antMatchers("/products/json/**") //is this necessary?
+//				.antMatchers("/products/json/**") //is this necessary?
 				.antMatchers("/users/**");
 	}
 	@Override
@@ -73,9 +73,10 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 		for (int i = 0; i < users.size(); i++) {
 
 			// Create a UserDetails instance but set it based on the user in database
+// if else for user and admin
 			UserDetails user =
 					User.withDefaultPasswordEncoder()
-							.username(users.get(i).getUsername())
+							.username(users.get(i).getEmail())
 							.password(users.get(i).getPassword())
 							.roles("ADMIN")
 							.build();
