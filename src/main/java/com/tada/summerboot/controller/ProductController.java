@@ -25,8 +25,8 @@ public class ProductController {
     // TODO - change to POST
     // this is for form-data
     @PostMapping(path="/new")
-    public String newProduct(BigDecimal price, Integer quantity, String sku, String title, String description) {
-        Product new_product = new Product(price, quantity, sku,title, description);
+    public String newProduct(BigDecimal price, Integer quantity, String sku, String title, String description, String productType) {
+        Product new_product = new Product(price, quantity, sku,title, description, productType);
         product_service_implementation.createProduct(new_product);
         return "redirect:/hello";
     }
@@ -40,14 +40,14 @@ public class ProductController {
 
     // TODO - change to PUT
     @PutMapping(path="/edit/{id}", produces = { MediaType.APPLICATION_JSON_VALUE })
-    public @ResponseBody String update(@PathVariable String id) {
+    public @ResponseBody String update(@PathVariable Integer id) {
         product_service_implementation.getProduct(id);
         return "{\"status\": \"success\"}";
     }
 
     @GetMapping(path="/product/{id}", produces = { MediaType.APPLICATION_JSON_VALUE })
     public @ResponseBody
-    String show(@PathVariable String id) {
+    String show(@PathVariable Integer id) {
         product_service_implementation.getProduct(id);
         return "{\"status\": \"success\"}";
     }
@@ -55,7 +55,7 @@ public class ProductController {
     //TODO - change to delete
     @DeleteMapping(path="/product/{id}", produces = { MediaType.APPLICATION_JSON_VALUE })
     public @ResponseBody
-    String destroy(@PathVariable String id) {
+    String destroy(@PathVariable Integer id) {
         product_service_implementation.deleteProduct(id);
         return "{\"status\": \"success\"}";
     }
