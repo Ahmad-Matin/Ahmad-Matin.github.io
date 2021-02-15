@@ -27,7 +27,7 @@
     <link
             href="https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@400;500;600;700&family=Lato:wght@400;700&display=swap"
             rel="stylesheet">
-    <title>Final Project Task 3</title>
+    <name>Final Project Task 3</name>
 </head>
 
 
@@ -126,39 +126,39 @@
                         <div id="register-form" class="mx-4">
                             <h3 class="mt-4 josefin-sans text-center josefin-sans">Register</h3>
                             <!--TO CHANGE PATH-->
-                            <form method="POST" action ="" class="my-4 py-2">
+                            <form th:action="@{/user/new}" th:object="${user}" method="POST" action ="" class="my-4 py-2">
                                 <div class="form-group">
                                     <div class="form-row">
                                         <div class="col">
-                                            <input id ="firstname"  name="firstname" type="text" class="form-control border-info register"
+                                            <input id ="firstname"  name="firstname" th:field="*{firstname}" type="text" class="form-control border-info register"
                                                    placeholder="First name" required>
                                         </div>
                                         <div class="col">
-                                            <input id="lastname" name ="lastname" type="text" class="form-control border-info register"
+                                            <input id="lastname" name ="lastname" th:field="*{lastname}" type="text" class="form-control border-info register"
                                                    placeholder="Last name" required>
                                         </div>
                                     </div>
                                 </div>
                                 <div class="form-group">
-                                    <input id = "address" name ="address" type="text" class="form-control border-info register" placeholder="Address" required>
+                                    <input id = "address" name ="address" th:field="*{address}" type="text" class="form-control border-info register" placeholder="Address" required>
                                 </div>
                                 <div class="form-group">
                                     <div class="form-row">
                                         <div class="col">
-                                            <input id="unitno" name="unit_no"type="text" class="form-control border-info register"
+                                            <input id="unitno" name="unit_no" th:field="*{unitnumber}" type="text" class="form-control border-info register"
                                                    placeholder="Unit No.">
                                         </div>
                                         <div class="col">
-                                            <input type="text" name="postal_code" class="form-control border-info register" id="postalcode"
+                                            <input type="text" name="postal_code" th:field="*{postalcode}" class="form-control border-info register" id="postalcode"
                                                    placeholder="Postal Code">
                                         </div>
                                     </div>
                                 </div>
                                 <div class="form-group">
-                                    <input id="email" name="email" type="email" class="form-control border-info register" aria-describedby="emailHelp" placeholder="Email" required>
+                                    <input id="email" name="email" th:field="*{email}" type="email" class="form-control border-info register" aria-describedby="emailHelp" placeholder="Email" required>
                                 </div>
                                 <div class="form-group">
-                                    <input id = "password" type="password" class="form-control border-info register"
+                                    <input id = "password" th:field="*{password}" type="password" class="form-control border-info register"
                                            placeholder="Password" required>
                                 </div>
                                 <div class="form-group">

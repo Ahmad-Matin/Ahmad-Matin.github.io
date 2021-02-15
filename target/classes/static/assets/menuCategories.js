@@ -1,7 +1,8 @@
-const mediaQuery = window.matchMedia('(min-width: 481px)');
+const mediaQuery = window.matchMedia('(min-width: 600px)');
 
 function changeNavBarColor(mediaQuery) {
     if (mediaQuery.matches) {
+
         window.onscroll = function () { scrollFunction() };
         function scrollFunction() {
             var navbar = document.getElementById("custom-navigation");

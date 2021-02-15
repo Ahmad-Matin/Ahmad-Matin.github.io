@@ -3,7 +3,7 @@
       xmlns:sec="https://www.thymeleaf.org/thymeleaf-extras-springsecurity3">
 <head>
     <meta charset="UTF-8">
-    <title>Every Product</title>
+    <name>Every Product</name>
 <!--    <script src="js/every-product.js"></script>-->
 </head>
 <body>
@@ -23,7 +23,7 @@
                 console.log(data);
                 //replace the next loop with your actual insert to DOM code
                 for(i = 0; i < data.length; i++){
-                    document.write( i + ". " + data[i]["title"] + data[i]["price"] + "<br>");
+                    document.write( i + ". " + data[i]["name"] + data[i]["price"] + "<br>");
                 }
             })
             .catch(function(error) {

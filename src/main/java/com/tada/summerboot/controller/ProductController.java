@@ -25,10 +25,10 @@ public class ProductController {
     // TODO - change to POST
     // this is for form-data
     @PostMapping(path="/new")
-    public String newProduct(BigDecimal price, Integer quantity, String sku, String title, String description, String productType) {
-        Product new_product = new Product(price, quantity, sku,title, description, productType);
+    public String newProduct(BigDecimal price, Integer quantity, String name, Integer user_id, String type, String imageURL) {
+        Product new_product = new Product(price, quantity, name, type, imageURL);
         product_service_implementation.createProduct(new_product);
-        return "redirect:/hello";
+        return "redirect:/";
     }
 
     //this is for javascript

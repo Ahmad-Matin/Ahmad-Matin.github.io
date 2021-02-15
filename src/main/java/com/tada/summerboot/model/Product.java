@@ -9,12 +9,11 @@ public class Product {
     @Id
     @GeneratedValue(strategy = GenerationType.TABLE) // GenerationType.TABLE will allow auto-increment of id
     private Integer id;
+    private String name;
+    private String type;
     private BigDecimal price;
     private Integer quantity;
-    private String sku;
-    private String title;
-    private String description;
-    private String productType;
+
 
     @Column(nullable = true, length = 64)
     private String imageURL;
@@ -35,19 +34,11 @@ public class Product {
         return quantity;
     }
 
-    public String getSku() {
-        return sku;
+    public String getName() {
+        return name;
     }
 
-    public String getTitle() {
-        return title;
-    }
-
-    public String getDescription() {
-        return description;
-    }
-
-    public String getProductType() { return productType; }
+    public String getType() { return type; }
 
     public void setPrice(BigDecimal price) {
         this.price = price;
@@ -57,19 +48,11 @@ public class Product {
         this.quantity = quantity;
     }
 
-    public void setSku(String sku) {
-        this.sku = sku;
+    public void setName(String name) {
+        this.name = name;
     }
 
-    public void setTitle(String title) {
-        this.title = title;
-    }
-
-    public void setDescription(String description) {
-        this.description = description;
-    }
-
-    public void setProductType(String productType) { this.productType = productType; }
+    public void setType(String type) { this.type = type; }
 
     public String getImageURL() {
         return imageURL;
@@ -87,53 +70,46 @@ public class Product {
         this.imageURL = imageURL;
     }
 
-    public Product(BigDecimal price, Integer quantity, String sku, String title, String description, Integer user_id, String productType) {
+    public Product(BigDecimal price, Integer quantity, String name, Integer user_id, String type, String imageURL) {
         this.price = price;
         this.quantity = quantity;
-        this.sku = sku;
-        this.title = title;
-        this.description = description;
+        this.name = name;
         this.user_id = user_id;
-        this.productType = productType;
+        this.type = type;
+        this.imageURL = imageURL;
     }
 
-    public Product(Integer id, BigDecimal price, Integer quantity, String sku, String title, String description, Integer user_id, String productType) {
-        this.id = id;
-        this.price = price;
-        this.quantity = quantity;
-        this.sku = sku;
-        this.title = title;
-        this.description = description;
-        this.user_id = user_id;
-        this.productType = productType;
-    }
+//    public Product(Integer id, BigDecimal price, Integer quantity, String name,  Integer user_id, String type) {
+//        this.id = id;
+//        this.price = price;
+//        this.quantity = quantity;
+//        this.name = name;
+//        this.user_id = user_id;
+//        this.type = type;
+//    }
+//
+//    public Product(Integer id, BigDecimal price, Integer quantity, String sku, String name, String description, String type) {
+//        this.id = id;
+//        this.price = price;
+//        this.quantity = quantity;
+//        this.name = name;
+//        this.type = type;
+//    }
+//
+//    public Product(BigDecimal price, Integer quantity, String sku, String name, String description, String type) {
+//        this.price = price;
+//        this.quantity = quantity;
+//        this.name = name;
+//        this.type = type;
+//    }
 
-    public Product(Integer id, BigDecimal price, Integer quantity, String sku, String title, String description, String productType) {
-        this.id = id;
-        this.price = price;
-        this.quantity = quantity;
-        this.sku = sku;
-        this.title = title;
-        this.description = description;
-        this.productType = productType;
-    }
-
-    public Product(BigDecimal price, Integer quantity, String sku, String title, String description, String productType) {
-        this.price = price;
-        this.quantity = quantity;
-        this.sku = sku;
-        this.title = title;
-        this.description = description;
-        this.productType = productType;
-    }
-
-    public Product(){
+    public Product(BigDecimal price, Integer quantity, String name, String type, String imageURL){
         super();
     }
 
     @Override
     public String toString() {
-        return "Product [id=" + id + ", title=" + title +
-                ", description=" + description + ", price=" + price + ", quantity=" + quantity + ", sku=" + sku + "]";
+        return "Product [id=" + id + ", name=" + name +
+                ", name=" + name + ", price=" + price + ", quantity=" + quantity + "]";
     }
 }
