@@ -8,7 +8,7 @@ function changeNavBarColor(mediaQuery) {
             let burgerCategory = document.getElementById("burgerMenu");
             let sidesCategory = document.getElementById("sidesMenu");
             let dessertCategory = document.getElementById("dessertMenu");
-
+            
             if (document.body.scrollTop > 100 || document.documentElement.scrollTop > 100) {
                 navbar.classList.add('custom-navbar-scroll'); 
 
@@ -28,7 +28,7 @@ function changeNavBarColor(mediaQuery) {
                     dessertCategory.classList.remove("active", "black-font");
                     dessertCategory.classList.add("white-font");
                 }
-
+                
                 if (document.body.scrollTop > 2100 || document.documentElement.scrollTop > 2100) {
                     dessertCategory.classList.add("active", "black-font");
                     sidesCategory.classList.remove("active", "black-font");
@@ -37,7 +37,7 @@ function changeNavBarColor(mediaQuery) {
                     burgerCategory.classList.add("white-font");
 
                 }
-
+    
             }
 
 
