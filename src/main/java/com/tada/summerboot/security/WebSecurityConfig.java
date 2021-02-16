@@ -1,7 +1,6 @@
 package com.tada.summerboot.security;
 
 import com.tada.summerboot.component.SuccessHandler;
-import com.tada.summerboot.service.ProductServiceImpl;
 import com.tada.summerboot.service.UserServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
@@ -38,12 +37,14 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 				.antMatchers("/pages/about-us.html")
 				.antMatchers("/index.html")
 				.antMatchers("/every-users")
+				.antMatchers("/user/new")
 //				.antMatchers("/user-photos/**")
 //				.antMatchers("/products/**")
 //				.antMatchers("/posts/**")
 //				.antMatchers("/products/json/**") //is this necessary?
 				.antMatchers("/users/**");
 	}
+
 	@Override
 	protected void configure(HttpSecurity http) throws Exception {
 		//DO NOT EDIT
@@ -51,7 +52,7 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 				.authorizeRequests()
 				.antMatchers("/").permitAll()
 //				.antMatchers("/product").hasRole("ADMIN")
-//				.antMatchers("/pages/admin.html").hasRole("ADMIN")
+				.antMatchers("/pages/admin.html").hasRole("ADMIN")
 				.antMatchers("/product").hasRole("USER")
 				.anyRequest().authenticated()
 				.and()
@@ -63,6 +64,7 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 				.logout()
 				.permitAll();
 	}
+
 
 	@Bean
 	@Override
@@ -77,25 +79,16 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 
 		// Iterate (go through one by one) and build a UserDetails for this app
 		for (int i = 0; i < users.size(); i++) {
+
 			// Create a UserDetails instance but set it based on the user in database
-			UserDetails user;
-//			if (users.get(i).getUserType() == "ADMIN") {
-			// if else for user and admin
-				user = User.withDefaultPasswordEncoder()
-						.username(users.get(i).getUsername())
-						.password(users.get(i).getPassword())
-						.roles("ADMIN")
-						.build();
-				list.add(user);
-				// Add that instance to the list
-//			}else {
-//				user = User.withDefaultPasswordEncoder()
-//						.username(users.get(i).getEmail())
-//						.password(users.get(i).getPassword())
-//						.roles("USER")
-//						.build();
-//			}
-//			list.add(user);
+			UserDetails user =
+					User.withDefaultPasswordEncoder()
+							.username(users.get(i).getUsername())
+							.password(users.get(i).getPassword())
+							.roles("ADMIN")
+							.build();
+			// Add that instance to the list
+			list.add(user);
 		}
 
 		//Have at least one admin user for developer to login
@@ -111,3 +104,54 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 		return new InMemoryUserDetailsManager(list);
 	}
 }
+
+
+
+//
+//	@Bean
+//	@Override
+//	public UserDetailsService userDetailsService() {
+//
+//		// Get all the users in database
+//		// Use the service instead of repo.
+//		List<com.tada.summerboot.model.User> users = user_service_implementation.getAllUsers();
+//
+//		// Prepare an ArrayList for the InMemoryUserDetailsManager method at the end of this function
+//		ArrayList<UserDetails> list = new ArrayList<UserDetails>();
+//
+//		// Iterate (go through one by one) and build a UserDetails for this app
+//		for (int i = 0; i < users.size(); i++) {
+//			// Create a UserDetails instance but set it based on the user in database
+//			UserDetails user;
+////			if (users.get(i).getUserType() == "ADMIN") {
+//			// if else for user and admin
+//				user = User.withDefaultPasswordEncoder()
+//						.username(users.get(i).getUsername())
+//						.password(users.get(i).getPassword())
+//						.roles("USER")
+//						.build();
+//				list.add(user);
+//				// Add that instance to the list
+////			}else {
+////				user = User.withDefaultPasswordEncoder()
+////						.username(users.get(i).getEmail())
+////						.password(users.get(i).getPassword())
+////						.roles("USER")
+////						.build();
+////			}
+////			list.add(user);
+//		}
+//
+//		//Have at least one admin user for developer to login
+//		UserDetails admin =
+//				User.withDefaultPasswordEncoder()
+//						.username("admin")
+//						.password("admin")
+//						.roles("ADMIN")
+//						.build();
+//		list.add(admin);
+//
+////		System.out.println(list);
+//		return new InMemoryUserDetailsManager(list);
+//	}
+//}
