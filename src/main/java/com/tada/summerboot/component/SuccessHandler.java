@@ -1,8 +1,10 @@
 package com.tada.summerboot.component;
 
 import org.springframework.security.core.Authentication;
+import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.web.authentication.AuthenticationSuccessHandler;
 import org.springframework.stereotype.Component;
+import com.tada.summerboot.model.User;
 
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
@@ -16,6 +18,10 @@ public class SuccessHandler implements AuthenticationSuccessHandler {
                                         HttpServletResponse httpServletResponse,
                                         Authentication authentication) throws IOException, ServletException {
         // After login, go to homepage
-        httpServletResponse.sendRedirect("/");
+         authentication = SecurityContextHolder.getContext().getAuthentication();
+//        String currentPrincipalName = authentication.getName();
+        if(authentication.getName()=="admin"){
+            httpServletResponse.sendRedirect("/pages/admin.html");
+        }else httpServletResponse.sendRedirect("/every-products");
     }
 }

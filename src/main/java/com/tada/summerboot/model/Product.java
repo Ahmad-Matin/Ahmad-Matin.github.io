@@ -47,8 +47,6 @@ public class Product {
         return description;
     }
 
-    public String getProductType() { return productType; }
-
     public void setPrice(BigDecimal price) {
         this.price = price;
     }
@@ -69,8 +67,6 @@ public class Product {
         this.description = description;
     }
 
-    public void setProductType(String productType) { this.productType = productType; }
-
     public String getImageURL() {
         return imageURL;
     }
@@ -87,17 +83,16 @@ public class Product {
         this.imageURL = imageURL;
     }
 
-    public Product(BigDecimal price, Integer quantity, String sku, String title, String description, Integer user_id, String productType) {
+    public Product(BigDecimal price, Integer quantity, String sku, String title, String description, Integer user_id) {
         this.price = price;
         this.quantity = quantity;
         this.sku = sku;
         this.title = title;
         this.description = description;
         this.user_id = user_id;
-        this.productType = productType;
     }
 
-    public Product(Integer id, BigDecimal price, Integer quantity, String sku, String title, String description, Integer user_id, String productType) {
+    public Product(Integer id, BigDecimal price, Integer quantity, String sku, String title, String description, Integer user_id) {
         this.id = id;
         this.price = price;
         this.quantity = quantity;
@@ -105,26 +100,23 @@ public class Product {
         this.title = title;
         this.description = description;
         this.user_id = user_id;
-        this.productType = productType;
     }
 
-    public Product(Integer id, BigDecimal price, Integer quantity, String sku, String title, String description, String productType) {
+    public Product(Integer id, BigDecimal price, Integer quantity, String sku, String title, String description) {
         this.id = id;
         this.price = price;
         this.quantity = quantity;
         this.sku = sku;
         this.title = title;
         this.description = description;
-        this.productType = productType;
     }
 
-    public Product(BigDecimal price, Integer quantity, String sku, String title, String description, String productType) {
+    public Product(BigDecimal price, Integer quantity, String sku, String title, String description) {
         this.price = price;
         this.quantity = quantity;
         this.sku = sku;
         this.title = title;
         this.description = description;
-        this.productType = productType;
     }
 
     public Product(){

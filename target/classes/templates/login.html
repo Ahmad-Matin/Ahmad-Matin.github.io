@@ -1,7 +1,6 @@
 <!DOCTYPE html>
 
-<html lang="en" xmlns="http://www.w3.org/1999/xhtml" xmlns:th="https://www.thymeleaf.org"
-      xmlns:sec="https://www.thymeleaf.org/thymeleaf-extras-springsecurity3">
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml" xmlns:th="https://www.thymeleaf.org" xmlns:sec="https://www.thymeleaf.org/thymeleaf-extras-springsecurity3">
 
 <head>
     <meta charset="UTF-8">
@@ -27,7 +26,7 @@
     <link
             href="https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@400;500;600;700&family=Lato:wght@400;700&display=swap"
             rel="stylesheet">
-    <title>Final Project Task 3</title>
+    <title>MCJProject Login</title>
 </head>
 
 
@@ -101,12 +100,21 @@
 
                 <input type="submit" class="btn btn-info" value="Sign in">
             </form>
+
+            <div sec:authorize="isAuthenticated()">
+                <h4 th:inline="text">Hello [[${#httpServletRequest.remoteUser}]]!</h4>
+
+                <form th:action="@{/logout}" method="post">
+                    <input type="submit" value="Sign Out"/>
+                </form>
+            </div>
+            
             <div class="position-relative d-flex justify-content-center mb-4 pb-4">
                 <hr class="form-line w-25 mt-4 float-left">
                 <p class="text-center p-0 m-0 position-absolute">Not a user?</p>
                 <!-- Button trigger modal -->
                 <p class="text-center p-0 m-0 position-absolute mt-4"><a id="sign-up-button" class="btn"
-                                                                         data-toggle="modal" data-target="#exampleModal">Sign
+                                                                         href="/register">Sign
                     up.</a></p>
                 <hr class="form-line w-25 mt-4 float-right">
             </div>
@@ -115,17 +123,17 @@
             <!--REGISTER FORM -->
 
             <!-- Modal -->
-            <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog"
-                 aria-labelledby="exampleModalLabel" aria-hidden="true">
-                <div class="modal-dialog" role="document">
-                    <div class="modal-content">
-                        <div class="d-flex justify-content-end">
-                            <button type="button" class="close m-4" data-dismiss="modal" aria-label="Close">
-                                <span aria-hidden="true">&times;</span>
-                            </button>
-                        </div>
-                        <div id="register-form" class="mx-4">
-                            <h3 class="mt-4 josefin-sans text-center josefin-sans">Register</h3>
+<!--            <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog"-->
+<!--                 aria-labelledby="exampleModalLabel" aria-hidden="true">-->
+<!--                <div class="modal-dialog" role="document">-->
+<!--                    <div class="modal-content">-->
+<!--                        <div class="d-flex justify-content-end">-->
+<!--                            <button type="button" class="close m-4" data-dismiss="modal" aria-label="Close">-->
+<!--                                <span aria-hidden="true">&times;</span>-->
+<!--                            </button>-->
+<!--                        </div>-->
+<!--                        <div id="register-form" class="mx-4">-->
+<!--                            <h3 class="mt-4 josefin-sans text-center josefin-sans">Register</h3>-->
                             <!--TO CHANGE PATH-->
 <!--                            <form th:action="@{/user/new}" th:object="${user}" method="POST" action ="" class="my-4 py-2">-->
 <!--                                <div class="form-group">-->
