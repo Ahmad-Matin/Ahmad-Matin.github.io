@@ -70,14 +70,23 @@ public class Product {
         this.imageURL = imageURL;
     }
 
-    public Product(BigDecimal price, Integer quantity, String name, Integer user_id, String type, String imageURL) {
+    public Product(Integer id, BigDecimal price, Integer quantity, String name, String type) {
+        this.id = id;
         this.price = price;
         this.quantity = quantity;
         this.name = name;
-        this.user_id = user_id;
         this.type = type;
-        this.imageURL = imageURL;
     }
+
+//
+//    public Product(BigDecimal price, Integer quantity, String name, Integer user_id, String type, String imageURL) {
+//        this.price = price;
+//        this.quantity = quantity;
+//        this.name = name;
+//        this.user_id = user_id;
+//        this.type = type;
+//        this.imageURL = imageURL;
+//    }
 
 //    public Product(Integer id, BigDecimal price, Integer quantity, String name,  Integer user_id, String type) {
 //        this.id = id;
@@ -88,13 +97,7 @@ public class Product {
 //        this.type = type;
 //    }
 //
-//    public Product(Integer id, BigDecimal price, Integer quantity, String sku, String name, String description, String type) {
-//        this.id = id;
-//        this.price = price;
-//        this.quantity = quantity;
-//        this.name = name;
-//        this.type = type;
-//    }
+
 //
 //    public Product(BigDecimal price, Integer quantity, String sku, String name, String description, String type) {
 //        this.price = price;

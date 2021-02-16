@@ -110,9 +110,9 @@ h3 {
 
 .main-title{ 
     width: 100vw;
-    height: 100vh;
+    height: 150vh;
     z-index: 200;
-    background-image: url("../assets/imgs/product-photos/anthony-espinosa-pYQSM-p_0_c-unsplash.jpg");
+    background-image: url("imgs/product-photos/anthony-espinosa-pYQSM-p_0_c-unsplash.jpg");
     background-attachment: fixed;
     background-position: center;
     background-repeat: no-repeat;
@@ -121,10 +121,11 @@ h3 {
 
 .main-heading{
     font-size: 6rem;
-    padding: 20% 5%;
+    padding-top: -20%;
+    padding-left: 5%;
+    padding-right: 5%;
     color: #fff;
-    background-color: rgba(204, 204, 204, 0.062);}
-
+}
 
 .custom-carousel {
     width: 100%;
@@ -245,7 +246,7 @@ h3 {
     border: 3px solid white;
     color: #fff;
     font-size: 8rem;
-    background-color: rgba(204, 204, 204, 0.226);
+    /* background-color: rgba(204, 204, 204, 0.226); */
 
 }
 
@@ -375,8 +376,6 @@ h2#admin-heading {
     font-size: 4rem;
     padding: 20% 0;
     margin: 0% 10%;
-    background-color: none;
-
 }
 
 .main-title {
@@ -445,7 +444,6 @@ h2#admin-heading {
 
     .main-heading { 
         padding-top: 6rem;
-        background-color: none;
     }
 
   }
