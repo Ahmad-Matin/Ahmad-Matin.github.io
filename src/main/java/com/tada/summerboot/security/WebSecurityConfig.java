@@ -33,10 +33,14 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 		//DO NOT EDIT
 		//do not authenticate these APIs
 		web.ignoring()
+				.antMatchers("/register")
 				.antMatchers("/assets/**")
-				.antMatchers("/user-photos/**")
-				.antMatchers("/products/**")
-				.antMatchers("/posts/**")
+				.antMatchers("/pages/about-us.html")
+				.antMatchers("/index.html")
+				.antMatchers("/every-users")
+//				.antMatchers("/user-photos/**")
+//				.antMatchers("/products/**")
+//				.antMatchers("/posts/**")
 //				.antMatchers("/products/json/**") //is this necessary?
 				.antMatchers("/users/**");
 	}
@@ -46,7 +50,9 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 		http
 				.authorizeRequests()
 				.antMatchers("/").permitAll()
-				.antMatchers("/product").hasRole("ADMIN")
+//				.antMatchers("/product").hasRole("ADMIN")
+//				.antMatchers("/pages/admin.html").hasRole("ADMIN")
+				.antMatchers("/product").hasRole("USER")
 				.anyRequest().authenticated()
 				.and()
 				.formLogin()
@@ -71,17 +77,25 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 
 		// Iterate (go through one by one) and build a UserDetails for this app
 		for (int i = 0; i < users.size(); i++) {
-
 			// Create a UserDetails instance but set it based on the user in database
-// if else for user and admin
-			UserDetails user =
-					User.withDefaultPasswordEncoder()
-							.username(users.get(i).getEmail())
-							.password(users.get(i).getPassword())
-							.roles("ADMIN")
-							.build();
-			// Add that instance to the list
-			list.add(user);
+			UserDetails user;
+//			if (users.get(i).getUserType() == "ADMIN") {
+			// if else for user and admin
+				user = User.withDefaultPasswordEncoder()
+						.username(users.get(i).getUsername())
+						.password(users.get(i).getPassword())
+						.roles("ADMIN")
+						.build();
+				list.add(user);
+				// Add that instance to the list
+//			}else {
+//				user = User.withDefaultPasswordEncoder()
+//						.username(users.get(i).getEmail())
+//						.password(users.get(i).getPassword())
+//						.roles("USER")
+//						.build();
+//			}
+//			list.add(user);
 		}
 
 		//Have at least one admin user for developer to login
@@ -93,7 +107,7 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 						.build();
 		list.add(admin);
 
-		System.out.println(list);
+//		System.out.println(list);
 		return new InMemoryUserDetailsManager(list);
 	}
 }
