@@ -132,15 +132,15 @@ public class User {
         this.email = email;
     }
 
-    public User(String username, String firstname, String lastname, String address, String unitnumber, String postalcode, String password, String email, String userType) {
-        this.username = username;
-//        this.firstname = firstname;
-//        this.lastname = lastname;
-//        this.address = address;
-//        this.unitnumber = unitnumber;
-//        this.postalcode = postalcode;
-        this.password = password;
-        this.email = email;
-//        this.userType = userType;
-    }
+//    public User(String username, String firstname, String lastname, String address, String unitnumber, String postalcode, String password, String email, String userType) {
+//        this.username = username;
+////        this.firstname = firstname;
+////        this.lastname = lastname;
+////        this.address = address;
+////        this.unitnumber = unitnumber;
+////        this.postalcode = postalcode;
+//        this.password = password;
+//        this.email = email;
+////        this.userType = userType;
+//    }
 }

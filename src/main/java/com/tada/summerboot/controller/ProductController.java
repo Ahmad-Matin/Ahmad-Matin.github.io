@@ -44,11 +44,12 @@ public class ProductController {
 
     @PostMapping(path="product/image/new")
     public String newProductWithImage(@RequestParam(name="price") BigDecimal price,
-                                      @RequestParam(name="quantity") Integer quantity,
-                                      @RequestParam(name="sku") String sku,
-                                      @RequestParam(name="title") String title,
-                                      @RequestParam(name="description") String description,
-                                      @RequestParam(name="user_id") Integer user_id,
+//                                      @RequestParam(name="quantity") Integer quantity,
+//                                      @RequestParam(name="sku") String sku,
+                                      @RequestParam(name="type") String type,
+                                      @RequestParam(name="name") String name,
+//                                      @RequestParam(name="description") String description,
+                                      @RequestParam(name="id") Integer id,
                                       @RequestParam(name="image") MultipartFile multipartFile) throws IOException {
 
         String fileName = StringUtils.cleanPath(multipartFile.getOriginalFilename());
@@ -58,7 +59,7 @@ public class ProductController {
 //        System.out.println("------*------");
 //        System.out.println("user_id" + user_id);
 
-        Product new_product = new Product(price, quantity, sku, title, description, user_id);
+        Product new_product = new Product(id, price, type, name);
         product_service_implementation.createOrUpdateProduct(new_product);
         new_product.setImageURL("user-photos/uploads/"+ new_product.getId() + "/" + fileName);
         product_service_implementation.createOrUpdateProduct(new_product);
@@ -103,16 +104,17 @@ public class ProductController {
     // this is for form-data
     @PostMapping(path="product/new")
     public String newProduct(@RequestParam(name="price") BigDecimal price,
-                             @RequestParam(name="quantity") Integer quantity,
-                             @RequestParam(name="sku") String sku,
-                             @RequestParam(name="title") String title,
-                             @RequestParam(name="description") String description,
+//                             @RequestParam(name="quantity") Integer quantity,
+//                             @RequestParam(name="sku") String sku,
+                             @RequestParam(name="type") String type,
+                             @RequestParam(name="name") String name,
+//                             @RequestParam(name="description") String description,
                              @RequestParam(name="user_id") Integer user_id) {
 
         //        System.out.println("------*------");
         //        System.out.println("user_id" + user_id);
 
-        Product new_product = new Product(price, quantity, sku, title, description, user_id);
+        Product new_product = new Product(user_id, price, type, name);
         product_service_implementation.createOrUpdateProduct(new_product);
         return "redirect:/every-products";
     }

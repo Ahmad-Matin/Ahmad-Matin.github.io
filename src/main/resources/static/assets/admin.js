@@ -9,7 +9,7 @@ const editContainer = document.getElementById("update-container")
 function addBurger(item) {
 
     const itemHTML =
-    `
+        `
     <div id ="${item.id}" class="col my-2">
         <div class="card-body align-items-center border rounded p-0 pb-4 shadow-sm">
             <img src="${item.img}" class="card-img-top rounded-top menu-img">
@@ -78,11 +78,10 @@ function addDesserts(item) {
 
 const addToCartButtons = document.getElementsByClassName("add");
 
-
 function fetchProductList() {
 
     if (localStorage.getItem('products') == null) {
-        fetch("../assets/productsA.json")
+        fetch('http://localhost:8080/products/all')
             .then((response) => response.json())
             .then(response => {
                 let productsJson = JSON.stringify(response);
@@ -121,6 +120,48 @@ function fetchProductList() {
     }
 }
 
+// function fetchProductList() {
+
+//     if (localStorage.getItem('products') == null) {
+//         fetch("../assets/productsA.json")
+//             .then((response) => response.json())
+//             .then(response => {
+//                 let productsJson = JSON.stringify(response);
+//                 localStorage.setItem('products', productsJson);
+//                 let products = JSON.parse(productsJson);
+//                 for (let i = 0; i < products.length; i++) {
+//                     switch (products[i].type) {
+//                         case ("burger"):
+//                             addBurger(products[i]);
+//                             break;
+//                         case ("sides"):
+//                             addSides(products[i]);
+//                             break;
+//                         case ("dessert"):
+//                             addDesserts(products[i]);
+//                             break;
+//                     }
+//                 }
+//             })
+//     } else {
+//         let productsJson = localStorage.getItem('products');
+//         let products = JSON.parse(productsJson);
+//         for (let i = 0; i < products.length; i++) {
+//             switch (products[i].type) {
+//                 case ("burger"):
+//                     addBurger(products[i]);
+//                     break;
+//                 case ("sides"):
+//                     addSides(products[i]);
+//                     break;
+//                 case ("dessert"):
+//                     addDesserts(products[i]);
+//                     break;
+//             }
+//         }
+//     }
+// }
+
 fetchProductList();
 
 //UPDATE PRODUCT
@@ -154,7 +195,7 @@ function loadItemDetails(productInfo) {
 
 
 
-function closeItemDetails(){
+function closeItemDetails() {
     editContainer.removeChild(editContainer.firstChild);
 }
 
@@ -192,7 +233,7 @@ function updateProduct() {
 
 
     for (let i = 0; i < products.length; i++) {
-        
+
         if (productId == products[i].id) {
             products[i].name = updatedName;
             products[i].type = updatedType;

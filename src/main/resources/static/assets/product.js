@@ -11,7 +11,7 @@ function addBurger(item) {
     const itemHTML =
     `
     <div id ="${item.id}" class="col my-2">
-        <div class="card-body align-items-center border rounded p-0 pb-4 shadow-sm">
+        <div class="card-body align-items-center border rounded my-4 p-0 pb-4 shadow-sm">
             <img src="${item.img}" class="card-img-top rounded-top menu-img">
             <div class="d-flex justify-content-between px-4 pt-4">
                     <h5 class="card-title mr-auto">${item.name}</h5>
