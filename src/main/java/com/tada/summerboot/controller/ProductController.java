@@ -85,6 +85,21 @@ public class ProductController {
         return "every-products";
     }
 
+// ADD ADMIN PAGE
+
+    @GetMapping(value="/admin")
+    public String adminproducts(Model model){
+//        List<Product> list = product_service_implementation.getAllProduct();
+//        model.addAttribute("products", list);
+        Authentication auth = SecurityContextHolder.getContext().getAuthentication();
+        User user = user_service_implementation.current_user(auth.getName());
+
+        model.addAttribute("user", user);
+        model.addAttribute("product", new Product());
+
+        return "admin";
+    }
+
     @GetMapping(value="product") // it will be set to be /product
     public String product(Model model){
         Authentication auth = SecurityContextHolder.getContext().getAuthentication();
