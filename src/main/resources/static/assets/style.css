@@ -1,6 +1,6 @@
 
 p, h5, a {
- font-family: "Lato", sans-serif;
+ font-family: "Raleway", sans-serif;
 }
 
 h1, h2, h3 {
@@ -23,21 +23,9 @@ h3 {
     font-size: 2rem;
 }
 
-
-
-.black-font {
-    color: black;
-
+.material-icons.md-36 { 
+    font-size: 36px; 
 }
-
-.active {
-    border-bottom: 5px solid black;
-}
-
-.white-font {
-    color: white;
-}
-
 
 
 .custom-button {
@@ -58,7 +46,8 @@ h3 {
 }
 
 .custom-navbar-scroll {
-    background-color: rgb(0, 142, 207);
+    transition: background-color 300ms;
+    background-color: rgb(255, 174, 0);
     font-size: 1.5rem;
     font-weight: 700;
 }
@@ -70,7 +59,12 @@ h3 {
 
 .navbar-dark .navbar-nav .nav-link {
     color: #fff;
+    transition: color 300ms;
 } 
+
+.navbar-dark .navbar-nav .nav-link:hover{
+    color: black;
+}
 
 
 
@@ -120,16 +114,62 @@ h3 {
 }
 
 .main-heading{
-    font-size: 6rem;
+    font-size: 5.5rem;
     padding-top: -20%;
     padding-left: 5%;
     padding-right: 5%;
     color: #fff;
 }
 
+
+.steps-container{
+    width: 100vw;
+    padding-top: 4rem;
+}
+
+.steps-img-container{
+    height: 22rem; 
+}
+
+.steps-img {
+    object-fit: contain;
+    width: 80%;
+}
+
+.steps-heading {
+    margin-top: 2rem;
+    padding-left: 10%;
+}
+
+
+.step-reverse-heading {
+    margin-top: 8rem;
+    padding-left: 10%;
+}
+
+
+.steps-heading h2, .step-reverse-heading h2 {
+    font-size: 3rem;
+} 
+
+.orderpage-button {
+    background-color: rgb(255, 174, 0);
+    color: #000;
+    border-radius: 20px;
+    padding: 1% 8%;
+    font-family: "Quicksand", sans-serif;
+    font-weight: 600;
+    transition: background-color 300ms;
+}
+
+.orderpage-button:hover {
+    background-color: rgb(255, 115, 0);
+    color: white;
+}
+
 .custom-carousel {
     width: 100%;
-    height: 70vh;
+    height: 80vh;
     object-fit:cover;
 }
 
@@ -153,38 +193,45 @@ h3 {
     font-size: 5rem;
 }
 
-.search-bar {
-    background-color: rgb(255, 202, 132);
-    border: none;
-    padding: 5% 2%;
+.search-input {
+    background-color: rgb(255, 174, 0);
+    border-radius: 20px;
+    width: 20rem;
+    padding: 0 5%;
 }
 
+.search-bar {
+    border: none;
+
+}
+
+
 .search-button {
-    border-radius: 20px;
-    background-color:rgb(255, 176, 72);
-    border: 2px solid #000;
-    padding: 1% 8%;
+    background-color: rgb(255, 255, 255);
+    border: 2px solid black;
     color: #000;
+    border-radius: 20px;
+    padding: 1% 8%;
     font-family: "Quicksand", sans-serif;
     font-weight: 600;
 }
 
 .search-button:hover {
-    background-color: rgb(49, 146, 133);
-    border: none;
-    color: #fff;
-}
-
-
-.search-input {
-    border-radius: 20px;
+    background-color:rgb(255, 176, 72);
+    color: #000;
     border: none;
 }
 
 .menu-img {
-    height: 15rem;
-    width: 100%;
-    object-fit: cover;
+    object-fit: contain;
+    max-width: 300px;
+}
+
+.img-container{
+    height: 22rem;
+    padding: 5%;
+    margin: 10% 0;
+
 }
 
 .card-body {
@@ -231,46 +278,70 @@ h3 {
 }
 
 .banner-text {
-        width:100%;
-        height: 100vh;
+        width:100vw;
+        height: 200vh;
         z-index: 200;
-        background-image: url("imgs/product-photos/pexels-daria-shevtsova-908849.jpg");
+        background-image: url("imgs/product-photos/eiliv-sonas-aceron-5nvt9BrLaAc-unsplash.jpg");
         background-attachment: fixed;
-        background-position: center;
+        background-position: 30%;
         background-repeat: no-repeat;
-        background-size: cover;   
+        background-size: cover; 
 }
 
 .menu-heading {
-    padding: 12% 16%;
-    border: 3px solid white;
-    color: #fff;
-    font-size: 8rem;
-    /* background-color: rgba(204, 204, 204, 0.226); */
-
+    margin: 0 5%;
+    padding: 2% 4%;
+    text-align: center;
+    /* border: 3px solid white; */
+    color: white;
+    background-color: rgb(255, 151, 14);
+    font-size: 4rem;
+    top: 38%;
+    line-height: 1.2;
+    /* background-color: rgba(255, 255, 255, 0.295); */
 }
 
-.menu-heading-2 {
+/* .menu-heading-2 {
     padding: 14% 18%;
     border: 1px solid white;
     color: #fff;
     font-size: 8rem;
 
-}
+} */
 
  .menu-categories {
-    background-color:rgb(255, 176, 72);
+    background-color:rgb(255, 202, 132);
     position: sticky;
-    top: 70px;
+    top: 75px;
     z-index: 100;
+    padding: 1% 0;
 }
 
 a.menu-category{
+    text-align: center;
     font-weight: 700;
     margin: 0 1%;
     text-decoration: none;
-    font-size: 1.5rem;
+    transition: all 400ms 100ms
 }
+
+a.menu-category:hover {
+    color: black;
+}
+
+.inactive {
+    font-size: 1.1rem;
+    color: white;
+}
+
+.active {
+    color: rgb(255, 115, 0);
+    font-size: 1.3rem;
+    background-color: white;
+    border-radius: 8%;
+    box-shadow: 5px 5px 10px rgba(200, 172, 172, 0.281);
+}
+
 
 
 /* CART */
@@ -280,6 +351,9 @@ a.menu-category{
     background-color: rgb(0, 142, 207);
 }
 
+.yellow-background{
+   background-color: rgb(255, 174, 0);
+}
 
 
 /*li.price {
@@ -291,12 +365,17 @@ li.checkout-item{
     
 }
 
+.checkout-img-container {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    height: 10rem;
+}
+
 .checkout-item-img {
-    max-width: 80px;
-    max-height: 80px;
-    width: 80px;
-    height: 80px;
+    width: 120px;
     object-fit: cover;
+    margin: 0 auto;
 }
 
 .custom-spacing{
@@ -320,6 +399,12 @@ li.checkout-item{
 .add {
     background-color: rgb(0, 142, 207);
     color: #fff;
+    transition: all 200ms;
+}
+
+.add:hover {
+    color: black;
+    background-color: rgb(255, 174, 0);
 }
 
 
@@ -352,24 +437,70 @@ h2#admin-heading {
 }
 
 
+/* MEDIA QUERY FOR MEDIUM SCREENS */
 
-
-@media only screen and (max-width: 600px) {
-
-    #menu-categories {
-        display: none;
+@media only screen and (max-width: 768px) {
+    /* LOGIN PAGE */
+    #login-banner {
+        display:hidden;
     }
-
-    .menu-heading, .menu-heading-2 {
+    
+    .login-heading {
         display:none;
     }
+
+
+
+    .menu-heading {
+        top: 40%;
+        font-size: 2.5rem;
+    }
+
+    .banner-text{
+        background-position: left;
+    }
+
+    .menu-categories {
+        top: 55px;
+    }
+    
+    
+    .img-container{
+        height: 20rem;
+    }
+
+
+  }
+
+
+  /* MEDIA QUERY FOR SMALL SCREENS */
+
+
+@media only screen and (max-width: 576px) {
+
+.navbar-nav.mr-auto {
+    margin-top: 10vh;
+}
+
+.navbar-nav.ml-auto {
+    margin-bottom: 40vh
+}
+
+.nav-link.custom-navlink{
+    margin: 2% 0;
+    font-size: 3rem;
+}
+
+.material-icons.md-36{
+    font-size: 48px;
+}
 
     .banner-text.d-flex.justify-content-center.align-items-center.position-relative {
         display: hidden;
     }
 
-  #custom-navigation.navbar-expand-sm.my-0.py-3.custom-navbar.navbar-dark {
-    background-color: rgb(0, 142, 207);
+  #custom-navigation {
+    background-color: rgb(255, 174, 0);
   }
 
 .main-heading { 
@@ -379,7 +510,9 @@ h2#admin-heading {
 }
 
 .main-title {
-    background-position: 20%
+    background-position: 40%;
+    height: 120vh;
+    margin-top: -8rem;
 }
 
     .carousel-container {
@@ -409,41 +542,26 @@ h2#admin-heading {
         display:none;
     }
 
-    .menu-heading-2 {
-        border: none;
-        font-size: 5rem;
-    }
-
-    .menu-heading {
-        border: none;
-        font-size: 5rem;
-        background-color: rgba(255, 255, 255, 0);
-
-        }
-
-    /* LOGIN PAGE */
-    #login-banner {
-        display:none;
-    }
-    
-    .login-heading {
-        display:none;
-    }
-        
+    .banner-text {
+        display: none;
 }
 
-@media only screen and (max-width: 768px) {
     /* LOGIN PAGE */
     #login-banner {
-        display:hidden;
+        display:none;
     }
     
     .login-heading {
         display:none;
     }
 
-    .main-heading { 
-        padding-top: 6rem;
-    }
+        
+.menu-img {
+    max-width: 150px;
+}
 
-  }
+
+.img-container{
+height: 10rem;
+}
+}

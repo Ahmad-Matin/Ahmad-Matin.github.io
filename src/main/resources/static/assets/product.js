@@ -11,8 +11,10 @@ function addBurger(item) {
     const itemHTML =
     `
     <div id ="${item.id}" class="col my-2">
-        <div class="card-body align-items-center border rounded my-4 p-0 pb-4 shadow-sm">
-            <img src="${item.img}" class="card-img-top rounded-top menu-img">
+    <div class="img-container d-flex justify-content-center p-4 mb-4">
+        <img src="${item.img}" class="rounded-top menu-img">
+    </div>
+        <div class="card-body align-items-center rounded my-4 p-0 pb-4 shadow">
             <div class="d-flex justify-content-between px-4 pt-4">
                     <h5 class="card-title mr-auto">${item.name}</h5>
                     <h5 class="card-text ml-auto">$${item.price}</h5>
@@ -37,11 +39,13 @@ function addBurger(item) {
 function addSides(item) {
 
     const itemHTML =
-        ` 
+    `
     <div id ="${item.id}" class="col my-2">
-        <div class="card-body align-items-center border rounded p-0 pb-4 shadow-sm">
-            <img src="${item.img}" class="card-img-top rounded-top menu-img">
-            <div class="d-flex justify-content-between px-4 pt-4">
+    <div class="img-container d-flex justify-content-center p-4 mb-4">
+        <img src="${item.img}" class="rounded-top menu-img">
+    </div>
+    <div class="card-body align-items-center rounded my-4 p-0 pb-4 shadow">
+    <div class="d-flex justify-content-between px-4 pt-4">
                     <h5 class="card-title mr-auto">${item.name}</h5>
                     <h5 class="card-text ml-auto">$${item.price}</h5>
             </div>
@@ -56,6 +60,7 @@ function addSides(item) {
             </div>
         </div>
     </div>
+
 `;
     sidesContainer.innerHTML += itemHTML;
 }
@@ -63,11 +68,13 @@ function addSides(item) {
 function addDesserts(item) {
 
     const itemHTML =
-        `
-     <div id ="${item.id}" class="col my-2">
-        <div class="card-body align-items-center border rounded p-0 pb-4 shadow-sm">
-            <img src="${item.img}" class="card-img-top rounded-top menu-img">
-            <div class="d-flex justify-content-between px-4 pt-4">
+    `
+    <div id ="${item.id}" class="col my-2">
+    <div class="img-container d-flex justify-content-center p-4 mb-4">
+        <img src="${item.img}" class="rounded-top menu-img">
+    </div>
+    <div class="card-body align-items-center rounded my-4 p-0 pb-4 shadow">
+    <div class="d-flex justify-content-between px-4 pt-4">
                     <h5 class="card-title mr-auto">${item.name}</h5>
                     <h5 class="card-text ml-auto">$${item.price}</h5>
             </div>
@@ -84,7 +91,6 @@ function addDesserts(item) {
     </div>
 
 `;
-
     dessertsContainer.innerHTML += itemHTML;
 }
 
@@ -165,8 +171,8 @@ function showCartItems() {
         cartItemInfo.innerHTML =
 
             `
-    <div class="d-flex flex-wrap align-items-center justify-content-between">
-        <img src=${cartItems[i].img} class="img-fluid checkout-item-img rounded p-0 mx-4 my-2 col-xs-8">
+    <div class="d-flex flex-wrap align-items-center justify-content-center">
+        <img src=${cartItems[i].img} class="checkout-item-img rounded p-0 mx-4 my-2 col-xs-8">
         <div class="d-flex flex-row row align-items-center p-0 my-2 mx-4 w-100 justify-content-between">
             <h5 class="card-title col-sm-12 col-md-8 p-0 my-2 text-left">${cartItems[i].name}</h5>
             <h5 class="card-title col-sm-12 col-md-4 p-0 my-2 text-right item-price">$${cartItems[i].price}</h5>
@@ -242,9 +248,11 @@ function addItemsToCart(product) {
     newCartItem.innerHTML =
         `
     <div class="d-flex flex-wrap align-items-center justify-content-between">
-        <img src=${product.img} class="img-fluid checkout-item-img rounded p-0 mx-4 my-2 col-xs-8">
+        <div class="checkout-img-container d-flex justify-content-center align-items-center px-4">
+        <img src=${product.img} class="checkout-item-img rounded p-0 mx-4 my-2 col-xs-8">
+        </div>
         <div class="d-flex flex-row row align-items-center p-0 my-2 mx-4 w-100 justify-content-between">
-           <h5 class="card-title col-sm-12 col-md-8 p-0 my-2 text-left">${product.name}</h5>
+           <h5 class="card-title col-sm-12 col-md-4 p-0 my-2 text-left">${product.name}</h5>
            <h5 class="card-title col-sm-12 col-md-4 p-0 my-2 text-right item-price">$${product.price}</h5>
         </div>
         <div class="d-flex col p-0 my-2 mx-4 justify-content-between align-items-center cart-quantity-container">
@@ -275,10 +283,10 @@ function createCartItem(productId, productName, productType, productImg, product
 document.querySelector("#products").addEventListener('click', (e) => {
 if (e.target.classList.contains("add")) {
     let productId = e.target.parentElement.parentElement.parentElement.parentElement.attributes.id.value;
-    let productName = e.target.parentElement.parentElement.parentElement.children[1].children[0].innerText;
+    let productName = e.target.parentElement.parentElement.parentElement.children[0].children[0].innerText;
     let productType = e.target.parentElement.parentElement.parentElement.parentElement.parentElement.attributes.id.value;
-    let productImg = e.target.parentElement.parentElement.parentElement.children[0].attributes.src.value;
-    let productPrice = e.target.parentElement.parentElement.parentElement.children[1].children[1].innerText.replace('$', '');
+    let productImg = e.target.parentElement.parentElement.parentElement.parentElement.children[0].children[0].attributes.src.value;
+    let productPrice = e.target.parentElement.parentElement.parentElement.children[0].children[1].innerText.replace('$', '');
     let itemNames = [];
     for (let i = 0; i < itemsInCart.length; i++) {
         let itemName = itemsInCart[i].children[0].children[1].children[0].innerText;

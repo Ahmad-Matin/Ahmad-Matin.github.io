@@ -12,20 +12,17 @@
     integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2" crossorigin="anonymous">
 
     <!--ICONS CSS -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 
     <!--CUSTOM CSS -->
 
     <link rel="stylesheet" href="../assets/style.css">
 
-    <!--FONTS-->
-
-    <link rel="preconnect" href="https://fonts.gstatic.com">
-    <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@400;500;600;700&display=swap" rel="stylesheet">
-    <link rel="preconnect" href="https://fonts.gstatic.com">
-    <link href="https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@400;500;600;700&family=Lato:wght@400;700&display=swap" rel="stylesheet">
-
+     <!--FONTS-->
+     <link rel="preconnect" href="https://fonts.gstatic.com">
+     <link href="https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@400;500;600;700&family=Lato:wght@400;700&display=swap" rel="stylesheet">
+     <link href="https://fonts.googleapis.com/css2?family=Raleway:wght@400;500;700&display=swap" rel="stylesheet">
+    
     
     <title>MCJ Final Project | Products</title>
 
@@ -39,7 +36,7 @@
 
       <!--HEADER-->
     <div class="fixed-top">
-        <div id="custom-navigation" class="navbar navbar-expand-sm my-0 py-3 custom-navbar navbar-dark">
+        <div id="custom-navigation" class="navbar navbar-expand-sm my-0 py-2 px-4 custom-navbar navbar-dark">
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarText"
                 aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
@@ -47,20 +44,21 @@
 
             <div class="collapse navbar-collapse" id="navbarText">
                 <ul class="navbar-nav mr-auto">
-                    <li class="nav-item">
+                    <li class="nav-item mr-4">
                         <a class="nav-link custom-navlink" href="../index.html">Home</a>
                     </li>
-                    <li class="nav-item">
+                    <li class="nav-item mr-4">
                         <a class="nav-link custom-navlink" href="about-us.html">About</a>
                     </li>
                 </ul>
                 <ul class="navbar-nav ml-auto">
-                    <li class="nav-item ">
-                        <a class="nav-link custom-navlink" href="login.html">Login <span
-                                class="sr-only">(current)</span></a>
+                    <li class="nav-item mr-4">
+                        <a class="nav-link custom-navlink" href="/login"><span class="material-icons md-36">perm_identity
+                            </span><span class="sr-only">(current)</span></a>
                     </li>
-                    <li class="nav-item ">
-                        <a class="nav-link custom-navlink" href="products.html">Order</a>
+                    <li class="nav-item">
+                        <a class="nav-link custom-navlink" href="products.html"><span class="material-icons md-36">
+                            shopping_cart</span></a>
                     </li>
                 </ul>
             </div>
@@ -77,8 +75,8 @@
 
     <!--BANNER-->
     <div id="banner">
-        <div class="banner-text d-flex justify-content-center align-items-center position-relative">
-            <h1 class="menu-heading position-absolute">Menu</h1>
+        <div class="banner-text d-flex justify-content-center align-items-between position-relative">
+            <h1 class="menu-heading position-absolute text-center">From the grill to your table.</h1>
             <!-- <h1 class="menu-heading-2 position-absolute">Menu</h1> -->
         </div>
     </div>
@@ -88,10 +86,10 @@
 
     <!--MENU CATEGORIES-->
 
-    <div id="menu-categories" class="menu-categories p-4">
-        <a id="burgerMenu" class="menu-category p-4" href="#burger">Burgers</a>
-        <a id="sidesMenu" class="menu-category p-4 " href="#sides">Sides</a>
-        <a id="dessertMenu" class="menu-category p-4" href="#dessert">Desserts</a>
+    <div id="menu-categories" class="menu-categories d-flex justify-content-around px-4 hide">
+        <a id="burgerMenu" class="menu-category  m-0 py-2 px-4 m-" href="#burger">Burgers</a>
+        <a id="sidesMenu" class="menu-category  m-0 py-2 px-4" href="#sides">Sides</a>
+        <a id="dessertMenu" class="menu-category  m-0 py-2 px-4" href="#dessert">Desserts</a>
     </div>
 
     <!--END MENU CATEGORIES-->
@@ -103,7 +101,7 @@
 
     <!--MENU-->
 
-    <div class="container-fluid d-flex flex-wrap-reverse row row-sm-1 mx-0">
+    <div class="container-fluid d-flex justify-content-around py-4 flex-wrap-reverse row row-sm-1 mx-0">
 
 
 
@@ -113,7 +111,7 @@
                 <div class="card justify-content-center mx-auto border-0" style="width: 100%">
                     <h3 class="card-name px-4 py-4">Burgers</h3>
 
-                    <div id="burger" class="row row-cols-1 row-cols-sm-1 row-cols-md-2 px-2 mx-auto"
+                    <div id="burger" class="row row-cols-1 row-cols-sm-1 row-cols-xl-2 px-2 mx-auto"
                         style="width:100%">
                     </div>
 
@@ -126,7 +124,7 @@
                 <div class="card justify-content-center mx-auto border-0" style="width: 100%">
                     <h3 class="card-name px-4 py-4">Sides</h3>
 
-                    <div id="sides" class="row row-cols-1 row-cols-sm-1 row-cols-md-2 px-2 mx-auto" style="width:100% ">
+                    <div id="sides" class="row row-cols-1 row-cols-sm-1 row-cols-xl-2 px-2 mx-auto" style="width:100% ">
 
                     </div>
 
@@ -137,7 +135,7 @@
                 <div class="card justify-content-center mx-auto border-0" style="width: 100%">
                     <h3 class="card-name px-4 py-4">Desserts</h3>
 
-                    <div id="dessert" class="row row-cols-1 row-cols-sm-1 row-cols-md-2 px-2 mx-auto"
+                    <div id="dessert" class="row row-cols-1 row-cols-sm-1 row-cols-xl-2 px-2 mx-auto"
                         style="width:100% ">
 
                     </div>
@@ -148,7 +146,7 @@
         </div>
         <!--END MENU-->
         <!--CHECKOUT-->
-        <div id="cart-section" class="card py-4 col-md-5 col-sm-5 col-xs-1">
+        <div id="cart-section" class="card-body shadow-sm rounded py-4 col-md-4 col-sm-5 col-xs-1">
             <h3 class="card-name my-4 mx-4 text-center">Cart</h3>
 
             <ul class="p-0 m-0">

@@ -1,7 +1,10 @@
-const mediaQuery = window.matchMedia('(min-width: 600px)');
+const mediaQuery = window.matchMedia('(min-width: 768px)');
+var menunav = document.getElementById("menu-categories");
 
 function changeNavBarColor(mediaQuery) {
     if (mediaQuery.matches) {
+
+        menunav.classList.remove("hide");
 
         window.onscroll = function () { scrollFunction() };
         function scrollFunction() {
@@ -9,33 +12,39 @@ function changeNavBarColor(mediaQuery) {
             let burgerCategory = document.getElementById("burgerMenu");
             let sidesCategory = document.getElementById("sidesMenu");
             let dessertCategory = document.getElementById("dessertMenu");
+            let winScroll = document.body.scrollTop || document.documentElement.scrollTop;
+            let height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+            let scrolled = (winScroll/height) * 100;
             
-            if (document.body.scrollTop > 100 || document.documentElement.scrollTop > 100) {
+            if (scrolled > 2) {
                 navbar.classList.add('custom-navbar-scroll'); 
+                burgerCategory.classList.add("inactive");
+                sidesCategory.classList.add("inactive");
+                dessertCategory.classList.add("inactive");
 
-                if (document.body.scrollTop > 300 || document.documentElement.scrollTop > 300) {
-                    burgerCategory.classList.add("active", "black-font");
-                    sidesCategory.classList.remove("active", "black-font");
-                    sidesCategory.classList.add("white-font");
-                    dessertCategory.classList.remove("active", "black-font");
-                    dessertCategory.classList.add("white-font");
+                if (scrolled > 20) {
+                    burgerCategory.classList.add("active");
+                    sidesCategory.classList.remove("active");
+                    sidesCategory.classList.add("inactive");
+                    dessertCategory.classList.remove("active");
+                    dessertCategory.classList.add("inactive");
 
                 }
 
-                 if (document.body.scrollTop > 1500 || document.documentElement.scrollTop > 1500) {
-                    sidesCategory.classList.add("active", "black-font");
-                    burgerCategory.classList.remove("active", "black-font");
-                    burgerCategory.classList.add("white-font");
-                    dessertCategory.classList.remove("active", "black-font");
-                    dessertCategory.classList.add("white-font");
+                 if (scrolled > 60) {
+                    sidesCategory.classList.add("active");
+                    burgerCategory.classList.remove("active");
+                    burgerCategory.classList.add("inactive");
+                    dessertCategory.classList.remove("active");
+                    dessertCategory.classList.add("inactive");
                 }
                 
-                if (document.body.scrollTop > 2100 || document.documentElement.scrollTop > 2100) {
-                    dessertCategory.classList.add("active", "black-font");
-                    sidesCategory.classList.remove("active", "black-font");
-                    sidesCategory.classList.add("white-font");
-                    burgerCategory.classList.remove("active", "black-font");
-                    burgerCategory.classList.add("white-font");
+                if (scrolled > 85) {
+                    dessertCategory.classList.add("active");
+                    sidesCategory.classList.remove("active");
+                    sidesCategory.classList.add("inactive");
+                    burgerCategory.classList.remove("active");
+                    burgerCategory.classList.add("inactive");
 
                 }
     
@@ -55,3 +64,33 @@ changeNavBarColor(mediaQuery);
 
 // add animation
 // add cart nav button 
+
+
+// if (document.body.scrollTop > 100 || document.documentElement.scrollTop > 100) {
+//     navbar.classList.add('custom-navbar-scroll'); 
+
+//     if (document.body.scrollTop > 0 || document.documentElement.scrollTop > 0) {
+//         burgerCategory.classList.add("active");
+//         sidesCategory.classList.remove("active");
+//         sidesCategory.classList.add("inactive");
+//         dessertCategory.classList.remove("active");
+//         dessertCategory.classList.add("inactive");
+
+//     }
+
+//      if (document.body.scrollTop > 2400 || document.documentElement.scrollTop > 2400) {
+//         sidesCategory.classList.add("active");
+//         burgerCategory.classList.remove("active");
+//         burgerCategory.classList.add("inactive");
+//         dessertCategory.classList.remove("active");
+//         dessertCategory.classList.add("inactive");
+//     }
+    
+//     if (document.body.scrollTop > 2900 || document.documentElement.scrollTop > 2900) {
+//         dessertCategory.classList.add("active");
+//         sidesCategory.classList.remove("active");
+//         sidesCategory.classList.add("inactive");
+//         burgerCategory.classList.remove("active");
+//         burgerCategory.classList.add("inactive");
+
+//     }

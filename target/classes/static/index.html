@@ -11,8 +11,8 @@
 
 
         
-    <!--ICONS CSS -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+     <!--ICONS CSS -->
+     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 
 
     <!--CUSTOM CSS -->
@@ -22,9 +22,8 @@
     <!--FONTS-->
 
     <link rel="preconnect" href="https://fonts.gstatic.com">
-    <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@400;500;600;700&display=swap" rel="stylesheet">
-    <link rel="preconnect" href="https://fonts.gstatic.com">
-    <link href="https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@400;500;600;700&family=Lato:wght@400;700&display=swap" rel="stylesheet">
+ <link href="https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@400;500;600;700&family=Lato:wght@400;700&display=swap" rel="stylesheet">
+ <link href="https://fonts.googleapis.com/css2?family=Raleway:wght@400;500;700&display=swap" rel="stylesheet">
 
     <!--JS -->
     <script src="assets/script.js"></script>
@@ -33,45 +32,42 @@
 </head>
 
 <body>
-    <!--HEADER-->
-    <div class="fixed-top">
-        <div id="custom-navigation" class="navbar navbar-expand-sm my-0 py-3 custom-navbar navbar-dark">
-            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarText"
-                aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-            </button>
+  <!--HEADER-->
+  <div class="fixed-top">
+    <div id="custom-navigation" class="navbar navbar-expand-sm my-0 py-2 px-4 custom-navbar navbar-dark">
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarText"
+            aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
 
-            <div class="collapse navbar-collapse" id="navbarText">
-                <ul class="navbar-nav mr-auto">
-                    <li class="nav-item">
-                        <a class="nav-link custom-navlink" href="../index.html">Home</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link custom-navlink" href="pages/about-us.html">About</a>
-                    </li>
-                </ul>
-                <ul class="navbar-nav ml-auto">
-                    <li class="nav-item ">
-                        <a class="nav-link custom-navlink" href="pages/admin.html">Admin <span
-                                class="sr-only">(current)</span></a>
-                    </li>
-                    <li class="nav-item ">
-                        <a class="nav-link custom-navlink" href="pages/login.html">Login <span
-                                class="sr-only">(current)</span></a>
-                    </li>
-                    <li class="nav-item ">
-                        <a class="nav-link custom-navlink" href="pages/products.html">Order</a>
-                    </li>
-                </ul>
-            </div>
-
+        <div class="collapse navbar-collapse" id="navbarText">
+            <ul class="navbar-nav mr-auto">
+                <li class="nav-item mr-4">
+                    <a class="nav-link custom-navlink" href="index.html">Home</a>
+                </li>
+                <li class="nav-item mr-4">
+                    <a class="nav-link custom-navlink" href="pages/about-us.html">About</a>
+                </li>
+            </ul>
+            <ul class="navbar-nav ml-auto">
+                <li class="nav-item mr-4">
+                    <a class="nav-link custom-navlink" href="pages/login.html"><span class="material-icons md-36">perm_identity
+                        </span><span class="sr-only">(current)</span></a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link custom-navlink" href="pages/products.html"><span class="material-icons md-36">
+                        shopping_cart</span></a>
+                </li>
+            </ul>
         </div>
+        
     </div>
+</div>
 
 
 
 
-    <!--END HEADER-->
+<!--END HEADER-->
 
         <!--BANNER-->
         <div id="banner">
@@ -84,152 +80,58 @@
         <!--END BANNER -->
 
 
-    <!--SEARCH-->
-    <div class="container-fluid m-0 py-2">
-        <div class="card m-0 search-bar">
-            <h4 class="mb-4">What do you feel like eating today?</h4>
-            <form>
-                <div class="row w-100">
-                    <div class="col">
-                        <input class=" form-control mr-sm-2 search-input" type="search"
-                            placeholder="Find your favourite dish, cuisine or restaurant" aria-label="Search">
-                    </div>
-                    <div class="col">
-                        <button class="btn btn-outline-success my-2 my-sm-0 search-button" type="submit">Search</button>
-                    </div>
-                </div>
-            </form>
-        </div>
-    </div>
-
-    <!--END SEARCH-->
-
-    <!--MENU-->
-
-    <div class="container-fluid m-0 py-3">
-        <div class="card justify-content-center mx-auto" style="width: 100%">
-            <h3 class="card-name px-4 py-4">New Restaurants</h3>
-            <div class="row row-cols-1 row-cols-sm-2 row-cols-md-4 px-2 py-4 mx-auto" style="width:100%">
-                <div class="col">
-                    <div class="card border-0 align-items-center">
-                        <img src="https://images.pexels.com/photos/1108104/pexels-photo-1108104.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260"
-                            class="card-img-top rounded menu-img" alt="...">
-                        <div class="card-body">
-                            <h5 class="card-name">Restaurant 1</h5>
-                            <p class="card-text">Some quick example text to build on the card name and make up
-                                the bulk of the card's content.</p>
-                            <a href="#" class="btn btn-primary">Go somewhere</a>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="col">
-                    <div class="card border-0">
-                        <img src="https://images.pexels.com/photos/1775043/pexels-photo-1775043.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260"
-                            class="card-img-top rounded menu-img" alt="...">
-                        <div class="card-body">
-                            <h5 class="card-name">Restaurant 2</h5>
-                            <p class="card-text">Some quick example text to build on the card name and make up
-                                the bulk of the card's content.</p>
-                            <a href="#" class="btn btn-primary">Go somewhere</a>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="col">
-                    <div class="card border-0">
-                        <img src="https://images.pexels.com/photos/70497/pexels-photo-70497.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260"
-                            class="card-img-top rounded menu-img" alt="...">
-                        <div class="card-body">
-                            <h5 class="card-name">Restaurant 3</h5>
-                            <p class="card-text">Some quick example text to build on the card name and make up
-                                the bulk of the card's content.</p>
-                            <a href="#" class="btn btn-primary">Go somewhere</a>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="col">
-                    <div class="card border-0">
-                        <img src="https://images.pexels.com/photos/3535383/pexels-photo-3535383.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260"
-                            class="card-img-top rounded menu-img" alt="...">
-                        <div class="card-body">
-                            <h5 class="card-name">Restaurant 4</h5>
-                            <p class="card-text">Some quick example text to build on the card name and make up
-                                the bulk of the card's content.</p>
-                            <a href="#" class="btn btn-primary">Go somewhere</a>
-                        </div>
-                    </div>
-                </div>
+    <div id="container-fluid mx-2 mt-4">
+        <div class="steps-container d-flex row row-cols-1 row-cols-xs-1 row-cols-sm-2">
+            <div class="steps-img-container">
+                <img src="assets/imgs/product-photos/maiqui-cordeiro-QCPMwPcZhaQ-unsplash_edited.jpg" class="steps-img ml-4 col">
             </div>
-
-        </div>
-    </div>
-
-    <!--END MENU-->
-
-    <!--MENU 2-->
-    <div class="container-fluid m-0 py-3">
-        <div class="card justify-content-center mx-auto" style="width: 100%">
-            <h3 class="card-name px-4 py-4">Popular Restaurants</h3>
-            <div class="row row-cols-1 row-cols-sm-2 row-cols-md-4 px-2 py-4 mx-auto" style="width:100%">
-                <div class="col">
-                    <div class="card border-0 align-items-center">
-                        <img src="https://images.pexels.com/photos/3662136/pexels-photo-3662136.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260"
-                            class="card-img-top rounded menu-img" alt="...">
-                        <div class="card-body">
-                            <h5 class="card-name">Restaurant 1</h5>
-                            <p class="card-text">Some quick example text to build on the card name and make up
-                                the bulk of the card's content.</p>
-                            <a href="#" class="btn btn-primary">Go somewhere</a>
+            <div class= "steps-heading text-left col">   
+                <h2>Step 1</h2>
+                <h3 class="mt-4 w-75">Check if we deliver to your area.</h3>
+                <!--SEARCH-->
+                <form class= "search-bar m-0">
+                        <div class="d-flex flex-row justify-content-between mt-4 row row-cols-1 row-cols-sm-1 row-cols-md-2">
+                            <input class="form-control search-input mr-4 shadow-sm" type="search"
+                                placeholder="Enter postal code" aria-label="Search">
+                            <button class="btn my-4 search-button" type="submit">Search</button>
                         </div>
-                    </div>
-                </div>
-
-                <div class="col">
-                    <div class="card border-0">
-                        <img src="https://images.pexels.com/photos/3026808/pexels-photo-3026808.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260"
-                            class="card-img-top rounded menu-img" alt="...">
-                        <div class="card-body">
-                            <h5 class="card-name">Restaurant 2</h5>
-                            <p class="card-text">Some quick example text to build on the card name and make up
-                                the bulk of the card's content.</p>
-                            <a href="#" class="btn btn-primary">Go somewhere</a>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="col">
-                    <div class="card border-0">
-                        <img src="https://images.pexels.com/photos/1640772/pexels-photo-1640772.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260"
-                            class="card-img-top rounded menu-img" alt="...">
-                        <div class="card-body">
-                            <h5 class="card-name">Restaurant 3</h5>
-                            <p class="card-text">Some quick example text to build on the card name and make up
-                                the bulk of the card's content.</p>
-                            <a href="#" class="btn btn-primary">Go somewhere</a>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="col">
-                    <div class="card border-0">
-                        <img src="https://images.pexels.com/photos/1600711/pexels-photo-1600711.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260"
-                            class="card-img-top rounded menu-img" alt="...">
-                        <div class="card-body">
-                            <h5 class="card-name">Restaurant 4</h5>
-                            <p class="card-text">Some quick example text to build on the card name and make up
-                                the bulk of the card's content.</p>
-                            <a href="#" class="btn btn-primary">Go somewhere</a>
-                        </div>
-                    </div>
-                </div>
+                </form>
+        <!--END SEARCH-->
             </div>
-            <button class="btn my-3 mx-4 button-2">Show More</button>
         </div>
     </div>
 
-    <!--END MENU 2-->
+
+    <div id="container-fluid mx-2 mt-4">
+        <div class="steps-container d-flex flex-row-reverse row row-cols-1 row-cols-xs-1 row-cols-sm-2">
+            <img src="assets/imgs/product-photos/pexels-rajesh-tp-1633572_edited.jpg" class="steps-img col">
+            <div class= "step-reverse-heading text-left col">   
+                <h2>Step 2</h2>
+                <h3 class="mt-4 w-75">Login or create an account!</h3>
+                            <a class="btn my-4 orderpage-button" href="pages/login.html">Go to login page</a>
+            </div>
+        </div>
+    </div>
+
+
+        <!--SEARCH-->
+        <!-- <div class="container-fluid mb-4 py-2">
+            <div class="card m-0 search-bar">
+                <h4 class="mb-4">What do you feel like eating today?</h4>
+                <form>
+                    <div class="row w-100">
+                        <div class="col">
+                            <input class=" form-control mr-sm-2 search-input" type="search"
+                                placeholder="Find your favourite dish, cuisine or restaurant" aria-label="Search">
+                        </div>
+                        <div class="col">
+                            <button class="btn btn-outline-success my-2 my-sm-0 search-button" type="submit">Search</button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div> -->
+        <!--END SEARCH-->
 
     <!-- Optional JavaScript; choose one of the two! -->
 
