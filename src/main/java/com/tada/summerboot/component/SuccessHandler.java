@@ -21,7 +21,7 @@ public class SuccessHandler implements AuthenticationSuccessHandler {
          authentication = SecurityContextHolder.getContext().getAuthentication();
 //        String currentPrincipalName = authentication.getName();
         if(authentication.getName()=="admin"){
-            httpServletResponse.sendRedirect("/pages/admin.html");
+            httpServletResponse.sendRedirect("/admin");
         }else httpServletResponse.sendRedirect("/every-products");
     }
 }

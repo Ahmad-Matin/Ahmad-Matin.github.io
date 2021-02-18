@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="en" xmlns="http://www.w3.org/1999/xhtml" xmlns:th="https://www.thymeleaf.org" xmlns:sec="https://www.thymeleaf.org/thymeleaf-extras-springsecurity3">
+<html lang="en">
 
 <head>
     <!-- Required meta tags -->
@@ -9,25 +9,22 @@
     <!-- Bootstrap CSS -->
     <!-- CSS only -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css"
-          integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2" crossorigin="anonymous">
+    integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2" crossorigin="anonymous">
 
     <!--ICONS CSS -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 
     <!--CUSTOM CSS -->
 
-    <link rel="stylesheet" href="/assets/style.css">
+    <link rel="stylesheet" href="../assets/style.css">
 
-    <!--FONTS-->
-
-    <link rel="preconnect" href="https://fonts.gstatic.com">
-    <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@400;500;600;700&display=swap" rel="stylesheet">
-    <link rel="preconnect" href="https://fonts.gstatic.com">
-    <link href="https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@400;500;600;700&family=Lato:wght@400;700&display=swap" rel="stylesheet">
-
-
-    <title>MCJProject Menu</title>
+     <!--FONTS-->
+     <link rel="preconnect" href="https://fonts.gstatic.com">
+     <link href="https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@400;500;600;700&family=Lato:wght@400;700&display=swap" rel="stylesheet">
+     <link href="https://fonts.googleapis.com/css2?family=Raleway:wght@400;500;700&display=swap" rel="stylesheet">
+    
+    
+    <title>MCJ Final Project | Products</title>
 
     <!--JS -->
 
@@ -37,174 +34,156 @@
 
 <body>
 
-<!--HEADER-->
-<div th:switch="${products}" class="fixed-top">
-    <div id="custom-navigation" class="navbar navbar-expand-sm my-0 py-3 custom-navbar navbar-dark">
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarText"
+      <!--HEADER-->
+    <div class="fixed-top">
+        <div id="custom-navigation" class="navbar navbar-expand-sm my-0 py-2 px-4 custom-navbar navbar-dark">
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarText"
                 aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-        </button>
+                <span class="navbar-toggler-icon"></span>
+            </button>
 
-        <div class="collapse navbar-collapse" id="navbarText">
-            <ul class="navbar-nav mr-auto">
-                <li class="nav-item">
-                    <a class="nav-link custom-navlink" href="../static/index.html">Home</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link custom-navlink" href="../static/pages/about-us.html">About</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link custom-navlink" th:inline="text">Hello [[${#httpServletRequest.remoteUser}]]!</a>
-                </li>
-                <li class="nav-item">
-                    <form th:action="@{/logout}" method="post">
-                        <input type="submit" value="Sign Out"/>
-                    </form>
-                </li>
-            </ul>
-        </div>
-        <div class="collapse navbar-collapse" id="navbarText">
-            <ul class="navbar-nav ml-auto">
-                <li class="nav-item ">
-                    <a class="nav-link custom-navlink" href="../login">Login <span
-                            class="sr-only">(current)</span></a>
-                </li>
-                <li class="nav-item ">
-                    <a class="nav-link custom-navlink" href="/product">Order</a>
-                </li>
-            </ul>
-        </div>
-    </div>
-</div>
-</div>
-
-
-
-
-<!--END HEADER-->
-
-
-
-<!--BANNER-->
-<div id="banner">
-    <div class="banner-text d-flex justify-content-center align-items-center position-relative">
-        <h1 class="menu-heading position-absolute">Menu</h1>
-        <h1 class="menu-heading-2 position-absolute">Menu</h1>
-    </div>
-</div>
-
-
-<!--END BANNER -->
-
-<!--MENU CATEGORIES-->
-
-<div id="menu-categories" class="menu-categories p-4">
-    <a id="burgerMenu" class="menu-category p-4" href="#burger">Burgers</a>
-    <a id="sidesMenu" class="menu-category p-4 " href="#sides">Sides</a>
-    <a id="dessertMenu" class="menu-category p-4" href="#dessert">Desserts</a>
-</div>
-
-<!--END MENU CATEGORIES-->
-
-<div id="update-container" class="container-fluid my-5">
-
-</div>
-
-
-<!--MENU-->
-
-<div class="container-fluid d-flex flex-wrap-reverse row row-sm-1 mx-0">
-
-
-
-
-    <div id="products" class="col-md-7 col-sm-7 col-xs-1">
-        <div class="container-fluid m-0 py-3 p-0">
-            <div class="card justify-content-center mx-auto border-0" style="width: 100%">
-                <h3 class="card-title px-4 py-4">Burgers</h3>
-
-                <div id="burger" class="row row-cols-1 row-cols-sm-1 row-cols-md-2 px-2 mx-auto"
-                     style="width:100%">
-                </div>
-
-
+            <div class="collapse navbar-collapse" id="navbarText">
+                <ul class="navbar-nav mr-auto">
+                    <li class="nav-item mr-4">
+                        <a class="nav-link custom-navlink" href="../index.html">Home</a>
+                    </li>
+                    <li class="nav-item mr-4">
+                        <a class="nav-link custom-navlink" href="about-us.html">About</a>
+                    </li>
+                </ul>
+                <ul class="navbar-nav ml-auto">
+                    <li class="nav-item mr-4">
+                        <a class="nav-link custom-navlink" href="/login"><span class="material-icons md-36">perm_identity
+                            </span><span class="sr-only">(current)</span></a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link custom-navlink" href="products.html"><span class="material-icons md-36">
+                            shopping_cart</span></a>
+                    </li>
+                </ul>
             </div>
+            
         </div>
+    </div>
 
 
-        <div class="container-fluid m-0 py-3 p-0">
-            <div class="card justify-content-center mx-auto border-0" style="width: 100%">
-                <h3 class="card-title px-4 py-4">Sides</h3>
 
-                <div id="sides" class="row row-cols-1 row-cols-sm-1 row-cols-md-2 px-2 mx-auto" style="width:100% ">
+
+    <!--END HEADER-->
+
+
+
+    <!--BANNER-->
+    <div id="banner">
+        <div class="banner-text d-flex justify-content-center align-items-between position-relative">
+            <h1 class="menu-heading position-absolute text-center">From the grill to your table.</h1>
+            <!-- <h1 class="menu-heading-2 position-absolute">Menu</h1> -->
+        </div>
+    </div>
+
+
+    <!--END BANNER -->
+
+    <!--MENU CATEGORIES-->
+
+    <div id="menu-categories" class="menu-categories d-flex justify-content-around px-4 hide">
+        <a id="burgerMenu" class="menu-category  m-0 py-2 px-4 m-" href="#burger">Burgers</a>
+        <a id="sidesMenu" class="menu-category  m-0 py-2 px-4" href="#sides">Sides</a>
+        <a id="dessertMenu" class="menu-category  m-0 py-2 px-4" href="#dessert">Desserts</a>
+    </div>
+
+    <!--END MENU CATEGORIES-->
+
+    <div id="update-container" class="container-fluid my-5">
+
+    </div>
+
+
+    <!--MENU-->
+
+    <div class="container-fluid d-flex justify-content-around py-4 flex-wrap-reverse row row-sm-1 mx-0">
+
+
+
+
+        <div id="products" class="col-md-7 col-sm-7 col-xs-1">
+            <div class="container-fluid m-0 py-3 p-0">
+                <div class="card justify-content-center mx-auto border-0" style="width: 100%">
+                    <h3 class="card-name px-4 py-4">Burgers</h3>
+
+                    <div id="burger" class="row row-cols-1 row-cols-sm-1 row-cols-xl-2 px-2 mx-auto"
+                        style="width:100%">
+                    </div>
+
 
                 </div>
-
             </div>
-        </div>
 
-        <div class="container-fluid m-0 py-3 p-0">
-            <div class="card justify-content-center mx-auto border-0" style="width: 100%">
-                <h3 class="card-title px-4 py-4">Desserts</h3>
 
-                <div id="dessert" class="row row-cols-1 row-cols-sm-1 row-cols-md-2 px-2 mx-auto"
-                     style="width:100% ">
+            <div class="container-fluid m-0 py-3 p-0">
+                <div class="card justify-content-center mx-auto border-0" style="width: 100%">
+                    <h3 class="card-name px-4 py-4">Sides</h3>
+
+                    <div id="sides" class="row row-cols-1 row-cols-sm-1 row-cols-xl-2 px-2 mx-auto" style="width:100% ">
+
+                    </div>
 
                 </div>
-
             </div>
+
+            <div class="container-fluid m-0 py-3 p-0">
+                <div class="card justify-content-center mx-auto border-0" style="width: 100%">
+                    <h3 class="card-name px-4 py-4">Desserts</h3>
+
+                    <div id="dessert" class="row row-cols-1 row-cols-sm-1 row-cols-xl-2 px-2 mx-auto"
+                        style="width:100% ">
+
+                    </div>
+
+                </div>
+            </div>
+
         </div>
+        <!--END MENU-->
+        <!--CHECKOUT-->
+        <div id="cart-section" class="card-body shadow-sm rounded py-4 col-md-4 col-sm-5 col-xs-1">
+            <h3 class="card-name my-4 mx-4 text-center">Cart</h3>
 
-    </div>
-    <!--END MENU-->
-    <!--CHECKOUT-->
-    <div id="cart-section" class="card py-4 col-md-5 col-sm-5 col-xs-1">
-        <h3 class="card-title my-4 mx-4 text-center">Cart</h3>
-
-        <ul class="p-0 m-0">
-            <li id="empty-cart" class="card checkout-item, border-0 hide">
-                <h5 class="card-title col py-4 text-center">Your cart is empty.</h5>
-            </li>
-            <ul id="checkout-container" class="p-0 m-0 list-unstyled ">
+            <ul class="p-0 m-0">
+                <li id="empty-cart" class="card checkout-item, border-0 hide">
+                    <h5 class="card-name col py-4 text-center">Your cart is empty.</h5>
+                </li>
+                <ul id="checkout-container" class="p-0 m-0 list-unstyled ">
+                </ul>
             </ul>
-        </ul>
 
 
-        <div id="cart-checkout" class="hide">
-            <div class="card my-4 border-0 d-flex flex-row flex-wrap justify-content-between mx-4">
-                <h3 class="card-title text-center lato-font">Total:</h3>
-                <h3 id="cart-total" class="card-title text-center lato-font"></h3>
+            <div id="cart-checkout" class="hide">
+                <div class="card my-4 border-0 d-flex flex-row flex-wrap justify-content-between mx-4">
+                    <h3 class="card-name text-center lato-font">Total:</h3>
+                    <h3 id="cart-total" class="card-name text-center lato-font"></h3>
+                </div>
+
+                <div class="d-flex flex-column justify-content-end">
+                    <a class="btn btn-primary px-4 py-3 mx-4 btn-large">Checkout</a>
+                </div>
             </div>
 
-            <div class="d-flex flex-column justify-content-end">
-                <a class="btn btn-primary px-4 py-3 mx-4 btn-large">Checkout</a>
-            </div>
         </div>
+        <!--CHECKOUT-->
 
     </div>
-    <!--CHECKOUT-->
 
-</div>
+    <!-- Optional JavaScript; choose one of the two! -->
 
+    <!-- Option 2: jQuery, Popper.js, and Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.min.js" integrity="sha384-w1Q4orYjBQndcko6MimVbzY0tgp4pWB4lZ7lr30WKz0vr/aWKhXdBNmNb5D92v7s" crossorigin="anonymous"></script>
+   
 
-<!-- FOOTER -->
-
-<div class="container-fluid footer">
-    <a class="btn btn-success m-4" id="show-admin-buttons">Admin</a>
-    <a class="btn btn-warning hide" id="add-new-item" href="#update-container">Add Item</a>
-</div>
-<!--END FOOTER-->
-
-<!-- Optional JavaScript; choose one of the two! -->
-
-<!-- Option 2: jQuery, Popper.js, and Bootstrap JS
-<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
-<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.min.js" integrity="sha384-w1Q4orYjBQndcko6MimVbzY0tgp4pWB4lZ7lr30WKz0vr/aWKhXdBNmNb5D92v7s" crossorigin="anonymous"></script>
--->
-
-<script src="/assets/product.js"></script>
-<script src="/assets/menuCategories.js"></script>
+    <script src="../assets/product.js"></script>
+    <script src="../assets/menuCategories.js"></script>
 
 
 </body>
