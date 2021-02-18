@@ -11,12 +11,12 @@ public class MvcConfig implements WebMvcConfigurer {
 		registry.addViewController("/hello").setViewName("hello");
 		registry.addViewController("/error").setViewName("error");
 
-//		//Just to demo fragments
-//		registry.addViewController("/fragment1").setViewName("fragment1");
-//		registry.addViewController("/fragment2").setViewName("fragment2");
+		//Just to demo fragments
+		registry.addViewController("/fragment1").setViewName("fragment1");
+		registry.addViewController("/fragment2").setViewName("fragment2");
 
-//		registry.addViewController("/cart").setViewName("cart");
-//		registry.addViewController("/view-cart").setViewName("view-cart");
+		registry.addViewController("/cart").setViewName("cart");
+		registry.addViewController("/view-cart").setViewName("view-cart");
 
 	}
 }

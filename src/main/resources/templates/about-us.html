@@ -1,5 +1,6 @@
 <!doctype html>
-<html lang="en">
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml" xmlns:th="https://www.thymeleaf.org"
+      xmlns:sec="https://www.thymeleaf.org/thymeleaf-extras-springsecurity3">
 
 <head>
     <!-- Required meta tags -->
@@ -20,12 +21,23 @@
 
     <!--FONTS-->
 
+<<<<<<< Updated upstream:src/main/resources/static/pages/about-us.html
      <!--FONTS-->
      <link rel="preconnect" href="https://fonts.gstatic.com">
      <link href="https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@400;500;600;700&family=Lato:wght@400;700&display=swap" rel="stylesheet">
      <link href="https://fonts.googleapis.com/css2?family=Raleway:wght@400;500;700&display=swap" rel="stylesheet">
     
     <title>MCJ Final Project | About Us</title>
+=======
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@400;500;600;700&family=Lato:wght@400;700&display=swap"
+        rel="stylesheet">
+
+    <name>About MCJ</name>
+>>>>>>> Stashed changes:src/main/resources/templates/about-us.html
 
     <!--JS -->
 
@@ -45,16 +57,25 @@
 
             <div class="collapse navbar-collapse" id="navbarText">
                 <ul class="navbar-nav mr-auto">
+<<<<<<< Updated upstream:src/main/resources/static/pages/about-us.html
                     <li class="nav-item mr-4">
                         <a class="nav-link custom-navlink" href="../index.html">Home</a>
                     </li>
                     <li class="nav-item mr-4">
                         <a class="nav-link custom-navlink" href="about-us.html">About</a>
+=======
+                    <li class="nav-item">
+                        <a class="nav-link custom-navlink" href="/">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link custom-navlink" href="/about-us">About</a>
+>>>>>>> Stashed changes:src/main/resources/templates/about-us.html
                     </li>
                 </ul>
             </div>
             <div class="collapse navbar-collapse" id="navbarText">
                 <ul class="navbar-nav ml-auto">
+<<<<<<< Updated upstream:src/main/resources/static/pages/about-us.html
                     <li class="nav-item mr-4">
                         <a class="nav-link custom-navlink" href="../login"><span
                                 class="material-icons md-36">perm_identity
@@ -63,6 +84,24 @@
                     <li class="nav-item">
                         <a class="nav-link custom-navlink" href="products.html"><span class="material-icons md-36">
                                 shopping_cart</span></a>
+=======
+                    <li  class="nav-item ">
+                        <a class="nav-link custom-navlink" sec:authorize="isAuthenticated()" th:inline="text">Hello [[${#httpServletRequest.remoteUser}]]!</a>
+                    </li>
+                    <li  class="nav-item ">
+                        <button sec:authorize="isAuthenticated()" th:action="@{/logout}" method="post" class="btn btn-outline-success my-2 my-sm-0 search-button" type="submit">Sign Out</button>
+                    </li>
+                    <!--Incorporated stuff-->
+                    <li  class="nav-item ">
+                        <a sec:authorize="hasRole('ROLE_ADMIN')" class="nav-link custom-navlink" href="pages/admin.html">Admin <span
+                                class="sr-only">(current)</span></a>
+                    </li>
+                    <li class="nav-item ">
+                        <a class="nav-link custom-navlink" href="/login">Login <span class="sr-only">(current)</span></a>
+                    </li>
+                    <li class="nav-item ">
+                        <a sec:authorize="isAuthenticated()" class="nav-link custom-navlink" href="../static/pages/products.html">Order</a>
+>>>>>>> Stashed changes:src/main/resources/templates/about-us.html
                     </li>
                 </ul>
             </div>
@@ -72,7 +111,16 @@
 
     <div class="custom-spacing">
     </div>
+<<<<<<< Updated upstream:src/main/resources/static/pages/about-us.html
 
+=======
+    <div class="custom-spacing">
+    </div>
+    <div >
+        <h3 class="my-3 josefin-sans text-center josefin-sans">About MCJ</h3>
+    </div>
+   
+>>>>>>> Stashed changes:src/main/resources/templates/about-us.html
     <!--TEAM MEMBERS-->
 
     <div class="container-fluid pt-4 mt-4">
