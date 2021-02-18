@@ -1,0 +1,567 @@
+
+p, h5, a {
+ font-family: "Raleway", sans-serif;
+}
+
+h1, h2, h3 {
+    font-family: "Josefin Sans", sans-serif;
+}
+
+h1, h2, h3, h5, a {
+    font-weight: 700;
+}
+
+h1 {
+    font-size: 10rem;
+}
+
+h2 {
+    font-size: 8rem;
+}
+
+h3 {
+    font-size: 2rem;
+}
+
+.material-icons.md-36 { 
+    font-size: 36px; 
+}
+
+
+.custom-button {
+    width: 10rem;
+}
+
+.josefin-sans {
+    font-family: "Josefin Sans", sans-serif;
+}
+
+.lato-font {
+    font-family: "Lato", sans-serif;
+}
+
+.custom-navbar {
+    font-weight: 600;
+    font-size: 1.5rem;
+}
+
+.custom-navbar-scroll {
+    transition: background-color 300ms;
+    background-color: rgb(255, 174, 0);
+    font-size: 1.5rem;
+    font-weight: 700;
+}
+
+.navbar-dark .navbar-toggler {
+    color: white;
+    border-color: white;
+}
+
+.navbar-dark .navbar-nav .nav-link {
+    color: #fff;
+    transition: color 300ms;
+} 
+
+.navbar-dark .navbar-nav .nav-link:hover{
+    color: black;
+}
+
+
+
+.custom-heading {
+    height: 20rem;
+    text-align: center;
+    background-color: #fff;
+}
+
+.custom-heading h1 {
+    font-weight: 200;
+}
+
+.custom-heading p {
+    font-weight: 200;
+}
+
+
+.team-profile h4 {
+    font-weight: 700;
+}
+
+
+.profile-img {
+    border-radius: 100%;
+    object-fit:cover;
+    width: 70%;
+}
+
+
+.social-media-favicon {
+    width: 25px;
+    margin-right: 1%;
+}
+
+/* HOME PAGE */
+
+.main-title{ 
+    width: 100vw;
+    height: 150vh;
+    z-index: 200;
+    background-image: url("imgs/product-photos/anthony-espinosa-pYQSM-p_0_c-unsplash.jpg");
+    background-attachment: fixed;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;     
+}
+
+.main-heading{
+    font-size: 5.5rem;
+    padding-top: -20%;
+    padding-left: 5%;
+    padding-right: 5%;
+    color: #fff;
+}
+
+
+.steps-container{
+    width: 100vw;
+    padding-top: 4rem;
+}
+
+.steps-img-container{
+    height: 22rem; 
+}
+
+.steps-img {
+    object-fit: contain;
+    width: 80%;
+}
+
+.steps-heading {
+    margin-top: 2rem;
+    padding-left: 10%;
+}
+
+
+.step-reverse-heading {
+    margin-top: 8rem;
+    padding-left: 10%;
+}
+
+
+.steps-heading h2, .step-reverse-heading h2 {
+    font-size: 3rem;
+} 
+
+.orderpage-button {
+    background-color: rgb(255, 174, 0);
+    color: #000;
+    border-radius: 20px;
+    padding: 1% 8%;
+    font-family: "Quicksand", sans-serif;
+    font-weight: 600;
+    transition: background-color 300ms;
+}
+
+.orderpage-button:hover {
+    background-color: rgb(255, 115, 0);
+    color: white;
+}
+
+.custom-carousel {
+    width: 100%;
+    height: 80vh;
+    object-fit:cover;
+}
+
+.carousel-container {
+    position:relative;
+}
+
+.carousel-text {
+    position: absolute;
+    z-index: 1000;
+    top: 2rem;
+    right: 10rem;
+    padding: 2% 5%;
+    margin: 5% 2%;
+    color: #fff;
+    background-color: rgb(0, 142, 207);
+
+}
+
+.carousel-text h1 {
+    font-size: 5rem;
+}
+
+.search-input {
+    background-color: rgb(255, 174, 0);
+    border-radius: 20px;
+    width: 20rem;
+    padding: 0 5%;
+}
+
+.search-bar {
+    border: none;
+
+}
+
+
+.search-button {
+    background-color: rgb(255, 255, 255);
+    border: 2px solid black;
+    color: #000;
+    border-radius: 20px;
+    padding: 1% 8%;
+    font-family: "Quicksand", sans-serif;
+    font-weight: 600;
+}
+
+.search-button:hover {
+    background-color:rgb(255, 176, 72);
+    color: #000;
+    border: none;
+}
+
+.menu-img {
+    object-fit: contain;
+    max-width: 300px;
+}
+
+.img-container{
+    height: 22rem;
+    padding: 5%;
+    margin: 10% 0;
+
+}
+
+.card-body {
+    padding: 0;
+    padding-top: 5%;
+}
+
+:root {
+    --animate-duration: 1000ms;
+    --animate-delay: 1.5s;
+  }
+
+.button-2 {
+    background-color: rgb(4, 177, 154);
+    color: #fff;
+    border-radius: 20px;
+    font-family: "Quicksand";
+    font-weight: 700;
+}
+
+.button-2:hover {
+    background-color: rgb(49, 146, 133);
+    color: #fff;
+    border-radius: 20px;
+    font-family: "Quicksand";
+    font-weight: 700;
+}
+
+/* PRODUCT PAGES */
+
+.hide{
+    display: none;
+}
+
+.custom-banner {
+    width:100%;
+    height: 100vh;
+    object-fit: cover;
+}
+
+#banner {
+    display: flex;
+    justify-content: center;
+}
+
+.banner-text {
+        width:100vw;
+        height: 200vh;
+        z-index: 200;
+        background-image: url("imgs/product-photos/eiliv-sonas-aceron-5nvt9BrLaAc-unsplash.jpg");
+        background-attachment: fixed;
+        background-position: 30%;
+        background-repeat: no-repeat;
+        background-size: cover; 
+}
+
+.menu-heading {
+    margin: 0 5%;
+    padding: 2% 4%;
+    text-align: center;
+    /* border: 3px solid white; */
+    color: white;
+    background-color: rgb(255, 151, 14);
+    font-size: 4rem;
+    top: 38%;
+    line-height: 1.2;
+    /* background-color: rgba(255, 255, 255, 0.295); */
+}
+
+/* .menu-heading-2 {
+    padding: 14% 18%;
+    border: 1px solid white;
+    color: #fff;
+    font-size: 8rem;
+
+} */
+
+ .menu-categories {
+    background-color:rgb(255, 202, 132);
+    position: sticky;
+    top: 75px;
+    z-index: 100;
+    padding: 1% 0;
+}
+
+a.menu-category{
+    text-align: center;
+    font-weight: 700;
+    margin: 0 1%;
+    text-decoration: none;
+    transition: all 400ms 100ms
+}
+
+a.menu-category:hover {
+    color: black;
+}
+
+.inactive {
+    font-size: 1.1rem;
+    color: white;
+}
+
+.active {
+    color: rgb(255, 115, 0);
+    font-size: 1.3rem;
+    background-color: white;
+    border-radius: 8%;
+    box-shadow: 5px 5px 10px rgba(200, 172, 172, 0.281);
+}
+
+
+
+/* CART */
+
+
+.blue-background{
+    background-color: rgb(0, 142, 207);
+}
+
+.yellow-background{
+   background-color: rgb(255, 174, 0);
+}
+
+
+/*li.price {
+    list-style-type :none;
+}
+*/
+li.checkout-item{
+    list-style-type: none;
+    
+}
+
+.checkout-img-container {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    height: 10rem;
+}
+
+.checkout-item-img {
+    width: 120px;
+    object-fit: cover;
+    margin: 0 auto;
+}
+
+.custom-spacing{
+    height: 5rem;
+}
+
+
+.quantity-container{
+    width: 100px;
+}
+
+.cart-quantity-container {
+    background-color: rgb(238, 238, 238);
+}
+
+.cart-quantity-container:hover {
+    box-shadow: 5px 5px 10px rgba(172, 172, 172, 0.836);
+}
+
+
+.add {
+    background-color: rgb(0, 142, 207);
+    color: #fff;
+    transition: all 200ms;
+}
+
+.add:hover {
+    color: black;
+    background-color: rgb(255, 174, 0);
+}
+
+
+/*ADMIN */
+h2#admin-heading {
+    font-size: 5rem;
+}
+
+/* LOGIN */
+.login-img {
+    height: 100vh;
+    object-fit: cover;
+}
+
+#sign-up-button {
+    font-weight: 700;
+    color: rgb(0, 142, 207);
+}
+
+#sign-up-button:hover{
+    border-bottom: 1px solid rgb(0, 142, 207);
+}
+
+.login-heading {
+    padding: 4% 2%;
+    border: 3px solid white;
+    color: #fff;
+    font-size: 5.5rem;
+    background-color: rgba(204, 204, 204, 0.158);
+}
+
+
+/* MEDIA QUERY FOR MEDIUM SCREENS */
+
+@media only screen and (max-width: 768px) {
+    /* LOGIN PAGE */
+    #login-banner {
+        display:hidden;
+    }
+    
+    .login-heading {
+        display:none;
+    }
+
+
+
+    .menu-heading {
+        top: 40%;
+        font-size: 2.5rem;
+    }
+
+    .banner-text{
+        background-position: left;
+    }
+
+    .menu-categories {
+        top: 55px;
+    }
+    
+    
+    .img-container{
+        height: 20rem;
+    }
+
+
+  }
+
+
+  /* MEDIA QUERY FOR SMALL SCREENS */
+
+
+@media only screen and (max-width: 576px) {
+
+.navbar-nav.mr-auto {
+    margin-top: 10vh;
+}
+
+.navbar-nav.ml-auto {
+    margin-bottom: 40vh
+}
+
+.nav-link.custom-navlink{
+    margin: 2% 0;
+    font-size: 3rem;
+}
+
+.material-icons.md-36{
+    font-size: 48px;
+}
+
+    .banner-text.d-flex.justify-content-center.align-items-center.position-relative {
+        display: hidden;
+    }
+
+  #custom-navigation {
+    background-color: rgb(255, 174, 0);
+  }
+
+.main-heading { 
+    font-size: 4rem;
+    padding: 20% 0;
+    margin: 0% 10%;
+}
+
+.main-title {
+    background-position: 40%;
+    height: 120vh;
+    margin-top: -8rem;
+}
+
+    .carousel-container {
+        display: flex;
+    }
+    .carousel-text {
+        justify-content: center;
+        align-content: center;
+        left: 0;
+        right: 0;
+        margin: 10% 10%;
+    
+    }
+
+    .carousel-text h1{
+        font-size: 3rem;
+    }
+    
+    /*ORDER PAGE*/
+
+    
+    h5.card-title {
+        text-align: center;
+    }
+
+    #checkout-section {
+        display:none;
+    }
+
+    .banner-text {
+        display: none;
+}
+
+    /* LOGIN PAGE */
+    #login-banner {
+        display:none;
+    }
+    
+    .login-heading {
+        display:none;
+    }
+
+        
+.menu-img {
+    max-width: 150px;
+}
+
+
+.img-container{
+height: 10rem;
+}
+}

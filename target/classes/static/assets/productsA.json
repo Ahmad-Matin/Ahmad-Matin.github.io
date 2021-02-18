@@ -1,0 +1,70 @@
+[
+    {   "id":0,
+        "name":"Cheese Burger",
+        "type":"burger",
+        "img":"../assets/imgs/product-photos/pexels-engin-akyurt-2271099_edited.jpg",
+        "description":"cheese",
+        "price":1.0,
+        "quantity":0
+    },
+    {
+        "id":1,
+        "name":"Beef Burger",
+        "type":"burger",
+        "img":"../assets/imgs/product-photos/pexels-horizon-content-3738730_edited.jpg",
+        "description":"beef",
+        "price":1.2,
+        "quantity":0
+    },
+    {
+        "id":2,
+        "name":"Chicken Burger",
+        "type":"burger",
+        "img":"../assets/imgs/product-photos/pexels-tioroshi-lazaro-2874990_edited.jpg",
+        "description":"chicken",
+        "price":1.1,
+        "quantity":0
+    },
+    {
+        "id":3,
+        "name":"Vegetable Burger",
+        "type":"burger",
+        "img":"../assets/imgs/product-photos/pexels-rajesh-tp-1633572_edited.jpg",
+        "description":"vegetable",
+        "price":1.3,
+        "quantity":0
+    },
+    {   "id":4,
+        "name":"Fries",
+        "type":"sides",
+        "img":"../assets/imgs/product-photos/joyce-panda-lpsbMRRqMQw-unsplash_edited.jpg",
+        "description":"fries",
+        "price":1.3,
+        "quantity":0
+    },
+
+    {   "id":5,
+        "name":"Potato Wedges",
+        "type":"sides",
+        "img":"../assets/imgs/product-photos/maiqui-cordeiro-QCPMwPcZhaQ-unsplash_edited.jpg",
+        "description":"potato wedges",
+        "price": 1.9,
+        "quantity":0
+    },
+    {   "id":6,
+        "name":"Ice Cream",
+        "type":"dessert",
+        "img":"../assets/imgs/product-photos/pexels-layyana-sheridean-2846337_edited.jpg",
+        "description":"ice-cream",
+        "price":1.0,
+        "quantity":0
+    },
+    {   "id":7,
+        "name":"Cheese Cake",
+        "type":"dessert",
+        "img":"../assets/imgs/product-photos/pexels-karolina-grabowska-4040696_edited.jpg",
+        "description":"cake",
+        "price":1.2,
+        "quantity":0
+    }
+]

@@ -1,0 +1,138 @@
+package com.tada.summerboot.model;
+
+import javax.persistence.*;
+import java.math.BigDecimal;
+
+@Entity
+public class Product {
+
+    @Id
+    @GeneratedValue(strategy = GenerationType.TABLE) // GenerationType.TABLE will allow auto-increment of id
+    private Integer id;
+    private String name;
+    private String type;
+    private BigDecimal price;
+//    private Integer quantity;
+
+
+    @Column(nullable = true, length = 64)
+    private String imageURL;
+
+    // Required for the @OneToMany relationship with a User
+    @Column(name = "user_id")
+    private Integer user_id;
+
+    public Integer getId() {
+        return id;
+    }
+
+    public BigDecimal getPrice() {
+        return price;
+    }
+
+    public String getType() {
+        return type;
+    }
+
+//    public Integer getQuantity() {
+//        return quantity;
+//    }
+
+    public String getName() {
+        return name;
+    }
+
+//    public String getDescription() {
+//        return description;
+//    }
+
+    public void setPrice(BigDecimal price) {
+        this.price = price;
+    }
+
+    public void setType(String type) {
+        this.type = type;
+    }
+
+
+//    public void setQuantity(Integer quantity) {
+//        this.quantity = quantity;
+//    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+//    public void setTitle(String title) {
+//        this.title = title;
+//    }
+
+//    public void setDescription(String description) {
+//        this.description = description;
+//    }
+
+    public String getImageURL() {
+        return imageURL;
+    }
+
+    public Integer getUser_id() {
+        return user_id;
+    }
+
+    public void setUser_id(Integer user_id) {
+        this.user_id = user_id;
+    }
+
+    public void setImageURL(String imageURL) {
+        this.imageURL = imageURL;
+    }
+
+//    public Product(BigDecimal price, Integer quantity, String sku, String title, String description, Integer user_id) {
+//        this.price = price;
+//        this.quantity = quantity;
+////        this.sku = sku;
+////        this.title = title;
+////        this.description = description;
+//        this.user_id = user_id;
+//    }
+
+//    public Product(Integer id, BigDecimal price, Integer quantity, String sku, String title, String description, Integer user_id) {
+//        this.id = id;
+//        this.price = price;
+//        this.quantity = quantity;
+//        this.sku = sku;
+//        this.title = title;
+//        this.description = description;
+//        this.user_id = user_id;
+//    }
+
+    public Product(Integer id, BigDecimal price, String name, String type) {
+        this.id = id;
+        this.price = price;
+        this.name = name;
+        this.type=type;
+//        this.sku = sku;
+//        this.title = title;
+//        this.description = description;
+    }
+
+//    public Product(BigDecimal price, Integer quantity, String sku, String title, String description) {
+//        this.price = price;
+//        this.quantity = quantity;
+//        this.sku = sku;
+//        this.title = title;
+//        this.description = description;
+//    }
+
+    public Product(){
+        super();
+    }
+
+    @Override
+    public String toString() {
+        return "Product [id=" + id + ", name=" + name +
+                ", name=" + name + ", price=" + price + ", quantity=" + "]";
+    }
+
+
+}
