@@ -82,7 +82,7 @@ public class ProductController {
     public String everyproduct(Model model){
         List<Product> list = product_service_implementation.getAllProduct();
         model.addAttribute("products", list);
-        return "products";
+        return "every-products";
     }
 
 // ADD ADMIN PAGE
@@ -168,4 +168,5 @@ public class ProductController {
         }
         return "product";
     }
+
 }
