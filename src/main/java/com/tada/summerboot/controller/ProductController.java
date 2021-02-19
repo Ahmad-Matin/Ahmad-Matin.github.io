@@ -91,10 +91,10 @@ public class ProductController {
     public String adminproducts(Model model){
         List<Product> list = product_service_implementation.getAllProduct();
         model.addAttribute("products", list);
-        Authentication auth = SecurityContextHolder.getContext().getAuthentication();
-        User user = user_service_implementation.current_user(auth.getName());
-        model.addAttribute("user", user);
-        model.addAttribute("product", new Product());
+//        Authentication auth = SecurityContextHolder.getContext().getAuthentication();
+//        User user = user_service_implementation.current_user(auth.getName());
+//        model.addAttribute("user", user);
+//        model.addAttribute("product", new Product());
 
         return "admin";
     }
