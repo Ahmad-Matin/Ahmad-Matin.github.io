@@ -19,15 +19,16 @@ public class SuccessHandler implements AuthenticationSuccessHandler {
                                         HttpServletResponse httpServletResponse,
                                         Authentication authentication) throws IOException, ServletException {
         // After login, go to homepage
-         Authentication auth = SecurityContextHolder.getContext().getAuthentication();
-        String r= auth.getAuthorities().toString();
-
-        if(r=="ROLE_ADMIN"){
-            System.out.print(r);
+//         Authentication auth = SecurityContextHolder.getContext().getAuthentication();
+//        String r= auth.getAuthorities().toString();
+//
+////        if(r=="ROLE_ADMIN"){
+//        if(r=="ADMIN"){
+//            System.out.print(r);
             httpServletResponse.sendRedirect("/admin");
-        }else {
-            System.out.print(r);
-            httpServletResponse.sendRedirect("/every-products");
-        }
+//        }else {
+//            System.out.print(r);
+//            httpServletResponse.sendRedirect("/every-products");
+//        }
     }
 }

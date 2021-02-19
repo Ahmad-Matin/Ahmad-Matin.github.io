@@ -78,7 +78,7 @@ public class ProductController {
         return "individual";
     }
 
-    @GetMapping(value="/every-products")
+    @GetMapping(value="/order")
     public String everyproduct(Model model){
         List<Product> list = product_service_implementation.getAllProduct();
         model.addAttribute("products", list);
@@ -87,15 +87,10 @@ public class ProductController {
 
 // ADD ADMIN PAGE
 
-    @GetMapping(value="/admin")
-    public String adminproducts(Model model){
-//        List<Product> list = product_service_implementation.getAllProduct();
-//        model.addAttribute("products", list);
-        Authentication auth = SecurityContextHolder.getContext().getAuthentication();
-        User user = user_service_implementation.current_user(auth.getName());
-        model.addAttribute("user", user);
-        model.addAttribute("product", new Product());
-
+    @GetMapping(value="admin")
+    public String adminproduct(Model model){
+        List<Product> list = product_service_implementation.getAllProduct();
+        model.addAttribute("products", list);
         return "admin";
     }
 
@@ -130,7 +125,6 @@ public class ProductController {
         Product new_product = new Product(price, quantity, sku, title, description, user_id);
         product_service_implementation.createOrUpdateProduct(new_product);
         return "redirect:/every-products";
-//        return "admin";
     }
 
     // This is for Javascript
