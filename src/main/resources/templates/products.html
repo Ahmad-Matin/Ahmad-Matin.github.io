@@ -122,6 +122,9 @@
         <!--burgers-->
         <div th:switch="${product.getProductType()}" class="container-fluid m-0 py-3 p-0">
             <h2 th:case="null">No record found !!</h2>
+
+
+          <!--DESSERTS-->
             <div th:case="dessert" class="card justify-content-center mx-auto border-0" style="width: 100%">
                 <h3 class="card-name px-4 py-4">Desserts</h3>
 
@@ -151,6 +154,9 @@
                         <!--                    th inserts end-->
                     </div>
                 </div>
+
+            <!--SIDES-->
+
             <div th:case="sides" class="card justify-content-center mx-auto border-0" style="width: 100%">
                 <h3 class="card-name px-4 py-4">Sides</h3>
 
@@ -180,6 +186,8 @@
                     <!--                    th inserts end-->
                 </div>
             </div>
+
+            <!--BURGER-->
             <div th:case="burger" class="card justify-content-center mx-auto border-0" style="width: 100%">
             <h3 class="card-name px-4 py-4">Burgers</h3>
 

@@ -42,32 +42,32 @@ public class ProductController {
         return "product-image";
     }
 
-    @PostMapping(path="product/image/new")
-    public String newProductWithImage(@RequestParam(name="price", required = false) BigDecimal price,
-                                      @RequestParam(name="quantity", required = false) Integer quantity,
-                                      @RequestParam(name="sku", required = false) String sku,
-                                      @RequestParam(name="title", required = false) String title,
-                                      @RequestParam(name="description", required = false) String description,
-                                      @RequestParam(name="user_id", required = false) Integer user_id,
-                                      @RequestParam(name="image", required = false) MultipartFile multipartFile) throws IOException {
-
-        String fileName = StringUtils.cleanPath(multipartFile.getOriginalFilename());
-//        System.out.println(fileName);
-        logger.debug("Hello from Logback {}");
-
-//        System.out.println("------*------");
-//        System.out.println("user_id" + user_id);
-
-        Product new_product = new Product(price, quantity, sku, title, description, user_id);
-        product_service_implementation.createOrUpdateProduct(new_product);
-        new_product.setImageURL("user-photos/uploads/"+ new_product.getId() + "/" + fileName);
-        product_service_implementation.createOrUpdateProduct(new_product);
-
-//        String uploadDir = "user-photos/uploads/" + new_product.getId();
-        String uploadDir = "src/main/resources/static/user-photos/uploads/" + new_product.getId();
-        FileUploadUtil.saveFile(uploadDir, fileName, multipartFile);
-        return "redirect:/every-products";
-    }
+//    @PostMapping(path="product/image/new")
+//    public String newProductWithImage(@RequestParam(name="price", required = false) BigDecimal price,
+//                                      @RequestParam(name="quantity", required = false) Integer quantity,
+//                                      @RequestParam(name="sku", required = false) String sku,
+//                                      @RequestParam(name="title", required = false) String title,
+//                                      @RequestParam(name="description", required = false) String description,
+//                                      @RequestParam(name="user_id", required = false) Integer user_id,
+//                                      @RequestParam(name="image", required = false) MultipartFile multipartFile) throws IOException {
+//
+//        String fileName = StringUtils.cleanPath(multipartFile.getOriginalFilename());
+////        System.out.println(fileName);
+//        logger.debug("Hello from Logback {}");
+//
+////        System.out.println("------*------");
+////        System.out.println("user_id" + user_id);
+//
+//        Product new_product = new Product(price, quantity, sku, title, description, user_id);
+//        product_service_implementation.createOrUpdateProduct(new_product);
+//        new_product.setImageURL("user-photos/uploads/"+ new_product.getId() + "/" + fileName);
+//        product_service_implementation.createOrUpdateProduct(new_product);
+//
+////        String uploadDir = "user-photos/uploads/" + new_product.getId();
+//        String uploadDir = "src/main/resources/static/user-photos/uploads/" + new_product.getId();
+//        FileUploadUtil.saveFile(uploadDir, fileName, multipartFile);
+//        return "redirect:/every-products";
+//    }
 
     @GetMapping(value="/individual")
     public String everyproductByIndividual(Model model){
@@ -122,14 +122,16 @@ public class ProductController {
                              @RequestParam(name="sku", required = false) String sku,
                              @RequestParam(name="title", required = false) String title,
                              @RequestParam(name="description", required = false) String description,
+                             @RequestParam(name="imageURL", required = false) String imageURL,
+                             @RequestParam(name="productType", required=false) String productType,
                              @RequestParam(name="user_id", required = false) Integer user_id) {
 
         //        System.out.println("------*------");
         //        System.out.println("user_id" + user_id);
 
-        Product new_product = new Product(price, quantity, sku, title, description, user_id);
+        Product new_product = new Product(price, quantity, sku, title, description, imageURL, productType, user_id);
         product_service_implementation.createOrUpdateProduct(new_product);
-        return "redirect:/every-products";
+        return "redirect:/admin";
     }
 
     // This is for Javascript
