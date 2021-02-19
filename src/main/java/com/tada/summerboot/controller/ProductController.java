@@ -93,7 +93,6 @@ public class ProductController {
 //        model.addAttribute("products", list);
         Authentication auth = SecurityContextHolder.getContext().getAuthentication();
         User user = user_service_implementation.current_user(auth.getName());
-
         model.addAttribute("user", user);
         model.addAttribute("product", new Product());
 
@@ -131,6 +130,7 @@ public class ProductController {
         Product new_product = new Product(price, quantity, sku, title, description, user_id);
         product_service_implementation.createOrUpdateProduct(new_product);
         return "redirect:/every-products";
+//        return "admin";
     }
 
     // This is for Javascript

@@ -51,7 +51,7 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 				.authorizeRequests()
 				.antMatchers("/").permitAll()
 //				.antMatchers("/product").hasRole("ADMIN")
-				.antMatchers("/pages/admin.html").hasRole("ADMIN")
+				.antMatchers("/admin").hasRole("ADMIN")
 				.antMatchers("/product").hasRole("USER")
 				.anyRequest().authenticated()
 				.and()
@@ -78,27 +78,36 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 
 		// Iterate (go through one by one) and build a UserDetails for this app
 		for (int i = 0; i < users.size(); i++) {
+//			if (users.get(i).getUserType() == "admin") {
+				// Create a UserDetails instance but set it based on the user in database
+				UserDetails user =
+						User.withDefaultPasswordEncoder()
+								.username(users.get(i).getUsername())
+								.password(users.get(i).getPassword())
+								.roles("ADMIN")
+								.build();
+				// Add that instance to the list
+				list.add(user);
+//			} else {
+//				UserDetails user =
+//						User.withDefaultPasswordEncoder()
+//								.username(users.get(i).getUsername())
+//								.password(users.get(i).getPassword())
+//								.roles("USER")
+//								.build();
+//				// Add that instance to the list
+//				list.add(user);
+//			}
 
-			// Create a UserDetails instance but set it based on the user in database
-			UserDetails user =
+			//Have at least one admin user for developer to login
+			UserDetails admin =
 					User.withDefaultPasswordEncoder()
-							.username(users.get(i).getUsername())
-							.password(users.get(i).getPassword())
+							.username("admin")
+							.password("admin")
 							.roles("ADMIN")
 							.build();
-			// Add that instance to the list
-			list.add(user);
+			list.add(admin);
 		}
-
-		//Have at least one admin user for developer to login
-		UserDetails admin =
-				User.withDefaultPasswordEncoder()
-						.username("admin")
-						.password("admin")
-						.roles("ADMIN")
-						.build();
-		list.add(admin);
-
 //		System.out.println(list);
 		return new InMemoryUserDetailsManager(list);
 	}

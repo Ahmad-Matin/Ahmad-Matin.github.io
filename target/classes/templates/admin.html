@@ -1,5 +1,5 @@
 <!doctype html>
-<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="https://www.thymeleaf.org">
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="https://www.thymeleaf.org" xmlns:sec="https://www.thymeleaf.org/thymeleaf-extras-springsecurity3" >
 
 <head>
     <!-- Required meta tags -->
@@ -48,20 +48,32 @@
             <div class="collapse navbar-collapse" id="navbarText">
                 <ul class="navbar-nav mr-auto">
                     <li class="nav-item mr-4">
-                        <a class="nav-link custom-navlink" href="../index.html">Home</a>
+                        <a class="nav-link custom-navlink" href="/">Home</a>
                     </li>
                     <li class="nav-item mr-4">
-                        <a class="nav-link custom-navlink" href="about-us.html">About</a>
+                        <a class="nav-link custom-navlink" href="/about-us">About</a>
                     </li>
                 </ul>
                 <ul class="navbar-nav ml-auto">
                     <li class="nav-item mr-4">
-                        <a class="nav-link custom-navlink" href="/login"><span class="material-icons md-36">perm_identity
-                            </span><span class="sr-only">(current)</span></a>
+                        <!--incorporated stuff-->
+                    <li sec:authorize="isAuthenticated()" class="nav-item ">
+                        <a class="nav-link custom-navlink" th:inline="text">Hello [[${#httpServletRequest.remoteUser}]]!</a>
                     </li>
-                    <li class="nav-item">
-                        <a class="nav-link custom-navlink" href="products.html"><span class="material-icons md-36">
-                            shopping_cart</span></a>
+                    <li sec:authorize="isAuthenticated()" class="nav-item ">
+                        <form th:action="@{/logout}" method="post">
+                            <input type="submit" value="Sign Out"/>
+                        </form>
+                    </li>
+                    <li sec:authorize="hasRole('ROLE_ADMIN')" class="nav-item ">
+                        <a class="nav-link custom-navlink" href="/admin">Admin <span
+                                class="sr-only">(current)</span></a>
+                    </li>
+                    <li sec:authorize="isAnonymous()" class="nav-item ">
+                        <a class="nav-link custom-navlink" href="/login"><span class="material-icons md-36">perm_identity</span><span class="sr-only">(current)</span></a>
+                    </li>
+                    <li sec:authorize="isAuthenticated()" class="nav-item ">
+                        <a class="nav-link custom-navlink" href="/every-products"><span class="material-icons md-36">shopping_cart</span><span class="sr-only">(current)</span></a>
                     </li>
                 </ul>
             </div>
@@ -93,7 +105,7 @@
     <div class="container-fluid px-4 mt-5 pt-5">
         <div id="add-item-container" class="px-4">
             <h2 id="admin-heading" class="text-center">Welcome Admin!</h2>
-            <a id="add-new-item" class="btn btn-warning my-4 w-100 py-3" href="#update-container"><h5>Add New Item</h5></a>
+            <a id="add-new-item" class="btn btn-warning my-4 w-100 py-3" href="/every-users"><h5>Edit Users</h5></a>
         </div>    
         <div id="update-container" class="container-fluid my-5">
 
@@ -139,7 +151,66 @@
               <input type="submit" value=" Submit ">
           </div>
       </form>
-<!--      <div class="col my-2">-->
+
+<!--      <div th:switch="${products}">-->
+<!--          <p>-->
+<!--              <a href="/product">-->
+<!--                  <i> Add Product </i></a>-->
+<!--          </p>-->
+<!--          <div>-->
+<!--              <h2 th:case="null">No record found !!</h2>-->
+
+<!--              <div th:case="*">-->
+<!--                  <table>-->
+<!--                      <thead>-->
+<!--                      <tr>-->
+<!--                          <th>Title</th>-->
+<!--                          <th>Description</th>-->
+<!--                          <th>Price</th>-->
+<!--                          <th>Quantity</th>-->
+<!--                          <th>SKU</th>-->
+<!--                          <th>User_id</th>-->
+<!--                          <th>ImageURL</th>-->
+
+<!--                          <th>Show</th>-->
+<!--                          <th>Edit</th>-->
+<!--                          <th>Delete</th>-->
+<!--                      </tr>-->
+<!--                      </thead>-->
+<!--                      <tbody>-->
+<!--                      <tr th:each="product : ${products}">-->
+<!--                          <td th:text="${product.title}"></td>-->
+<!--                          <td th:text="${product.description}"></td>-->
+<!--                          <td th:text="${product.price}"></td>-->
+<!--                          <td th:text="${product.quantity}"></td>-->
+<!--                          <td th:text="${product.sku}"></td>-->
+<!--                          <td th:text="${product.user_id}"></td>-->
+<!--                          <td><img th:src="${product.imageURL}" alt="" width="40" height="40"></td>-->
+
+<!--                          <td>-->
+<!--                              <a th:href="@{product/show/{id}(id=${product.id})}">-->
+<!--                                  Show-->
+<!--                              </a>-->
+<!--                          </td>-->
+
+<!--                          <td>-->
+<!--                              <a th:href="@{product/edit/{id}(id=${product.id})}">-->
+<!--                                  Edit-->
+<!--                              </a>-->
+<!--                          </td>-->
+<!--                          <td>-->
+<!--                              <a th:href="@{product/delete/{id}(id=${product.id})}">-->
+<!--                                  Delete-->
+<!--                              </a>-->
+<!--                          </td>-->
+<!--                      </tr>-->
+<!--                      </tbody>-->
+<!--                  </table>-->
+<!--              </div>-->
+<!--          </div>-->
+<!--      </div>-->
+
+      <!--      <div class="col my-2">-->
 <!--          <form action ="#" th:action="@{/product/new}" th:object="${product}" method="post">-->
 <!--              <div class="form-group card p-3 shadow-sm">-->
 <!--                  <div class="d-flex justify-content-between p-0">-->

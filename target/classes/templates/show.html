@@ -1,6 +1,7 @@
-<!doctype html>
-<html  lang="en" xmlns="http://www.w3.org/1999/xhtml" xmlns:th="https://www.thymeleaf.org" xmlns:sec="https://www.thymeleaf.org/thymeleaf-extras-springsecurity3" >
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="https://www.thymeleaf.org" xmlns:sec="https://www.thymeleaf.org/thymeleaf-extras-springsecurity3">
 <head>
+    <meta charset="UTF-8">
     <!-- Required meta tags -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -27,24 +28,9 @@
 
     <!--JS -->
     <script src="assets/script.js"></script>
-
-    <title>MCJ Editing Users</title>
+    <title>Show product</title>
 </head>
-
 <body>
-<div class="custom-spacing">
-
-</div>
-<div class="container-fluid px-4 mt-5 pt-5">
-    <div id="add-item-container" class="px-4">
-        <h2 id="admin-heading" class="text-center">Welcome Admin!</h2>
-        <a id="add-new-item" class="btn btn-warning my-4 w-100 py-3" href="/admin"><h5>Edit Products</h5></a>
-    </div>
-    <div id="update-container" class="container-fluid my-5">
-
-    </div>
-</div>
-
 <!--HEADER-->
 <div class="fixed-top">
     <div id="custom-navigation" class="navbar navbar-expand-sm my-0 py-2 px-4 custom-navbar navbar-dark">
@@ -63,7 +49,6 @@
                 </li>
             </ul>
             <ul class="navbar-nav ml-auto">
-                <!--incorporated stuff-->
                 <li sec:authorize="isAuthenticated()" class="nav-item ">
                     <a class="nav-link custom-navlink" th:inline="text">Hello [[${#httpServletRequest.remoteUser}]]!</a>
                 </li>
@@ -88,76 +73,68 @@
     </div>
 </div>
 
+
+
+
 <!--END HEADER-->
+<div class="custom-spacing">
 
-<div th:switch="${users}">
-    <p>
-        <a href="/register">
-            <i> Add User </i></a>
-    </p>
-    <div>
-        <h2 th:case="null">No record found !!</h2>
+</div>
+<div class="container-fluid px-4 mt-5 pt-5">
+    <div id="add-item-container" class="px-4">
+        <h2 id="admin-heading" class="text-center">Welcome Admin!</h2>
+        <a id="add-new-item" class="btn btn-warning my-4 w-100 py-3" href="#update-container"><h5>Add New Item</h5></a>
+    </div>
+    <div id="update-container" class="container-fluid my-5">
 
-        <div th:case="*">
-            <table>
-                <thead>
-                <tr>
-
-                    <th>Username</th>
-                    <th>firstname</th>
-                    <th>lastname</th>
-                    <th>Address</th>
-                    <th>unitno</th>
-                    <th>postalcode</th>
-                    <th>Password</th>
-                    <th>Email</th>
-                    <th>Usertype</th>
-
-
-                    <th>Show</th>
-                    <th>Edit</th>
-                    <th>Delete</th>
-                </tr>
-                </thead>
-                <tbody>
-                <tr th:each="user : ${users}">
-                    <td th:text="${user.username}"</td>
-                    <td th:text="${user.firstname}"</td>
-                    <td th:text="${user.lastname}"</td>
-                    <td th:text="${user.address}"</td>
-                    <td th:text="${user.unitno}"</td>
-                    <td th:text="${user.postalcode}"</td>
-                    <td th:text="${user.password}"</th>
-                    <td th:text="${user.email}"</td>
-                    <td th:text="${user.userType}"</td>
-
-
-                    <td>
-                        <a th:href="@{user/show/{id}(id=${user.id})}">
-                            Show
-                        </a>
-                    </td>
-
-                    <td>
-                        <a th:href="@{user/edit/{id}(id=${user.id})}">
-                            Edit
-                        </a>
-                    </td>
-                    <td>
-                        <a th:href="@{user/delete/{id}(id=${user.id})}" class="btn btn-primary">
-                            Delete
-                        </a>
-                    </td>
-                </tr>
-                </tbody>
-            </table>
-
-        </div>
     </div>
 </div>
+<div>
+<h1>Show Product</h1>
 
-<a href="/">Back to index</a>
+<form action="#" th:object="${product}" method="post">
+    <div>
+        <label for="title">id</label>
+        <input type="text" th:field="*{id}"
+               id="id" placeholder="Id" />
+    </div>
+    <div>
+        <label for="title">Title</label>
+        <input type="text" th:field="*{title}"
+               id="title" placeholder="Title" />
+    </div>
+    <div>
+        <label for="description">Description</label>
+        <input type="text" th:field="*{description}"
+               id="description" placeholder="Description" />
+    </div>
+    <div>
+        <label for="price">Price</label>
+        <input type="text" th:field="*{price}"
+               id="price" placeholder="$" />
+    </div>
 
+    <div>
+        <label for="productType">Product Type</label>
+        <input type="text" th:field="*{productType}"
+               id="sku" placeholder="Product Type" />
+    </div>
+
+    <div>
+        <label for="imageUrl">Image</label>
+        <img th:src="${product.imageURL}" alt="" width="40" height="40">
+    </div>
+
+    <div>
+        <img src="" alt="">
+    </div>
+
+    <!--            <input type="hidden" id="id" th:field="*{id}">-->
+</form>
+</div>
+
+<div>
+    <a href="/admin">Back to admin</a>
+</div>
 </body>
-
 </html>
