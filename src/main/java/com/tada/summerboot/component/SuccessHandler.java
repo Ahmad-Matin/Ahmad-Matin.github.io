@@ -9,6 +9,7 @@ import com.tada.summerboot.model.User;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import java.io.Console;
 import java.io.IOException;
 
 @Component
@@ -18,10 +19,15 @@ public class SuccessHandler implements AuthenticationSuccessHandler {
                                         HttpServletResponse httpServletResponse,
                                         Authentication authentication) throws IOException, ServletException {
         // After login, go to homepage
-         authentication = SecurityContextHolder.getContext().getAuthentication();
-//        String currentPrincipalName = authentication.getName();
-        if(authentication.getName()=="admin"){
+         Authentication auth = SecurityContextHolder.getContext().getAuthentication();
+        String r= auth.getAuthorities().toString();
+
+        if(r=="ROLE_ADMIN"){
+            System.out.print(r);
             httpServletResponse.sendRedirect("/admin");
-        }else httpServletResponse.sendRedirect("/every-products");
+        }else {
+            System.out.print(r);
+            httpServletResponse.sendRedirect("/every-products");
+        }
     }
 }

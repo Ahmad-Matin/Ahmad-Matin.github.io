@@ -11,6 +11,18 @@ public class Product {
     private Integer id;
 
     @Column(nullable = true)
+    private String title;
+
+    @Column(nullable = true)
+    private String productType;
+
+    @Column(nullable = true)
+    private String imageURL;
+
+    @Column(nullable = true)
+    private String description;
+
+    @Column(nullable = true)
     private BigDecimal price;
 
     @Column(nullable = true)
@@ -19,17 +31,6 @@ public class Product {
     @Column(nullable = true)
     private String sku;
 
-    @Column(nullable = true)
-    private String title;
-
-    @Column(nullable = true)
-    private String description;
-
-    @Column(nullable = true)
-    private String productType;
-
-    @Column(nullable = true, length = 64)
-    private String imageURL;
 
     // Required for the @OneToMany relationship with a User
     @Column(name = "user_id")
@@ -50,6 +51,8 @@ public class Product {
     public String getSku() {
         return sku;
     }
+
+    public String getProductType() { return productType; }
 
     public String getTitle() {
         return title;
@@ -79,6 +82,8 @@ public class Product {
         this.description = description;
     }
 
+    public void setProductType(String productType) { this.productType = productType; }
+
     public String getImageURL() {
         return imageURL;
     }
@@ -95,6 +100,17 @@ public class Product {
         this.imageURL = imageURL;
     }
 
+    public Product(Integer id, String title, String productType, String imageURL, String description, BigDecimal price, Integer quantity, String sku, Integer user_id) {
+        this.id = id;
+        this.title = title;
+        this.productType = productType;
+        this.imageURL = imageURL;
+        this.description = description;
+        this.price = price;
+        this.quantity = quantity;
+        this.sku = sku;
+        this.user_id = user_id;
+    }
     public Product(BigDecimal price, Integer quantity, String sku, String title, String description, Integer user_id) {
         this.price = price;
         this.quantity = quantity;
