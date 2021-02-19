@@ -124,33 +124,56 @@ h3 {
 
 .steps-container{
     width: 100vw;
-    padding-top: 4rem;
+    margin: 2rem 0;
+    height: 30rem;
 }
 
 .steps-img-container{
-    height: 22rem; 
+    width: 100%;
+    padding: 2% 0% 2% 10%;
+
 }
 
-.steps-img {
+.steps-img, .steps-img-reverse  {
     object-fit: contain;
     width: 80%;
 }
 
+.steps-img-reverse {
+padding: 5% 10% 5% 0%;
+}
+
 .steps-heading {
-    margin-top: 2rem;
-    padding-left: 10%;
+    padding: 2% 10% 2% 8%;
 }
 
 
 .step-reverse-heading {
-    margin-top: 8rem;
-    padding-left: 10%;
+    padding: 2% 0% 2% 10%;
 }
 
 
 .steps-heading h2, .step-reverse-heading h2 {
-    font-size: 3rem;
+    font-size: 2rem;
 } 
+
+.steps-heading h3, .step-reverse-heading h3 {
+    font-size: 1.5rem;
+} 
+
+.success, .failure {
+    padding: 4% 6%;
+    border-radius: 25px;
+    color: #fff;
+}
+
+.success {
+    background-color: rgb(0, 157, 63);
+}
+
+.failure {
+    background-color: rgb(205, 31, 31);
+}
 
 .orderpage-button {
     background-color: rgb(255, 174, 0);
@@ -194,14 +217,13 @@ h3 {
 }
 
 .search-input {
-    background-color: rgb(255, 174, 0);
     border-radius: 20px;
-    width: 20rem;
     padding: 0 5%;
 }
 
 .search-bar {
     border: none;
+    width: 100%;
 
 }
 
@@ -520,6 +542,7 @@ h2#admin-heading {
     margin-top: -8rem;
 }
 
+
     .carousel-container {
         display: flex;
     }
@@ -569,4 +592,37 @@ h2#admin-heading {
 .img-container{
 height: 10rem;
 }
+
+
+.steps-container{
+    width: 100vw;
+    /* margin: 4rem 0; */
+    height: 40rem;
+}
+
+.steps-img, .steps-img-reverse  {
+    object-fit: contain;
+    width: 4rem;
+    padding: 2% 10%;
+    margin: 0%;
+}
+
+.steps-img-container{
+    padding: 2% 10%;
+
+}
+
+
+.steps-container {
+    margin: 2%;
+}
+
+
+.steps-heading, .step-reverse-heading{
+    display: flex;
+    padding: 2% 10%;
+    justify-content: center;
+}
+
+
 }

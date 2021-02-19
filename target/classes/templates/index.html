@@ -1,5 +1,7 @@
 <!doctype html>
-<html  lang="en" xmlns="http://www.w3.org/1999/xhtml" xmlns:th="https://www.thymeleaf.org" xmlns:sec="https://www.thymeleaf.org/thymeleaf-extras-springsecurity3" >
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml" xmlns:th="https://www.thymeleaf.org"
+    xmlns:sec="https://www.thymeleaf.org/thymeleaf-extras-springsecurity3">
+
 <head>
     <!-- Required meta tags -->
     <meta charset="utf-8">
@@ -7,7 +9,7 @@
 
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css"
-          integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2" crossorigin="anonymous">
+        integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2" crossorigin="anonymous">
 
 
 
@@ -22,7 +24,9 @@
     <!--FONTS-->
 
     <link rel="preconnect" href="https://fonts.gstatic.com">
-    <link href="https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@400;500;600;700&family=Lato:wght@400;700&display=swap" rel="stylesheet">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@400;500;600;700&family=Lato:wght@400;700&display=swap"
+        rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Raleway:wght@400;500;700&display=swap" rel="stylesheet">
 
     <!--JS -->
@@ -32,10 +36,10 @@
 </head>
 
 <body>
-<!--HEADER-->
-<div class="fixed-top">
-    <div id="custom-navigation" class="navbar navbar-expand-sm my-0 py-2 px-4 custom-navbar navbar-dark">
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarText"
+    <!--HEADER-->
+    <div class="fixed-top">
+        <div id="custom-navigation" class="navbar navbar-expand-sm my-0 py-2 px-4 custom-navbar navbar-dark">
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarText"
                 aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button>
@@ -80,90 +84,91 @@
             </ul>
         </div>
 
-    </div>
-</div>
-
-
-
-
-<!--END HEADER-->
-
-<!--BANNER-->
-<div id="banner">
-    <div class="main-title d-flex justify-content-center align-items-center position-relative">
-        <h1 class="main-heading position-absolute text-left">We make delicious burgers.</h1>
-    </div>
-</div>
-
-
-<!--END BANNER -->
-
-
-<div id="container-fluid mx-2 mt-4">
-    <div class="steps-container d-flex row row-cols-1 row-cols-xs-1 row-cols-sm-2">
-        <div class="steps-img-container">
-            <img src="assets/imgs/product-photos/maiqui-cordeiro-QCPMwPcZhaQ-unsplash_edited.jpg" class="steps-img ml-4 col">
-        </div>
-        <div class= "steps-heading text-left col">
-            <h2>Step 1</h2>
-            <h3 class="mt-4 w-75">Check if we deliver to your area.</h3>
-            <!--SEARCH-->
-            <form class= "search-bar m-0">
-                <div class="d-flex flex-row justify-content-between mt-4 row row-cols-1 row-cols-sm-1 row-cols-md-2">
-                    <input class="form-control search-input mr-4 shadow-sm" type="search"
-                           placeholder="Enter postal code" aria-label="Search">
-                    <button class="btn my-4 search-button" type="submit">Search</button>
-                </div>
-            </form>
-            <!--END SEARCH-->
         </div>
     </div>
-</div>
 
-<div id="container-fluid mx-2 mt-4">
-    <div class="steps-container d-flex flex-row-reverse row row-cols-1 row-cols-xs-1 row-cols-sm-2">
-        <div>
-            <img src="assets/imgs/product-photos/pexels-rajesh-tp-1633572_edited.jpg" class="steps-img col">
-        </div>
-        <div class= "step-reverse-heading text-left col">
-            <h2>Step 2</h2>
-            <h3 class="mt-4 w-75">Login or create an account!</h3>
-            <a class="btn my-4 orderpage-button" href="/login">Go to login page</a>
+
+
+
+    <!--END HEADER-->
+
+    <!--BANNER-->
+    <div id="banner">
+        <div class="main-title d-flex justify-content-center align-items-center position-relative">
+            <h1 class="main-heading position-absolute text-left">We make delicious burgers.</h1>
         </div>
     </div>
-</div>
 
 
-<!--SEARCH-->
-<!-- <div class="container-fluid mb-4 py-2">
-    <div class="card m-0 search-bar">
-        <h4 class="mb-4">What do you feel like eating today?</h4>
-        <form>
-            <div class="row w-100">
-                <div class="col">
-                    <input class=" form-control mr-sm-2 search-input" type="search"
-                        placeholder="Find your favourite dish, cuisine or restaurant" aria-label="Search">
-                </div>
-                <div class="col">
-                    <button class="btn btn-outline-success my-2 my-sm-0 search-button" type="submit">Search</button>
-                </div>
+    <!--END BANNER -->
+
+
+    <div id="container-fluid mx-2 mt-4">
+        <div class="steps-container d-flex row row-cols-1 row-cols-xs-1 row-cols-sm-2">
+            <div class="steps-img-container d-flex align-items-center">
+                <img src="assets/imgs/product-photos/maiqui-cordeiro-QCPMwPcZhaQ-unsplash_edited.jpg"
+                    class="steps-img ml-4 col">
             </div>
-        </form>
+            <div class="steps-heading text-left col d-flex flex-column justify-content-center">
+                <h2>Step 1</h2>
+                <h3 class="mt-4">Check if we deliver to your area.</h3>
+                <!--SEARCH-->
+                <form class="search-bar my-3">
+                    <div class="d-flex flex-row justify-content-between flex-column">
+                        <input class="form-control search-input shadow" type="text"
+                            placeholder="Enter postal code">
+                        <button id="check-button" class="btn orderpage-button shadow my-4">Check</button>
+                        <div id="address-check-result">
+                        </div>
+                    </div>
+                </form>
+                <!--END SEARCH-->
+            </div>
+        </div>
     </div>
-</div> -->
-<!--END SEARCH-->
 
-<!-- Optional JavaScript; choose one of the two! -->
 
-<!-- Option 1: jQuery and Bootstrap Bundle (includes Popper) -->
-<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
+    <div id="container-fluid mx-2 mt-4">
+        <div class="steps-container d-flex flex-row-reverse row row-cols-1 row-cols-xs-1 row-cols-sm-2">
+            <div class="steps-img-container d-flex align-items-center">
+                <img src="assets/imgs/product-photos/pexels-horizon-content-3738730_edited2.jpg" class="steps-img-reverse col">
+            </div>
+            <div class="step-reverse-heading text-left col d-flex flex-column justify-content-center">
+                <h2>Step 2</h2>
+                <h3 class="mt-4">Login or create an account.</h3>
+                <a class="btn my-4 orderpage-button shadow w-75" href="/login">Create an account</a>
+            </div>
+        </div>
+    </div>
+
+    <div id="container-fluid mx-2 mt-4">
+        <div class="steps-container d-flex row row-cols-1 row-cols-xs-1 row-cols-sm-2">
+            <div class="steps-img-container d-flex align-items-center">
+                <img src="assets/imgs/product-photos/pexels-karolina-grabowska-4040696_edited.jpg"
+                    class="steps-img ml-4 col">
+            </div>
+            <div class="steps-heading text-left col d-flex flex-column justify-content-center">
+                <h2>Step 3</h2>
+                <h3 class="mt-4">Order your food!</h3>
+                <a class="btn my-4 orderpage-button shadow w-75" href="/products">Order now</a>
+            </div>
+        </div>
+    </div>
+
+
+    <!-- Optional JavaScript; choose one of the two! -->
+
+    <!-- Option 1: jQuery and Bootstrap Bundle (includes Popper) -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
         integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
         crossorigin="anonymous"></script>
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.bundle.min.js"
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-ho+j7jyWK8fNQe+A12Hb8AhRq26LrZ/JpcUGGOn+Y7RsweNrtN/tE3MoK7ZeZDyx"
         crossorigin="anonymous"></script>
 
-<!-- Option 2: jQuery, Popper.js, and Bootstrap JS
+    <script src="assets/postalcheck.js"></script>
+
+    <!-- Option 2: jQuery, Popper.js, and Bootstrap JS
 <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
 <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.min.js" integrity="sha384-w1Q4orYjBQndcko6MimVbzY0tgp4pWB4lZ7lr30WKz0vr/aWKhXdBNmNb5D92v7s" crossorigin="anonymous"></script>

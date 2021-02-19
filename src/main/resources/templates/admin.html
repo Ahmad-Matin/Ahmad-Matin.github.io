@@ -147,11 +147,6 @@
 <!--          <input type="hidden" id="user_id" name="user_id" th:value="${user.id}">-->
 <!--          <input type="hidden" id="id" name="id" th:value="${product.id}">-->
 
-<!--          <div>-->
-<!--              <input type="submit" value=" Submit ">-->
-<!--          </div>-->
-<!--      </form>-->
-
       <div th:switch="${products}">
           <p>
               <a href="/product">
@@ -167,9 +162,8 @@
                           <th>Title</th>
                           <th>Description</th>
                           <th>Price</th>
-                          <th>Product Type</th>
-<!--                          <th>Quantity</th>-->
-<!--                          <th>SKU</th>-->
+                          <th>Quantity</th>
+                          <th>SKU</th>
                           <th>User_id</th>
                           <th>ImageURL</th>
 
@@ -183,9 +177,8 @@
                           <td th:text="${product.title}"></td>
                           <td th:text="${product.description}"></td>
                           <td th:text="${product.price}"></td>
-                          <td th:text="${product.productType}"></td>
-<!--                          <td th:text="${product.quantity}"></td>-->
-<!--                          <td th:text="${product.sku}"></td>-->
+                          <td th:text="${product.quantity}"></td>
+                          <td th:text="${product.sku}"></td>
                           <td th:text="${product.user_id}"></td>
                           <td><img th:src="${product.imageURL}" alt="" width="40" height="40"></td>
 
