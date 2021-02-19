@@ -97,7 +97,7 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 //								.build();
 //				// Add that instance to the list
 //				list.add(user);
-//			}
+			}
 
 			//Have at least one admin user for developer to login
 			UserDetails admin =
@@ -107,7 +107,7 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 							.roles("ADMIN")
 							.build();
 			list.add(admin);
-		}
+
 //		System.out.println(list);
 		return new InMemoryUserDetailsManager(list);
 	}
