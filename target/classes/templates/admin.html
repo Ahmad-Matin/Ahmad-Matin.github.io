@@ -155,33 +155,33 @@
 
       <!--OLD VERSION-->
 
-                  <div class="col my-2">
+<!--                  <div class="col my-2">-->
 
-                    <form action="#" th:action="@{product/new}" th:object="${product}" method="post">
-                    <div class="form-group card p-3 shadow-sm">
-                        <label for="title">Title</label>
-                        <input type="text" class="form-control" name="title" id="title" th:field="*{title}" required>
+<!--                    <form action="#" th:action="@{product/new}" th:object="${product}" method="post">-->
+<!--                    <div class="form-group card p-3 shadow-sm">-->
+<!--                        <label for="title">Title</label>-->
+<!--                        <input type="text" class="form-control" name="title" id="title" th:field="*{title}" required>-->
 
-                            <label for="description">Description</label>
-                            <input type="text" class="form-control" name="description" id="description" th:field="*{description}" required>
+<!--                            <label for="description">Description</label>-->
+<!--                            <input type="text" class="form-control" name="description" id="description" th:field="*{description}" required>-->
 
-                        <label for="type">Type</label>
-                        <input type="text" class="form-control" name="type" id="type" th:field="*{productType}"required>
+<!--                        <label for="type">Type</label>-->
+<!--                        <input type="text" class="form-control" name="type" id="type" th:field="*{productType}"required>-->
 
-                        <label for="price">Price</label>
-                        <input type="text" class="form-control" name="price" id="price" th:field="*{price}"required>
+<!--                        <label for="price">Price</label>-->
+<!--                        <input type="text" class="form-control" name="price" id="price" th:field="*{price}"required>-->
 
-                        <label for="imageUrl">Image URL</label>
-                        <input type="text" class="form-control" name="imageURL" id="imageURL" th:field="*{imageURL}" required>
+<!--                        <label for="imageUrl">Image URL</label>-->
+<!--                        <input type="text" class="form-control" name="imageURL" id="imageURL" th:field="*{imageURL}" required>-->
 
-                            <input type="hidden" id="user_id" name="user_id" th:value="${user.id}">
-                            <input type="hidden" id="id" name="id" th:value="${product.id}">
+<!--                            <input type="hidden" id="user_id" name="user_id" th:value="${user.id}">-->
+<!--                            <input type="hidden" id="id" name="id" th:value="${product.id}">-->
 
-                            <div>
-                                  <input type="submit" value=" Submit" class="btn btn-success my-2">
-                            </div>
-                </form>
-                  </div>
+<!--                            <div>-->
+<!--                                  <input type="submit" value=" Submit" class="btn btn-success my-2">-->
+<!--                            </div>-->
+<!--                </form>-->
+<!--                  </div>-->
 
 
       <div th:switch="${products}">
@@ -190,7 +190,7 @@
                   <i> Add Product </i></a>
           </p>
           <div>
-<!--              <h2 th:case="null">No record found !!</h2>-->
+              <h2 th:case="null">No record found !!</h2>
 
               <div th:case="*">
                   <table>

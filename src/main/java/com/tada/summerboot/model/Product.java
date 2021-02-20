@@ -14,7 +14,7 @@ public class Product {
     private String title;
 
     @Column(nullable = true)
-    private String productType;
+    public String productType;
 
     @Column(nullable = true)
     private String imageURL;
