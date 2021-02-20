@@ -134,12 +134,12 @@ public class ProductController {
         return "redirect:/admin";
     }
 
-    // This is for Javascript
-    @PostMapping(path="product/json/new", produces = { MediaType.APPLICATION_JSON_VALUE })
-    public @ResponseBody String newProduct(@RequestBody Product product) {
-        product_service_implementation.createOrUpdateProduct(product);
-        return "{\"status\": \"success\"}";
-    }
+//    // This is for Javascript
+//    @PostMapping(path="product/json/new", produces = { MediaType.APPLICATION_JSON_VALUE })
+//    public @ResponseBody String newProduct(@RequestBody Product product) {
+//        product_service_implementation.createOrUpdateProduct(product);
+//        return "{\"status\": \"success\"}";
+//    }
 
     @RequestMapping(path="product/delete/{id}", produces = { MediaType.APPLICATION_JSON_VALUE })
     public String destroy(@PathVariable Integer id) {

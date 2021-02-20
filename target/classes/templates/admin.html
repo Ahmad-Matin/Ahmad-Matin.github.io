@@ -153,170 +153,83 @@
 <!--      </form>-->
 
 
-      <!--OLD VERSION-->
+      <!--ADD PRODUCT-->
 
-                  <div class="col my-2">
+      <div class="container-fluid p-4">
+          <form action="#" th:action="@{product/new}" th:object="${product}" method="post">
+              <div class="form-group card p-3 shadow-sm">
+                  <label for="title">Title</label>
+                  <input type="text" class="form-control" name="title" id="title" th:field="*{title}" required>
 
-                    <form action="#" th:action="@{product/new}" th:object="${product}" method="post">
-                    <div class="form-group card p-3 shadow-sm">
-                        <label for="title">Title</label>
-                        <input type="text" class="form-control" name="title" id="title" th:field="*{title}" required>
+                  <label for="description">Description</label>
+                  <input type="text" class="form-control" name="description" id="description" th:field="*{description}" required>
 
-                            <label for="description">Description</label>
-                            <input type="text" class="form-control" name="description" id="description" th:field="*{description}" required>
+                  <label for="type">Type</label>
+                  <input type="text" class="form-control" name="type" id="type" th:field="*{productType}"required>
 
-                        <label for="type">Type</label>
-                        <input type="text" class="form-control" name="type" id="type" th:field="*{productType}"required>
+                  <label for="price">Price</label>
+                  <input type="text" class="form-control" name="price" id="price" th:field="*{price}"required>
 
-                        <label for="price">Price</label>
-                        <input type="text" class="form-control" name="price" id="price" th:field="*{price}"required>
+                  <label for="imageUrl">Image URL</label>
+                  <input type="text" class="form-control" name="imageURL" id="imageURL" th:field="*{imageURL}" required>
 
-                        <label for="imageUrl">Image URL</label>
-                        <input type="text" class="form-control" name="imageURL" id="imageURL" th:field="*{imageURL}" required>
+                  <input type="hidden" id="user_id" name="user_id" th:value="${user.id}">
+                  <input type="hidden" id="id" name="id" th:value="${product.id}">
 
-                            <input type="hidden" id="user_id" name="user_id" th:value="${user.id}">
-                            <input type="hidden" id="id" name="id" th:value="${product.id}">
-
-                            <div>
-                                  <input type="submit" value=" Submit" class="btn btn-success my-2">
-                            </div>
-                </form>
+                  <div>
+                      <input type="submit" value=" Submit" class="btn btn-success my-2">
                   </div>
-
-
-      <div th:switch="${products}">
-          <p>
-              <a href="/product">
-                  <i> Add Product </i></a>
-          </p>
-          <div>
-<!--              <h2 th:case="null">No record found !!</h2>-->
-
-              <div th:case="*">
-                  <table>
-                      <thead>
-                      <tr>
-                          <th>Title</th>
-                          <th>Description</th>
-                          <th>Price</th>
-                          <th>Quantity</th>
-                          <th>SKU</th>
-                          <th>User_id</th>
-                          <th>ImageURL</th>
-
-                          <th>Show</th>
-                          <th>Edit</th>
-                          <th>Delete</th>
-                      </tr>
-                      </thead>
-                      <tbody>
-                      <tr th:each="product : ${products}">
-                          <td th:text="${product.title}"></td>
-                          <td th:text="${product.description}"></td>
-                          <td th:text="${product.price}"></td>
-                          <td th:text="${product.productType}"></td>
-                          <td th:text="${product.imageURL}"></td>
-                          <td th:text="${product.user_id}"></td>
-                          <td><img th:src="${product.imageURL}" alt="" width="40" height="40"></td>
-
-                          <td>
-                              <a th:href="@{product/show/{id}(id=${product.id})}">
-                                  Show
-                              </a>
-                          </td>
-
-                          <td>
-                              <a th:href="@{product/edit/{id}(id=${product.id})}">
-                                  Edit
-                              </a>
-                          </td>
-                          <td>
-                              <a th:href="@{product/delete/{id}(id=${product.id})}">
-                                  Delete
-                              </a>
-                          </td>
-                      </tr>
-                      </tbody>
-                  </table>
               </div>
-          </div>
+          </form>
+
       </div>
 
+      <!--VIEW PRODUCTS -->
+        <div id="products" class="container-fluid">
+                <div th:switch="${products}">
+                    <h2 th:case="null">No record found</h2>
+
+                    <div th:case="*" class="my-2">
+                        <div class="d-flex flex-row px-2 mx-auto row justify-content-center" style="width:100%">
+                            <div th:each="product : ${products}" class="col-lg-5 col-sm-10 card-body align-items-center justify-content-center border rounded p-0 pb-4 m-4 shadow">
+                                <div class="img-container d-flex justify-content-center p-4 mb-4">
+                                    <img th:src="${product.imageURL}" class="rounded-top menu-img">
+                                </div>
+                                <div class="d-flex justify-content-between px-4 pt-4">
+                                    <div>
+                                        <p>Name</p>
+                                        <h5 th:text="${product.title}"class="card-title mr-auto"></h5>
+                                    </div>
+                                    <div>
+                                        <p class="text-right">Price</p>
+                                        <h5 th:text="${product.price}" class="card-text ml-auto"></h5>
+                                    </div>
+                                </div>
+                                <div class="d-flex justify-content-between px-4 pt-4">
+                                    <div>
+                                        <p>Type</p>
+                                        <h5 th:text="${product.productType}"class="card-title mr-auto"></h5>
+                                    </div>
+                                    <div>
+                                        <p class="text-right">Description</p>
+                                        <h5 th:text="${product.description}" class="card-text ml-auto text-right"></h5>
+                                    </div>
+                                </div>
+                                <div class="card-body">
+                                    <div class="d-flex justify-content-between">
+                                        <a th:href="@{product/edit/{id}(id=${product.id})}" class="btn btn-warning mx-4 mt-2 py-1 px-4">Edit</a>
+                                        <a th:href="@{product/delete/{id}(id=${product.id})}" class="btn btn-danger mx-4 mt-2 py-1 px-4">x</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
 
 
+            </div>
+        </div>
+        <!--END MENU-->
 
-
-<!--    &lt;!&ndash;MENU&ndash;&gt;-->
-
-<!--    <div class="container-fluid d-flex flex-wrap-reverse row row-sm-1 mx-0">-->
-
-
-
-
-<!--        <div id="products" class="col-md-12 col-xs-1">-->
-<!--            <div class="container-fluid m-0 py-3 p-0">-->
-<!--                <div class="card justify-content-center mx-auto border-0" style="width: 100%">-->
-<!--                    <h3 class="card-name px-4 py-4">Burgers</h3>-->
-
-<!--                    <div th:switch="${products}" id="burger" class="row row-cols-1 row-cols-sm-1 row-cols-md-2 px-2 mx-auto" style="width:100%">-->
-<!--                        <h2 th:case="null">No record found</h2>-->
-<!--                        <div th:case="*">-->
-<!--                        <div class="col my-2">-->
-<!--                            <div class="card-body align-items-center border rounded p-0 pb-4 shadow-sm">-->
-<!--                                <img src="${item.img}" class="card-img-top rounded-top menu-img">-->
-<!--                                <div class="d-flex justify-content-between px-4 pt-4">-->
-<!--                                    <h5 class="card-title mr-auto">${item.name}</h5>-->
-<!--                                    <h5 class="card-text ml-auto">$${item.price}</h5>-->
-<!--                                </div>-->
-<!--                                <div class="card-body">-->
-<!--                                    <div class="d-flex justify-content-start">-->
-<!--                                        <a class="btn btn-warning edit mx-4 mt-2" href="#update-container">Edit</a>-->
-<!--                                    </div>-->
-<!--                                </div>-->
-<!--                            </div>-->
-<!--                        </div>-->
-<!--                    </div>-->
-<!--                    </div>-->
-
-
-<!--                </div>-->
-<!--            </div>-->
-
-
-<!--            <div class="container-fluid m-0 py-3 p-0">-->
-<!--                <div class="card justify-content-center mx-auto border-0" style="width: 100%">-->
-<!--                    <h3 class="card-name px-4 py-4">Sides</h3>-->
-
-<!--                    <div id="sides" class="row row-cols-1 row-cols-sm-1 row-cols-md-2 px-2 mx-auto" style="width:100% ">-->
-
-<!--                    </div>-->
-
-<!--                </div>-->
-<!--            </div>-->
-
-<!--            <div class="container-fluid m-0 py-3 p-0">-->
-<!--                <div class="card justify-content-center mx-auto border-0" style="width: 100%">-->
-<!--                    <h3 class="card-name px-4 py-4">Desserts</h3>-->
-
-<!--                    <div id="dessert" class="row row-cols-1 row-cols-sm-1 row-cols-md-2 px-2 mx-auto"-->
-<!--                        style="width:100% ">-->
-
-<!--                    </div>-->
-
-<!--                </div>-->
-<!--            </div>-->
-
-<!--        </div>-->
-<!--        &lt;!&ndash;END MENU&ndash;&gt;-->
-<!--    </div>-->
-
-
-    <!-- FOOTER -->
-
-    <!-- <div class="container-fluid footer">
-        <a class="btn btn-success m-4" id="show-admin-buttons">Admin</a>
-    </div> -->
-    <!--END FOOTER-->
 
     <!-- Optional JavaScript; choose one of the two! -->
 

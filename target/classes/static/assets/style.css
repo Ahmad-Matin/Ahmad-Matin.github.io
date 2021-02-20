@@ -1,3 +1,6 @@
+* {
+scroll-behavior: smooth;
+}
 
 p, h5, a {
  font-family: "Raleway", sans-serif;
@@ -123,33 +126,26 @@ h3 {
 
 
 .steps-container{
-    width: 100vw;
     margin: 2rem 0;
-    height: 30rem;
+    height: 90vh;
 }
+
+.step2-container {
+height: 70vh;}
+
 
 .steps-img-container{
     width: 100%;
-    padding: 2% 0% 2% 10%;
 
 }
 
 .steps-img, .steps-img-reverse  {
     object-fit: contain;
-    width: 80%;
+    max-width: 500px;
 }
 
-.steps-img-reverse {
-padding: 5% 10% 5% 0%;
-}
-
-.steps-heading {
-    padding: 2% 10% 2% 8%;
-}
-
-
-.step-reverse-heading {
-    padding: 2% 0% 2% 10%;
+.steps-heading,.step-reverse-heading   {
+padding: 4% 8%;
 }
 
 
@@ -162,24 +158,37 @@ padding: 5% 10% 5% 0%;
 } 
 
 .success, .failure {
-    padding: 4% 6%;
     border-radius: 25px;
     color: #fff;
+    margin-bottom: 2rem;
 }
 
+
 .success {
-    background-color: rgb(0, 157, 63);
+    color: rgb(0, 157, 63);
 }
 
 .failure {
-    background-color: rgb(205, 31, 31);
+padding: 4% 6%;
+    background-color: rgb(34, 165, 218);
 }
+
+
+#success-container::before {
+display: block;
+content: " ";
+margin-top: -100px;
+height: 100px;
+visibility: hidden;
+pointer-events:none;
+}
+
 
 .orderpage-button {
     background-color: rgb(255, 174, 0);
     color: #000;
     border-radius: 20px;
-    padding: 1% 8%;
+    padding: 2% 8%;
     font-family: "Quicksand", sans-serif;
     font-weight: 600;
     transition: background-color 300ms;
@@ -189,6 +198,8 @@ padding: 5% 10% 5% 0%;
     background-color: rgb(255, 115, 0);
     color: white;
 }
+
+
 
 .custom-carousel {
     width: 100%;
@@ -226,6 +237,7 @@ padding: 5% 10% 5% 0%;
     width: 100%;
 
 }
+
 
 
 .search-button {
@@ -595,16 +607,23 @@ height: 10rem;
 
 
 .steps-container{
-    width: 100vw;
     /* margin: 4rem 0; */
     height: 40rem;
+    margin: 2%;
+    margin-top: 3rem;
+
 }
+
+#step1 {
+margin-top: 4rem;
+}
+
 
 .steps-img, .steps-img-reverse  {
     object-fit: contain;
-    width: 4rem;
+    max-width: 300px;
     padding: 2% 10%;
-    margin: 0%;
+    margin: 5% 0%;
 }
 
 .steps-img-container{
@@ -613,15 +632,22 @@ height: 10rem;
 }
 
 
-.steps-container {
-    margin: 2%;
-}
-
-
 .steps-heading, .step-reverse-heading{
     display: flex;
     padding: 2% 10%;
     justify-content: center;
+}
+
+.steps-heading h2, .step-reverse-heading h2{
+font-size: 1.5 rem;
+}
+.steps-heading h3, .step-reverse-heading h3{
+font-size: 1 rem;
+}
+
+.success-container h3 {
+font-size: 1.5rem;
+
 }
 
 

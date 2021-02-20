@@ -103,21 +103,21 @@
     <!--END BANNER -->
 
 
-    <div id="container-fluid mx-2 mt-4">
-        <div class="steps-container d-flex row row-cols-1 row-cols-xs-1 row-cols-sm-2">
-            <div class="steps-img-container d-flex align-items-center">
+    <div id="step1"class="container-fluid mt-4">
+        <div class="steps-container d-flex row justify-content-center align-items-center row-cols-1 row-cols-xs-1 row-cols-sm-2">
+<!--            <div class="steps-img-container d-flex align-items-center">-->
                 <img src="assets/imgs/product-photos/maiqui-cordeiro-QCPMwPcZhaQ-unsplash_edited.jpg"
-                    class="steps-img ml-4 col">
-            </div>
-            <div class="steps-heading text-left col d-flex flex-column justify-content-center">
-                <h2>Step 1</h2>
+                    class="steps-img col">
+<!--            </div>-->
+            <div class="steps-heading text-left col d-flex flex-column justify-content-center px-4">
+                <h2>First time ordering with us?</h2>
                 <h3 class="mt-4">Check if we deliver to your area.</h3>
                 <!--SEARCH-->
                 <form class="search-bar my-3">
                     <div class="d-flex flex-row justify-content-between flex-column">
                         <input class="form-control search-input shadow" type="text"
                             placeholder="Enter postal code">
-                        <button id="check-button" class="btn orderpage-button shadow my-4">Check</button>
+                        <a href="#success-container" id="check-button" class="btn orderpage-button shadow my-4" >Check</a>
                         <div id="address-check-result">
                         </div>
                     </div>
@@ -127,33 +127,28 @@
         </div>
     </div>
 
+        <div id="success-container" class="container-fluid mt-4 hide">
+                    <h3 class="success text-center">We deliver to your address!</h3>
+                    <div class="step2-container d-flex flex-row-reverse row row-cols-1 row-cols-xs-1 row-cols-sm-2">
+                        <div class="steps-img-container d-flex align-items-center">
+                            <img src="assets/imgs/product-photos/pexels-horizon-content-3738730_edited2.jpg" class="steps-img-reverse col">
+                        </div>
+                        <div class="step-reverse-heading text-left col d-flex flex-column align-items-center justify-content-center">
+                            <h2>Next steps:</h2>
+                            <h3 class="mt-4">Not sure what to get?</h3>
+                             <a class="btn my-4 orderpage-button shadow w-75" href="/order">View menu</a>
+                              <h3 class="mt-4">Ready to order?</h3>
+                             <a class="btn my-4 orderpage-button shadow w-75" href="/register">Create an account</a>
 
-    <div id="container-fluid mx-2 mt-4">
-        <div class="steps-container d-flex flex-row-reverse row row-cols-1 row-cols-xs-1 row-cols-sm-2">
-            <div class="steps-img-container d-flex align-items-center">
-                <img src="assets/imgs/product-photos/pexels-horizon-content-3738730_edited2.jpg" class="steps-img-reverse col">
-            </div>
-            <div class="step-reverse-heading text-left col d-flex flex-column justify-content-center">
-                <h2>Step 2</h2>
-                <h3 class="mt-4">Login or create an account.</h3>
-                <a class="btn my-4 orderpage-button shadow w-75" href="/register">Create an account</a>
-            </div>
+                        </div>
+                    </div>
         </div>
-    </div>
 
-    <div id="container-fluid mx-2 mt-4">
-        <div class="steps-container d-flex row row-cols-1 row-cols-xs-1 row-cols-sm-2">
-            <div class="steps-img-container d-flex align-items-center">
-                <img src="assets/imgs/product-photos/pexels-karolina-grabowska-4040696_edited.jpg"
-                    class="steps-img ml-4 col">
-            </div>
-            <div class="steps-heading text-left col d-flex flex-column justify-content-center">
-                <h2>Step 3</h2>
-                <h3 class="mt-4">Order your food!</h3>
-                <a class="btn my-4 orderpage-button shadow w-75" href="/order">Order now</a>
-            </div>
-        </div>
-    </div>
+
+
+
+
+
 
 
     <!-- Optional JavaScript; choose one of the two! -->
