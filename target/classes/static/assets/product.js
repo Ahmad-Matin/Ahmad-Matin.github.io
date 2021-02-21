@@ -1,9 +1,9 @@
 //const burgerContainer = document.getElementById("burger");
 //const sidesContainer = document.getElementById("sides");
 //const dessertsContainer = document.getElementById("dessert");
-//const cart = document.getElementById("checkout-container");
-//const cartCheckOut = document.getElementById("cart-checkout");
-//const emptyCartNotice = document.getElementById("empty-cart");
+const cart = document.getElementById("checkout-container");
+const cartCheckOut = document.getElementById("cart-checkout");
+const emptyCartNotice = document.getElementById("empty-cart");
 //
 //
 //function addBurger(item) {
@@ -220,7 +220,7 @@ function loadCartItemsFromStorage() {
     }
 }
 
-fetchProductList();
+//fetchProductList();
 loadCartItemsFromStorage();
 
 const cartTotal = document.getElementById("cart-total");
