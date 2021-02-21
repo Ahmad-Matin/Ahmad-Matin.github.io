@@ -114,24 +114,16 @@
 <!--MENU-->
 <!--cards start-->
 <div class="container-fluid d-flex justify-content-around py-4 flex-wrap-reverse row row-sm-1 mx-0">
+        <div id="products" class="col-md-7 col-sm-7 col-xs-1">
+        <div class="container-fluid m-0 py-3 p-0">
+<!--         burgers-->
+            <div th:switch="${burgers}" class="card justify-content-center mx-auto border-0" style="width: 100%">
+                <h3  class="card-name px-4 py-4">Burgers</h3>
+                    <div th:case="null"><h2 >No record found !!</h2></div>
+                    <a th:case="*"></a>
+                    <div id="burger" class="row row-cols-1 row-cols-sm-1 row-cols-xl-2 px-2 mx-auto" style="width:100%">
 
-
-
-
-    <div th:each="product : ${products}" id="products" class="col-md-7 col-sm-7 col-xs-1">
-        <!--burgers-->
-        <div th:switch="${product.getProductType()}" class="container-fluid m-0 py-3 p-0">
-            <h2 th:case="null">No record found !!</h2>
-
-
-          <!--DESSERTS-->
-            <div th:case="dessert" class="card justify-content-center mx-auto border-0" style="width: 100%">
-                <h3 class="card-name px-4 py-4">Desserts</h3>
-
-                    <div id="dessert" class="row row-cols-1 row-cols-sm-1 row-cols-xl-2 px-2 mx-auto"
-                         style="width:100%">
-                        <!--                    th inserts start-->
-                        <div th:id="${product.id}" class="col my-2">
+                        <div th:each="product : ${burgers}" th:id="${product.id}" class="col my-2">
                             <div class="img-container d-flex justify-content-center p-4 mb-4">
                                 <img th:src="${product.imageURL}" class="rounded-top menu-img">
                             </div>
@@ -151,19 +143,18 @@
                                 </div>
                             </div>
                         </div>
-                        <!--                    th inserts end-->
+
                     </div>
-                </div>
 
-            <!--SIDES-->
+            </div>
 
-            <div th:case="sides" class="card justify-content-center mx-auto border-0" style="width: 100%">
-                <h3 class="card-name px-4 py-4">Sides</h3>
+            <div th:switch="${sides}" class="card justify-content-center mx-auto border-0" style="width: 100%">
+                <h3  class="card-name px-4 py-4">Sides</h3>
+                <div th:case="null"><h2 >No record found !!</h2></div>
+                <a th:case="*"></a>
+                <div id="sides" class="row row-cols-1 row-cols-sm-1 row-cols-xl-2 px-2 mx-auto" style="width:100%">
 
-                <div id="sides" class="row row-cols-1 row-cols-sm-1 row-cols-xl-2 px-2 mx-auto"
-                     style="width:100%">
-                    <!--                    th inserts start-->
-                    <div th:id="${product.id}" class="col my-2">
+                    <div th:each="product : ${sides}" th:id="${product.id}" class="col my-2">
                         <div class="img-container d-flex justify-content-center p-4 mb-4">
                             <img th:src="${product.imageURL}" class="rounded-top menu-img">
                         </div>
@@ -183,68 +174,47 @@
                             </div>
                         </div>
                     </div>
-                    <!--                    th inserts end-->
+
                 </div>
+
             </div>
 
-            <!--BURGER-->
-            <div th:case="burger" class="card justify-content-center mx-auto border-0" style="width: 100%">
-            <h3 class="card-name px-4 py-4">Burgers</h3>
-
-            <div id="burger" class="row row-cols-1 row-cols-sm-1 row-cols-xl-2 px-2 mx-auto"
-                 style="width:100%">
-                <!--                    th inserts start-->
-                <div th:id="${product.id}" class="col my-2">
-                    <div class="img-container d-flex justify-content-center p-4 mb-4">
-                        <img th:src="${product.imageURL}" class="rounded-top menu-img">
-                    </div>
-                    <div class="card-body align-items-center rounded my-4 p-0 pb-4 shadow">
-                        <div class="d-flex justify-content-between px-4 pt-4">
-                            <h5 class="card-title mr-auto"><p th:text="${product.title}"></p></h5>
-                            <h5 class="card-text ml-auto"><p th:text="${product.price}"></p></h5>
-                        </div>
-                        <div class="card-body">
-                            <div class="d-flex px-4 pt-2 pb-2 justify-content-between flex-wrap">
-                                <!--<input type="number" id="quantity" class="form-control quantity-container mr-2 mb-2" value="1">-->
-                                <a class="btn add align-self-center" href="#cart-section">Add to Cart</a>
-                            </div>
-                            <div class="d-flex justify-content-start">
-                                <a class="btn btn-warning edit mx-4 mt-2 hide" href="#update-container">Edit</a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <!--                    th inserts end-->
-            </div>
-        </div>
+            <div th:switch="${desserts}" class="card justify-content-center mx-auto border-0" style="width: 100%">
+                <h3  class="card-name px-4 py-4">Desserts</h3>
+                <div th:case="null"><h2 >No record found !!</h2></div>
                 <a th:case="*"></a>
+                <div id="dessert" class="row row-cols-1 row-cols-sm-1 row-cols-xl-2 px-2 mx-auto" style="width:100%">
+
+                    <div th:each="product : ${desserts}" th:id="${product.id}" class="col my-2">
+                        <div class="img-container d-flex justify-content-center p-4 mb-4">
+                            <img th:src="${product.imageURL}" class="rounded-top menu-img">
+                        </div>
+                        <div class="card-body align-items-center rounded my-4 p-0 pb-4 shadow">
+                            <div class="d-flex justify-content-between px-4 pt-4">
+                                <h5 class="card-title mr-auto"><p th:text="${product.title}"></p></h5>
+                                <h5 class="card-text ml-auto"><p th:text="${product.price}"></p></h5>
+                            </div>
+                            <div class="card-body">
+                                <div class="d-flex px-4 pt-2 pb-2 justify-content-between flex-wrap">
+                                    <!--<input type="number" id="quantity" class="form-control quantity-container mr-2 mb-2" value="1">-->
+                                    <a class="btn add align-self-center" href="#cart-section">Add to Cart</a>
+                                </div>
+                                <div class="d-flex justify-content-start">
+                                    <a class="btn btn-warning edit mx-4 mt-2 hide" href="#update-container">Edit</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+
             </div>
+
         </div>
-    </div>
-<!--    &lt;!&ndash;sides&ndash;&gt;-->
-<!--    <div class="container-fluid m-0 py-3 p-0">-->
-<!--        <div class="card justify-content-center mx-auto border-0" style="width: 100%">-->
-<!--            <h3 class="card-name px-4 py-4">Sides</h3>-->
-
-<!--            <div id="sides" class="row row-cols-1 row-cols-sm-1 row-cols-xl-2 px-2 mx-auto" style="width:100% ">-->
-
-<!--            </div>-->
-
-<!--        </div>-->
-<!--    </div>-->
-<!--    &lt;!&ndash;desserts&ndash;&gt;-->
-<!--    <div class="container-fluid m-0 py-3 p-0">-->
-<!--        <div class="card justify-content-center mx-auto border-0" style="width: 100%">-->
-<!--            <h3 class="card-name px-4 py-4">Desserts</h3>-->
-
-<!--            <div id="dessert" class="row row-cols-1 row-cols-sm-1 row-cols-xl-2 px-2 mx-auto"-->
-<!--                 style="width:100% ">-->
-
-<!--            </div>-->
-
-<!--        </div>-->
-<!--    </div>-->
+        </div>
 </div>
+
+
 
 <!--    cards end-->
 <!--END MENU-->
