@@ -75,17 +75,16 @@ public class ProductController {
         model.addAttribute("desserts", desserts);
         return "products";
     }
-
 // ADD ADMIN PAGE
 
     @GetMapping(value="/admin")
     public String adminproducts(Model model){
         List<Product> list = product_service_implementation.getAllProduct();
         model.addAttribute("products", list);
-//        Authentication auth = SecurityContextHolder.getContext().getAuthentication();
-//        User user = user_service_implementation.current_user(auth.getName());
-//        model.addAttribute("user", user);
-//        model.addAttribute("product", new Product());
+        Authentication auth = SecurityContextHolder.getContext().getAuthentication();
+        User user = user_service_implementation.current_user(auth.getName());
+        model.addAttribute("user", user);
+        model.addAttribute("product", new Product());
 
         return "admin";
     }
@@ -121,11 +120,11 @@ public class ProductController {
 
 
 
-        @GetMapping(path = {"/product/edit/{id}"})
+    @GetMapping(path = {"/product/edit/{id}"})
     public String updateProductForm(@PathVariable("id") Integer id, Model model) {
-            Authentication auth = SecurityContextHolder.getContext().getAuthentication();
-            User user = user_service_implementation.current_user(auth.getName());
-            model.addAttribute("user", user);
+        Authentication auth = SecurityContextHolder.getContext().getAuthentication();
+        User user = user_service_implementation.current_user(auth.getName());
+        model.addAttribute("user", user);
         Optional<Product> updateProduct = product_service_implementation.getProduct(id);
         model.addAttribute("product", updateProduct.get());
         System.out.println(updateProduct);
@@ -142,7 +141,7 @@ public class ProductController {
 
 
 
-/*UNUSED*/
+    /*UNUSED*/
 
 
 
