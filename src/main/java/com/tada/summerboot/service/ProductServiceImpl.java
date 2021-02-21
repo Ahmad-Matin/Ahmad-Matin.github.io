@@ -33,9 +33,7 @@ public class ProductServiceImpl implements ProductServiceInterface{
     }
 
     @Override
-    public void updateProduct(Product updatedProduct) {
-        productRepo.save(updatedProduct);
-    }
+    public void updateProduct(Product editedProduct) {productRepo.save(editedProduct);}
 
     @Override
     public List<Product> getAllProduct() {

@@ -82,6 +82,8 @@ public class Product {
         this.sku = sku;
     }
 
+    public void setId(Integer id) {this.id = id;}
+
     public void setTitle(String title) {
         this.title = title;
     }
