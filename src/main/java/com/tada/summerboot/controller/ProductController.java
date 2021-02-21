@@ -115,7 +115,7 @@ public class ProductController {
     @RequestMapping(path="product/delete/{id}", produces = { MediaType.APPLICATION_JSON_VALUE })
     public String destroy(@PathVariable Integer id) {
         product_service_implementation.deleteProduct(id);
-        return "redirect:/every-products";
+        return "redirect:/admin";
     }
 
 

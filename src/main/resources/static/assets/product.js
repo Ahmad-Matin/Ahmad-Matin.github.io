@@ -1,143 +1,143 @@
-const burgerContainer = document.getElementById("burger");
-const sidesContainer = document.getElementById("sides");
-const dessertsContainer = document.getElementById("dessert");
-const cart = document.getElementById("checkout-container");
-const cartCheckOut = document.getElementById("cart-checkout");
-const emptyCartNotice = document.getElementById("empty-cart");
-
-
-function addBurger(item) {
-
-    const itemHTML =
-    `
-    <div id ="${item.id}" class="col my-2">
-    <div class="img-container d-flex justify-content-center p-4 mb-4">
-        <img src="${item.img}" class="rounded-top menu-img">
-    </div>
-        <div class="card-body align-items-center rounded my-4 p-0 pb-4 shadow">
-            <div class="d-flex justify-content-between px-4 pt-4">
-                    <h5 class="card-title mr-auto">${item.name}</h5>
-                    <h5 class="card-text ml-auto">$${item.price}</h5>
-            </div>
-            <div class="card-body">
-                <div class="d-flex px-4 pt-2 pb-2 justify-content-between flex-wrap">
-                    <!--<input type="number" id="quantity" class="form-control quantity-container mr-2 mb-2" value="1">-->
-                    <a class="btn add align-self-center" href="#cart-section">Add to Cart</a>
-                 </div>
-                <div class="d-flex justify-content-start">
-                  <a class="btn btn-warning edit mx-4 mt-2 hide" href="#update-container">Edit</a>
-                </div>
-            </div>
-        </div>
-    </div>
-
-`;
-
-    burgerContainer.innerHTML += itemHTML;
-}
-
-function addSides(item) {
-
-    const itemHTML =
-    `
-    <div id ="${item.id}" class="col my-2">
-    <div class="img-container d-flex justify-content-center p-4 mb-4">
-        <img src="${item.img}" class="rounded-top menu-img">
-    </div>
-    <div class="card-body align-items-center rounded my-4 p-0 pb-4 shadow">
-    <div class="d-flex justify-content-between px-4 pt-4">
-                    <h5 class="card-title mr-auto">${item.name}</h5>
-                    <h5 class="card-text ml-auto">$${item.price}</h5>
-            </div>
-            <div class="card-body">
-                <div class="d-flex px-4 pt-2 pb-2 justify-content-between flex-wrap">
-                    <!--<input type="number" id="quantity" class="form-control quantity-container mr-2 mb-2" value="1">-->
-                    <a class="btn add align-self-center" href="#cart-section">Add to Cart</a>
-                 </div>
-                <div class="d-flex justify-content-start">
-                  <a class="btn btn-warning edit mx-4 mt-2 hide" href="#update-container">Edit</a>
-                </div>
-            </div>
-        </div>
-    </div>
-
-`;
-    sidesContainer.innerHTML += itemHTML;
-}
-
-function addDesserts(item) {
-
-    const itemHTML =
-    `
-    <div id ="${item.id}" class="col my-2">
-    <div class="img-container d-flex justify-content-center p-4 mb-4">
-        <img src="${item.img}" class="rounded-top menu-img">
-    </div>
-    <div class="card-body align-items-center rounded my-4 p-0 pb-4 shadow">
-    <div class="d-flex justify-content-between px-4 pt-4">
-                    <h5 class="card-title mr-auto">${item.name}</h5>
-                    <h5 class="card-text ml-auto">$${item.price}</h5>
-            </div>
-            <div class="card-body">
-                <div class="d-flex px-4 pt-2 pb-2 justify-content-between flex-wrap">
-                    <!--<input type="number" id="quantity" class="form-control quantity-container mr-2 mb-2" value="1">-->
-                    <a class="btn add align-self-center" href="#cart-section">Add to Cart</a>
-                 </div>
-                <div class="d-flex justify-content-start">
-                  <a class="btn btn-warning edit mx-4 mt-2 hide" href="#update-container">Edit</a>
-                </div>
-            </div>
-        </div>
-    </div>
-
-`;
-    dessertsContainer.innerHTML += itemHTML;
-}
-
-const addToCartButtons = document.getElementsByClassName("add");
-
-
-function fetchProductList() {
-
-    if (localStorage.getItem('products') == null) {
-        fetch("../assets/productsA.json")
-            .then((response) => response.json())
-            .then(response => {
-                let productsJson = JSON.stringify(response);
-                localStorage.setItem('products', productsJson);
-                let products = JSON.parse(productsJson);
-                for (let i = 0; i < products.length; i++) {
-                    switch (products[i].type) {
-                        case ("burger"):
-                            addBurger(products[i]);
-                            break;
-                        case ("sides"):
-                            addSides(products[i]);
-                            break;
-                        case ("dessert"):
-                            addDesserts(products[i]);
-                            break;
-                    }
-                }
-            })
-    } else {
-        let productsJson = localStorage.getItem('products');
-        let products = JSON.parse(productsJson);
-        for (let i = 0; i < products.length; i++) {
-            switch (products[i].type) {
-                case ("burger"):
-                    addBurger(products[i]);
-                    break;
-                case ("sides"):
-                    addSides(products[i]);
-                    break;
-                case ("dessert"):
-                    addDesserts(products[i]);
-                    break;
-            }
-        }
-    }
-}
+//const burgerContainer = document.getElementById("burger");
+//const sidesContainer = document.getElementById("sides");
+//const dessertsContainer = document.getElementById("dessert");
+//const cart = document.getElementById("checkout-container");
+//const cartCheckOut = document.getElementById("cart-checkout");
+//const emptyCartNotice = document.getElementById("empty-cart");
+//
+//
+//function addBurger(item) {
+//
+//    const itemHTML =
+//    `
+//    <div id ="${item.id}" class="col my-2">
+//    <div class="img-container d-flex justify-content-center p-4 mb-4">
+//        <img src="${item.img}" class="rounded-top menu-img">
+//    </div>
+//        <div class="card-body align-items-center rounded my-4 p-0 pb-4 shadow">
+//            <div class="d-flex justify-content-between px-4 pt-4">
+//                    <h5 class="card-title mr-auto">${item.name}</h5>
+//                    <h5 class="card-text ml-auto">$${item.price}</h5>
+//            </div>
+//            <div class="card-body">
+//                <div class="d-flex px-4 pt-2 pb-2 justify-content-between flex-wrap">
+//                    <!--<input type="number" id="quantity" class="form-control quantity-container mr-2 mb-2" value="1">-->
+//                    <a class="btn add align-self-center" href="#cart-section">Add to Cart</a>
+//                 </div>
+//                <div class="d-flex justify-content-start">
+//                  <a class="btn btn-warning edit mx-4 mt-2 hide" href="#update-container">Edit</a>
+//                </div>
+//            </div>
+//        </div>
+//    </div>
+//
+//`;
+//
+//    burgerContainer.innerHTML += itemHTML;
+//}
+//
+//function addSides(item) {
+//
+//    const itemHTML =
+//    `
+//    <div id ="${item.id}" class="col my-2">
+//    <div class="img-container d-flex justify-content-center p-4 mb-4">
+//        <img src="${item.img}" class="rounded-top menu-img">
+//    </div>
+//    <div class="card-body align-items-center rounded my-4 p-0 pb-4 shadow">
+//    <div class="d-flex justify-content-between px-4 pt-4">
+//                    <h5 class="card-title mr-auto">${item.name}</h5>
+//                    <h5 class="card-text ml-auto">$${item.price}</h5>
+//            </div>
+//            <div class="card-body">
+//                <div class="d-flex px-4 pt-2 pb-2 justify-content-between flex-wrap">
+//                    <!--<input type="number" id="quantity" class="form-control quantity-container mr-2 mb-2" value="1">-->
+//                    <a class="btn add align-self-center" href="#cart-section">Add to Cart</a>
+//                 </div>
+//                <div class="d-flex justify-content-start">
+//                  <a class="btn btn-warning edit mx-4 mt-2 hide" href="#update-container">Edit</a>
+//                </div>
+//            </div>
+//        </div>
+//    </div>
+//
+//`;
+//    sidesContainer.innerHTML += itemHTML;
+//}
+//
+//function addDesserts(item) {
+//
+//    const itemHTML =
+//    `
+//    <div id ="${item.id}" class="col my-2">
+//    <div class="img-container d-flex justify-content-center p-4 mb-4">
+//        <img src="${item.img}" class="rounded-top menu-img">
+//    </div>
+//    <div class="card-body align-items-center rounded my-4 p-0 pb-4 shadow">
+//    <div class="d-flex justify-content-between px-4 pt-4">
+//                    <h5 class="card-title mr-auto">${item.name}</h5>
+//                    <h5 class="card-text ml-auto">$${item.price}</h5>
+//            </div>
+//            <div class="card-body">
+//                <div class="d-flex px-4 pt-2 pb-2 justify-content-between flex-wrap">
+//                    <!--<input type="number" id="quantity" class="form-control quantity-container mr-2 mb-2" value="1">-->
+//                    <a class="btn add align-self-center" href="#cart-section">Add to Cart</a>
+//                 </div>
+//                <div class="d-flex justify-content-start">
+//                  <a class="btn btn-warning edit mx-4 mt-2 hide" href="#update-container">Edit</a>
+//                </div>
+//            </div>
+//        </div>
+//    </div>
+//
+//`;
+//    dessertsContainer.innerHTML += itemHTML;
+//}
+//
+//const addToCartButtons = document.getElementsByClassName("add");
+//
+//
+//function fetchProductList() {
+//
+//    if (localStorage.getItem('products') == null) {
+//        fetch("../assets/productsA.json")
+//            .then((response) => response.json())
+//            .then(response => {
+//                let productsJson = JSON.stringify(response);
+//                localStorage.setItem('products', productsJson);
+//                let products = JSON.parse(productsJson);
+//                for (let i = 0; i < products.length; i++) {
+//                    switch (products[i].type) {
+//                        case ("burger"):
+//                            addBurger(products[i]);
+//                            break;
+//                        case ("sides"):
+//                            addSides(products[i]);
+//                            break;
+//                        case ("dessert"):
+//                            addDesserts(products[i]);
+//                            break;
+//                    }
+//                }
+//            })
+//    } else {
+//        let productsJson = localStorage.getItem('products');
+//        let products = JSON.parse(productsJson);
+//        for (let i = 0; i < products.length; i++) {
+//            switch (products[i].type) {
+//                case ("burger"):
+//                    addBurger(products[i]);
+//                    break;
+//                case ("sides"):
+//                    addSides(products[i]);
+//                    break;
+//                case ("dessert"):
+//                    addDesserts(products[i]);
+//                    break;
+//            }
+//        }
+//    }
+//}
 
 /*
 function loadProductsFromStorage() {
