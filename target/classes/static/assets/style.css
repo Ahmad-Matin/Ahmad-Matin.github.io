@@ -264,7 +264,7 @@ pointer-events:none;
 .img-container{
     height: 22rem;
     padding: 5%;
-    margin: 10% 0;
+    /*margin: 10% 0;*/
 
 }
 
@@ -388,12 +388,6 @@ a.menu-category:hover {
 .yellow-background{
    background-color: rgb(255, 174, 0);
 }
-
-
-/*li.price {
-    list-style-type :none;
-}
-*/
 
 li.checkout-item{
     list-style-type: none;
