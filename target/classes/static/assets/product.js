@@ -233,6 +233,10 @@ function storeItem(product) {
     if (localStorage.getItem('cartItems') == null) {
         let newCart = [];
         newCart.push(product);
+
+        // TODO - send data to backend
+        // decide the endpoint
+        // replace this localStorage code with a fetch/POST code
         localStorage.setItem('cartItems', JSON.stringify(newCart));
     } else {
         let cartItems = JSON.parse(localStorage.getItem('cartItems'));
@@ -240,6 +244,8 @@ function storeItem(product) {
         localStorage.setItem('cartItems', JSON.stringify(cartItems));
     }
 }
+
+
 
 //  ADD ITEM TO CART 
 function addItemsToCart(product) {
@@ -306,6 +312,9 @@ if (e.target.classList.contains("add")) {
         for (let i = 0; i < cartItems.length; i++) {
             if (productName == cartItems[i].name) {
                 cartItems[i].quantity++;
+
+                // TODO fetch/POST
+                // update endpoint
                 localStorage.setItem('cartItems', JSON.stringify(cartItems))
             }
         }

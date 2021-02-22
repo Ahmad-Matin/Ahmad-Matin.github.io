@@ -28,7 +28,7 @@
     <title>MCJ Final Project | Products</title>
 
     <!--JS -->
-
+    <script src="../assets/menuCategories.js"></script>
 
 
 </head>
@@ -45,6 +45,14 @@
 
         <div class="collapse navbar-collapse" id="navbarText">
             <ul class="navbar-nav mr-auto">
+                <li sec:authorize="isAuthenticated()" class="nav-item mr-4">
+                    <h3 class="my-2" th:inline="text">Hello [[${#httpServletRequest.remoteUser}]]!</h3>
+                </li>
+                <li sec:authorize="isAuthenticated()" class="nav-item mr-4">
+                    <form th:action="@{/logout}" method="post">
+                        <input type="submit" class="btn btn-light my-2" value="Sign Out"/>
+                    </form>
+                </li>
                 <li class="nav-item mr-4">
                     <a class="nav-link custom-navlink" href="/">Home</a>
                 </li>
@@ -54,22 +62,14 @@
             </ul>
             <ul class="navbar-nav ml-auto">
                 <!--incorporated stuff-->
-                <li sec:authorize="isAuthenticated()" class="nav-item ">
-                    <a class="nav-link custom-navlink" th:inline="text">Hello [[${#httpServletRequest.remoteUser}]]!</a>
-                </li>
-                <li sec:authorize="isAuthenticated()" class="nav-item ">
-                    <form th:action="@{/logout}" method="post">
-                        <input type="submit" value="Sign Out"/>
-                    </form>
-                </li>
-                <li sec:authorize="hasRole('ROLE_ADMIN')" class="nav-item ">
+                <li sec:authorize="hasRole('ROLE_ADMIN')" class="nav-item mr-4">
                     <a class="nav-link custom-navlink" href="/admin">Admin <span
                             class="sr-only">(current)</span></a>
                 </li>
-                <li sec:authorize="isAnonymous()" class="nav-item ">
+                <li sec:authorize="isAnonymous()" class="nav-item">
                     <a class="nav-link custom-navlink" href="/login"><span class="material-icons md-36">perm_identity</span><span class="sr-only">(current)</span></a>
                 </li>
-                <li sec:authorize="isAuthenticated()" class="nav-item ">
+                <li sec:authorize="isAuthenticated()" class="nav-item">
                     <a class="nav-link custom-navlink" href="/order"><span class="material-icons md-36">shopping_cart</span><span class="sr-only">(current)</span></a>
                 </li>
             </ul>
@@ -99,7 +99,7 @@
 <!--MENU CATEGORIES-->
 
 <div id="menu-categories" class="menu-categories d-flex justify-content-around px-4 hide">
-    <a id="burgerMenu" class="menu-category  m-0 py-2 px-4 m-" href="#burgers-container">Burgers</a>
+    <a id="burgerMenu" class="menu-category  m-0 py-2 px-4" href="#burgers-container">Burgers</a>
     <a id="sidesMenu" class="menu-category  m-0 py-2 px-4" href="#sides-container">Sides</a>
     <a id="dessertMenu" class="menu-category  m-0 py-2 px-4" href="#desserts-container">Desserts</a>
 </div>
@@ -243,7 +243,6 @@
 
 
 <script src="../assets/product.js"></script>
-<script src="../assets/menuCategories.js"></script>
 
 
 </body>

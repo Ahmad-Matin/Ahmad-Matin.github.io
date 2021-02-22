@@ -1,12 +1,12 @@
 const mediaQuery = window.matchMedia('(min-width: 768px)');
-var menunav = document.getElementById("menu-categories");
+//const menunav = document.getElementById("menu-categories");
 
 function changeNavBarColor(mediaQuery) {
     if (mediaQuery.matches) {
 
-        menunav.classList.remove("hide");
+//        menunav.classList.remove("hide");
 
-        window.onscroll = function () { scrollFunction() };
+        window.onscroll = function() { scrollFunction() };
         function scrollFunction() {
             var navbar = document.getElementById("custom-navigation");
             let burgerCategory = document.getElementById("burgerMenu");
