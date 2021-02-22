@@ -100,13 +100,13 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 			}
 
 			//Have at least one admin user for developer to login
-			UserDetails admin =
-					User.withDefaultPasswordEncoder()
-							.username("admin")
-							.password("admin")
-							.roles("ADMIN")
-							.build();
-			list.add(admin);
+//			UserDetails admin =
+//					User.withDefaultPasswordEncoder()
+//							.username("admin")
+//							.password("admin")
+//							.roles("ADMIN")
+//							.build();
+//			list.add(admin);
 
 //		System.out.println(list);
 		return new InMemoryUserDetailsManager(list);

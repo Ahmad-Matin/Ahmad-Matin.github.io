@@ -46,23 +46,24 @@
 
         <div class="collapse navbar-collapse" id="navbarText">
             <ul class="navbar-nav mr-auto">
+                <li sec:authorize="isAuthenticated()" class="nav-item mr-4">
+                    <h3 class="my-2" th:inline="text">Hello [[${#httpServletRequest.remoteUser}]]!</h3>
+                </li>
+                <li sec:authorize="isAuthenticated()" class="nav-item mr-4">
+                    <form th:action="@{/logout}" method="post">
+                        <input type="submit" class="btn btn-light my-2" value="Sign Out"/>
+                    </form>
+                </li>
                 <li class="nav-item mr-4">
                     <a class="nav-link custom-navlink" href="/">Home</a>
                 </li>
                 <li class="nav-item mr-4">
                     <a class="nav-link custom-navlink" href="/about-us">About</a>
                 </li>
+               
             </ul>
             <ul class="navbar-nav ml-auto">
                 <!--incorporated stuff-->
-                <li sec:authorize="isAuthenticated()" class="nav-item ">
-                    <a class="nav-link custom-navlink" th:inline="text">Hello [[${#httpServletRequest.remoteUser}]]!</a>
-                </li>
-                <li sec:authorize="isAuthenticated()" class="nav-item ">
-                    <form th:action="@{/logout}" method="post">
-                        <input type="submit" value="Sign Out"/>
-                    </form>
-                </li>
                 <li sec:authorize="hasRole('ROLE_ADMIN')" class="nav-item ">
                     <a class="nav-link custom-navlink" href="/admin">Admin <span
                             class="sr-only">(current)</span></a>
