@@ -48,7 +48,7 @@
             <div class="collapse navbar-collapse" id="navbarText">
                 <ul class="navbar-nav mr-auto">
                     <li sec:authorize="isAuthenticated()" class="nav-item mr-4">
-                        <a class="nav-link custom-navlink" th:inline="text">Hello [[${#httpServletRequest.remoteUser}]]!</a>
+                        <h3 class="my-2" th:inline="text">Hello [[${#httpServletRequest.remoteUser}]]!</h3>
                     </li>
                     <li sec:authorize="isAuthenticated()" class="nav-item mr-4">
                         <form th:action="@{/logout}" method="post">
@@ -89,10 +89,10 @@
     <div class="custom-spacing">
 
     </div>
-    <div class="container-fluid px-4 mt-5 pt-5">
-        <div id="add-item-container" class="px-4">
+    <div class="container-fluid px-md-5 px-4 px-md-2 mt-5 pt-5">
+        <div id="add-item-container" class="px-xl-5 px-sm-4">
             <h2 id="admin-heading" class="text-center">Welcome Admin!</h2>
-            <a id="add-new-product" class="btn btn-warning my-4 w-100 py-3" href="#add-product-form"><h5>Add New Item</h5></a>
+            <a id="add-new-product" class="btn btn-warning my-4 w-100 py-3 px-2" href="#add-product-form"><h3 class="m-0">Add New Item</h3></a>
         </div>    
         <div id="update-container" class="container-fluid my-5">
 
@@ -172,16 +172,16 @@
       </div>
 
       <!--VIEW PRODUCTS -->
-        <div id="products" class="container-fluid">
+        <div id="products" class="container-fluid px-4">
             <h3 class="text-center">Edit Products</h3>
                 <div th:switch="${products}">
                     <h2 th:case="null">No record found</h2>
 
                     <div th:case="*" class="my-2">
-                        <div class="d-flex flex-row px-2 mx-auto row justify-content-center" style="width:100%">
-                            <div th:each="product : ${products}" class="col-lg-5 col-sm-10 card-body align-items-center justify-content-center border rounded p-0 pb-4 m-4 shadow">
+                        <div class="d-flex flex-row px-xl-2 px-sm-0 mx-auto row justify-content-center" style="width:100%">
+                            <div th:each="product : ${products}" class="col-lg-5 col-sm-10 card-body align-items-center justify-content-center border rounded p-0 pb-4 my-4 mx-md-4 mx-sm-2 shadow">
                                 <div class="img-container d-flex justify-content-center p-4 mb-4">
-                                    <img th:src="${product.imageURL}" class="rounded-top menu-img">
+                                    <img th:src="${product.imageURL}" class="rounded-top menu-img w-75">
                                 </div>
                                 <div class="d-flex justify-content-between px-4 pt-4">
                                     <div>

@@ -346,7 +346,7 @@ pointer-events:none;
  .menu-categories {
     background-color:rgb(255, 202, 132);
     position: sticky;
-    top: 75px;
+    top: 70px;
     z-index: 100;
     padding: 1% 0;
 }
@@ -354,7 +354,6 @@ pointer-events:none;
 a.menu-category{
     text-align: center;
     font-weight: 700;
-    margin: 0 1%;
     text-decoration: none;
     transition: all 400ms 100ms
 }
@@ -442,9 +441,6 @@ font-size: 1.5rem;
 
 
 /*ADMIN */
-h2#admin-heading {
-    font-size: 5rem;
-}
 
 /* LOGIN */
 .login-img {
@@ -473,16 +469,23 @@ h2#admin-heading {
 /* MEDIA QUERY FOR MEDIUM SCREENS */
 
 @media only screen and (max-width: 768px) {
+
+h3.greeting{
+font-size:1rem;
+}
     /* LOGIN PAGE */
     #login-banner {
         display:hidden;
     }
+
+    #admin-heading {
+        font-size: 4rem;
+    }
+
     
     .login-heading {
         display:none;
     }
-
-
 
     .menu-heading {
         top: 40%;
@@ -490,19 +493,15 @@ h2#admin-heading {
     }
 
     .banner-text{
-        background-position: left;
+        background-position: center;
     }
 
-    .menu-categories {
-        top: 55px;
-    }
+  /* .active {
+      font-size: 1rem;
+      background-color:rgb(255, 202, 132);
+      box-shadow: none;
+    }*/
 
-    .active {
-        font-size: 1rem;
-        background-color: none;
-    }
-    
-    
     .img-container{
         height: 20rem;
     }
@@ -514,10 +513,10 @@ h2#admin-heading {
   /* MEDIA QUERY FOR SMALL SCREENS */
 
 
-@media only screen and (max-width: 576px) {
+@media only screen and (max-width: 575px) {
 
 .navbar-nav.mr-auto {
-    margin-top: 10vh;
+    margin-top: 8vh;
 }
 
 .navbar-nav.ml-auto {
@@ -574,7 +573,7 @@ h2#admin-heading {
 
     
     h5.card-title {
-        text-align: center;
+        text-align: left;
     }
 
     #checkout-section {
@@ -604,6 +603,10 @@ h2#admin-heading {
 height: 10rem;
 }
 
+
+#menu-categories{
+top: 55px;
+}
 
 .steps-container{
     /* margin: 4rem 0; */
