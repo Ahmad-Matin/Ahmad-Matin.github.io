@@ -36,57 +36,96 @@
 </head>
 
 <body>
-    <!--HEADER-->
-    <div class="fixed-top">
-        <div id="custom-navigation" class="navbar navbar-expand-sm my-0 py-2 px-4 custom-navbar navbar-dark">
-            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarText"
+
+<div class="fixed-top">
+    <div id="custom-navigation" class="navbar navbar-expand-sm my-0 py-2 px-5 custom-navbar navbar-dark">
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarText"
                 aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button>
 
         <div class="collapse navbar-collapse" id="navbarText">
             <ul class="navbar-nav mr-auto">
-                <li sec:authorize="isAuthenticated()" class="nav-item mr-4">
-                    <h3 class="my-2" th:inline="text">Hello [[${#httpServletRequest.remoteUser}]]!</h3>
-                </li>
-                <li sec:authorize="isAuthenticated()" class="nav-item mr-4">
-                    <form th:action="@{/logout}" method="post">
-                        <input type="submit" class="btn btn-light my-2" value="Sign Out"/>
-                    </form>
-                </li>
-                <li class="nav-item mr-4">
+                <li class="nav-item mr-sm-2 mr-md-4">
                     <a class="nav-link custom-navlink" href="/">Home</a>
                 </li>
-                <li class="nav-item mr-4">
+                <li class="nav-item mr-sm-2">
                     <a class="nav-link custom-navlink" href="/about-us">About</a>
                 </li>
-               
             </ul>
             <ul class="navbar-nav ml-auto">
                 <!--incorporated stuff-->
-                <li sec:authorize="hasRole('ROLE_ADMIN')" class="nav-item ">
+                <li sec:authorize="hasRole('ROLE_ADMIN')" class="nav-item mr-sm-2 mr-md-4">
                     <a class="nav-link custom-navlink" href="/admin">Admin <span
                             class="sr-only">(current)</span></a>
                 </li>
-                <li sec:authorize="isAnonymous()" class="nav-item ">
-                    <a class="nav-link custom-navlink" href="/login"><span class="material-icons md-36">perm_identity</span><span class="sr-only">(current)</span></a>
+                <li sec:authorize="isAnonymous()" class="nav-item mr-sm-2 mr-md-4">
+                    <a class="nav-link custom-navlink" href="/login">Login</a>
                 </li>
-                <li sec:authorize="isAuthenticated()" class="nav-item ">
-                    <a class="nav-link custom-navlink" href="/order"><span class="material-icons md-36">shopping_cart</span><span class="sr-only">(current)</span></a>
+                <li class="nav-item mr-sm-2 mr-md-4">
+                    <a class="nav-link custom-navlink" href="/order">Order</a>
                 </li>
-                <!--                <li class="nav-item mr-4">-->
-<!--                    <a class="nav-link custom-navlink" href="pages/login.html"><span class="material-icons md-36">perm_identity-->
-<!--                        </span><span class="sr-only">(current)</span></a>-->
-<!--                </li>-->
-<!--                <li class="nav-item">-->
-<!--                    <a class="nav-link custom-navlink" href="pages/products.html"><span class="material-icons md-36">-->
-<!--                        shopping_cart</span></a>-->
-<!--                </li>-->
+                <li sec:authorize="isAuthenticated()" class="nav-item">
+                    <form th:action="@{/logout}" method="post">
+                        <input type="submit" class="log-out btn btn-light my-2" value="Sign Out"/>
+                    </form>
+                </li>
             </ul>
         </div>
 
-        </div>
     </div>
+</div>
+<!--    &lt;!&ndash;HEADER&ndash;&gt;-->
+<!--    <div class="fixed-top">-->
+<!--        <div id="custom-navigation" class="navbar navbar-expand-sm my-0 py-2 px-4 custom-navbar navbar-dark">-->
+<!--            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarText"-->
+<!--                aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">-->
+<!--            <span class="navbar-toggler-icon"></span>-->
+<!--        </button>-->
+
+<!--        <div class="collapse navbar-collapse" id="navbarText">-->
+<!--            <ul class="navbar-nav mr-auto">-->
+<!--                <li sec:authorize="isAuthenticated()" class="nav-item mr-4">-->
+<!--                    <h3 class="my-2" th:inline="text">Hello [[${#httpServletRequest.remoteUser}]]!</h3>-->
+<!--                </li>-->
+<!--                <li sec:authorize="isAuthenticated()" class="nav-item mr-4">-->
+<!--                    <form th:action="@{/logout}" method="post">-->
+<!--                        <input type="submit" class="btn btn-light my-2" value="Sign Out"/>-->
+<!--                    </form>-->
+<!--                </li>-->
+<!--                <li class="nav-item mr-4">-->
+<!--                    <a class="nav-link custom-navlink" href="/">Home</a>-->
+<!--                </li>-->
+<!--                <li class="nav-item mr-4">-->
+<!--                    <a class="nav-link custom-navlink" href="/about-us">About</a>-->
+<!--                </li>-->
+<!--               -->
+<!--            </ul>-->
+<!--            <ul class="navbar-nav ml-auto">-->
+<!--                &lt;!&ndash;incorporated stuff&ndash;&gt;-->
+<!--                <li sec:authorize="hasRole('ROLE_ADMIN')" class="nav-item ">-->
+<!--                    <a class="nav-link custom-navlink" href="/admin">Admin <span-->
+<!--                            class="sr-only">(current)</span></a>-->
+<!--                </li>-->
+<!--                <li sec:authorize="isAnonymous()" class="nav-item ">-->
+<!--                    <a class="nav-link custom-navlink" href="/login"><span class="material-icons md-36">perm_identity</span><span class="sr-only">(current)</span></a>-->
+<!--                </li>-->
+<!--                <li sec:authorize="isAuthenticated()" class="nav-item ">-->
+<!--                    <a class="nav-link custom-navlink" href="/order"><span class="material-icons md-36">shopping_cart</span><span class="sr-only">(current)</span></a>-->
+<!--                </li>-->
+<!--                &lt;!&ndash;                <li class="nav-item mr-4">&ndash;&gt;-->
+<!--&lt;!&ndash;                    <a class="nav-link custom-navlink" href="pages/login.html"><span class="material-icons md-36">perm_identity&ndash;&gt;-->
+<!--&lt;!&ndash;                        </span><span class="sr-only">(current)</span></a>&ndash;&gt;-->
+<!--&lt;!&ndash;                </li>&ndash;&gt;-->
+<!--&lt;!&ndash;                <li class="nav-item">&ndash;&gt;-->
+<!--&lt;!&ndash;                    <a class="nav-link custom-navlink" href="pages/products.html"><span class="material-icons md-36">&ndash;&gt;-->
+<!--&lt;!&ndash;                        shopping_cart</span></a>&ndash;&gt;-->
+<!--&lt;!&ndash;                </li>&ndash;&gt;-->
+<!--            </ul>-->
+<!--        </div>-->
+
+<!--        </div>-->
+<!--    </div>-->
 
 
 

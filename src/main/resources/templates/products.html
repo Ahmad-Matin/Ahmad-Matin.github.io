@@ -37,7 +37,7 @@
 
 <!--HEADER-->
 <div class="fixed-top">
-    <div id="custom-navigation" class="navbar navbar-expand-sm my-0 py-2 px-4 custom-navbar navbar-dark">
+    <div id="custom-navigation" class="navbar navbar-expand-sm my-0 py-2 px-5 custom-navbar navbar-dark">
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarText"
                 aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
@@ -45,32 +45,29 @@
 
         <div class="collapse navbar-collapse" id="navbarText">
             <ul class="navbar-nav mr-auto">
-                <li sec:authorize="isAuthenticated()" class="nav-item mr-4">
-                    <h3 class="my-2" th:inline="text">Hello [[${#httpServletRequest.remoteUser}]]!</h3>
-                </li>
-                <li sec:authorize="isAuthenticated()" class="nav-item mr-4">
-                    <form th:action="@{/logout}" method="post">
-                        <input type="submit" class="btn btn-light my-2" value="Sign Out"/>
-                    </form>
-                </li>
-                <li class="nav-item mr-4">
+                <li class="nav-item mr-sm-2 mr-md-4">
                     <a class="nav-link custom-navlink" href="/">Home</a>
                 </li>
-                <li class="nav-item mr-4">
+                <li class="nav-item mr-sm-2">
                     <a class="nav-link custom-navlink" href="/about-us">About</a>
                 </li>
             </ul>
             <ul class="navbar-nav ml-auto">
                 <!--incorporated stuff-->
-                <li sec:authorize="hasRole('ROLE_ADMIN')" class="nav-item mr-4">
+                <li sec:authorize="hasRole('ROLE_ADMIN')" class="nav-item mr-sm-2 mr-md-4">
                     <a class="nav-link custom-navlink" href="/admin">Admin <span
                             class="sr-only">(current)</span></a>
                 </li>
-                <li sec:authorize="isAnonymous()" class="nav-item">
-                    <a class="nav-link custom-navlink" href="/login"><span class="material-icons md-36">perm_identity</span><span class="sr-only">(current)</span></a>
+                <li sec:authorize="isAnonymous()" class="nav-item mr-sm-2 mr-md-4">
+                    <a class="nav-link custom-navlink" href="/login">Login</a>
+                </li>
+                <li class="nav-item mr-sm-2 mr-md-4">
+                    <a class="nav-link custom-navlink" href="/order">Order</a>
                 </li>
                 <li sec:authorize="isAuthenticated()" class="nav-item">
-                    <a class="nav-link custom-navlink" href="/order"><span class="material-icons md-36">shopping_cart</span><span class="sr-only">(current)</span></a>
+                    <form th:action="@{/logout}" method="post">
+                        <input type="submit" class="log-out btn btn-light my-2" value="Sign Out"/>
+                    </form>
                 </li>
             </ul>
         </div>
@@ -98,10 +95,10 @@
 
 <!--MENU CATEGORIES-->
 
-<div id="menu-categories" class="menu-categories d-flex justify-content-around px-4 hide">
-    <a id="burgerMenu" class="menu-category  m-0 py-2 px-4" href="#burgers-container">Burgers</a>
-    <a id="sidesMenu" class="menu-category  m-0 py-2 px-4" href="#sides-container">Sides</a>
-    <a id="dessertMenu" class="menu-category  m-0 py-2 px-4" href="#desserts-container">Desserts</a>
+<div id="menu-categories" class="menu-categories d-flex justify-content-between px-5 hide">
+    <a id="burgerMenu" class="menu-category  m-0 py-2 px-3" href="#burgers-container">Burgers</a>
+    <a id="sidesMenu" class="menu-category  m-0 py-2 px-3" href="#sides-container">Sides</a>
+    <a id="dessertMenu" class="menu-category  m-0 py-2 px-3" href="#desserts-container">Desserts</a>
 </div>
 
 <!--END MENU CATEGORIES-->
@@ -110,13 +107,13 @@
 <!--MENU-->
 <!--cards start-->
 <div class="container-fluid d-flex justify-content-around py-4 flex-wrap-reverse row row-sm-1 mx-0 my-4">
-    <div id="products" class="col-md-7 col-sm-7 col-xs-1 py-4">
+    <div id="products" class="col-md-7 col-sm-7 col-xs-11 py-4 px-0">
             <!--         burgers-->
             <div id="burgers-container" th:switch="${burgers}" class="card justify-content-center mx-auto border-0" style="width: 100%">
-                <h3 class="card-name px-4 my-4">Burgers</h3>
+                <h3 class="card-name px-3 my-4">Burgers</h3>
                 <div th:case="null"><h2 >No record found !!</h2></div>
                 <a th:case="*"></a>
-                <div id="burger" class="row row-cols-1 row-cols-sm-1 row-cols-xl-2 px-2 mx-auto" style="width:100%">
+                <div id="burger" class="row row-cols-1 row-cols-sm-1 row-cols-xl-2 px-md-2 mx-auto" style="width:100%">
 
                     <div th:each="product : ${burgers}" th:id="${product.id}" class="col my-2">
                         <div class="img-container d-flex justify-content-center p-4 mb-4">
@@ -129,7 +126,6 @@
                             </div>
                             <div class="card-body">
                                 <div class="d-flex px-4 pt-2 pb-2 justify-content-between flex-wrap">
-                                    <!--<input type="number" id="quantity" class="form-control quantity-container mr-2 mb-2" value="1">-->
                                     <a class="btn add align-self-center" href="#menu-categories">Add to Cart</a>
                                 </div>
                             </div>
@@ -141,7 +137,7 @@
             </div>
 
             <div id="sides-container" th:switch="${sides}" class="card justify-content-center mx-auto border-0" style="width: 100%">
-                <h3  class="card-name px-4 my-4">Sides</h3>
+                <h3  class="card-name px-3 my-4">Sides</h3>
                 <div th:case="null"><h2 >No record found !!</h2></div>
                 <a th:case="*"></a>
                 <div id="sides" class="row row-cols-1 row-cols-sm-1 row-cols-xl-2 px-2 mx-auto" style="width:100%">
@@ -157,7 +153,6 @@
                             </div>
                             <div class="card-body">
                                 <div class="d-flex px-4 pt-2 pb-2 justify-content-between flex-wrap">
-                                    <!--<input type="number" id="quantity" class="form-control quantity-container mr-2 mb-2" value="1">-->
                                     <a class="btn add align-self-center" href="#menu-categories">Add to Cart</a>
                                 </div>
                             </div>
@@ -169,7 +164,7 @@
             </div>
 
             <div id="desserts-container" th:switch="${desserts}" class="card justify-content-center mx-auto border-0" style="width: 100%">
-                <h3  class="card-name px-4 my-4">Desserts</h3>
+                <h3  class="card-name px-3 my-4">Desserts</h3>
                 <div th:case="null"><h2 >No record found !!</h2></div>
                 <a th:case="*"></a>
                 <div id="dessert" class="row row-cols-1 row-cols-sm-1 row-cols-xl-2 px-2 mx-auto" style="width:100%">
@@ -185,7 +180,6 @@
                             </div>
                             <div class="card-body">
                                 <div class="d-flex px-4 pt-2 pb-2 justify-content-between flex-wrap">
-                                    <!--<input type="number" id="quantity" class="form-control quantity-container mr-2 mb-2" value="1">-->
                                     <a class="btn add align-self-center" href="#menu-categories">Add to Cart</a>
                                 </div>
                             </div>
@@ -197,7 +191,10 @@
             </div>
 
     </div>
-    <!--CHECKOUT-->
+
+
+
+<!--    JS CHECKOUT-->
     <div id="cart-section" class="card-body shadow-sm rounded py-4 col-md-4 col-sm-5 col-xs-1 shadow-sm">
         <h3 class="card-name my-4 mx-4 text-center">Cart</h3>
 
@@ -205,7 +202,7 @@
             <li id="empty-cart" class="card checkout-item, border-0 hide">
                 <h5 class="card-name col py-4 text-center">Your cart is empty.</h5>
             </li>
-            <ul id="checkout-container" class="p-0 m-0 list-unstyled ">
+            <ul id="checkout-container" class="p-0 m-0 list-unstyled">
             </ul>
         </ul>
 
@@ -217,12 +214,12 @@
             </div>
 
             <div class="d-flex flex-column justify-content-end">
-                <a class="btn btn-primary px-4 py-3 mx-4 btn-large">Checkout</a>
+                <a id="checkout-button" class="btn btn-primary px-4 py-3 mx-4 btn-large">Checkout</a>
             </div>
         </div>
 
     </div>
-    <!--CHECKOUT-->
+<!--    CHECKOUT-->
 
 
 
