@@ -49,10 +49,9 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 		http
 				.authorizeRequests()
 				.antMatchers("/").permitAll()
-				.antMatchers("/order").permitAll()
 				.antMatchers("/product").hasRole("ADMIN")
 				.antMatchers("/admin").hasRole("ADMIN")
-				.antMatchers("/adminusers").hasRole("ADMIN")
+				.antMatchers("/order").permitAll()
 //				.antMatchers("/product").hasRole("USER")
 				.anyRequest().authenticated()
 				.and()
@@ -101,7 +100,7 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 		//Have at least one admin user for developer to login
 		return new InMemoryUserDetailsManager(list);
 	}
-//
+	//
 	private ArrayList<UserDetails>  set_user_type(ArrayList<UserDetails> list, com.tada.summerboot.model.User this_user) {
 		UserDetails user = User.withDefaultPasswordEncoder()
 				.username(this_user.getUsername())
