@@ -93,6 +93,7 @@
         <div id="add-item-container" class="px-4">
             <h2 id="admin-heading" class="text-center">Welcome Admin!</h2>
             <a id="add-new-product" class="btn btn-warning my-4 w-100 py-3" href="#add-product-form"><h5>Add New Item</h5></a>
+            <a id="add-new-item" class="btn btn-warning my-4 w-100 py-3" href="/every-users"><h5>Edit Users</h5></a>
         </div>    
         <div id="update-container" class="container-fluid my-5">
 
@@ -179,34 +180,34 @@
 
                     <div th:case="*" class="my-2">
                         <div class="d-flex flex-row px-2 mx-auto row justify-content-center" style="width:100%">
-                            <div th:each="product : ${products}" class="col-lg-5 col-sm-10 card-body align-items-center justify-content-center border rounded p-0 pb-4 m-4 shadow">
+                            <div th:each="item : ${products}" class="col-lg-5 col-sm-10 card-body align-items-center justify-content-center border rounded p-0 pb-4 m-4 shadow">
                                 <div class="img-container d-flex justify-content-center p-4 mb-4">
-                                    <img th:src="${product.imageURL}" class="rounded-top menu-img">
+                                    <img th:src="${item.imageURL}" class="rounded-top menu-img">
                                 </div>
                                 <div class="d-flex justify-content-between px-4 pt-4">
                                     <div>
                                         <p>Name</p>
-                                        <h5 th:text="${product.title}"class="card-title mr-auto"></h5>
+                                        <h5 th:text="${item.title}"class="card-title mr-auto"></h5>
                                     </div>
                                     <div>
                                         <p class="text-right">Price</p>
-                                        <h5 th:text="${product.price}" class="card-text ml-auto"></h5>
+                                        <h5 th:text="${item.price}" class="card-text ml-auto"></h5>
                                     </div>
                                 </div>
                                 <div class="d-flex justify-content-between px-4 pt-4">
                                     <div>
                                         <p>Type</p>
-                                        <h5 th:text="${product.productType}"class="card-title mr-auto"></h5>
+                                        <h5 th:text="${item.productType}"class="card-title mr-auto"></h5>
                                     </div>
                                     <div>
                                         <p class="text-right">Description</p>
-                                        <h5 th:text="${product.description}" class="card-text ml-auto text-right"></h5>
+                                        <h5 th:text="${item.description}" class="card-text ml-auto text-right"></h5>
                                     </div>
                                 </div>
                                 <div class="card-body">
                                     <div class="d-flex justify-content-between">
-                                        <a th:href="@{product/edit/{id}(id=${product.id})}" class="btn btn-warning mx-4 mt-2 py-1 px-4">Edit</a>
-                                        <a th:href="@{product/delete/{id}(id=${product.id})}" class="btn btn-danger mx-4 mt-2 py-1 px-4">x</a>
+                                        <a th:href="@{product/edit/{id}(id=${item.id})}" class="btn btn-warning mx-4 mt-2 py-1 px-4">Edit</a>
+                                        <a th:href="@{product/delete/{id}(id=${item.id})}" class="btn btn-danger mx-4 mt-2 py-1 px-4">x</a>
                                     </div>
                                 </div>
                             </div>
@@ -226,8 +227,8 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.min.js" integrity="sha384-w1Q4orYjBQndcko6MimVbzY0tgp4pWB4lZ7lr30WKz0vr/aWKhXdBNmNb5D92v7s" crossorigin="anonymous"></script>
    
 
-    <script src="../assets/admin2.js"></script>
-    <script src="../assets/script.js"></script>
+    <script src="/assets/admin2.js"></script>
+    <script src="/assets/script.js"></script>
 
 
 </body>

@@ -125,12 +125,6 @@ public class User {
     public User(){
         super();
     }
-//
-//    public User(String username, String password, String email) {
-//        this.username = username;
-//        this.password = password;
-//        this.email = email;
-//    }
 
     public User(String username, String firstname, String lastname, String address, String unitno, String postalcode, String password, String email, String userType) {
         this.username = username;
