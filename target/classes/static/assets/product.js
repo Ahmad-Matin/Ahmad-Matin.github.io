@@ -162,6 +162,7 @@ let products = JSON.parse(productsJson);
 //CHECKOUT
 
 //display cart items from local storage
+//LOCAL STORAGE
 function showCartItems() {
     let cartItemsJson = localStorage.getItem('cartItems');
     let cartItems = JSON.parse(cartItemsJson);
@@ -189,6 +190,37 @@ function showCartItems() {
         cart.appendChild(cartItemInfo);
     }
 }
+//
+////SPRINGBOOT
+//function showCartItems() {
+//    fetch('http://localhost:8080/cart')
+//    .then(response) => response.json())
+//    .then(response => {
+//    let cartItemsJson = JSON.parse(response);
+//        for (let i = 0; i < cartItems.length; i++) {
+//            const cartItemInfo = document.createElement('li');
+//            cartItemInfo.classList.add("checkout-item");
+//            cartItemInfo.innerHTML =
+//
+//                `
+//        <div class="d-flex flex-wrap align-items-center justify-content-center">
+//            <img src=${cartItems[i].img} class="checkout-item-img rounded p-0 mx-4 my-2 col-xs-8">
+//            <div class="d-flex flex-row row align-items-center p-0 my-2 mx-4 w-100 justify-content-between">
+//                <h5 class="card-title col-sm-12 col-md-8 p-0 my-2 text-left">${cartItems[i].name}</h5>
+//                <h5 class="card-title col-sm-12 col-md-4 p-0 my-2 text-right item-price">$${cartItems[i].price}</h5>
+//            </div>
+//            <div class="d-flex col p-0 my-2 mx-4 justify-content-between align-items-center cart-quantity-container">
+//                <button class="btn btn-warning px-3 remove-button rounded-0">-</button>
+//                <h5 class="card-title text-center quantity w-50 m-0">${cartItems[i].quantity}</h5>
+//                <button class="btn btn-warning px-3 add-button rounded-0">+</button>
+//            </div>
+//        </div>
+//        <hr>
+//        `
+//            cart.appendChild(cartItemInfo);
+//        }
+//    })
+//}
 
 
 function updateCartTotal() {
