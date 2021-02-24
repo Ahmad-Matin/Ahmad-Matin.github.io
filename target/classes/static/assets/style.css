@@ -398,9 +398,8 @@ li.checkout-item{
     
 }
 
-.checkout-text {
-font-size: 1.5rem;
-}
+.checkout {
+font-size: 1rem;}
 
 .checkout-img-container {
     display: flex;
@@ -456,6 +455,12 @@ font-size: 1.5rem;
  top: 180px;
  height: 70vh;
  overflow: scroll;
+}
+
+.total h3 {
+font-family: Raleway, sans-serif;
+font-size: 1.2rem;
+
 }
 
 /*ADMIN */
@@ -524,6 +529,13 @@ font-size:1rem;
         height: 20rem;
     }
 
+ .menu-categories {
+    background-color:rgb(255, 202, 132);
+    position: auto;
+    top: 65px;
+    z-index: 100;
+    padding: 1% 0;
+}
 
   }
 
