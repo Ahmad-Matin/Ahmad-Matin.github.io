@@ -22,6 +22,14 @@ public class UserController {
     @Autowired
     UserServiceImpl user_service_implementation;
 
+//    @GetMapping(path="/adminUsers")
+//        public String administeringUsers(Model model){
+//        List<User> list = user_service_implementation.getAllUsers();
+//        model.addAttribute("users", list);
+//        return "/adminUsers";
+//    }
+
+
     @PostMapping(path="/user/new")
     public String newUser(User newUser) {
     System.out.println(newUser);
@@ -41,7 +49,8 @@ public class UserController {
     public String every(Model model) {
         List<User> list = user_service_implementation.getAllUsers();
         model.addAttribute("users", list);
-        return "every-users";
+//        return "every-users";
+        return null;
     }
 
     @GetMapping(path="/register")
@@ -61,6 +70,6 @@ public class UserController {
     public String showuser(Model model, @PathVariable Integer id) {
         Optional<User> user = user_service_implementation.getUser(id);
         model.addAttribute("user", user);
-        return "showuser";
+        return "/show";
     }
 }

@@ -1,7 +1,9 @@
 package com.tada.summerboot.component;
 
 import org.springframework.security.core.Authentication;
+import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.context.SecurityContextHolder;
+import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.web.authentication.AuthenticationSuccessHandler;
 import org.springframework.stereotype.Component;
 import com.tada.summerboot.model.User;
@@ -11,6 +13,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.Console;
 import java.io.IOException;
+import java.util.Iterator;
 
 @Component
 public class SuccessHandler implements AuthenticationSuccessHandler {
@@ -22,13 +25,24 @@ public class SuccessHandler implements AuthenticationSuccessHandler {
 //         Authentication auth = SecurityContextHolder.getContext().getAuthentication();
 //        String r= auth.getAuthorities().toString();
 //
-////        if(r=="ROLE_ADMIN"){
+//        if(r=="ROLE_ADMIN"){
+
+        boolean isAdmin = false;
+        UserDetails user = (UserDetails) authentication.getPrincipal();
+        Iterator<GrantedAuthority> grantedAuthorityIterator = (Iterator<GrantedAuthority>) user.getAuthorities().iterator();
+        while (grantedAuthorityIterator.hasNext()) {
+            if (grantedAuthorityIterator.next().getAuthority().equalsIgnoreCase("ROLE_ADMIN")) {
+                isAdmin = true;
+            }
+        }
+
+        if (isAdmin) { // if isAdmin is true == true.
 //        if(r=="ADMIN"){
-//            System.out.print(r);
+//            System.out.print("/admin");
             httpServletResponse.sendRedirect("/admin");
-//        }else {
-//            System.out.print(r);
-//            httpServletResponse.sendRedirect("/every-products");
-//        }
+        }else {
+//            System.out.print("/order");
+            httpServletResponse.sendRedirect("/order");
+        }
     }
 }
