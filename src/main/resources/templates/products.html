@@ -195,29 +195,29 @@
 
 
 <!--    JS CHECKOUT-->
-    <div id="cart-section" class="card-body shadow-sm rounded py-4 col-md-4 col-sm-5 col-xs-1 shadow-sm">
+    <div id="cart-section" class="card-body shadow-sm pt-4 col-md-4 col-sm-5 col-xs-1 shadow-sm">
         <h3 class="card-name my-4 mx-4 text-center">Cart</h3>
-
-        <ul class="p-0 m-0">
+        <div class="position-relative d-flex flex-column">
+        <ul id="checkout-list" class="p-0 m-0">
             <li id="empty-cart" class="card checkout-item, border-0 hide">
                 <h5 class="card-name col py-4 text-center">Your cart is empty.</h5>
             </li>
-            <ul id="checkout-container" class="p-0 m-0 list-unstyled">
+            <ul id="checkout-container" class="p-0 list-unstyled">
             </ul>
         </ul>
 
 
-        <div id="cart-checkout" class="hide">
-            <div class="total card my-4 border-0 d-flex flex-row flex-wrap justify-content-between mx-4">
+        <div id="cart-checkout" class="hide position-absolute">
+            <div class="total my-4 border-0 d-flex flex-row flex-wrap justify-content-between mx-4">
                 <h3 class="card-name text-center">Total:</h3>
                 <h3 id="cart-total" class="card-name text-center"></h3>
             </div>
 
             <div class="d-flex flex-column justify-content-end">
-                <a id="checkout-button" class="btn btn-primary px-4 py-3 mx-4 btn-large">Checkout</a>
+                <a id="checkout-button" class="btn px-4 py-3 mx-4 btn-large">Checkout</a>
             </div>
         </div>
-
+        </div>
     </div>
 <!--    CHECKOUT-->
 
