@@ -10,17 +10,43 @@ const emptyCartNotice = document.getElementById("empty-cart");
   if (e.target.classList.contains("show-cart-button")) {
   let cart = document.getElementById("cart-section");
   let products = document.getElementById("products");
-    if (cart.classList.contains("d-none")) {
-    e.target.innerText = "Close Cart";
-    cart.classList.remove("d-none");
-    products.classList.add("d-none");
-    } else {
-    e.target.innerText = "View Cart";
-    cart.classList.add("d-none");
-    products.classList.remove("d-none");
-    }
+  let menuCategories = document.getElementById("menu-categories");
+  cart.classList.remove("d-none");
+  products.classList.add("d-none");
+  menuCategories.classList.add("d-none");
+  menu-cate
     }
   })
+
+  document.querySelector("#cart-section").addEventListener('click', (e)=> {
+  if (e.target.classList.contains("close-cart")) {
+    let products = document.getElementById("products");
+    let menuCategories = document.getElementById("menu-categories");
+    e.target.parentElement.classList.add("d-none");
+    products.classList.remove("d-none");
+    menuCategories.classList.remove("d-none");
+
+  }
+  })
+
+
+//
+//   document.querySelector("#show-cart").addEventListener('click', (e) => {
+//    if (e.target.classList.contains("show-cart-button")) {
+//    let cart = document.getElementById("cart-section");
+//    let products = document.getElementById("products");
+//      if (cart.classList.contains("d-none")) {
+//      e.target.innerText = "Close Cart";
+//      cart.classList.remove("d-none");
+//      products.classList.add("d-none");
+//      } else {
+//      e.target.innerText = "View Cart";
+//      cart.classList.add("d-none");
+//      products.classList.remove("d-none");
+//      }
+//      }
+//    })
+//
 
 
 const mediaQuery = window.matchMedia('(min-width: 575px)');
@@ -205,21 +231,19 @@ function showCartItems() {
         cartItemInfo.innerHTML =
 
             `
-    <div class="d-flex flex-wrap align-items-center justify-content-center">
-        <div class="checkout-img-container d-flex justify-content-center align-items-center px-4">
-        <img src=${cartItems[i].img} class="checkout-item-img rounded p-0 mx-4 my-2 col-xs-8">
-        </div>
-        <div class="d-flex flex-row row align-items-start p-0 my-2 mx-4 w-100 justify-content-between">
-            <div>
-             <h5 class="checkout card-title my-2 text-left">${cartItems[i].name}</h5>
-             <h5 class="checkout card-title my-2 text-left">$${cartItems[i].price}</h5>
+    <div class="d-flex flex-wrap align-items-center justify-content-between">
+        <div class="d-flex flex-row flex-wrap p-0 my-2 mx-4 justify-content-between align-items-start w-100">
+            <img src=${cartItems[i].img} class="checkout-item-img rounded p-0 col col-sm-6 col-lg-3 mr-4">
+            <div class="col col-sm-6 col-lg-4 mb-4 p-0">
+                <h5 class="checkout card-title text-sm-right text-lg-left">${cartItems[i].name}</h5>
+                <h5 class="checkout card-title text-sm-right text-lg-left">$${cartItems[i].price}</h5>
             </div>
-            <h5 class="checkout card-title p-0 my-2 text-right item-price">$${(cartItems[i].price) * (cartItems[i].quantity) }</h5>
-        </div>
-        <div class="d-flex col p-0 my-2 mx-4 justify-content-between align-items-center cart-quantity-container">
-            <button class="btn btn-warning px-3 remove-button rounded-0">-</button>
-            <h5 class="checkout card-title text-center quantity w-50 m-0">${cartItems[i].quantity}</h5>
-            <button class="btn btn-warning px-3 add-button rounded-0">+</button>
+            <div class="d-flex col col-sm-6 col-lg-3 p-0 justify-content-between align-items-center cart-quantity-container">
+                        <button class="btn btn-warning px-2 remove-button rounded-0">-</button>
+                        <h5 class="checkout card-title text-center quantity m-0">${cartItems[i].quantity}</h5>
+                        <button class="btn btn-warning px-2 add-button rounded-0">+</button>
+            </div>
+            <h5 class="col col-sm-6 col-lg-2 checkout card-title p-0 text-right item-price">$${(((cartItems[i].price) * (cartItems[i].quantity)).toFixed(2))}</h5>
         </div>
     </div>
     <hr>
@@ -266,12 +290,14 @@ function updateCartTotal() {
     let cartTotal = document.getElementById("cart-total");
     let itemsInCart = cart.children;
     for (let i = 0; i < itemsInCart.length; i++) {
-        const itemPriceElement = itemsInCart[i].children[0].children[1].children[1].innerText.replace('$', '');
+        const itemPriceElement = itemsInCart[i].children[0].children[0].children[1].children[1].innerText.replace('$', '');
+        console.log(itemPriceElement);
         const itemPrice = parseFloat(itemPriceElement);
-        const itemQuantityElement = (itemsInCart[i].children[0].children[2].children[1].innerText);
+        const itemQuantityElement = (itemsInCart[i].children[0].children[0].children[2].children[1].innerText);
+        console.log(itemQuantityElement);
         const itemQuantity = parseInt(itemQuantityElement);
         let itemCost = itemPrice * itemQuantity;
-        total = parseFloat((total + itemPrice).toFixed(2));
+        total = parseFloat((total + itemCost).toFixed(2));
     }
     cartTotal.innerText = `$${total}`;
 }
@@ -324,20 +350,18 @@ function addItemsToCart(product) {
     newCartItem.innerHTML =
         `
     <div class="d-flex flex-wrap align-items-center justify-content-between">
-        <div class="checkout-img-container d-flex justify-content-center align-items-center px-4">
-        <img src=${product.img} class="checkout-item-img rounded p-0 mx-4 my-2 col-xs-8">
-        </div>
-        <div class="d-flex flex-row row align-items-start p-0 my-2 mx-4 w-100 justify-content-between">
-            <div>
-               <h5 class="checkout card-title my-2 text-left">${product.name}</h5>
-               <h5 class="checkout card-title my-2 text-left">$${product.price}</h5>
-            </div>
-                <h5 class="checkout card-title p-0 my-2 text-right item-price">$${product.price * product.quantity}</h5>
-        </div>
-        <div class="d-flex col p-0 my-2 mx-4 justify-content-between align-items-center cart-quantity-container">
-            <button class="btn btn-warning px-3 remove-button rounded-0">-</button>
-            <h5 class="checkout card-title text-center quantity w-50 m-0">${product.quantity}</h5>
-            <button class="btn btn-warning px-3 add-button rounded-0">+</button>
+        <div class="d-flex flex-row flex-wrap p-0 my-2 mx-4 justify-content-between align-items-start w-100">
+          <img src=${product.img} class="checkout-item-img rounded p-0 col col-sm-6 col-lg-3 mr-4">
+          <div class="col col-sm-6 col-lg-4 mb-4 p-0">
+             <h5 class="checkout card-title text-sm-right text-lg-left">${product.name}</h5>
+             <h5 class="checkout card-title text-sm-right text-lg-left">$${product.price}</h5>
+          </div>
+          <div class="d-flex col col-sm-6 col-lg-3 p-0 justify-content-between align-items-center cart-quantity-container">
+            <button class="btn btn-warning px-2 remove-button rounded-0">-</button>
+            <h5 class="checkout card-title text-center quantity m-0">${product.quantity}</h5>
+            <button class="btn btn-warning px-2 add-button rounded-0">+</button>
+          </div>
+          <h5 class="col col-sm-6 col-lg-2 checkout card-title p-0 text-right item-price">$${product.price * product.quantity}</h5>
         </div>
     </div>
     <hr>
@@ -368,25 +392,25 @@ if (e.target.classList.contains("add")) {
     let productPrice = e.target.parentElement.parentElement.parentElement.children[0].children[1].innerText.replace('$', '');
     let itemNames = [];
     for (let i = 0; i < itemsInCart.length; i++) {
-        let itemName = itemsInCart[i].children[0].children[1].children[0].children[0].innerText;
+        let itemName = itemsInCart[i].children[0].children[0].children[1].children[0].innerText;
         console.log(itemName);
         itemNames.push(itemName);
     }
 
     if (itemNames.includes(productName)) {
         let itemCartIndex = itemNames.indexOf(productName);
-        let itemQuantityElement = itemsInCart[itemCartIndex].children[0].children[2].children[1];
+        let itemQuantityElement = itemsInCart[itemCartIndex].children[0].children[0].children[2].children[1];
         console.log(itemQuantityElement);
         let itemQuantity = parseInt(itemQuantityElement.innerText);
         console.log(itemQuantity);
-        let itemPriceElement = itemsInCart[itemCartIndex].children[0].children[1].children[0].children[1];
+        let itemPriceElement = itemsInCart[itemCartIndex].children[0].children[0].children[1].children[1];
         let itemPriceValue = itemPriceElement.innerText.replace('$', '');
         let itemPrice = parseFloat(itemPriceValue);
         console.log(itemPrice);
         itemQuantity = itemQuantity + 1;
         let itemCost = ((itemPrice * itemQuantity).toFixed(2));
         itemQuantityElement.innerText = itemQuantity;
-        let updatePriceElement = itemsInCart[itemCartIndex].children[0].children[1].children[1];
+        let updatePriceElement = itemsInCart[itemCartIndex].children[0].children[0].children[3];
         updatePriceElement.innerText = `$${itemCost}`;
         let cartScroll = itemsInCart[itemCartIndex];
         cartScroll.scrollIntoView(false);
@@ -466,13 +490,13 @@ document.querySelector("#checkout-container").addEventListener('click', (e) => {
 
     if (e.target.classList.contains("add-button")) {
         for (let i = 0; i < cartItems.length; i++) {
-            let productName = e.target.parentElement.parentElement.children[1].children[0].children[0].innerText;
+            let productName = e.target.parentElement.parentElement.children[1].children[0].innerText;
             if (productName == cartItems[i].name) {
                 cartItems[i].quantity += 1;
                 localStorage.setItem('cartItems', JSON.stringify(cartItems));
 
                 let itemQuantityElement = e.target.parentElement.children[1];
-                let itemPriceElement = e.target.parentElement.parentElement.children[1].children[0].children[1];
+                let itemPriceElement = e.target.parentElement.parentElement.children[1].children[1];
                 let itemPriceValue = itemPriceElement.innerText.replace('$', '');
                 console.log(itemPriceValue);
                 let itemPrice= parseFloat(itemPriceValue);
@@ -481,7 +505,7 @@ document.querySelector("#checkout-container").addEventListener('click', (e) => {
                 itemQuantity = itemQuantity + 1;
                 let itemCost = ((itemPrice * itemQuantity).toFixed(2));
                 itemQuantityElement.innerText = itemQuantity;
-                let updatePriceElement = e.target.parentElement.parentElement.children[1].children[1];
+                let updatePriceElement = e.target.parentElement.parentElement.children[3];
                 updatePriceElement.innerText = `$${itemCost}`;
                 break;
             }
@@ -499,7 +523,7 @@ document.querySelector("#checkout-container").addEventListener('click', (e) => {
 
 
     if (e.target.classList.contains("remove-button")) {
-            let productName = e.target.parentElement.parentElement.children[1].children[0].children[0].innerText;
+            let productName = e.target.parentElement.parentElement.children[1].children[0].innerText;
         for (let i = 0; i < cartItems.length; i++) {
             if (cartItems[i].quantity > 1) {
                 if (productName == cartItems[i].name) {
@@ -507,17 +531,17 @@ document.querySelector("#checkout-container").addEventListener('click', (e) => {
                     localStorage.setItem('cartItems', JSON.stringify(cartItems));
 
                 let itemQuantityElement = e.target.parentElement.children[1];
-                let itemPriceElement = e.target.parentElement.parentElement.children[1].children[0].children[1];
-                let itemPriceValue = itemPriceElement.innerText.replace('$', '');
-                console.log(itemPriceValue);
-                let itemPrice= parseFloat(itemPriceValue);
-                console.log(itemPrice);
-                let itemQuantity = parseInt(itemQuantityElement.innerText);
-                itemQuantity = itemQuantity - 1;
-                let itemCost = ((itemPrice * itemQuantity).toFixed(2));
-                itemQuantityElement.innerText = itemQuantity;
-                let updatePriceElement = e.target.parentElement.parentElement.children[1].children[1];
-                updatePriceElement.innerText = `$${itemCost}`;
+                               let itemPriceElement = e.target.parentElement.parentElement.children[1].children[1];
+                               let itemPriceValue = itemPriceElement.innerText.replace('$', '');
+                               console.log(itemPriceValue);
+                               let itemPrice= parseFloat(itemPriceValue);
+                               console.log(itemPrice);
+                               let itemQuantity = parseInt(itemQuantityElement.innerText);
+                               itemQuantity = itemQuantity - 1;
+                               let itemCost = ((itemPrice * itemQuantity).toFixed(2));
+                               itemQuantityElement.innerText = itemQuantity;
+                               let updatePriceElement = e.target.parentElement.parentElement.children[3];
+                               updatePriceElement.innerText = `$${itemCost}`;
                     updateCartTotal();
                     break;
 
@@ -525,7 +549,7 @@ document.querySelector("#checkout-container").addEventListener('click', (e) => {
             }
             else if (cartItems[i].quantity <= 1) {
                 if (productName == cartItems[i].name) {
-                    let itemInCart = e.target.parentElement.parentElement.parentElement;
+                    let itemInCart = e.target.parentElement.parentElement.parentElement.parentElement;
                     cartItems.splice(cartItems.indexOf(cartItems[i]), 1)
                     localStorage.setItem('cartItems', JSON.stringify(cartItems));
                     itemInCart.remove();
