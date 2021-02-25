@@ -37,7 +37,7 @@
 
 <!--HEADER-->
 <div class="fixed-top">
-    <div id="custom-navigation" class="navbar navbar-expand-sm my-0 py-2 px-5 custom-navbar navbar-dark">
+    <div id="custom-navigation" class="navbar navbar-expand-sm my-0 py-2 px-md-5 custom-navbar navbar-dark">
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarText"
                 aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
@@ -95,7 +95,7 @@
 
 <!--MENU CATEGORIES-->
 
-<div id="menu-categories" class="menu-categories d-flex justify-content-between px-5 hide">
+<div id="menu-categories" class="d-none d-md-flex menu-categories d-flex justify-content-between px-md-5 hide">
     <a id="burgerMenu" class="menu-category  m-0 py-2 px-3" href="#burgers-container">Burgers</a>
     <a id="sidesMenu" class="menu-category  m-0 py-2 px-3" href="#sides-container">Sides</a>
     <a id="dessertMenu" class="menu-category  m-0 py-2 px-3" href="#desserts-container">Desserts</a>
@@ -195,8 +195,8 @@
 
 
 <!--    JS CHECKOUT-->
-    <div id="cart-section" class="card-body shadow-sm pt-4 col-md-4 col-sm-5 col-xs-1 shadow-sm">
-        <h3 class="card-name my-4 mx-4 text-center">Cart</h3>
+    <div id="cart-section" class="d-none d-sm-block card-body shadow-sm pt-4 col-md-4 col-sm-5 col-xs-1 shadow-sm">
+        <h3 class="card-name my-sm-0 my-md-4 mx-4 text-center">Cart</h3>
         <div class="position-relative d-flex flex-column">
         <ul id="checkout-list" class="p-0 m-0">
             <li id="empty-cart" class="card checkout-item, border-0 hide">
@@ -208,7 +208,7 @@
 
 
         <div id="cart-checkout" class="hide position-absolute">
-            <div class="total my-4 border-0 d-flex flex-row flex-wrap justify-content-between mx-4">
+            <div class="total my-4 border-0 d-flex flex-row flex-wrap align-items-center justify-content-between mx-4">
                 <h3 class="card-name text-center">Total:</h3>
                 <h3 id="cart-total" class="card-name text-center"></h3>
             </div>
@@ -224,6 +224,14 @@
 
 
 
+</div>
+
+<!--RESPONSIVE CART -->
+
+<div>
+    <nav id="show-cart" class="d-xs-block d-sm-none show-cart-container navbar fixed-bottom d-flex justify-content-center align-items-center">
+        <a class="show-cart-button navbar-brand text-center">View Cart</a>
+    </nav>
 </div>
 
 

@@ -305,6 +305,10 @@ pointer-events:none;
     display: none;
 }
 
+.show {
+display: block;
+}
+
 .custom-banner {
     width:100%;
     height: 100vh;
@@ -446,7 +450,7 @@ font-size: 1rem;}
 
 
 #checkout-button {
-background-color: rgb(255, 174, 0);
+background-color: #ffc107;
     color: #000;
     border: none;
     font-weight: 700;
@@ -466,7 +470,7 @@ border-radius: 25px;
 
 
 #checkout-container {
-height: 42vh;
+height: 40vh;
  overflow: scroll;
  margin-bottom: 10rem;
  background-color: #fff;
@@ -486,6 +490,10 @@ border-radius: 0 0 25px 25px;
 background-color: rgb(238, 238, 238);
 height: 10rem;
 
+}
+
+#show-cart {
+display:none;
 }
 
 /*ADMIN */
@@ -516,7 +524,7 @@ height: 10rem;
 
 /* MEDIA QUERY FOR MEDIUM SCREENS */
 
-@media only screen and (max-width: 768px) {
+@media only screen and (max-width: 767px) {
 
 h3.greeting{
 font-size:1rem;
@@ -544,11 +552,16 @@ font-size:1rem;
         background-position: center;
     }
 
-  /* .active {
+
+a.menu-category {
+font-size: 0.8rem;
+}
+
+  .active {
       font-size: 1rem;
       background-color:rgb(255, 202, 132);
       box-shadow: none;
-    }*/
+    }
 
     .img-container{
         height: 20rem;
@@ -561,6 +574,8 @@ font-size:1rem;
     z-index: 100;
     padding: 1% 0;
 }
+
+
 
   }
 
@@ -587,9 +602,6 @@ font-size:1rem;
     font-size: 48px;
 }
 
-    .banner-text.d-flex.justify-content-center.align-items-center.position-relative {
-        display: hidden;
-    }
 
   #custom-navigation {
     background-color: rgb(255, 174, 0);
@@ -631,6 +643,10 @@ font-size:1rem;
         text-align: left;
     }
 
+    h3.card-name {
+    text-align: center;
+    }
+
     #checkout-section {
         display:none;
     }
@@ -648,10 +664,15 @@ font-size:1rem;
         display:none;
     }
 
-        
+ .menu-heading {
+        top: 35%;
+        font-size: 2.5rem;
+    }
+
 .menu-img {
     max-width: 150px;
 }
+
 
 
 .img-container{
@@ -661,6 +682,27 @@ height: 10rem;
 
 #menu-categories{
 top: 50px;
+}
+
+
+#cart-section {
+position: relative;
+height: 60vh;
+top: 0px;
+margin-bottom: 10rem;
+}
+
+#checkout-container {
+}
+
+
+.show-cart-container {
+background-color: #ffc107;
+}
+
+.show-cart-container a {
+color: #000;
+font-size: 1rem;
 }
 
 .steps-container{
