@@ -11,41 +11,31 @@ const emptyCartNotice = document.getElementById("empty-cart");
   let cart = document.getElementById("cart-section");
   let products = document.getElementById("products");
   let menuCategories = document.getElementById("menu-categories");
+  let banner = document.getElementById("banner");
+  cart.classList.add("cart-margin")
   cart.classList.remove("d-none");
   products.classList.add("d-none");
-  menuCategories.classList.add("d-none");
+  banner.classList.add("d-none");
+  e.target.parentElement.parentElement.classList.add("d-none");
     }
   })
 
-  document.querySelector("#cart-section").addEventListener('click', (e)=> {
+  document.querySelector("#cart-heading").addEventListener('click', (e)=> {
   if (e.target.classList.contains("close-cart")) {
+  console.log("clicked");
+    let cart = document.getElementById("cart-section");
+    let banner = document.getElementById("banner");
     let products = document.getElementById("products");
-    let menuCategories = document.getElementById("menu-categories");
+    cart.classList.add("d-none", "d-sm-block");
+    cart.classList.remove("cart-margin")
     e.target.parentElement.classList.add("d-none");
     products.classList.remove("d-none");
-    menuCategories.classList.remove("d-none");
+    let showCart = document.querySelector("#show-cart");
+    showCart.parentElement.classList.remove("d-none");
+    banner.classList.remove("d-none");
 
   }
   })
-
-
-//
-//   document.querySelector("#show-cart").addEventListener('click', (e) => {
-//    if (e.target.classList.contains("show-cart-button")) {
-//    let cart = document.getElementById("cart-section");
-//    let products = document.getElementById("products");
-//      if (cart.classList.contains("d-none")) {
-//      e.target.innerText = "Close Cart";
-//      cart.classList.remove("d-none");
-//      products.classList.add("d-none");
-//      } else {
-//      e.target.innerText = "View Cart";
-//      cart.classList.add("d-none");
-//      products.classList.remove("d-none");
-//      }
-//      }
-//    })
-//
 
 
 const mediaQuery = window.matchMedia('(min-width: 575px)');
@@ -54,10 +44,13 @@ const mediaQuery = window.matchMedia('(min-width: 575px)');
     if (mediaQuery.matches) {
       let cart = document.getElementById("cart-section");
       let products = document.getElementById("products");
+      let banner = document.getElementById("banner");
       let showCartButton = document.querySelector(".show-cart-button");
       showCartButton.innerText = "View Cart";
       products.classList.remove("d-none");
       cart.classList.add("d-none", "d-sm-block")
+      banner.classList.remove("d-none");
+
      }
 }
 
@@ -237,7 +230,7 @@ function showCartItems() {
                 <h5 class="checkout card-title">${cartItems[i].name}</h5>
                 <h5 class="checkout card-title">$${cartItems[i].price}</h5>
             </div>
-            <div class="d-flex col col-sm-6 col-lg-4 col-xl-3 p-0 mb-sm-5 mb-xl-0 justify-content-between align-items-center cart-quantity-container order-sm-2 order-xl-3">
+            <div class="d-flex col col-sm-6 col-lg-5 col-xl-3 p-0 mb-sm-5 mb-xl-0 justify-content-between align-items-center cart-quantity-container order-sm-2 order-xl-3">
                         <button class="btn btn-warning px-1 remove-button rounded-0">-</button>
                         <h5 class="checkout card-title text-center quantity m-0">${cartItems[i].quantity}</h5>
                         <button class="btn btn-warning px-1 add-button rounded-0">+</button>
@@ -355,7 +348,7 @@ function addItemsToCart(product) {
              <h5 class="checkout card-title">${product.name}</h5>
              <h5 class="checkout card-title">$${product.price}</h5>
           </div>
-            <div class="d-flex col col-sm-6 col-lg-4 col-xl-3 p-0 mb-sm-5 mb-xl-0 justify-content-between align-items-center cart-quantity-container order-sm-2 order-xl-3">
+            <div class="d-flex col col-sm-6 col-lg-5 col-xl-3 p-0 mb-sm-5 mb-xl-0 justify-content-between align-items-center cart-quantity-container order-sm-2 order-xl-3">
             <button class="btn btn-warning px-1 remove-button rounded-0">-</button>
             <h5 class="checkout card-title text-center quantity m-0">${product.quantity}</h5>
             <button class="btn btn-warning px-1 add-button rounded-0">+</button>
