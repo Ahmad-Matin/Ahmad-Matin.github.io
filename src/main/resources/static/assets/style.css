@@ -263,12 +263,11 @@ pointer-events:none;
 
 .menu-img {
     object-fit: contain;
-    max-width: 300px;
+    max-width: 230px;
 }
 
 .img-container{
-    height: 22rem;
-    padding: 5%;
+    height: 15rem;
     /*margin: 10% 0;*/
 
 }
@@ -305,9 +304,6 @@ pointer-events:none;
     display: none;
 }
 
-.show {
-display: block;
-}
 
 .custom-banner {
     width:100%;
@@ -561,6 +557,10 @@ font-size:1rem;
     .menu-heading {
         top: 40%;
         font-size: 2.5rem;
+    }
+
+     .menu-categories {
+        top: 68px;
     }
 
     .banner-text{

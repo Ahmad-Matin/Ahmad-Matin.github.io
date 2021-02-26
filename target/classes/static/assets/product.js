@@ -35,6 +35,15 @@ const emptyCartNotice = document.getElementById("empty-cart");
   }
   })
 
+document.querySelector("#custom-navigation").addEventListener('click', (e) => {
+    let cart = document.getElementById("cart-section");
+     let showCart = document.getElementById("show-cart");
+if (e.target.classList.contains("navbar-toggler-icon")) {
+if (cart.classList.contains("d-none") && (showCart.classList.contains("d-none")==false)) {
+ showCart.parentElement.classList.toggle("d-none");
+ }
+ }
+})
 
 const mediaQuery = window.matchMedia('(min-width: 575px)');
 
