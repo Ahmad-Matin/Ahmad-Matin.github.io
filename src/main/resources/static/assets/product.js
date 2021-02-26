@@ -7,7 +7,6 @@ const emptyCartNotice = document.getElementById("empty-cart");
 
 
  document.querySelector("#show-cart").addEventListener('click', (e) => {
-  if (e.target.classList.contains("show-cart-button")) {
   let cart = document.getElementById("cart-section");
   let products = document.getElementById("products");
   let menuCategories = document.getElementById("menu-categories");
@@ -17,7 +16,6 @@ const emptyCartNotice = document.getElementById("empty-cart");
   products.classList.add("d-none");
   banner.classList.add("d-none");
   e.target.parentElement.parentElement.classList.add("d-none");
-    }
   })
 
   document.querySelector("#cart-heading").addEventListener('click', (e)=> {
@@ -69,17 +67,17 @@ function showCartItems() {
             `
     <div class="d-flex flex-wrap align-items-center justify-content-between">
         <div class="d-flex flex-row flex-wrap p-0 my-2 mx-4 justify-content-between align-items-start w-100">
-            <img src=${cartItems[i].img} class="checkout-item-img rounded p-0 col col-sm-5 col-lg-4 col-xl-3 mr-2 order-sm-1">
-            <div class="col col-sm-6 col-lg-4 col-xl-3 p-0 order-sm-3 mr-2 order-xl-2">
-                <h5 class="checkout card-title">${cartItems[i].name}</h5>
-                <h5 class="checkout card-title">$${cartItems[i].price}</h5>
+            <img src=${cartItems[i].img} class="checkout-item-img rounded p-0 col col-sm-5 col-lg-4 col-xl-3 mr-2">
+            <div class="col col-sm-6 col-lg-4 col-xl-3 p-0  mb-sm-5 mb-xl-0">
+                <h5 class="checkout card-title text-xs-left text-sm-right text-lg-left">${cartItems[i].name}</h5>
+                <h5 class="checkout card-title text-xs-left text-sm-right text-lg-left">$${cartItems[i].price}</h5>
             </div>
-            <div class="d-flex col col-sm-6 col-lg-5 col-xl-3 p-0 mb-sm-5 mb-xl-0 justify-content-between align-items-center cart-quantity-container order-sm-2 order-xl-3">
+            <div class="d-flex col col-sm-6 col-lg-5 col-xl-3 p-0 justify-content-between align-items-center cart-quantity-container">
                         <button class="btn btn-warning px-1 remove-button rounded-0">-</button>
                         <h5 class="checkout card-title text-center quantity m-0">${cartItems[i].quantity}</h5>
                         <button class="btn btn-warning px-1 add-button rounded-0">+</button>
             </div>
-            <h5 class="col col-sm-5 col-lg-4 col-xl-2 checkout card-title p-0 text-right item-price order-sm-4">$${(((cartItems[i].price) * (cartItems[i].quantity)).toFixed(2))}</h5>
+            <h5 class="col col-sm-5 col-lg-4 col-xl-2 checkout card-title p-0 text-right item-price">$${(((cartItems[i].price) * (cartItems[i].quantity)).toFixed(2))}</h5>
         </div>
     </div>
     <hr>
@@ -123,7 +121,10 @@ function showCartItems() {
 
 function updateCartTotal() {
     let total = 0;
+    let cartQuantity = 0;
     let cartTotal = document.getElementById("cart-total");
+    let mobileCartTotal = document.getElementById("mobile-cart-total");
+    let mobileCartQuantity = document.getElementById("mobile-cart-quantity");
     let itemsInCart = cart.children;
     for (let i = 0; i < itemsInCart.length; i++) {
         const itemPriceElement = itemsInCart[i].children[0].children[0].children[1].children[1].innerText.replace('$', '');
@@ -132,28 +133,15 @@ function updateCartTotal() {
         const itemQuantityElement = (itemsInCart[i].children[0].children[0].children[2].children[1].innerText);
         console.log(itemQuantityElement);
         const itemQuantity = parseInt(itemQuantityElement);
+        cartQuantity = cartQuantity + itemQuantity;
         let itemCost = itemPrice * itemQuantity;
         total = parseFloat((total + itemCost).toFixed(2));
     }
     cartTotal.innerText = `$${total}`;
+    mobileCartTotal.innerText = `$${total}`;
+    mobileCartQuantity.innerText = cartQuantity;
 }
 
-function updateMobileCartTotal() {
-    let total =0;
-    let itemsInCart = cart.children;
-    let mobileCartTotal = document.getElementById("mobile-cart-total");
-         for (let i = 0; i < itemsInCart.length; i++) {
-                const itemPriceElement = itemsInCart[i].children[0].children[0].children[1].children[1].innerText.replace('$', '');
-                console.log(itemPriceElement);
-                const itemPrice = parseFloat(itemPriceElement);
-                const itemQuantityElement = (itemsInCart[i].children[0].children[0].children[2].children[1].innerText);
-                console.log(itemQuantityElement);
-                const itemQuantity = parseInt(itemQuantityElement);
-                let itemCost = itemPrice * itemQuantity;
-                total = parseFloat((total + itemCost).toFixed(2));
-            }
-    mobileCartTotal.innerText = `$${total}`;
-}
 
 function loadCartItemsFromStorage() {
     let cartItemsJson = localStorage.getItem('cartItems');
@@ -203,17 +191,17 @@ function addItemsToCart(product) {
         `
     <div class="d-flex flex-wrap align-items-center justify-content-between">
         <div class="d-flex flex-row flex-wrap p-0 my-2 mx-4 justify-content-between align-items-start w-100">
-          <img src=${product.img} class="checkout-item-img rounded p-0 col col-sm-5 col-lg-4 col-xl-3 mr-2 order-sm-1">
-            <div class="col col-sm-6 col-lg-4 col-xl-3 p-0 order-sm-3 mr-2 order-xl-2">
-             <h5 class="checkout card-title">${product.name}</h5>
-             <h5 class="checkout card-title">$${product.price}</h5>
+          <img src=${product.img} class="checkout-item-img rounded p-0 col col-sm-5 col-lg-4 col-xl-3 mr-2">
+            <div class="col col-sm-6 col-lg-4 col-xl-3 p-0 mb-sm-5 mb-xl-0">
+             <h5 class="checkout card-title text-xs-right text-xs-left text-sm-right text-lg-left">${product.name}</h5>
+             <h5 class="checkout card-title text-xs-right text-xs-left text-sm-right text-lg-left">$${product.price}</h5>
           </div>
-            <div class="d-flex col col-sm-6 col-lg-5 col-xl-3 p-0 mb-sm-5 mb-xl-0 justify-content-between align-items-center cart-quantity-container order-sm-2 order-xl-3">
+            <div class="d-flex col col-sm-6 col-lg-5 col-xl-3 p-0 justify-content-between align-items-center cart-quantity-container">
             <button class="btn btn-warning px-1 remove-button rounded-0">-</button>
             <h5 class="checkout card-title text-center quantity m-0">${product.quantity}</h5>
             <button class="btn btn-warning px-1 add-button rounded-0">+</button>
           </div>
-          <h5 class="col col-sm-5 col-lg-4 col-xl-2 checkout card-title p-0 text-right item-price order-sm-4">$${product.price * product.quantity}</h5>
+          <h5 class="col col-sm-5 col-lg-4 col-xl-2 checkout card-title p-0 text-right item-price">$${product.price * product.quantity}</h5>
         </div>
     </div>
     <hr>
@@ -266,7 +254,6 @@ if (e.target.classList.contains("add")) {
         let cartScroll = itemsInCart[itemCartIndex];
         cartScroll.scrollIntoView(false);
         updateCartTotal();
-        updateMobileCartTotal();
 
         let cartItems = JSON.parse(localStorage.getItem('cartItems'));
         for (let i = 0; i < cartItems.length; i++) {
@@ -285,7 +272,6 @@ if (e.target.classList.contains("add")) {
         storeItem(newCartItem);
         addItemsToCart(newCartItem);
         updateCartTotal();
-        updateMobileCartTotal();
         let cartScroll = cart.lastChild;
         cartScroll.scrollIntoView(false);
     }
@@ -364,7 +350,6 @@ document.querySelector("#checkout-container").addEventListener('click', (e) => {
             }
         }
         updateCartTotal();
-        updateMobileCartTotal();
 
     }
 });
@@ -397,7 +382,6 @@ document.querySelector("#checkout-container").addEventListener('click', (e) => {
                                let updatePriceElement = e.target.parentElement.parentElement.children[3];
                                updatePriceElement.innerText = `$${itemCost}`;
                     updateCartTotal();
-                    updateMobileCartTotal();
                     break;
 
                 }
@@ -409,7 +393,6 @@ document.querySelector("#checkout-container").addEventListener('click', (e) => {
                     localStorage.setItem('cartItems', JSON.stringify(cartItems));
                     itemInCart.remove();
                     updateCartTotal();
-                    updateMobileCartTotal();
                     break;
                 }
             }
