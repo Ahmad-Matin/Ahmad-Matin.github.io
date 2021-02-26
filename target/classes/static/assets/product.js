@@ -45,12 +45,11 @@ const mediaQuery = window.matchMedia('(min-width: 575px)');
       let cart = document.getElementById("cart-section");
       let products = document.getElementById("products");
       let banner = document.getElementById("banner");
-      let showCartButton = document.querySelector(".show-cart-button");
-      showCartButton.innerText = "View Cart";
+      let showCart = document.querySelector("#show-cart");
+      showCart.parentElement.classList.remove("d-none");
       products.classList.remove("d-none");
       cart.classList.add("d-none", "d-sm-block")
       banner.classList.remove("d-none");
-
      }
 }
 
