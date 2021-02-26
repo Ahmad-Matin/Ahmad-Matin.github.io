@@ -45,23 +45,23 @@
 
         <div class="collapse navbar-collapse" id="navbarText">
             <ul class="navbar-nav mr-auto">
-                <li class="nav-item mr-sm-2 mr-md-4">
+                <li class="nav-item">
                     <a class="nav-link custom-navlink" href="/">Home</a>
                 </li>
-                <li class="nav-item mr-sm-2">
+                <li class="nav-item">
                     <a class="nav-link custom-navlink" href="/about-us">About</a>
                 </li>
             </ul>
             <ul class="navbar-nav ml-auto">
                 <!--incorporated stuff-->
-                <li sec:authorize="hasRole('ROLE_ADMIN')" class="nav-item mr-sm-2 mr-md-4">
+                <li sec:authorize="hasRole('ROLE_ADMIN')" class="nav-item">
                     <a class="nav-link custom-navlink" href="/admin">Admin <span
                             class="sr-only">(current)</span></a>
                 </li>
-                <li sec:authorize="isAnonymous()" class="nav-item mr-sm-2 mr-md-4">
+                <li sec:authorize="isAnonymous()" class="nav-item">
                     <a class="nav-link custom-navlink" href="/login">Login</a>
                 </li>
-                <li class="nav-item mr-sm-2 mr-md-4">
+                <li class="nav-item">
                     <a class="nav-link custom-navlink" href="/order">Order</a>
                 </li>
                 <li sec:authorize="isAuthenticated()" class="nav-item">
@@ -196,7 +196,7 @@
 
 <!--    JS CHECKOUT-->
     <div id="cart-section" class="d-none d-sm-block card-body shadow-sm pt-4 col-md-4 col-sm-5 col-xs-1 shadow-sm">
-        <button class="close-cart btn btn-light m-4 d-sm-block d-md-none">x</button>
+        <button class="close-cart btn btn-light m-4 d-xs-block d-sm-none">x</button>
         <h3 class="card-name my-sm-0 my-md-4 mx-4 text-center">Cart</h3>
         <div class="position-relative d-flex flex-column">
         <ul id="checkout-list" class="p-0 m-0">

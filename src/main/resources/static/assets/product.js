@@ -14,7 +14,6 @@ const emptyCartNotice = document.getElementById("empty-cart");
   cart.classList.remove("d-none");
   products.classList.add("d-none");
   menuCategories.classList.add("d-none");
-  menu-cate
     }
   })
 
@@ -233,17 +232,17 @@ function showCartItems() {
             `
     <div class="d-flex flex-wrap align-items-center justify-content-between">
         <div class="d-flex flex-row flex-wrap p-0 my-2 mx-4 justify-content-between align-items-start w-100">
-            <img src=${cartItems[i].img} class="checkout-item-img rounded p-0 col col-sm-6 col-lg-3 mr-4">
-            <div class="col col-sm-6 col-lg-4 mb-4 p-0">
-                <h5 class="checkout card-title text-sm-right text-lg-left">${cartItems[i].name}</h5>
-                <h5 class="checkout card-title text-sm-right text-lg-left">$${cartItems[i].price}</h5>
+            <img src=${cartItems[i].img} class="checkout-item-img rounded p-0 col col-sm-5 col-lg-4 col-xl-3 mr-2 order-sm-1">
+            <div class="col col-sm-6 col-lg-4 col-xl-3 p-0 order-sm-3 mr-2 order-xl-2">
+                <h5 class="checkout card-title">${cartItems[i].name}</h5>
+                <h5 class="checkout card-title">$${cartItems[i].price}</h5>
             </div>
-            <div class="d-flex col col-sm-6 col-lg-3 p-0 justify-content-between align-items-center cart-quantity-container">
-                        <button class="btn btn-warning px-2 remove-button rounded-0">-</button>
+            <div class="d-flex col col-sm-6 col-lg-4 col-xl-3 p-0 mb-sm-5 mb-xl-0 justify-content-between align-items-center cart-quantity-container order-sm-2 order-xl-3">
+                        <button class="btn btn-warning px-1 remove-button rounded-0">-</button>
                         <h5 class="checkout card-title text-center quantity m-0">${cartItems[i].quantity}</h5>
-                        <button class="btn btn-warning px-2 add-button rounded-0">+</button>
+                        <button class="btn btn-warning px-1 add-button rounded-0">+</button>
             </div>
-            <h5 class="col col-sm-6 col-lg-2 checkout card-title p-0 text-right item-price">$${(((cartItems[i].price) * (cartItems[i].quantity)).toFixed(2))}</h5>
+            <h5 class="col col-sm-5 col-lg-4 col-xl-2 checkout card-title p-0 text-right item-price order-sm-4">$${(((cartItems[i].price) * (cartItems[i].quantity)).toFixed(2))}</h5>
         </div>
     </div>
     <hr>
@@ -351,17 +350,17 @@ function addItemsToCart(product) {
         `
     <div class="d-flex flex-wrap align-items-center justify-content-between">
         <div class="d-flex flex-row flex-wrap p-0 my-2 mx-4 justify-content-between align-items-start w-100">
-          <img src=${product.img} class="checkout-item-img rounded p-0 col col-sm-6 col-lg-3 mr-4">
-          <div class="col col-sm-6 col-lg-4 mb-4 p-0">
-             <h5 class="checkout card-title text-sm-right text-lg-left">${product.name}</h5>
-             <h5 class="checkout card-title text-sm-right text-lg-left">$${product.price}</h5>
+          <img src=${product.img} class="checkout-item-img rounded p-0 col col-sm-5 col-lg-4 col-xl-3 mr-2 order-sm-1">
+            <div class="col col-sm-6 col-lg-4 col-xl-3 p-0 order-sm-3 mr-2 order-xl-2">
+             <h5 class="checkout card-title">${product.name}</h5>
+             <h5 class="checkout card-title">$${product.price}</h5>
           </div>
-          <div class="d-flex col col-sm-6 col-lg-3 p-0 justify-content-between align-items-center cart-quantity-container">
-            <button class="btn btn-warning px-2 remove-button rounded-0">-</button>
+            <div class="d-flex col col-sm-6 col-lg-4 col-xl-3 p-0 mb-sm-5 mb-xl-0 justify-content-between align-items-center cart-quantity-container order-sm-2 order-xl-3">
+            <button class="btn btn-warning px-1 remove-button rounded-0">-</button>
             <h5 class="checkout card-title text-center quantity m-0">${product.quantity}</h5>
-            <button class="btn btn-warning px-2 add-button rounded-0">+</button>
+            <button class="btn btn-warning px-1 add-button rounded-0">+</button>
           </div>
-          <h5 class="col col-sm-6 col-lg-2 checkout card-title p-0 text-right item-price">$${product.price * product.quantity}</h5>
+          <h5 class="col col-sm-5 col-lg-4 col-xl-2 checkout card-title p-0 text-right item-price order-sm-4">$${product.price * product.quantity}</h5>
         </div>
     </div>
     <hr>
