@@ -11,7 +11,7 @@ document.getElementById("check-button").addEventListener("click", (e) => {
         console.log("success");
         console.log(postalSector);
         console.log(postalsectors[i]);
-        successContainer.classList.remove("hide");
+//        successContainer.classList.remove("hide");
         resultContainer.innerHTML ="";
         resultContainer.classList.remove("failure");
         break;
@@ -19,21 +19,21 @@ document.getElementById("check-button").addEventListener("click", (e) => {
         else {
             console.log("failure");
             resultContainer.innerHTML = "";
-            successContainer.classList.add("hide");
+//            successContainer.classList.add("hide");
             const failureMessage =
-            `
-            <div>
-            <p>Sorry, we don't currently deliver to your address :(</p>
-            <p>We're working hard to expand our delivery area. Join our mailing list to get updates on our deliveries.</p>
-                <form class="form-inline row my-2 my-lg-0">
-                <div class="col d-inline px-0">
-                   <input class="border border-light mail-form rounded m-0 p-0" type="text" placeholder="Email">
-                </div>
-                 <div class="col d-inline px-0">
-                   <button class="mail-submit btn btn-light m-0 p-0" type="submit">Submit</button>
-                 </div>
-                </form>
-            </div>
+//            `
+//            <div>
+//            <p>Sorry, we don't currently deliver to your address :(</p>
+//            <p>We're working hard to expand our delivery area. Join our mailing list to get updates on our deliveries.</p>
+//                <form class="form-inline row my-2 my-lg-0">
+//                <div class="col d-inline px-0">
+//                   <input class="border border-light mail-form rounded m-0 p-0" type="text" placeholder="Email">
+//                </div>
+//                 <div class="col d-inline px-0">
+//                   <button class="mail-submit btn btn-light m-0 p-0" type="submit">Submit</button>
+//                 </div>
+//                </form>
+//            </div>
             `;
             resultContainer.classList.add("failure");
             resultContainer.innerHTML += failureMessage;
