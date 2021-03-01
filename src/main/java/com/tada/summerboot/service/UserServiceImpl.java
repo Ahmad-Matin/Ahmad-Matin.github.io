@@ -3,6 +3,8 @@ package com.tada.summerboot.service;
 import com.tada.summerboot.model.User;
 import com.tada.summerboot.repository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.core.Authentication;
+import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -35,6 +37,16 @@ public class UserServiceImpl implements UserServiceInterface{
         if(user.isPresent()){
             userRepo.delete(user.get());
         }
+    }
+
+    public User current_user() {
+        Authentication auth = SecurityContextHolder.getContext().getAuthentication();
+        User u = userRepo.findByUsername(auth.getName());
+        System.out.println(u);
+        System.out.println(u.getId());
+        System.out.println(u.getUsername());
+
+        return u;
     }
 
     @Override

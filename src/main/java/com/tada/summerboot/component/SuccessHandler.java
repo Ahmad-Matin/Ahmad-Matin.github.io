@@ -5,6 +5,7 @@ import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.web.authentication.AuthenticationSuccessHandler;
+import org.springframework.security.web.authentication.SavedRequestAwareAuthenticationSuccessHandler;
 import org.springframework.stereotype.Component;
 import com.tada.summerboot.model.User;
 
@@ -16,7 +17,7 @@ import java.io.IOException;
 import java.util.Iterator;
 
 @Component
-public class SuccessHandler implements AuthenticationSuccessHandler {
+public class SuccessHandler extends SavedRequestAwareAuthenticationSuccessHandler implements AuthenticationSuccessHandler {
     @Override
     public void onAuthenticationSuccess(HttpServletRequest httpServletRequest,
                                         HttpServletResponse httpServletResponse,
@@ -26,6 +27,8 @@ public class SuccessHandler implements AuthenticationSuccessHandler {
 //        String r= auth.getAuthorities().toString();
 //
 //        if(r=="ROLE_ADMIN"){
+
+//        super.onAuthenticationSuccess(httpServletRequest, httpServletResponse, authentication);
 
         boolean isAdmin = false;
         UserDetails user = (UserDetails) authentication.getPrincipal();
@@ -38,10 +41,10 @@ public class SuccessHandler implements AuthenticationSuccessHandler {
 
         if (isAdmin) { // if isAdmin is true == true.
 //        if(r=="ADMIN"){
-//            System.out.print("/admin");
+            System.out.print("reached /admin");
             httpServletResponse.sendRedirect("/admin");
         }else {
-//            System.out.print("/order");
+            System.out.print("reached /order");
             httpServletResponse.sendRedirect("/order");
         }
     }

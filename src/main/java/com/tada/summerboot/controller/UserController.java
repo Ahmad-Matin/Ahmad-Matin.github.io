@@ -4,15 +4,18 @@ import com.tada.summerboot.model.Product;
 import com.tada.summerboot.model.User;
 import com.tada.summerboot.service.UserServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 //import org.springframework.web.bind.annotation.RequestMapping;
 //import javax.servlet.http.HttpServletResponse;
 
 
+import java.math.BigDecimal;
 import java.util.List;
 import java.util.Optional;
 
@@ -29,13 +32,27 @@ public class UserController {
 //        return "/adminUsers";
 //    }
 
-
+//    @PostMapping(path="/user/new")
+//    public String newUser(@RequestParam(name="username", required=true) String username,
+//                          @RequestParam(name = "firstname", required=true) String firstname,
+//                          @RequestParam(name="lastname", required=true)String lastname,
+//                          @RequestParam(name="address", required=true)String address,
+//                          @RequestParam(name = "unitno", required = true)String unitno,
+//                          @RequestParam(name = "postalcode", required = true)String postalcode,
+//                          @RequestParam(name="password",required = true)String password,
+//                          @RequestParam(name="email",required = true)String email){
+//        User newUser = new User(username,firstname,lastname,address,unitno,postalcode,password,email);
+//        user_service_implementation.createUser(newUser);
+//        return "Saved";
+//
+//    }
     @PostMapping(path="/user/new")
     public String newUser(User newUser) {
-    System.out.println(newUser);
+        BCryptPasswordEncoder passwordEncoder = new BCryptPasswordEncoder();
+        String encodedPassword = passwordEncoder.encode(newUser.getPassword());
+        newUser.setPassword(encodedPassword);
         user_service_implementation.createUser(newUser);
-        return "Saved";
-//        return "redirect:/every-users";
+        return "redirect:/";
     }
 
     @GetMapping(path="/login")

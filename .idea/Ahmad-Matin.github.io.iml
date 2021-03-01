@@ -15,7 +15,7 @@
         <setting name="validation-enabled" value="true" />
         <setting name="provider-name" value="Hibernate" />
         <datasource-mapping>
-          <factory-entry name="entityManagerFactory" />
+          <factory-entry name="entityManagerFactory" value="f66484dd-476c-4f57-9f6a-360c1b14cb96" />
         </datasource-mapping>
         <naming-strategy-map />
       </configuration>
@@ -142,5 +142,6 @@
     <orderEntry type="library" name="Maven: asm:asm-commons:3.2" level="project" />
     <orderEntry type="library" name="Maven: asm:asm-util:3.2" level="project" />
     <orderEntry type="library" name="Maven: asm:asm-tree:3.2" level="project" />
+    <orderEntry type="library" name="Maven: org.projectlombok:lombok:1.18.16" level="project" />
   </component>
 </module>
