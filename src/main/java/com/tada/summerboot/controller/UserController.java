@@ -4,6 +4,8 @@ import com.tada.summerboot.model.Product;
 import com.tada.summerboot.model.User;
 import com.tada.summerboot.service.UserServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.core.Authentication;
+import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -73,6 +75,19 @@ public class UserController {
     @GetMapping(path="/register")
     public String register(User newUser) {
         return "register";
+    }
+
+
+    @GetMapping(path="/checkout/{id}")
+    public String userCheckOut(Model model, @PathVariable Integer id) {
+        Optional<User> user = user_service_implementation.getUser(id);
+        model.addAttribute("user",user);
+        return "checkout";
+    }
+
+    @GetMapping(path="/checkout")
+    public String checkOutPage(){
+        return "checkout";
     }
 
     @GetMapping(path="/user/all")

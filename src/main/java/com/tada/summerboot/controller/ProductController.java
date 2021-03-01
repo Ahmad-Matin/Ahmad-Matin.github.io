@@ -47,8 +47,8 @@ public class ProductController {
         return "individual";
     }
 
-    @GetMapping(value="/order")
-    public String everyproduct(Model model){
+    @GetMapping(value="/guest-order")
+    public String guestOrderPage(Model model){
         List<Product> list = product_service_implementation.getAllProduct();
         model.addAttribute("products", list);
         List<Product> burgers = product_service_implementation.getAllProduct();
@@ -73,8 +73,43 @@ public class ProductController {
         model.addAttribute("burgers", burgers);
         model.addAttribute("sides", sides);
         model.addAttribute("desserts", desserts);
-        return "products";
+        return "guest-products";
     }
+
+
+    @GetMapping(value="/order")
+    public String everyproduct(Model model){
+        Authentication auth = SecurityContextHolder.getContext().getAuthentication();
+
+        List<Product> list = product_service_implementation.getAllProduct();
+        model.addAttribute("products", list);
+        List<Product> burgers = product_service_implementation.getAllProduct();
+        burgers.clear();
+        List<Product> sides = product_service_implementation.getAllProduct();
+        sides.clear();
+        List<Product> desserts = product_service_implementation.getAllProduct();
+        desserts.clear();
+        for( int i=0;i< list.size();i++){
+            switch (list.get(i).productType){
+                case "burger":
+                    burgers.add(list.get(i));
+                    break;
+                case "sides":
+                    sides.add(list.get(i));
+                    break;
+                case "dessert":
+                    desserts.add(list.get(i));
+                    break;
+            }
+        }
+        model.addAttribute("burgers", burgers);
+        model.addAttribute("sides", sides);
+        model.addAttribute("desserts", desserts);
+        User user = user_service_implementation.current_user(auth.getName());
+        model.addAttribute("user", user);
+        return "products";
+        }
+
 // ADD ADMIN PAGE
 
     @GetMapping(value="/admin")

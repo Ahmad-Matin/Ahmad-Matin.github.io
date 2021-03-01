@@ -68,28 +68,9 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 				.antMatchers("/product").hasRole("ADMIN")
 				.antMatchers("/admin").hasRole("ADMIN")
 				.antMatchers("/order").permitAll()
-<<<<<<< Updated upstream
-<<<<<<< Updated upstream
-<<<<<<< Updated upstream
-//				.antMatchers("/checkout").hasRole("USER")
-
-
-=======
+				.antMatchers("/guest-order").permitAll()
 				.antMatchers("/register").permitAll()
 				.antMatchers(HttpMethod.POST, "/user/new").permitAll()
-//				.antMatchers("/register").permitAll()
->>>>>>> Stashed changes
-=======
-				.antMatchers("/register").permitAll()
-				.antMatchers(HttpMethod.POST, "/user/new").permitAll()
-//				.antMatchers("/register").permitAll()
->>>>>>> Stashed changes
-=======
-				.antMatchers("/register").permitAll()
-				.antMatchers(HttpMethod.POST, "/user/new").permitAll()
-//				.antMatchers("/register").permitAll()
->>>>>>> Stashed changes
-//				.antMatchers("/product").hasRole("USER")
 				.anyRequest().authenticated()
 				.and()
 				.formLogin()
@@ -101,46 +82,18 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 				.permitAll();
 	}
 
-<<<<<<< Updated upstream
-
 	@Override
 	protected void configure(AuthenticationManagerBuilder auth) throws Exception {
 		auth.authenticationProvider(authenticationProvider());
-<<<<<<< Updated upstream
-=======
+
 	}
 
 	@Bean
 	public UserDetailsService userDetailsService() {
 		return new CustomUserDetailsService();
->>>>>>> Stashed changes
 	}
 }
-//        UNCOMMENT SNIPPET #1
-// Remember to comment out the userDetailsService Above.
 
-<<<<<<< Updated upstream
-=======
-
-	@Override
-	protected void configure(AuthenticationManagerBuilder auth) throws Exception {
-		auth.authenticationProvider(authenticationProvider());
-	}
-
->>>>>>> Stashed changes
-	@Bean
-	public UserDetailsService userDetailsService() {
-		return new CustomUserDetailsService();
-	}
-}
-//        UNCOMMENT SNIPPET #1
-// Remember to comment out the userDetailsService Above.
-
-<<<<<<< Updated upstream
-=======
->>>>>>> Stashed changes
-=======
->>>>>>> Stashed changes
 //	@Bean
 //	@Override
 //	public UserDetailsService userDetailsService() {
