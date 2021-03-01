@@ -127,29 +127,74 @@ function showCartItems() {
 //    })
 //}
 
+function deliveryCostCheck() {
+const postalCodeElement = document.getElementById("postalcode");
+const postalCode = postalCodeElement.innerText.replace('Delivery to: ', '')
+const postalSector = postalCode.substring(0,2);
+const deliveryCostContainer = document.getElementById("delivery");
+const postalsectors = [42, 43, 44, 45, 46, 47, 48, 49, 50, 81, 51, 52];
+for (let i = 0; i < postalsectors.length; i++) {
+  if (postalsectors[i] == postalSector) {
+  let deliveryCost = 8;
+    deliveryCostContainer.innerText = `$${deliveryCost}` ;
+  break;
+  } else {
+  let deliveryCost = 10;
+   deliveryCostContainer.innerText = `$${deliveryCost}` ;
+  }
+ }
+}
+
+
 
 function updateCartTotal() {
-    let total = 0;
+
+//get subtotal
+    let subTotal = 0;
     let cartQuantity = 0;
-    let cartTotal = document.getElementById("cart-total");
-    let mobileCartTotal = document.getElementById("mobile-cart-total");
-    let mobileCartQuantity = document.getElementById("mobile-cart-quantity");
+    const cartSubTotal = document.getElementById("cart-subtotal");
+    const mobileCartTotal = document.getElementById("mobile-cart-total");
+    const mobileCartQuantity = document.getElementById("mobile-cart-quantity");
+    const cartTotalContainer = document.getElementById("cart-total");
+
     let itemsInCart = cart.children;
+
     for (let i = 0; i < itemsInCart.length; i++) {
         const itemPriceElement = itemsInCart[i].children[0].children[0].children[1].children[1].innerText.replace('$', '');
-        console.log(itemPriceElement);
         const itemPrice = parseFloat(itemPriceElement);
         const itemQuantityElement = (itemsInCart[i].children[0].children[0].children[2].children[1].innerText);
-        console.log(itemQuantityElement);
         const itemQuantity = parseInt(itemQuantityElement);
         cartQuantity = cartQuantity + itemQuantity;
         let itemCost = itemPrice * itemQuantity;
-        total = parseFloat((total + itemCost).toFixed(2));
+        subTotal = parseFloat((subTotal + itemCost).toFixed(2));
     }
-    cartTotal.innerText = `$${total}`;
-    mobileCartTotal.innerText = `$${total}`;
+    cartSubTotal.innerText = `$${subTotal}`;
+
+//get delivery fee
+    deliveryCostCheck();
+    let deliveryFeeContainer = document.getElementById("delivery");
+    let deliveryFeeElement = deliveryFeeContainer.innerText.replace('$','');
+    let deliveryFee = parseInt(deliveryFeeElement);
+
+
+//get small order fee
+    let smallOrderFee = 20 - subTotal;
+    let smallOrderFeeContainer = document.querySelector("#small-order")
+    if (smallOrderFee > 0) {
+    smallOrderFeeContainer.innerText = `$${smallOrderFee}`;
+    } else {
+    smallOrderFee = 0;
+    smallOrderFeeContainer.innerText = "$0";
+    }
+
+//calculate total
+    let cartTotal = parseFloat((subTotal + smallOrderFee + deliveryFee).toFixed(2));
+    cartTotalContainer.innerText = `$${cartTotal}`;
+    mobileCartTotal.innerText = `$${cartTotal}`;
     mobileCartQuantity.innerText = cartQuantity;
+
 }
+
 
 
 function loadCartItemsFromStorage() {
@@ -346,9 +391,7 @@ document.querySelector("#checkout-container").addEventListener('click', (e) => {
                 let itemQuantityElement = e.target.parentElement.children[1];
                 let itemPriceElement = e.target.parentElement.parentElement.children[1].children[1];
                 let itemPriceValue = itemPriceElement.innerText.replace('$', '');
-                console.log(itemPriceValue);
                 let itemPrice= parseFloat(itemPriceValue);
-                console.log(itemPrice);
                 let itemQuantity = parseInt(itemQuantityElement.innerText);
                 itemQuantity = itemQuantity + 1;
                 let itemCost = ((itemPrice * itemQuantity).toFixed(2));
