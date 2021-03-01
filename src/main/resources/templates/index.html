@@ -46,11 +46,10 @@
 
         <div class="collapse navbar-collapse" id="navbarText">
             <ul class="navbar-nav mr-auto">
-                <li class="nav-item mr-sm-2 mr-md-4">
-                    <a class="nav-link custom-navlink" href="/">Home</a>
-                </li>
-                <li class="nav-item mr-sm-2">
-                    <a class="nav-link custom-navlink" href="/about-us">About</a>
+                <li class="nav-item">
+                    <a class="nav-link custom-navlink" href="/"><span class="material-icons">
+lunch_dining
+</span></a>
                 </li>
             </ul>
             <ul class="navbar-nav ml-auto">
@@ -59,10 +58,10 @@
                     <a class="nav-link custom-navlink" href="/admin">Admin <span
                             class="sr-only">(current)</span></a>
                 </li>
-                <li sec:authorize="isAnonymous()" class="nav-item mr-sm-2 mr-md-4">
+                <li sec:authorize="isAnonymous()" class="nav-item">
                     <a class="nav-link custom-navlink" href="/login">Login</a>
                 </li>
-                <li class="nav-item mr-sm-2 mr-md-4">
+                <li class="nav-item">
                     <a class="nav-link custom-navlink" href="/order">Order</a>
                 </li>
                 <li sec:authorize="isAuthenticated()" class="nav-item">
@@ -75,67 +74,13 @@
 
     </div>
 </div>
-<!--    &lt;!&ndash;HEADER&ndash;&gt;-->
-<!--    <div class="fixed-top">-->
-<!--        <div id="custom-navigation" class="navbar navbar-expand-sm my-0 py-2 px-4 custom-navbar navbar-dark">-->
-<!--            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarText"-->
-<!--                aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">-->
-<!--            <span class="navbar-toggler-icon"></span>-->
-<!--        </button>-->
-
-<!--        <div class="collapse navbar-collapse" id="navbarText">-->
-<!--            <ul class="navbar-nav mr-auto">-->
-<!--                <li sec:authorize="isAuthenticated()" class="nav-item mr-4">-->
-<!--                    <h3 class="my-2" th:inline="text">Hello [[${#httpServletRequest.remoteUser}]]!</h3>-->
-<!--                </li>-->
-<!--                <li sec:authorize="isAuthenticated()" class="nav-item mr-4">-->
-<!--                    <form th:action="@{/logout}" method="post">-->
-<!--                        <input type="submit" class="btn btn-light my-2" value="Sign Out"/>-->
-<!--                    </form>-->
-<!--                </li>-->
-<!--                <li class="nav-item mr-4">-->
-<!--                    <a class="nav-link custom-navlink" href="/">Home</a>-->
-<!--                </li>-->
-<!--                <li class="nav-item mr-4">-->
-<!--                    <a class="nav-link custom-navlink" href="/about-us">About</a>-->
-<!--                </li>-->
-<!--               -->
-<!--            </ul>-->
-<!--            <ul class="navbar-nav ml-auto">-->
-<!--                &lt;!&ndash;incorporated stuff&ndash;&gt;-->
-<!--                <li sec:authorize="hasRole('ROLE_ADMIN')" class="nav-item ">-->
-<!--                    <a class="nav-link custom-navlink" href="/admin">Admin <span-->
-<!--                            class="sr-only">(current)</span></a>-->
-<!--                </li>-->
-<!--                <li sec:authorize="isAnonymous()" class="nav-item ">-->
-<!--                    <a class="nav-link custom-navlink" href="/login"><span class="material-icons md-36">perm_identity</span><span class="sr-only">(current)</span></a>-->
-<!--                </li>-->
-<!--                <li sec:authorize="isAuthenticated()" class="nav-item ">-->
-<!--                    <a class="nav-link custom-navlink" href="/order"><span class="material-icons md-36">shopping_cart</span><span class="sr-only">(current)</span></a>-->
-<!--                </li>-->
-<!--                &lt;!&ndash;                <li class="nav-item mr-4">&ndash;&gt;-->
-<!--&lt;!&ndash;                    <a class="nav-link custom-navlink" href="pages/login.html"><span class="material-icons md-36">perm_identity&ndash;&gt;-->
-<!--&lt;!&ndash;                        </span><span class="sr-only">(current)</span></a>&ndash;&gt;-->
-<!--&lt;!&ndash;                </li>&ndash;&gt;-->
-<!--&lt;!&ndash;                <li class="nav-item">&ndash;&gt;-->
-<!--&lt;!&ndash;                    <a class="nav-link custom-navlink" href="pages/products.html"><span class="material-icons md-36">&ndash;&gt;-->
-<!--&lt;!&ndash;                        shopping_cart</span></a>&ndash;&gt;-->
-<!--&lt;!&ndash;                </li>&ndash;&gt;-->
-<!--            </ul>-->
-<!--        </div>-->
-
-<!--        </div>-->
-<!--    </div>-->
-
-
-
 
     <!--END HEADER-->
 
     <!--BANNER-->
     <div id="banner">
         <div class="main-title d-flex justify-content-center align-items-center position-relative">
-            <h1 class="main-heading position-absolute text-left">We make delicious burgers.</h1>
+            <h1 class="main-heading position-absolute text-left px-5">We make delicious burgers.</h1>
         </div>
     </div>
 
@@ -143,52 +88,131 @@
     <!--END BANNER -->
 
 
-    <div id="step1"class="container-fluid mt-4">
-        <div class="steps-container d-flex row justify-content-center align-items-center row-cols-1 row-cols-xs-1 row-cols-sm-2">
-<!--            <div class="steps-img-container d-flex align-items-center">-->
+    <div id="steps-section">
+        <div class="steps-container d-flex flex-column flex-md-row justify-content-center align-items-center row-cols-1 row-cols-xs-1 row-cols-sm-2">
+            <div class="col-sm-10 col-md-5 d-flex align-items-center justify-content-center">
                 <img src="assets/imgs/product-photos/maiqui-cordeiro-QCPMwPcZhaQ-unsplash_edited.jpg"
                     class="steps-img col">
-<!--            </div>-->
-            <div class="steps-heading text-left col d-flex flex-column justify-content-center px-4">
-                <h2>First time ordering with us?</h2>
-                <h3 class="mt-4">Check if we deliver to your area.</h3>
+            </div>
+            <div class="steps-heading col-sm-10 col-md-7 d-flex flex-column justify-content-center align-items-center px-4">
+                <h2 class="my-4 w-sm-75 text-center">First time ordering with us?</h2>
+                <h3 class="my-4 w-sm-75 text-center">Find out your delivery fee.</h3>
                 <!--SEARCH-->
-                <form class="search-bar my-3">
+                <form class="search-bar w-75 my-3">
                     <div class="d-flex flex-row justify-content-between flex-column">
                         <input class="form-control search-input shadow" type="text"
                             placeholder="Enter postal code">
                         <a href="#success-container" id="check-button" class="btn orderpage-button shadow my-4" >Check</a>
-                        <div id="address-check-result">
-                        </div>
-                    </div>
                 </form>
+                </div>
+            <div id="address-check-result">
+            </div>
                 <!--END SEARCH-->
             </div>
         </div>
-    </div>
 
-        <div id="success-container" class="container-fluid mt-4 hide">
-                    <h3 class="success text-center">We deliver to your address!</h3>
-                    <div class="step2-container d-flex flex-row-reverse row row-cols-1 row-cols-xs-1 row-cols-sm-2">
-                        <div class="steps-img-container d-flex align-items-center">
-                            <img src="assets/imgs/product-photos/pexels-horizon-content-3738730_edited2.jpg" class="steps-img-reverse col">
+<div class="steps-container d-flex flex-column flex-md-row-reverse justify-content-center align-items-center row-cols-1 row-cols-xs-1 row-cols-sm-2 mb-5">
+                        <div class="col-sm-10 col-md-6 d-flex align-items-center justify-content-center">
+                            <img src="assets/imgs/product-photos/pexels-horizon-content-3738730_edited2.jpg" class="steps-img-reverse">
                         </div>
-                        <div class="step-reverse-heading text-left col d-flex flex-column align-items-center justify-content-center">
-                            <h2>Next steps:</h2>
-                            <h3 class="mt-4">Not sure what to get?</h3>
+                        <div class="steps-heading col-sm-10 col-md-6 d-flex flex-column justify-content-center align-items-center px-4">
+                            <h2 class="mt-4 text-center">Not sure what to get?</h2>
                              <a class="btn my-4 orderpage-button shadow w-75" href="/order">View menu</a>
-                              <h3 class="mt-4">Ready to order?</h3>
+                              <h2 class="mt-4 text-center">Ready to order?</h2>
                              <a class="btn my-4 orderpage-button shadow w-75" href="/register">Create an account</a>
-
                         </div>
                     </div>
+
+
+
+<!--PRESS-->
+<div id="press-section" class="d-none d-md-block mt-4 mb-5 py-2">
+    <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
+        <ol class="carousel-indicators">
+            <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
+            <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
+            <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
+        </ol>
+        <div class="carousel-inner">
+            <div class="carousel-item active carousel-container">
+                <img class="carousel-container" src="../assets/imgs/home-page-photos/yellow-background.jpg" alt="Third slide">
+                <div class="carousel-caption review-1 press d-flex flex-column align-items-center my-5">
+                    <h4>Publication 1</h4>
+                    <h2 class="my-5 text-center">"Best. Burger. Ever."</h2>
+                    <p>Name 1</p>
+                    <p>Title 1</p>
+                </div>
+            </div>
+            <div class="carousel-item carousel-container">
+                <img class="carousel-container" src="../assets/imgs/home-page-photos/yellow-background.jpg" alt="Third slide">
+                <div class="carousel-caption review-1 press d-flex flex-column align-items-center my-5">
+                    <h4>Publication 2</h4>
+                    <h3 class="my-5 text-center px-4">"MCJ is redefining the fast food landscape, one hand-crafted burger at a time."</h3>
+                    <p>Name 2</p>
+                    <p>Title 2</p>
+                </div>
+            </div>
         </div>
+        <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
+            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+            <span class="sr-only">Previous</span>
+        </a>
+        <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
+            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+            <span class="sr-only">Next</span>
+        </a>
+    </div>
+</div>
+<!--END PRESS -->
+
+<!--CONTACT -->
+<div id="contact-section" class="d-flex flex-xs-column-reverse flex-md-row flex-wrap justify-content-around align-items-end row-cols-1 row-cols-xs-1 row-cols-sm-2 my-5">
+    <div class="col-xs-12 col-lg-5 px-4 ps-xs-2 py-2">
+        <h3 class="my-4">Contact Us</h3>
+        <form>
+            <div class="form-group">
+                <label for="exampleFormControlInput1">Name</label>
+                <input type="text" class="form-control" id="exampleFormControlInput1">
+            </div>
+            <div class="form-group">
+                <label for="exampleFormControlInput1">Email address</label>
+                <input type="email" class="form-control" id="exampleFormControlInput1" placeholder="name@example.com">
+            </div>
+            <div class="form-group">
+                <label for="exampleFormControlTextarea1">Leave us a message!</label>
+                <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
+            </div>
+            <div>
+                <input type="submit" class="btn btn-warning"></input>
+            </div>
+        </form>
+    </div>
+    <div class="col-xs-12 col-lg-5 px-xs-5 px-sm-4 py-5 d-flex justify-content-center">
+        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3988.7142296485617!2d103.92637041475402!3d1.3479489990168856!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x31da3d68fdc30669%3A0x8741d5f4fa3553ea!2sTemasek%20Polytechnic%20Glocal%20Connect%20Village!5e0!3m2!1sen!2ssg!4v1614542740806!5m2!1sen!2ssg" width="400" height="300" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+    </div>
+
+</div>
 
 
+<!--END CONTACT -->
 
 
-
-
+<!--FOOTER-->
+<footer>
+    <div class="yellow-background">
+        <div class="d-flex flex-row flex-wrap mx-5 justify-content-start">
+            <div class="d-flex flex-column m-4 col-3">
+                <p><a href="/about-us">About Us</a></p>
+                <p><a>Press</a></p>
+                <p><a>Stories</a></p>
+            </div>
+            <div class="d-flex flex-column m-4 col-3">
+                <p><a>Privacy</a></p>
+                <p><a>Careers</a></p>
+            </div>
+        </div>
+    </div>
+</footer>
 
 
     <!-- Optional JavaScript; choose one of the two! -->

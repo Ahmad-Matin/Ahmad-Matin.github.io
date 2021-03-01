@@ -11,7 +11,6 @@
           integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2" crossorigin="anonymous">
 
     <!--ICONS CSS -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 
     <!--CUSTOM CSS -->
@@ -31,10 +30,10 @@
 
 
 <body>
-<!--HEADER-->
 
-<div class="fixed-top m-0 p-0 blue-background">
-    <div id="navigation" class="navbar navbar-expand-sm my-0 py-3 custom-navbar navbar-dark">
+<!--HEADER-->
+<div class="fixed-top yellow-background">
+    <div class="navbar navbar-expand-sm my-0 py-2 px-5 custom-navbar navbar-dark">
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarText"
                 aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
@@ -43,54 +42,44 @@
         <div class="collapse navbar-collapse" id="navbarText">
             <ul class="navbar-nav mr-auto">
                 <li class="nav-item">
-                    <a class="nav-link custom-navlink" href="/">Home</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link custom-navlink" href="/about-us">About</a>
+                    <a class="nav-link custom-navlink" href="/"><span class="material-icons">
+lunch_dining
+</span></a>
                 </li>
             </ul>
-        </div>
-        <div class="collapse navbar-collapse" id="navbarText">
             <ul class="navbar-nav ml-auto">
                 <!--incorporated stuff-->
-                <li sec:authorize="isAuthenticated()" class="nav-item ">
-                    <a class="nav-link custom-navlink" th:inline="text">Hello [[${#httpServletRequest.remoteUser}]]!</a>
-                </li>
-                <li sec:authorize="isAuthenticated()" class="nav-item ">
-                    <form th:action="@{/logout}" method="post">
-                        <input type="submit" value="Sign Out"/>
-                    </form>
-                </li>
-                <li sec:authorize="hasRole('ROLE_ADMIN')" class="nav-item ">
+                <li sec:authorize="hasRole('ROLE_ADMIN')" class="nav-item">
                     <a class="nav-link custom-navlink" href="/admin">Admin <span
                             class="sr-only">(current)</span></a>
                 </li>
-                <li sec:authorize="isAnonymous()" class="nav-item ">
-                    <a class="nav-link custom-navlink" href="/login"><span class="material-icons md-36">perm_identity</span><span class="sr-only">(current)</span></a>
+                <li class="nav-item">
+                    <a class="nav-link custom-navlink" href="/login">Login</a>
                 </li>
-                <li sec:authorize="isAuthenticated()" class="nav-item ">
-                    <a class="nav-link custom-navlink" href="/order"><span class="material-icons md-36">shopping_cart</span></a>
+                <li class="nav-item">
+                    <a class="nav-link custom-navlink" href="/order">Order</a>
+                </li>
+                <li sec:authorize="isAuthenticated()" class="nav-item">
+                    <form th:action="@{/logout}" method="post">
+                        <input type="submit" class="log-out btn btn-light my-2" value="Sign Out"/>
+                    </form>
                 </li>
             </ul>
         </div>
+
     </div>
 </div>
 <!--END HEADER-->
 
-
-<div class="container-fluid p-0 m-0 mt-4 pt-4">
-    <div class="container-fluid d-flex p-0 m-0 mt-2 pt-4">
-        <div id="login-banner" class="col p-0 m-0 d-flex position-relative justify-content-center">
-            <img src="../assets/imgs/product-photos/pexels-mathias-pr-reding-4571510.jpg"
-                 class="img-fluid login-img p-0 m-0 w-100 position-absolute align-self-start">
-            <h2 class="login-heading text-left position-absolute align-self-end">Hi<br>again!</h2>
-
-        </div>
+<div class="container-fluid p-0 m-0 mt-4 d-flex flex-row">
+            <img src="../assets/imgs/product-photos/pexels-mathias-pr-reding-4571510.jpg" class="col-6 img-fluid login-img p-0 m-0">
         <!--REGISTER AND LOGIN-->
-        <div class="container-fluid col-sm-6 mt-4 pt-4 mx-4 px-2">
-            <h3 class="my-3 josefin-sans text-center josefin-sans">Login</h3>
+        <div class="col col-6 px-5 d-flex flex-column align-content-center justify-content-center">
+            <h3 class="my-3 josefin-sans text-center">Login</h3>
 
-            <form class="my-4 py-2" th:action="@{/login}" method="post">
+            <!--REGISTER FORM -->
+            <div>
+            <form th:action="@{/login}" method="post">
                 <!--                    BAckend added for error messages-->
                 <div th:if="${param.error}">
                     Invalid username and password.
@@ -100,106 +89,33 @@
                 </div>
                 <!--LOGIN FORM-->
                 <!--                    Backend: added name & change type for email-->
-                <div class="form-group">
-                    <input type="text" class="form-control border-info" id="loginEmail" name="username"
+                <div class="form-group mt-2">
+                    <input type="text" class="form-control border-warning" id="loginEmail" name="username"
                            aria-describedby="emailHelp" placeholder="Enter email" required>
                     <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone
                         else.</small>
                 </div>
                 <div class="form-group">
-                    <input type="password" class="form-control border-info" id="loginPassword" name="password"
+                    <input type="password" class="form-control border-warning" id="loginPassword" name="password"
                            placeholder="Password" required>
                 </div>
 
-                <input type="submit" class="btn btn-info" value="Sign in">
+                <input type="submit" class="sign-in-button btn mt-4" value="Sign in">
             </form>
-
-<!--            <div sec:authorize="isAuthenticated()">-->
-<!--                <h4 th:inline="text">Hello [[${#httpServletRequest.remoteUser}]]!</h4>-->
-
-<!--                <form th:action="@{/logout}" method="post">-->
-<!--                    <input type="submit" value="Sign Out"/>-->
-<!--                </form>-->
-<!--            </div>-->
-
-            <div class="position-relative d-flex justify-content-center mb-4 pb-4">
+           </div>
+            <!--END REGISTER FORM -->
+            <!--SIGN UP-->
+            <div class="position-relative d-flex justify-content-center">
                 <hr class="form-line w-25 mt-4 float-left">
                 <p class="text-center p-0 m-0 position-absolute">Not a user?</p>
                 <!-- Button trigger modal -->
-                <p class="text-center p-0 m-0 position-absolute mt-4"><a id="sign-up-button" class="btn"
-                                                                         href="/register">Sign
-                    up.</a></p>
+                <p class="text-center p-0 m-0 position-absolute mt-4"><a id="sign-up-button" class="btn" href="/register">Sign up.</a></p>
                 <hr class="form-line w-25 mt-4 float-right">
             </div>
 
-
-            <!--REGISTER FORM -->
-
-            <!-- Modal -->
-<!--            <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog"-->
-<!--                 aria-labelledby="exampleModalLabel" aria-hidden="true">-->
-<!--                <div class="modal-dialog" role="document">-->
-<!--                    <div class="modal-content">-->
-<!--                        <div class="d-flex justify-content-end">-->
-<!--                            <button type="button" class="close m-4" data-dismiss="modal" aria-label="Close">-->
-<!--                                <span aria-hidden="true">&times;</span>-->
-<!--                            </button>-->
-<!--                        </div>-->
-<!--                        <div id="register-form" class="mx-4">-->
-<!--                            <h3 class="mt-4 josefin-sans text-center josefin-sans">Register</h3>-->
-                            <!--TO CHANGE PATH-->
-<!--                            <form th:action="@{/user/new}" th:object="${user}" method="POST" action ="" class="my-4 py-2">-->
-<!--                                <div class="form-group">-->
-<!--                                    <div class="form-row">-->
-<!--                                        <div class="col">-->
-<!--                                            <input id ="firstname"  name="firstname" th:field="*{firstname}" type="text" class="form-control border-info register"-->
-<!--                                                   placeholder="First name" required>-->
-<!--                                        </div>-->
-<!--                                        <div class="col">-->
-<!--                                            <input id="lastname" name ="lastname" th:field="*{lastname}" type="text" class="form-control border-info register"-->
-<!--                                                   placeholder="Last name" required>-->
-<!--                                        </div>-->
-<!--                                    </div>-->
-<!--                                </div>-->
-<!--                                <div class="form-group">-->
-<!--                                    <input id = "address" name ="address" th:field="*{address}" type="text" class="form-control border-info register" placeholder="Address" required>-->
-<!--                                </div>-->
-<!--                                <div class="form-group">-->
-<!--                                    <div class="form-row">-->
-<!--                                        <div class="col">-->
-<!--                                            <input id="unitno" name="unit_no" th:field="*{unitnumber}" type="text" class="form-control border-info register"-->
-<!--                                                   placeholder="Unit No.">-->
-<!--                                        </div>-->
-<!--                                        <div class="col">-->
-<!--                                            <input type="text" name="postal_code" th:field="*{postalcode}" class="form-control border-info register" id="postalcode"-->
-<!--                                                   placeholder="Postal Code">-->
-<!--                                        </div>-->
-<!--                                    </div>-->
-<!--                                </div>-->
-<!--                                <div class="form-group">-->
-<!--                                    <input id="email" name="email" th:field="*{email}"  type="email" class="form-control border-info register" aria-describedby="emailHelp" placeholder="Email" required>-->
-<!--                                </div>-->
-<!--                                <div class="form-group">-->
-<!--                                    <input id = "password" th:field="*{password}" type="password" class="form-control border-info register"-->
-<!--                                           placeholder="Password" required>-->
-<!--                                </div>-->
-<!--                                <div class="form-group">-->
-<!--                                    <input id="password2" name="password" type="password" class="form-control border-info register" placeholder="Confirm Password"required>-->
-<!--                                </div>-->
-<!--                                <input type="hidden" th:value="user" th:attr="name='userType'"/>-->
-<!--                                <div class="form-group">-->
-<!--                                    <button type="submit" value="New User" class="btn btn-info mt-4">Submit</button>-->
-<!--                                </div>-->
-<!--                            </form>-->
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <!--END LOGIN FORM-->
+            <!--END SIGN UP LINK -->
         </div>
-
         <!--END REGISTER AND LOGIN-->
-    </div>
 </div>
 
 <!-- Optional JavaScript; choose one of the two! -->

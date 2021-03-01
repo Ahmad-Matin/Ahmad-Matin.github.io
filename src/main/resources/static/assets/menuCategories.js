@@ -1,8 +1,8 @@
-const mediaQuery = window.matchMedia('(min-width: 768px)');
-//const menunav = document.getElementById("menu-categories");
-
-function changeNavBarColor(mediaQuery) {
-    if (mediaQuery.matches) {
+//const mediaQuery = window.matchMedia('(min-width: 768px)');
+////const menunav = document.getElementById("menu-categories");
+//
+//function changeNavBarColor(mediaQuery) {
+//    if (mediaQuery.matches) {
 
 //        menunav.classList.remove("hide");
 
@@ -56,41 +56,9 @@ function changeNavBarColor(mediaQuery) {
 
             }
         }
-    }
+//    }
+//
+//}
 
-}
+//changeNavBarColor(mediaQuery);
 
-changeNavBarColor(mediaQuery);
-
-// add animation
-// add cart nav button 
-
-
-// if (document.body.scrollTop > 100 || document.documentElement.scrollTop > 100) {
-//     navbar.classList.add('custom-navbar-scroll'); 
-
-//     if (document.body.scrollTop > 0 || document.documentElement.scrollTop > 0) {
-//         burgerCategory.classList.add("active");
-//         sidesCategory.classList.remove("active");
-//         sidesCategory.classList.add("inactive");
-//         dessertCategory.classList.remove("active");
-//         dessertCategory.classList.add("inactive");
-
-//     }
-
-//      if (document.body.scrollTop > 2400 || document.documentElement.scrollTop > 2400) {
-//         sidesCategory.classList.add("active");
-//         burgerCategory.classList.remove("active");
-//         burgerCategory.classList.add("inactive");
-//         dessertCategory.classList.remove("active");
-//         dessertCategory.classList.add("inactive");
-//     }
-    
-//     if (document.body.scrollTop > 2900 || document.documentElement.scrollTop > 2900) {
-//         dessertCategory.classList.add("active");
-//         sidesCategory.classList.remove("active");
-//         sidesCategory.classList.add("inactive");
-//         burgerCategory.classList.remove("active");
-//         burgerCategory.classList.add("inactive");
-
-//     }

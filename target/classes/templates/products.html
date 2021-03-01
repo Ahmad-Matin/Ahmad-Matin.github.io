@@ -37,7 +37,7 @@
 
 <!--HEADER-->
 <div class="fixed-top">
-    <div id="custom-navigation" class="navbar navbar-expand-sm my-0 py-2 px-5 custom-navbar navbar-dark">
+    <div id="custom-navigation" class="navbar navbar-expand-sm my-0 py-3 py-sm-2 px-3 px-sm-5 custom-navbar navbar-dark">
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarText"
                 aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
@@ -45,23 +45,22 @@
 
         <div class="collapse navbar-collapse" id="navbarText">
             <ul class="navbar-nav mr-auto">
-                <li class="nav-item mr-sm-2 mr-md-4">
-                    <a class="nav-link custom-navlink" href="/">Home</a>
-                </li>
-                <li class="nav-item mr-sm-2">
-                    <a class="nav-link custom-navlink" href="/about-us">About</a>
+                <li class="nav-item">
+                    <a class="nav-link custom-navlink" href="/"><span class="material-icons">
+lunch_dining
+</span></a>
                 </li>
             </ul>
             <ul class="navbar-nav ml-auto">
                 <!--incorporated stuff-->
-                <li sec:authorize="hasRole('ROLE_ADMIN')" class="nav-item mr-sm-2 mr-md-4">
+                <li sec:authorize="hasRole('ROLE_ADMIN')" class="nav-item">
                     <a class="nav-link custom-navlink" href="/admin">Admin <span
                             class="sr-only">(current)</span></a>
                 </li>
-                <li sec:authorize="isAnonymous()" class="nav-item mr-sm-2 mr-md-4">
+                <li sec:authorize="isAnonymous()" class="nav-item">
                     <a class="nav-link custom-navlink" href="/login">Login</a>
                 </li>
-                <li class="nav-item mr-sm-2 mr-md-4">
+                <li class="nav-item">
                     <a class="nav-link custom-navlink" href="/order">Order</a>
                 </li>
                 <li sec:authorize="isAuthenticated()" class="nav-item">
@@ -95,25 +94,24 @@
 
 <!--MENU CATEGORIES-->
 
-<div id="menu-categories" class="menu-categories d-flex justify-content-between px-5 hide">
+<div id="menu-categories" class="d-none d-sm-flex menu-categories justify-content-between px-md-5 hide">
     <a id="burgerMenu" class="menu-category  m-0 py-2 px-3" href="#burgers-container">Burgers</a>
     <a id="sidesMenu" class="menu-category  m-0 py-2 px-3" href="#sides-container">Sides</a>
     <a id="dessertMenu" class="menu-category  m-0 py-2 px-3" href="#desserts-container">Desserts</a>
 </div>
 
 <!--END MENU CATEGORIES-->
-<div id="order-section">
-</div>
+
 <!--MENU-->
 <!--cards start-->
-<div class="container-fluid d-flex justify-content-around py-4 flex-wrap-reverse row row-sm-1 mx-0 my-4">
+<div id="order-section" class="container-fluid d-flex justify-content-around py-4 flex-wrap-reverse row row-sm-1 mx-0">
     <div id="products" class="col-md-7 col-sm-7 col-xs-11 py-4 px-0">
             <!--         burgers-->
             <div id="burgers-container" th:switch="${burgers}" class="card justify-content-center mx-auto border-0" style="width: 100%">
-                <h3 class="card-name px-3 my-4">Burgers</h3>
+                <h4 class="card-name px-3 my-4">Burgers</h4>
                 <div th:case="null"><h2 >No record found !!</h2></div>
                 <a th:case="*"></a>
-                <div id="burger" class="row row-cols-1 row-cols-sm-1 row-cols-xl-2 px-md-2 mx-auto" style="width:100%">
+                <div id="burgers" class="row row-cols-1 row-cols-sm-1 row-cols-xl-2 px-2 mx-auto" style="width:100%">
 
                     <div th:each="product : ${burgers}" th:id="${product.id}" class="col my-2">
                         <div class="img-container d-flex justify-content-center p-4 mb-4">
@@ -126,7 +124,7 @@
                             </div>
                             <div class="card-body">
                                 <div class="d-flex px-4 pt-2 pb-2 justify-content-between flex-wrap">
-                                    <a class="btn add align-self-center" href="#menu-categories">Add to Cart</a>
+                                    <a class="btn add align-self-center">Add to Cart</a>
                                 </div>
                             </div>
                         </div>
@@ -137,7 +135,7 @@
             </div>
 
             <div id="sides-container" th:switch="${sides}" class="card justify-content-center mx-auto border-0" style="width: 100%">
-                <h3  class="card-name px-3 my-4">Sides</h3>
+                <h4  class="card-name px-3 my-4">Sides</h4>
                 <div th:case="null"><h2 >No record found !!</h2></div>
                 <a th:case="*"></a>
                 <div id="sides" class="row row-cols-1 row-cols-sm-1 row-cols-xl-2 px-2 mx-auto" style="width:100%">
@@ -153,7 +151,7 @@
                             </div>
                             <div class="card-body">
                                 <div class="d-flex px-4 pt-2 pb-2 justify-content-between flex-wrap">
-                                    <a class="btn add align-self-center" href="#menu-categories">Add to Cart</a>
+                                    <a class="btn add align-self-center">Add to Cart</a>
                                 </div>
                             </div>
                         </div>
@@ -164,7 +162,7 @@
             </div>
 
             <div id="desserts-container" th:switch="${desserts}" class="card justify-content-center mx-auto border-0" style="width: 100%">
-                <h3  class="card-name px-3 my-4">Desserts</h3>
+                <h4 class="card-name px-3 my-4">Desserts</h4>
                 <div th:case="null"><h2 >No record found !!</h2></div>
                 <a th:case="*"></a>
                 <div id="dessert" class="row row-cols-1 row-cols-sm-1 row-cols-xl-2 px-2 mx-auto" style="width:100%">
@@ -180,7 +178,7 @@
                             </div>
                             <div class="card-body">
                                 <div class="d-flex px-4 pt-2 pb-2 justify-content-between flex-wrap">
-                                    <a class="btn add align-self-center" href="#menu-categories">Add to Cart</a>
+                                    <a class="btn add align-self-center">Add to Cart</a>
                                 </div>
                             </div>
                         </div>
@@ -195,35 +193,53 @@
 
 
 <!--    JS CHECKOUT-->
-    <div id="cart-section" class="card-body shadow-sm rounded py-4 col-md-4 col-sm-5 col-xs-1 shadow-sm">
-        <h3 class="card-name my-4 mx-4 text-center">Cart</h3>
-
-        <ul class="p-0 m-0">
+    <div id="cart-section" class="d-none d-sm-block card-body shadow-sm pt-2 pt-md-4 col-md-4 col-sm-5 col-xs-1 shadow-sm">
+        <div id="cart-heading" class="d-flex flex-row my-2 my-md-4 mx-4 align-items-center">
+        <button class="col-1 close-cart p-0 btn btn-light d-xs-block d-sm-none">x</button>
+        <h4 class="col card-name text-center m-0 justify-self-center">Cart</h4>
+        </div>
+        <div class="position-relative d-flex flex-column">
+        <ul id="checkout-list" class="p-0 m-0">
             <li id="empty-cart" class="card checkout-item, border-0 hide">
                 <h5 class="card-name col py-4 text-center">Your cart is empty.</h5>
             </li>
-            <ul id="checkout-container" class="p-0 m-0 list-unstyled">
+            <ul id="checkout-container" class="p-0 list-unstyled">
             </ul>
         </ul>
 
 
-        <div id="cart-checkout" class="hide">
-            <div class="card my-4 border-0 d-flex flex-row flex-wrap justify-content-between mx-4">
-                <h3 class="card-name text-center lato-font">Total:</h3>
-                <h3 id="cart-total" class="card-name text-center lato-font"></h3>
+        <div id="cart-checkout" class="hide position-absolute">
+            <div class="total mx-4 my-2 my-md-4 border-0 d-flex flex-row flex-wrap align-items-center justify-content-between ">
+                <h3 class="card-name text-center">Total:</h3>
+                <h3 id="cart-total" class="card-name text-center"></h3>
             </div>
 
             <div class="d-flex flex-column justify-content-end">
-                <a id="checkout-button" class="btn btn-primary px-4 py-3 mx-4 btn-large">Checkout</a>
+                <a id="checkout-button" class="btn px-4 py-2 mx-4 btn-large">Checkout</a>
             </div>
         </div>
-
+        </div>
     </div>
 <!--    CHECKOUT-->
 
 
 
 
+</div>
+
+<!--RESPONSIVE CART -->
+
+<div>
+    <div id="show-cart" class="d-xs-block d-sm-none show-cart-container fixed-bottom d-flex flex-row justify-content-between align-items-center py-3">
+        <div class="col d-flex flex-row align-items-center justify-content-start">
+            <span class="material-icons p-0 m-0">shopping_cart</span>
+            <h5 id="mobile-cart-quantity" class="m-0 ml-1 p-0"></h5>
+        </div>
+        <a class="col show-cart-button navbar-brand text-center m-0 p-0" href="#cart-section">View Cart</a>
+        <div class="col d-flex flex-row align-items-center justify-content-end">
+            <h5 id="mobile-cart-total" class="card-name text-center m-0 ml-2"></h5>
+        </div>
+    </div>
 </div>
 
 

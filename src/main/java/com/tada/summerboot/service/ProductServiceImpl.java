@@ -61,7 +61,7 @@ public class ProductServiceImpl implements ProductServiceInterface{
                 newEntity.setDescription(entity.getDescription());
                 newEntity.setSku(entity.getSku());
                 newEntity.setQuantity(entity.getQuantity());
-
+                newEntity.setImageURL(entity.getImageURL());
                 newEntity = productRepo.save(newEntity);
 
                 return newEntity;
