@@ -70,9 +70,15 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 				.antMatchers("/order").permitAll()
 <<<<<<< Updated upstream
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
 //				.antMatchers("/checkout").hasRole("USER")
 
 
+=======
+				.antMatchers("/register").permitAll()
+				.antMatchers(HttpMethod.POST, "/user/new").permitAll()
+//				.antMatchers("/register").permitAll()
+>>>>>>> Stashed changes
 =======
 				.antMatchers("/register").permitAll()
 				.antMatchers(HttpMethod.POST, "/user/new").permitAll()
@@ -95,6 +101,7 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 				.permitAll();
 	}
 
+<<<<<<< Updated upstream
 
 	@Override
 	protected void configure(AuthenticationManagerBuilder auth) throws Exception {
@@ -113,6 +120,14 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 // Remember to comment out the userDetailsService Above.
 
 <<<<<<< Updated upstream
+=======
+
+	@Override
+	protected void configure(AuthenticationManagerBuilder auth) throws Exception {
+		auth.authenticationProvider(authenticationProvider());
+	}
+
+>>>>>>> Stashed changes
 	@Bean
 	public UserDetailsService userDetailsService() {
 		return new CustomUserDetailsService();
@@ -121,6 +136,9 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 //        UNCOMMENT SNIPPET #1
 // Remember to comment out the userDetailsService Above.
 
+<<<<<<< Updated upstream
+=======
+>>>>>>> Stashed changes
 =======
 >>>>>>> Stashed changes
 //	@Bean
