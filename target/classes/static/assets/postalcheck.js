@@ -7,7 +7,7 @@ document.getElementById("check-button").addEventListener("click", (e) => {
     for (let i = 0; i < postalsectors.length; i++) {
         if (postalsectors[i] == postalSector) {
         const lowerDeliveryMessage =
-  `      <div class>
+  `      <div class="px-4 py-2">
             <h5>Your delivery fee is $8!</h5>
               <br>
             <p>Please note our minimum delivery order of $20.</p>
@@ -20,7 +20,7 @@ document.getElementById("check-button").addEventListener("click", (e) => {
         else {
 
             const higherDeliveryMessage =
-        `<div class>
+        `<div class="px-4 py-2">
             <h5>Your delivery fee is $10!</h5>
             <br>
             <p>Please note our minimum delivery order of $20.</p>
