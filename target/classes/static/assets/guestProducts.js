@@ -127,74 +127,29 @@ function showCartItems() {
 //    })
 //}
 
-function deliveryCostCheck() {
-const postalCodeElement = document.getElementById("postalcode");
-const postalCode = postalCodeElement.innerText.replace('Delivery to: ', '')
-const postalSector = postalCode.substring(0,2);
-const deliveryCostContainer = document.getElementById("delivery");
-const postalsectors = [42, 43, 44, 45, 46, 47, 48, 49, 50, 81, 51, 52];
-for (let i = 0; i < postalsectors.length; i++) {
-  if (postalsectors[i] == postalSector) {
-  let deliveryCost = 8;
-    deliveryCostContainer.innerText = `$${deliveryCost}` ;
-  break;
-  } else {
-  let deliveryCost = 10;
-   deliveryCostContainer.innerText = `$${deliveryCost}` ;
-  }
- }
-}
-
-
 
 function updateCartTotal() {
-
-//get subtotal
-    let subTotal = 0;
+    let total = 0;
     let cartQuantity = 0;
-    const cartSubTotal = document.getElementById("cart-subtotal");
-    const mobileCartTotal = document.getElementById("mobile-cart-total");
-    const mobileCartQuantity = document.getElementById("mobile-cart-quantity");
-    const cartTotalContainer = document.getElementById("cart-total");
-
+    let cartTotal = document.getElementById("cart-total");
+    let mobileCartTotal = document.getElementById("mobile-cart-total");
+    let mobileCartQuantity = document.getElementById("mobile-cart-quantity");
     let itemsInCart = cart.children;
-
     for (let i = 0; i < itemsInCart.length; i++) {
         const itemPriceElement = itemsInCart[i].children[0].children[0].children[1].children[1].innerText.replace('$', '');
+        console.log(itemPriceElement);
         const itemPrice = parseFloat(itemPriceElement);
         const itemQuantityElement = (itemsInCart[i].children[0].children[0].children[2].children[1].innerText);
+        console.log(itemQuantityElement);
         const itemQuantity = parseInt(itemQuantityElement);
         cartQuantity = cartQuantity + itemQuantity;
         let itemCost = itemPrice * itemQuantity;
-        subTotal = parseFloat((subTotal + itemCost).toFixed(2));
+        total = parseFloat((total + itemCost).toFixed(2));
     }
-    cartSubTotal.innerText = `$${subTotal}`;
-
-//get delivery fee
-    deliveryCostCheck();
-    let deliveryFeeContainer = document.getElementById("delivery");
-    let deliveryFeeElement = deliveryFeeContainer.innerText.replace('$','');
-    let deliveryFee = parseInt(deliveryFeeElement);
-
-
-//get small order fee
-    let smallOrderFee = 20 - subTotal;
-    let smallOrderFeeContainer = document.querySelector("#small-order")
-    if (smallOrderFee > 0) {
-    smallOrderFeeContainer.innerText = `$${smallOrderFee}`;
-    } else {
-    smallOrderFee = 0;
-    smallOrderFeeContainer.innerText = "$0";
-    }
-
-//calculate total
-    let cartTotal = parseFloat((subTotal + smallOrderFee + deliveryFee).toFixed(2));
-    cartTotalContainer.innerText = `$${cartTotal}`;
-    mobileCartTotal.innerText = `$${cartTotal}`;
+    cartTotal.innerText = `$${total}`;
+    mobileCartTotal.innerText = `$${total}`;
     mobileCartQuantity.innerText = cartQuantity;
-
 }
-
 
 
 function loadCartItemsFromStorage() {
@@ -333,7 +288,45 @@ if (e.target.classList.contains("add")) {
 
 }
 });
-
+/*for (let i = 0; i < addToCartButtons.length; i++) {
+    addToCartButtons[i].addEventListener('click', () => {
+        let productsJson = localStorage.getItem('products');
+        let products = JSON.parse(productsJson);
+        let productId = products[i].id;
+        let productName = products[i].name;
+        let productType = products[i].type;
+        let productImg = products[i].img;
+        let productPrice = products[i].price;
+        let itemNames = [];
+        for (let i = 0; i < itemsInCart.length; i++) {
+            let itemName = itemsInCart[i].children[0].children[1].children[0].innerText;
+            console.log(itemName);
+            itemNames.push(itemName);
+        }
+        if (itemNames.includes(productName)) {
+            let itemCartIndex = itemNames.indexOf(productName);
+            let itemQuantityElement = itemsInCart[itemCartIndex].children[0].children[2].children[1];
+            let itemQuantity = parseInt(itemQuantityElement.innerText);
+            itemQuantity = itemQuantity + 1;
+            itemQuantityElement.innerText = itemQuantity;
+            updateCartTotal();
+            let cartItems = JSON.parse(localStorage.getItem('cartItems'));
+            for (let i = 0; i < cartItems.length; i++) {
+                if (productName == cartItems[i].name) {
+                    cartItems[i].quantity++;
+                    localStorage.setItem('cartItems', JSON.stringify(cartItems))
+                }
+            }
+        } else {
+            const newCartItem = createCartItem(productId, productName, productType, productImg, productPrice);
+            newCartItem.quantity = 1
+            storeItem(newCartItem);
+            addItemsToCart(newCartItem);
+            updateCartTotal();
+        }
+    })
+}
+  */
 // CHANGE ITEM QUANTITY IN CART
 
 //increase cart item quantity
@@ -352,7 +345,9 @@ document.querySelector("#checkout-container").addEventListener('click', (e) => {
                 let itemQuantityElement = e.target.parentElement.children[1];
                 let itemPriceElement = e.target.parentElement.parentElement.children[1].children[1];
                 let itemPriceValue = itemPriceElement.innerText.replace('$', '');
+                console.log(itemPriceValue);
                 let itemPrice= parseFloat(itemPriceValue);
+                console.log(itemPrice);
                 let itemQuantity = parseInt(itemQuantityElement.innerText);
                 itemQuantity = itemQuantity + 1;
                 let itemCost = ((itemPrice * itemQuantity).toFixed(2));
@@ -431,6 +426,141 @@ function recheckCart() {
 
 
 
+// FOR LOCAL JSON AND LOCAL STORAGE RETRIEVAL
+//
+//function addBurger(item) {
+//
+//    const itemHTML =
+//    `
+//    <div id ="${item.id}" class="col my-2">
+//    <div class="img-container d-flex justify-content-center p-4 mb-4">
+//        <img src="${item.img}" class="rounded-top menu-img">
+//    </div>
+//        <div class="card-body align-items-center rounded my-4 p-0 pb-4 shadow">
+//            <div class="d-flex justify-content-between px-4 pt-4">
+//                    <h5 class="card-title mr-auto">${item.name}</h5>
+//                    <h5 class="card-text ml-auto">$${item.price}</h5>
+//            </div>
+//            <div class="card-body">
+//                <div class="d-flex px-4 pt-2 pb-2 justify-content-between flex-wrap">
+//                    <!--<input type="number" id="quantity" class="form-control quantity-container mr-2 mb-2" value="1">-->
+//                    <a class="btn add align-self-center" href="#cart-section">Add to Cart</a>
+//                 </div>
+//                <div class="d-flex justify-content-start">
+//                  <a class="btn btn-warning edit mx-4 mt-2 hide" href="#update-container">Edit</a>
+//                </div>
+//            </div>
+//        </div>
+//    </div>
+//
+//`;
+//
+//    burgerContainer.innerHTML += itemHTML;
+//}
+//
+//function addSides(item) {
+//
+//    const itemHTML =
+//    `
+//    <div id ="${item.id}" class="col my-2">
+//    <div class="img-container d-flex justify-content-center p-4 mb-4">
+//        <img src="${item.img}" class="rounded-top menu-img">
+//    </div>
+//    <div class="card-body align-items-center rounded my-4 p-0 pb-4 shadow">
+//    <div class="d-flex justify-content-between px-4 pt-4">
+//                    <h5 class="card-title mr-auto">${item.name}</h5>
+//                    <h5 class="card-text ml-auto">$${item.price}</h5>
+//            </div>
+//            <div class="card-body">
+//                <div class="d-flex px-4 pt-2 pb-2 justify-content-between flex-wrap">
+//                    <!--<input type="number" id="quantity" class="form-control quantity-container mr-2 mb-2" value="1">-->
+//                    <a class="btn add align-self-center" href="#cart-section">Add to Cart</a>
+//                 </div>
+//                <div class="d-flex justify-content-start">
+//                  <a class="btn btn-warning edit mx-4 mt-2 hide" href="#update-container">Edit</a>
+//                </div>
+//            </div>
+//        </div>
+//    </div>
+//
+//`;
+//    sidesContainer.innerHTML += itemHTML;
+//}
+//
+//function addDesserts(item) {
+//
+//    const itemHTML =
+//    `
+//    <div id ="${item.id}" class="col my-2">
+//    <div class="img-container d-flex justify-content-center p-4 mb-4">
+//        <img src="${item.img}" class="rounded-top menu-img">
+//    </div>
+//    <div class="card-body align-items-center rounded my-4 p-0 pb-4 shadow">
+//    <div class="d-flex justify-content-between px-4 pt-4">
+//                    <h5 class="card-title mr-auto">${item.name}</h5>
+//                    <h5 class="card-text ml-auto">$${item.price}</h5>
+//            </div>
+//            <div class="card-body">
+//                <div class="d-flex px-4 pt-2 pb-2 justify-content-between flex-wrap">
+//                    <!--<input type="number" id="quantity" class="form-control quantity-container mr-2 mb-2" value="1">-->
+//                    <a class="btn add align-self-center" href="#cart-section">Add to Cart</a>
+//                 </div>
+//                <div class="d-flex justify-content-start">
+//                  <a class="btn btn-warning edit mx-4 mt-2 hide" href="#update-container">Edit</a>
+//                </div>
+//            </div>
+//        </div>
+//    </div>
+//
+//`;
+//    dessertsContainer.innerHTML += itemHTML;
+//}
+//
+//const addToCartButtons = document.getElementsByClassName("add");
+//
+//
+//function fetchProductList() {
+//
+//    if (localStorage.getItem('products') == null) {
+//        fetch("../assets/productsA.json")
+//            .then((response) => response.json())
+//            .then(response => {
+//                let productsJson = JSON.stringify(response);
+//                localStorage.setItem('products', productsJson);
+//                let products = JSON.parse(productsJson);
+//                for (let i = 0; i < products.length; i++) {
+//                    switch (products[i].type) {
+//                        case ("burger"):
+//                            addBurger(products[i]);
+//                            break;
+//                        case ("sides"):
+//                            addSides(products[i]);
+//                            break;
+//                        case ("dessert"):
+//                            addDesserts(products[i]);
+//                            break;
+//                    }
+//                }
+//            })
+//    } else {
+//        let productsJson = localStorage.getItem('products');
+//        let products = JSON.parse(productsJson);
+//        for (let i = 0; i < products.length; i++) {
+//            switch (products[i].type) {
+//                case ("burger"):
+//                    addBurger(products[i]);
+//                    break;
+//                case ("sides"):
+//                    addSides(products[i]);
+//                    break;
+//                case ("dessert"):
+//                    addDesserts(products[i]);
+//                    break;
+//            }
+//        }
+//    }
+//}
+
 /*
 function loadProductsFromStorage() {
 let productsJson = localStorage.getItem('products');
@@ -450,7 +580,6 @@ let products = JSON.parse(productsJson);
     }
 }
 */
-
 
 
 

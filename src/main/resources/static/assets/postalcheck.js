@@ -27,7 +27,7 @@ document.getElementById("check-button").addEventListener("click", (e) => {
             <p>Orders below $20 will have a small order fee.</p>
                     </div>`
             resultContainer.classList.add("delivery-result");
-            resultContainer.innerHTML = higherDeliveryMessage;
+            resultContainer.innerText = higherDeliveryMessage;
         }
     }
 });

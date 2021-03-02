@@ -68,8 +68,12 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 				.antMatchers("/product").hasRole("ADMIN")
 				.antMatchers("/admin").hasRole("ADMIN")
 				.antMatchers("/order").permitAll()
+				.antMatchers("/checkout").hasRole("USER")
+				.antMatchers("/order-confirmed").hasRole("USER")
+				.antMatchers("/guest-order").permitAll()
 				.antMatchers("/register").permitAll()
 				.antMatchers(HttpMethod.POST, "/user/new").permitAll()
+//				.antMatchers("/checkout").hasRole("USER")
 				.anyRequest().authenticated()
 				.and()
 				.formLogin()
@@ -92,6 +96,25 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 		return new CustomUserDetailsService();
 	}
 }
+//        UNCOMMENT SNIPPET #1
+// Remember to comment out the userDetailsService Above.
+
+
+	@Override
+	protected void configure(AuthenticationManagerBuilder auth) throws Exception {
+		auth.authenticationProvider(authenticationProvider());
+
+	}
+
+	@Bean
+	public UserDetailsService userDetailsService() {
+		return new CustomUserDetailsService();
+	}
+}
+
+//        UNCOMMENT SNIPPET #1
+// Remember to comment out the userDetailsService Above.
+
 //        UNCOMMENT SNIPPET #1
 // Remember to comment out the userDetailsService Above.
 //	@Bean

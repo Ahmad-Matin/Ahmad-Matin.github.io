@@ -4,6 +4,8 @@ import com.tada.summerboot.model.Product;
 import com.tada.summerboot.model.User;
 import com.tada.summerboot.service.UserServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.core.Authentication;
+import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -75,10 +77,31 @@ public class UserController {
         return "register";
     }
 
+
+    @GetMapping(path="/checkout")
+    public String userCheckOut(Model model) {
+        Authentication auth = SecurityContextHolder.getContext().getAuthentication();
+        User user = user_service_implementation.current_user(auth.getName());
+        model.addAttribute("user", user);
+        return "checkout";
+    }
+
+
+    @GetMapping(path="/order-confirmed")
+    public String userOrderConfirmed(Model model) {
+        Authentication auth = SecurityContextHolder.getContext().getAuthentication();
+        User user = user_service_implementation.current_user(auth.getName());
+        model.addAttribute("user", user);
+        return "order-confirmed";
+    }
+
+
     @GetMapping(path="/user/all")
     public List<User> all(){
         return user_service_implementation.getAllUsers();
     }
+
+
 
     @GetMapping(path="/about-us")
     public String getAboutUs(){ return "about-us"; }

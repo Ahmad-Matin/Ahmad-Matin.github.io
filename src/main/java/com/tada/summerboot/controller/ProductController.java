@@ -14,7 +14,9 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 import org.slf4j.Logger;
 
+import java.lang.reflect.Array;
 import java.math.BigDecimal;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 
@@ -47,8 +49,8 @@ public class ProductController {
         return "individual";
     }
 
-    @GetMapping(value="/order")
-    public String everyproduct(Model model){
+    @GetMapping(value="/guest-order")
+    public String guestOrderPage(Model model){
         List<Product> list = product_service_implementation.getAllProduct();
         model.addAttribute("products", list);
         List<Product> burgers = product_service_implementation.getAllProduct();
@@ -73,8 +75,53 @@ public class ProductController {
         model.addAttribute("burgers", burgers);
         model.addAttribute("sides", sides);
         model.addAttribute("desserts", desserts);
-        return "products";
+        return "guest-products";
     }
+
+
+    @GetMapping(value="/order")
+    public String everyproduct(Model model){
+        Authentication auth = SecurityContextHolder.getContext().getAuthentication();
+
+        List<Product> list = product_service_implementation.getAllProduct();
+        model.addAttribute("products", list);
+        List<Product> burgers = product_service_implementation.getAllProduct();
+        burgers.clear();
+        List<Product> sides = product_service_implementation.getAllProduct();
+        sides.clear();
+        List<Product> desserts = product_service_implementation.getAllProduct();
+        desserts.clear();
+        for( int i=0;i< list.size();i++){
+            switch (list.get(i).productType){
+                case "burger":
+                    burgers.add(list.get(i));
+                    break;
+                case "sides":
+                    sides.add(list.get(i));
+                    break;
+                case "dessert":
+                    desserts.add(list.get(i));
+                    break;
+            }
+        }
+        model.addAttribute("burgers", burgers);
+        model.addAttribute("sides", sides);
+        model.addAttribute("desserts", desserts);
+        User user = user_service_implementation.current_user(auth.getName());
+//        int[] postalsectors = {42, 43, 44, 45, 46, 47, 48, 49, 50, 81, 51, 52};
+//        int userPostalCode = Integer.parseInt(user.getPostalcode());
+//        user.setDeliveryCost("8");
+//        for (int i = 0; i < postalsectors.length; i++) {
+//            if(postalsectors[i] != userPostalCode) {
+//                user.setDeliveryCost("10");
+//                return user.deliveryCost;
+//            }
+//        }
+        model.addAttribute("user", user);
+//        model.addAttribute("deliveryCost", user.deliveryCost);
+        return "products";
+        }
+
 // ADD ADMIN PAGE
 
     @GetMapping(value="/admin")

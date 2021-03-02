@@ -25,6 +25,7 @@ public class User {
     private String password;
     private String email;
     private String userType;
+    public String deliveryCost;
 
     @OneToMany(cascade = CascadeType.ALL)
     @JoinColumn(name = "user_id")
