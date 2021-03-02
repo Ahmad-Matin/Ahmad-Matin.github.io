@@ -723,7 +723,7 @@ top: 10%;
 }
 
 .cart-margin {
-margin-top: -25%;
+margin-top: 30%;
 }
 
 #cart-section {
@@ -732,8 +732,8 @@ position: relative;
 
 
 #checkout-container {
- margin-bottom: 18vh;
- height: 55vh;
+ height: 35vh;
+ margin-bottom: 10rem
 }
 
 #cart-checkout {

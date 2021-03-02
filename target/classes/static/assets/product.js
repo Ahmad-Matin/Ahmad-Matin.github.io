@@ -1,7 +1,6 @@
 const cart = document.getElementById("checkout-container");
 const cartCheckOut = document.getElementById("cart-checkout");
 const emptyCartNotice = document.getElementById("empty-cart");
-const navbar = document.getElementById("custom-navigation");
 
 
  document.querySelector("#show-cart").addEventListener('click', (e) => {
@@ -13,7 +12,6 @@ const navbar = document.getElementById("custom-navigation");
   cart.classList.remove("d-none");
   products.classList.add("d-none");
   banner.classList.add("d-none");
-  navbar.classList.add("d-none");
   e.target.parentElement.parentElement.classList.add("d-none");
   })
 
@@ -30,7 +28,6 @@ const navbar = document.getElementById("custom-navigation");
     let showCart = document.querySelector("#show-cart");
     showCart.parentElement.classList.remove("d-none");
     banner.classList.remove("d-none");
-    navbar.classList.remove("d-none");
 
 
   }
