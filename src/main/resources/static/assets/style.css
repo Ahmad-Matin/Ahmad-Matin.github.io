@@ -621,7 +621,7 @@ font-size: 1rem;
 }
 
 .navbar-nav.ml-auto {
-    margin-bottom: 40vh
+    margin-bottom: 48vh
 }
 
 .nav-link.custom-navlink{
@@ -630,13 +630,14 @@ font-size: 1rem;
 }
 
 .material-icons{
-    font-size: 20px;
+    font-size: 40px;
 }
 
 
   #custom-navigation {
     background-color: rgb(255, 174, 0);
   }
+
 
 .main-heading { 
     font-size: 4rem;
