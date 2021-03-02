@@ -221,7 +221,7 @@ height: 100vh;
 }
 
 .contact-section{
-margin: 10% 0;
+margin: 10rem 0;
 }
 
 .carousel-container {
@@ -532,6 +532,7 @@ background-color: rgb(238, 238, 238);
 
  #checkout-page-section {
  margin-top: 10rem;
+ margin-bottom: 5rem;
  }
 
  #delivery-notice {
