@@ -75,22 +75,22 @@ function showCartItems() {
         cartItemInfo.innerHTML =
 
             `
-    <div class="d-flex flex-wrap align-items-center justify-content-between">
-        <div class="d-flex flex-row flex-wrap p-0 my-2 mx-4 justify-content-between align-items-start w-100">
-            <img src=${cartItems[i].img} class="checkout-item-img rounded p-0 col col-sm-5 col-lg-4 col-xl-3 mr-2">
-            <div class="col col-sm-6 col-lg-4 col-xl-3 p-0  mb-sm-5 mb-xl-0">
-                <h5 class="checkout card-title text-xs-left text-sm-right text-lg-left">${cartItems[i].name}</h5>
-                <h5 class="checkout card-title text-xs-left text-sm-right text-lg-left">$${cartItems[i].price}</h5>
-            </div>
-            <div class="d-flex col col-sm-6 col-lg-5 col-xl-3 p-0 justify-content-between align-items-center cart-quantity-container">
-                        <button class="btn btn-warning px-1 remove-button rounded-0">-</button>
-                        <h5 class="checkout card-title text-center quantity m-0">${cartItems[i].quantity}</h5>
-                        <button class="btn btn-warning px-1 add-button rounded-0">+</button>
-            </div>
-            <h5 class="col col-sm-5 col-lg-4 col-xl-2 checkout card-title p-0 text-right item-price">$${(((cartItems[i].price) * (cartItems[i].quantity)).toFixed(2))}</h5>
-        </div>
-    </div>
-    <hr>
+   <div class="d-flex flex-wrap align-items-center justify-content-between">
+           <div class="d-flex flex-row flex-wrap p-0 my-2 mx-4 justify-content-between align-items-start w-100">
+               <img src=${cartItems[i].img} class="checkout-item-img rounded p-0 col col-sm-5 col-lg-4 col-xl-3 mr-2">
+               <div class="col col-sm-6 col-lg-4 col-xl-3 p-0  mb-sm-5 mb-xl-0">
+                   <h5 class="checkout card-title text-xs-left text-sm-right text-lg-left">${cartItems[i].name}</h5>
+                   <h5 class="checkout card-title text-xs-left text-sm-right text-lg-left">$${cartItems[i].price}</h5>
+               </div>
+               <div class="d-flex col col-sm-6 col-lg-5 col-xl-3 p-0 justify-content-between align-items-center cart-quantity-container">
+                           <button class="btn btn-warning px-1 remove-button rounded-0">-</button>
+                           <h5 class="checkout card-title text-center quantity m-0">${cartItems[i].quantity}</h5>
+                           <button class="btn btn-warning px-1 add-button rounded-0">+</button>
+               </div>
+               <h5 class="col col-sm-5 col-lg-4 col-xl-2 checkout card-title p-0 text-right item-price">$${(((cartItems[i].price) * (cartItems[i].quantity)).toFixed(2))}</h5>
+           </div>
+       </div>
+       <hr>
     `
 
         cart.appendChild(cartItemInfo);
@@ -194,6 +194,23 @@ const itemsInCart = cart.children;
 // const addToCartButtons = document.getElementsByClassName("add");
 
 
+
+function storeItem(product) {
+    if (localStorage.getItem('cartItems') == null) {
+        let newCart = [];
+        newCart.push(product);
+
+        // TODO - send data to backend
+        // decide the endpoint
+        // replace this localStorage code with a fetch/POST code
+        localStorage.setItem('cartItems', JSON.stringify(newCart));
+    } else {
+        let cartItems = JSON.parse(localStorage.getItem('cartItems'));
+        cartItems.push(product);
+        localStorage.setItem('cartItems', JSON.stringify(cartItems));
+    }
+}
+
 //  ADD ITEM TO CART
 function addItemsToCart(product) {
     const newCartItem = document.createElement('li');
@@ -201,21 +218,21 @@ function addItemsToCart(product) {
     newCartItem.innerHTML =
         `
     <div class="d-flex flex-wrap align-items-center justify-content-between">
-        <div class="d-flex flex-row flex-wrap p-0 my-2 mx-4 justify-content-between align-items-start w-100">
-          <img src=${product.img} class="checkout-item-img rounded p-0 col col-sm-5 col-lg-4 col-xl-3 mr-2">
-            <div class="col col-sm-6 col-lg-4 col-xl-3 p-0 mb-sm-5 mb-xl-0">
-             <h5 class="checkout card-title text-xs-right text-xs-left text-sm-right text-lg-left">${product.name}</h5>
-             <h5 class="checkout card-title text-xs-right text-xs-left text-sm-right text-lg-left">$${product.price}</h5>
-          </div>
-            <div class="d-flex col col-sm-6 col-lg-5 col-xl-3 p-0 justify-content-between align-items-center cart-quantity-container">
-            <button class="btn btn-warning px-1 remove-button rounded-0">-</button>
-            <h5 class="checkout card-title text-center quantity m-0">${product.quantity}</h5>
-            <button class="btn btn-warning px-1 add-button rounded-0">+</button>
-          </div>
-          <h5 class="col col-sm-5 col-lg-4 col-xl-2 checkout card-title p-0 text-right item-price">$${product.price * product.quantity}</h5>
+            <div class="d-flex flex-row flex-wrap p-0 my-2 mx-4 justify-content-between align-items-start w-100">
+              <img src=${product.img} class="checkout-item-img rounded p-0 col col-sm-5 col-lg-4 col-xl-3 mr-2">
+                <div class="col col-sm-6 col-lg-4 col-xl-3 p-0 mb-sm-5 mb-xl-0">
+                 <h5 class="checkout card-title text-xs-right text-xs-left text-sm-right text-lg-left">${product.name}</h5>
+                 <h5 class="checkout card-title text-xs-right text-xs-left text-sm-right text-lg-left">$${product.price}</h5>
+              </div>
+                <div class="d-flex col col-sm-6 col-lg-3 col-xl-3 p-0 justify-content-between align-items-center cart-quantity-container">
+                <button class="btn btn-warning px-1 remove-button rounded-0">-</button>
+                <h5 class="checkout card-title text-center quantity m-0">${product.quantity}</h5>
+                <button class="btn btn-warning px-1 add-button rounded-0">+</button>
+              </div>
+              <h5 class="col col-sm-5 col-lg-4 col-xl-2 checkout card-title p-0 text-right item-price">$${product.price * product.quantity}</h5>
+            </div>
         </div>
-    </div>
-    <hr>
+        <hr>
     `
     cart.appendChild(newCartItem);
     emptyCartNotice.classList.add('hide');

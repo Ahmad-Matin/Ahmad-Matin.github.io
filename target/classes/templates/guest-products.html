@@ -97,7 +97,7 @@ lunch_dining
 
 <!--MENU CATEGORIES-->
 
-<div id="menu-categories" class="d-none d-sm-flex menu-categories justify-content-between px-md-5 hide">
+<div id="menu-categories" class="d-none d-sm-flex menu-categories justify-content-between px-sm-5 hide">
     <a id="burgerMenu" class="menu-category  m-0 py-2 px-3" href="#burgers-container">Burgers</a>
     <a id="sidesMenu" class="menu-category  m-0 py-2 px-3" href="#sides-container">Sides</a>
     <a id="dessertMenu" class="menu-category  m-0 py-2 px-3" href="#desserts-container">Desserts</a>
@@ -199,7 +199,7 @@ lunch_dining
     <div id="cart-section" class="d-none d-sm-block card-body shadow-sm pt-2 pt-md-4 col-md-4 col-sm-5 col-xs-1 shadow-sm">
         <div id="cart-heading" class="d-flex flex-row my-2 my-md-4 mx-4 align-items-center">
             <button class="col-1 close-cart p-0 btn btn-light d-xs-block d-sm-none">x</button>
-            <h4 class="col card-name text-center m-0 justify-self-center">Cart</h4>
+            <h4 class="col card-name text-center m-0 justify-self-center mt-2 ">Cart</h4>
         </div>
         <div class="position-relative d-flex flex-column">
             <ul id="checkout-list" class="p-0 m-0">
@@ -211,21 +211,17 @@ lunch_dining
             </ul>
 
 
-            <div id="cart-checkout" class="hide position-absolute">
-                <div class="total mx-4 my-2 mt-4 border-0 d-flex flex-row flex-wrap align-items-center justify-content-between ">
+            <div id="cart-checkout" class="hide position-absolute py-2">
+                <div class="total mx-4 my-2 mt-2 border-0 d-flex flex-row flex-wrap align-items-center justify-content-between ">
                     <h3 class="card-name text-center">Subtotal:</h3>
                     <h3 id="cart-total" class="card-name text-center"></h3>
-                </div>
-                <div class="total my-2 mx-4 border-0 d-flex flex-row flex-wrap align-items-center justify-content-between ">
-                    <p class="my-0 card-name text-center">Minimum order</p>
-                    <p class="my-0 card-name text-center">$20</p>
                 </div>
                 <div class="total my-2 mx-4 border-0 d-flex flex-row flex-wrap align-items-center justify-content-start">
                     <p class="my-0 card-name text-left p-0">Please log in to view delivery charges and any small order fees, if applicable.
                     </p>
                 </div>
                 <div class="my-2 d-flex flex-column justify-content-end">
-                    <a id="checkout-button" class="btn px-4 py-2 mx-4 btn-large" href="/login">Please log in to checkout</a>
+                    <a id="checkout-button" class="btn px-4 my-2 py-2 mx-4 btn-large mb-2" href="/login">Please log in to checkout</a>
                 </div>
             </div>
         </div>
