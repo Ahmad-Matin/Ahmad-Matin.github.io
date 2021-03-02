@@ -530,6 +530,16 @@ margin-top: 10%;
 }
 
 
+/*CONFIRMED ORDER PAGE*/
+
+#confirm-order-img{
+max-width: 200px;
+}
+
+#confirm-order-text {
+line-height: 1;
+}
+
 /* MEDIA QUERY FOR MEDIUM SCREENS */
 
 @media only screen and (max-width: 767px) {
