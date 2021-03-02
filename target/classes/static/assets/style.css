@@ -517,6 +517,18 @@ color:black;
     background-color: rgba(204, 204, 204, 0.158);
 }
 
+/*CHECKOUT PAGE */
+
+#checkout-page-total{
+border-radius: 25px;
+background-color: rgb(238, 238, 238);
+}
+
+#checkout-page-section{
+margin-top: 10%;
+
+}
+
 
 /* MEDIA QUERY FOR MEDIUM SCREENS */
 

@@ -89,7 +89,7 @@ public class User {
     }
 
     public String getPostalcode() {
-        return postalcode;
+        return this.postalcode;
     }
 
     public void setPostalcode(String postalcode) {

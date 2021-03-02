@@ -78,22 +78,30 @@ public class UserController {
     }
 
 
-    @GetMapping(path="/checkout/{id}")
-    public String userCheckOut(Model model, @PathVariable Integer id) {
-        Optional<User> user = user_service_implementation.getUser(id);
-        model.addAttribute("user",user);
+    @GetMapping(path="/checkout")
+    public String userCheckOut(Model model) {
+        Authentication auth = SecurityContextHolder.getContext().getAuthentication();
+        User user = user_service_implementation.current_user(auth.getName());
+        model.addAttribute("user", user);
         return "checkout";
     }
 
-    @GetMapping(path="/checkout")
-    public String checkOutPage(){
-        return "checkout";
+
+    @GetMapping(path="/order-confirmed")
+    public String userOrderConfirmed(Model model) {
+        Authentication auth = SecurityContextHolder.getContext().getAuthentication();
+        User user = user_service_implementation.current_user(auth.getName());
+        model.addAttribute("user", user);
+        return "order-confirmed";
     }
+
 
     @GetMapping(path="/user/all")
     public List<User> all(){
         return user_service_implementation.getAllUsers();
     }
+
+
 
     @GetMapping(path="/about-us")
     public String getAboutUs(){ return "about-us"; }
