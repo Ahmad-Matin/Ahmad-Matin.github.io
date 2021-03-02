@@ -7,7 +7,8 @@ import java.math.BigDecimal;
 public class Product {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.TABLE) // GenerationType.TABLE will allow auto-increment of id
+    @TableGenerator(name = "native", initialValue =100)
+    @GeneratedValue(strategy = GenerationType.TABLE, generator="native") // GenerationType.TABLE will allow auto-increment of id
     private Integer id;
 
     @Column(nullable = true)

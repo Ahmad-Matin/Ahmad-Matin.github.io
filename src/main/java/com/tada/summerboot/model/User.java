@@ -5,7 +5,7 @@ package com.tada.summerboot.model;
 
 import javax.persistence.*;
 import java.util.List;
-//
+
 //@Getter
 //@Setter
 @Entity
@@ -89,7 +89,7 @@ public class User {
     }
 
     public String getPostalcode() {
-        return this.postalcode;
+        return postalcode;
     }
 
     public void setPostalcode(String postalcode) {
@@ -127,16 +127,6 @@ public class User {
     public void setId(Integer id) {
         this.id = id;
     }
-
-    public String getDeliveryCost() {
-        return deliveryCost;
-    }
-
-    public void setDeliveryCost(String deliveryCost) {
-        this.deliveryCost = deliveryCost;
-    }
-
-
 
     public User(){
         super();
