@@ -426,14 +426,14 @@ padding: 0;
 }
 
 
-#checkout-button {
+#checkout-button,  #edit-order-button{
 background-color: #ffc107;
     color: #000;
     border: none;
     font-weight: 700;
 }
 
-#checkout-button:hover {
+#checkout-button:hover, #edit-order-button:hover {
 background-color: rgb(0, 142, 207);
 }
 
@@ -449,7 +449,7 @@ border-radius: 25px;
 #checkout-container {
 height: 35vh;
  overflow: scroll;
- margin-bottom: 10rem;
+ margin-bottom: 11rem;
  background-color: #fff;
  }
 
@@ -481,6 +481,10 @@ overflow: scroll;
 border-bottom: 3px solid #ffc107;
 }
 
+#checkout-heading{
+border-bottom: 3px solid black;
+}
+
 /*
 #show-cart {
 display:none;
@@ -495,7 +499,7 @@ display:none;
     height: 100vh;
 }
 
-#login-page, #register-page {
+#login-page, #register-page{
 margin-top: 4rem;
 }
 
@@ -525,10 +529,17 @@ border-radius: 25px;
 background-color: rgb(238, 238, 238);
 }
 
-#checkout-page-section{
-margin-top: 10%;
 
-}
+ #checkout-page-section {
+ margin-top: 10rem;
+ }
+
+ #delivery-notice {
+ border-radius: 25px;
+    background-color:#ffdc6e;
+ }
+
+
 
 
 /*CONFIRMED ORDER PAGE*/
@@ -540,7 +551,6 @@ max-width: 200px;
 #confirm-order-text {
 line-height: 1;
 }
-
 
 
 /* MEDIA QUERY FOR MEDIUM SCREENS */
@@ -564,8 +574,8 @@ font-size:1rem;
 }
     /* LOGIN PAGE */
 
-    #login-form, #register-form {
-        margin-top: 10rem;
+    #login-form, #register-form, #checkout-page-section  {
+        margin-top: 6rem;
         }
 
 
@@ -592,6 +602,7 @@ font-size:1rem;
 
 
 
+
   }
 
 
@@ -600,9 +611,10 @@ font-size:1rem;
 
 @media only screen and (max-width: 575px) {
 
-h3 {
+h3, h4 {
 font-size: 1.5rem;
 }
+
 
 h5 {
 font-size: 1.1rem;
@@ -693,7 +705,7 @@ font-size: 2rem;
     /* LOGIN PAGE */
 
    #login-form {
-        margin-top: 6rem;
+        margin-top: 0;
         }
 /*PRODUCT PAGE */
  .menu-heading {

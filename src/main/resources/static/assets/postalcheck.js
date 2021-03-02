@@ -7,27 +7,32 @@ document.getElementById("check-button").addEventListener("click", (e) => {
     for (let i = 0; i < postalsectors.length; i++) {
         if (postalsectors[i] == postalSector) {
         const lowerDeliveryMessage =
-  `      <div class="px-4 py-2">
+  `
+  <div class="px-4 py-2">
             <h5>Your delivery fee is $8!</h5>
               <br>
             <p>Please note our minimum delivery order of $20.</p>
             <p>Orders below $20 will have a small order fee.</p>
-        </div>`
+        </div>
+        `
+
         resultContainer.innerHTML = lowerDeliveryMessage;
         resultContainer.classList.add("delivery-result");
         break;
         }
         else {
+        const higherDeliveryMessage =
+            `
+              <div class="px-4 py-2">
+                        <h5>Your delivery fee is $10!</h5>
+                          <br>
+                        <p>Please note our minimum delivery order of $20.</p>
+                        <p>Orders below $20 will have a small order fee.</p>
+                    </div>
+                    `
 
-            const higherDeliveryMessage =
-        `<div class="px-4 py-2">
-            <h5>Your delivery fee is $10!</h5>
-            <br>
-            <p>Please note our minimum delivery order of $20.</p>
-            <p>Orders below $20 will have a small order fee.</p>
-                    </div>`
+            resultContainer.innerHTML = higherDeliveryMessage;
             resultContainer.classList.add("delivery-result");
-            resultContainer.innerText = higherDeliveryMessage;
         }
     }
 });
