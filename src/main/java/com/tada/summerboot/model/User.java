@@ -12,7 +12,8 @@ import java.util.List;
 public class User {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.TABLE) // GenerationType.TABLE will allow auto-increment of id
+    @TableGenerator( name="empGen", initialValue = 100)
+    @GeneratedValue(strategy = GenerationType.TABLE, generator = "empGen") // GenerationType.TABLE will allow auto-increment of id
     @Column(name = "id")
     private Integer id;
 

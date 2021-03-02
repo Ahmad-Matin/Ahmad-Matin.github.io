@@ -85,17 +85,17 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 				.permitAll();
 	}
 
-	@Override
-	protected void configure(AuthenticationManagerBuilder auth) throws Exception {
-		auth.authenticationProvider(authenticationProvider());
-
-	}
-
-	@Bean
-	public UserDetailsService userDetailsService() {
-		return new CustomUserDetailsService();
-	}
-}
+//	@Override
+//	protected void configure(AuthenticationManagerBuilder auth) throws Exception {
+//		auth.authenticationProvider(authenticationProvider());
+//
+//	}
+//
+//	@Bean
+//	public UserDetailsService userDetailsService() {
+//		return new CustomUserDetailsService();
+//	}
+//}
 //        UNCOMMENT SNIPPET #1
 // Remember to comment out the userDetailsService Above.
 
