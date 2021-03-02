@@ -447,9 +447,9 @@ border-radius: 25px;
 
 
 #checkout-container {
-height: 41vh;
+height: 35vh;
  overflow: scroll;
- margin-bottom: 11rem;
+ margin-bottom: 10rem;
  background-color: #fff;
  }
 
@@ -492,7 +492,11 @@ display:none;
 /* LOGIN */
 .login-img {
     object-fit: cover;
-    max-height: 100vh;
+    height: 100vh;
+}
+
+#login-page, #register-page {
+margin-top: 4rem;
 }
 
 .sign-in-button{
@@ -512,13 +516,6 @@ color:black;
 
 #sign-up-button:hover{
     border-bottom: 1px solid rgb(0, 142, 207);
-}
-
-.login-heading {
-    border: 3px solid white;
-    color: #fff;
-    font-size: 5.5rem;
-    background-color: rgba(204, 204, 204, 0.158);
 }
 
 /*CHECKOUT PAGE */
@@ -544,6 +541,8 @@ max-width: 200px;
 line-height: 1;
 }
 
+
+
 /* MEDIA QUERY FOR MEDIUM SCREENS */
 
 @media only screen and (max-width: 991px) {
@@ -552,8 +551,6 @@ height: 25vh;
 margin-bottom: 14rem;
 }
 
-#cart-checkout {
-}
 
 }
 /* MEDIA QUERY FOR SMALL SCREENS */
@@ -566,17 +563,14 @@ h3.greeting{
 font-size:1rem;
 }
     /* LOGIN PAGE */
-    #login-banner {
-        display:none;
-    }
+
+    #login-form, #register-form {
+        margin-top: 10rem;
+        }
+
 
     #admin-heading {
         font-size: 4rem;
-    }
-
-    
-    .login-heading {
-        display:none;
     }
 
     .menu-heading {
@@ -595,6 +589,8 @@ font-size:1rem;
     .img-container{
         height: 20rem;
     }
+
+
 
   }
 
@@ -624,9 +620,13 @@ font-size: 1rem;
     margin-bottom: 48vh
 }
 
-.nav-link.custom-navlink{
+.nav-link.custom-navlink, .log-out{
     margin: 2% 0;
     font-size: 3rem;
+}
+
+.log-out {
+font-size: 2rem;
 }
 
 .material-icons{
@@ -691,14 +691,11 @@ font-size: 1rem;
 }
 
     /* LOGIN PAGE */
-    #login-banner {
-        display:none;
-    }
-    
-    .login-heading {
-        display:none;
-    }
 
+   #login-form {
+        margin-top: 6rem;
+        }
+/*PRODUCT PAGE */
  .menu-heading {
         top: 35%;
         font-size: 2.5rem;
