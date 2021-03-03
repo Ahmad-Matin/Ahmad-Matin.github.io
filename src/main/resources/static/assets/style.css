@@ -185,18 +185,27 @@ visibility: hidden;
 pointer-events:none;
 }
 
+#add-product-form::before {
+display: block;
+content: " ";
+margin-top: -250;
+height: 250px;
+visibility: hidden;
+pointer-events:none;
+}
 
-.orderpage-button {
+
+.main-button {
     background-color: rgb(255, 174, 0);
     color: #000;
     border-radius: 20px;
     padding: 2% 8%;
-    font-family: "Quicksand", sans-serif;
+    font-family: "Quicksand", sans-serif;a
     font-weight: 600;
     transition: background-color 300ms;
 }
 
-.orderpage-button:hover {
+.main-button:hover {
     background-color: rgb(255, 115, 0);
     color: white;
 }
@@ -220,7 +229,7 @@ margin: 15% auto;
 height: 100vh;
 }
 
-.contact-section{
+#contact-section{
 margin: 10rem 0;
 }
 
@@ -351,7 +360,7 @@ a.menu-category:hover {
     color: white;
 }
 
-.active {
+.menu-active {
     color: rgb(255, 115, 0);
     font-size: 1.3rem;
     background-color: white;
@@ -415,14 +424,14 @@ padding: 0;
 
 
 .add {
-    background-color: rgb(0, 142, 207);
-    color: #fff;
+    background-color: #ffc107;
+    color: #000;
     transition: all 200ms;
 }
 
 .add:hover {
-    color: black;
-    background-color: rgb(255, 174, 0);
+    color: white;
+    background-color: rgb(255, 115, 0);
 }
 
 
@@ -504,22 +513,22 @@ margin-top: 4rem;
 }
 
 .sign-in-button{
-background-color: rgb(0, 142, 207);
-color: white;
+background-color: rgb(255, 174, 0);
+color: black;
 }
 
 .sign-in-button:hover {
-background-color: rgb(255, 174, 0);
-color:black;
+background-color: rgb(255, 115, 0);
+color:white;
 }
 
 #sign-up-button {
     font-weight: 700;
-    color: rgb(0, 142, 207);
+    color: rgb(255, 115, 0);
 }
 
 #sign-up-button:hover{
-    border-bottom: 1px solid rgb(0, 142, 207);
+    border-bottom: 1px solid rgb(255, 115, 0);
 }
 
 /*CHECKOUT PAGE */

@@ -53,20 +53,20 @@ lunch_dining
             </ul>
             <ul class="navbar-nav ml-auto">
                 <!--incorporated stuff-->
-                <li sec:authorize="hasRole('ROLE_ADMIN')" class="nav-item mr-sm-2 mr-md-4">
+                <li sec:authorize="hasRole('ROLE_ADMIN')" class="nav-item ml-0 ml-sm-2 ml-md-4">
                     <a class="nav-link custom-navlink" href="/admin">Admin <span
                             class="sr-only">(current)</span></a>
                 </li>
-                <li sec:authorize="isAnonymous()" class="nav-item">
+                <li sec:authorize="isAnonymous()" class="nav-item ml-0 ml-sm-2 ml-md-4">
                     <a class="nav-link custom-navlink" href="/login">Login</a>
                 </li>
-                <li sec:authorize="isAuthenticated()" class="nav-item">
+                <li sec:authorize="isAuthenticated()" class="nav-item ml-0 ml-sm-2 ml-md-4">
                     <a class="nav-link custom-navlink" href="/order">Order</a>
                 </li>
-                <li sec:authorize="isAnonymous()" class="nav-item">
+                <li sec:authorize="isAnonymous()" class="nav-item ml-0 ml-sm-2 ml-md-4">
                     <a class="nav-link custom-navlink" href="/guest-order">Order</a>
                 </li>
-                <li sec:authorize="isAuthenticated()" class="nav-item">
+                <li sec:authorize="isAuthenticated()" class="nav-item ml-0 ml-sm-2 ml-md-4">
                     <form th:action="@{/logout}" method="post">
                         <input type="submit" class="log-out btn btn-light my-2" value="Sign Out"/>
                     </form>
@@ -217,7 +217,7 @@ lunch_dining
                     <h3 id="cart-total" class="card-name text-center"></h3>
                 </div>
                 <div class="total my-2 mx-4 border-0 d-flex flex-row flex-wrap align-items-center justify-content-start">
-                    <p class="my-0 card-name text-left p-0">Please log in to view delivery charges and any small order fees, if applicable.
+                    <p class="my-0 card-name text-left p-0">Please note our minimum order of $20 — log in to view delivery charges and any small order fees.
                     </p>
                 </div>
                 <div class="my-2 d-flex flex-column justify-content-end">

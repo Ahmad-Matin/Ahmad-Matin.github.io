@@ -52,20 +52,20 @@ lunch_dining
             </ul>
             <ul class="navbar-nav ml-auto">
                 <!--incorporated stuff-->
-                <li sec:authorize="hasRole('ROLE_ADMIN')" class="nav-item mr-sm-2 mr-md-4">
+                <li sec:authorize="hasRole('ROLE_ADMIN')" class="nav-item ml-0 ml-sm-2 ml-md-4">
                     <a class="nav-link custom-navlink" href="/admin">Admin <span
                             class="sr-only">(current)</span></a>
                 </li>
-                <li sec:authorize="isAnonymous()" class="nav-item">
+                <li sec:authorize="isAnonymous()" class="nav-item ml-0 ml-sm-2 ml-md-4">
                     <a class="nav-link custom-navlink" href="/login">Login</a>
                 </li>
-                <li sec:authorize="isAuthenticated()" class="nav-item">
+                <li sec:authorize="isAuthenticated()" class="nav-item ml-0 ml-sm-2 ml-md-4">
                     <a class="nav-link custom-navlink" href="/order">Order</a>
                 </li>
-                <li sec:authorize="isAnonymous()" class="nav-item">
+                <li sec:authorize="isAnonymous()" class="nav-item ml-0 ml-sm-2 ml-md-4">
                     <a class="nav-link custom-navlink" href="/guest-order">Order</a>
                 </li>
-                <li sec:authorize="isAuthenticated()" class="nav-item">
+                <li sec:authorize="isAuthenticated()" class="nav-item ml-0 ml-sm-2 ml-md-4">
                     <form th:action="@{/logout}" method="post">
                         <input type="submit" class="log-out btn btn-light my-2" value="Sign Out"/>
                     </form>
@@ -85,7 +85,7 @@ lunch_dining
 
 </div>
 <div class="container-fluid px-4 mt-5 pt-5">
-    <div id="add-item-container" class="px-4">
+    <div id="add-item-container" class="px-5">
         <h2 id="admin-heading" class="text-center">Welcome Admin!</h2>
         <a id="add-new-product" class="btn btn-warning my-4 w-100 py-3" href="#add-product-form"><h5>Add New Item</h5></a>
         <a id="add-new-item" class="btn btn-warning my-4 w-100 py-3" href="/every-users"><h5>Edit Users</h5></a>
@@ -138,9 +138,10 @@ lunch_dining
 
 <!--ADD PRODUCT-->
 
-<div id="add-product-form" class="container-fluid p-4 hide">
-    <form action="#" th:action="@{product/new}" th:object="${product}" method="post">
+<div id="add-product-form" class="container-fluid py-4 px-5 hide">
+    <form class="px-4" action="#" th:action="@{product/new}" th:object="${product}" method="post">
         <div class="form-group card p-3 shadow-sm">
+            <h5>Add New Item</h5>
             <label for="title">Title</label>
             <input type="text" class="form-control" name="title" id="title" th:field="*{title}" required>
 
@@ -160,7 +161,10 @@ lunch_dining
             <input type="hidden" id="id" name="id" th:value="${product.id}">
 
             <div>
-                <input type="submit" value=" Submit" class="btn btn-success my-2">
+                <input type="submit" value=" Submit" class="btn btn-success mt-3">
+            </div>
+            <div>
+            <button id ="cancel-add-item" class="btn btn-danger my-2">Cancel</button>
             </div>
         </div>
     </form>
@@ -174,8 +178,8 @@ lunch_dining
         <h2 th:case="null">No record found</h2>
 
         <div th:case="*" class="my-2">
-            <div class="d-flex flex-row px-2 mx-auto row justify-content-center" style="width:100%">
-                <div th:each="item : ${products}" class="col-lg-5 col-sm-10 card-body align-items-center justify-content-center border rounded p-0 pb-4 m-4 shadow">
+            <div class="d-flex flex-row px-2 mx-2 row justify-content-around" style="width:100%">
+                <div th:each="item : ${products}" class="col-lg-5 col-sm-10 card-body align-items-center justify-content-center border rounded p-0 pb-4 mx-4 my-5 shadow">
                     <div class="img-container d-flex justify-content-center p-4 mb-4">
                         <img th:src="${item.imageURL}" class="rounded-top menu-img">
                     </div>
@@ -223,7 +227,7 @@ lunch_dining
 
 
 <script src="/assets/admin2.js"></script>
-<script src="/assets/script.js"></script>
+<!--<script src="/assets/script.js"></script>-->
 
 
 </body>

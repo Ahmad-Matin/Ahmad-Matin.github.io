@@ -23,27 +23,27 @@
                 dessertCategory.classList.add("inactive");
 
                 if (scrolled > 20) {
-                    burgerCategory.classList.add("active");
-                    sidesCategory.classList.remove("active");
+                    burgerCategory.classList.add("menu-active");
+                    sidesCategory.classList.remove("menu-active");
                     sidesCategory.classList.add("inactive");
-                    dessertCategory.classList.remove("active");
+                    dessertCategory.classList.remove("menu-active");
                     dessertCategory.classList.add("inactive");
 
                 }
 
                  if (scrolled > 60) {
-                    sidesCategory.classList.add("active");
-                    burgerCategory.classList.remove("active");
+                    sidesCategory.classList.add("menu-active");
+                    burgerCategory.classList.remove("menu-active");
                     burgerCategory.classList.add("inactive");
-                    dessertCategory.classList.remove("active");
+                    dessertCategory.classList.remove("menu-active");
                     dessertCategory.classList.add("inactive");
                 }
                 
                 if (scrolled > 85) {
-                    dessertCategory.classList.add("active");
-                    sidesCategory.classList.remove("active");
+                    dessertCategory.classList.add("menu-active");
+                    sidesCategory.classList.remove("menu-active");
                     sidesCategory.classList.add("inactive");
-                    burgerCategory.classList.remove("active");
+                    burgerCategory.classList.remove("menu-active");
                     burgerCategory.classList.add("inactive");
 
                 }

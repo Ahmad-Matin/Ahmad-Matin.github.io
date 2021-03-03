@@ -54,20 +54,20 @@ lunch_dining
             </ul>
             <ul class="navbar-nav ml-auto">
                 <!--incorporated stuff-->
-                <li sec:authorize="hasRole('ROLE_ADMIN')" class="nav-item mr-sm-2 mr-md-4">
-                    <a class="nav-link custom-navlink" href="/admin">Admin <span
+                <li sec:authorize="hasRole('ROLE_ADMIN')" class="nav-item">
+                    <a class="nav-link custom-navlink" href="/admin">Admin<span
                             class="sr-only">(current)</span></a>
                 </li>
-                <li sec:authorize="isAnonymous()" class="nav-item">
+                <li sec:authorize="isAnonymous()" class="nav-item ml-0 ml-sm-2 ml-md-4">
                     <a class="nav-link custom-navlink" href="/login">Login</a>
                 </li>
-                <li sec:authorize="isAuthenticated()" class="nav-item">
+                <li sec:authorize="isAuthenticated()" class="nav-item ml-0 ml-sm-2 ml-md-4">
                     <a class="nav-link custom-navlink" href="/order">Order</a>
                 </li>
-                <li sec:authorize="isAnonymous()" class="nav-item">
+                <li sec:authorize="isAnonymous()" class="nav-item ml-0 ml-sm-2 ml-md-4">
                     <a class="nav-link custom-navlink" href="/guest-order">Order</a>
                 </li>
-                <li sec:authorize="isAuthenticated()" class="nav-item">
+                <li sec:authorize="isAuthenticated()" class="nav-item ml-0 ml-sm-2 ml-md-4">
                     <form th:action="@{/logout}" method="post">
                         <input type="submit" class="log-out btn btn-light my-2" value="Sign Out"/>
                     </form>
@@ -83,7 +83,7 @@ lunch_dining
     <!--BANNER-->
     <div id="banner">
         <div class="main-title d-flex justify-content-center align-items-center position-relative">
-            <h1 class="main-heading position-absolute text-left p-0 px-md-5">We make Better burgers.</h1>
+            <h1 class="main-heading position-absolute text-left p-0 px-sm-5">We make Better burgers.</h1>
         </div>
     </div>
 
@@ -105,14 +105,15 @@ lunch_dining
                     <div class="d-flex flex-row justify-content-between flex-column">
                         <input class="form-control search-input shadow" type="text"
                             placeholder="Enter postal code">
-                        <a href="#success-container" id="check-button" class="btn orderpage-button shadow my-4" >Check</a>
+                        <a href="#success-container" id="check-button" class="btn main-button shadow my-4" >Check</a>
+                    </div>
                 </form>
-                </div>
             <div id="address-check-result">
             </div>
                 <!--END SEARCH-->
             </div>
         </div>
+    </div>
 
 <div class="steps-container d-flex flex-column flex-md-row-reverse justify-content-center align-items-center row-cols-1 row-cols-xs-1 row-cols-sm-2 mb-5">
                         <div class="col-sm-10 col-md-6 d-flex align-items-center justify-content-center">
@@ -120,10 +121,10 @@ lunch_dining
                         </div>
                         <div class="steps-heading col-sm-10 col-md-6 d-flex flex-column justify-content-center align-items-center px-4">
                             <h2 class="mt-4 text-center">Not sure what to get?</h2>
-                             <a sec:authorize="isAuthenticated()" class="btn my-4 orderpage-button shadow w-75" href="/order">View menu</a>
-                            <a sec:authorize="isAnonymous()"class="btn my-4 orderpage-button shadow w-75" href="/guest-order">View menu</a>
+                             <a sec:authorize="isAuthenticated()" class="btn my-4 main-button shadow w-75" href="/order">View menu</a>
+                            <a sec:authorize="isAnonymous()"class="btn my-4 main-button shadow w-75" href="/guest-order">View menu</a>
                               <h2 class="mt-4 text-center">Ready to order?</h2>
-                             <a class="btn my-4 orderpage-button shadow w-75" href="/register">Create an account</a>
+                             <a class="btn my-4 main-button shadow w-75" href="/register">Create an account</a>
                         </div>
                     </div>
 
@@ -173,6 +174,7 @@ lunch_dining
 <!--END PRESS -->
 
 <!--CONTACT -->
+<div class="custom-spacing d-none d-md-block">
 
 </div>
 <div id="contact-section" class="d-flex flex-xs-column-reverse flex-md-row flex-wrap justify-content-around align-items-end row-cols-1 row-cols-xs-1 row-cols-sm-2 mt-5">
@@ -199,9 +201,7 @@ lunch_dining
     <div class="col-xs-12 col-lg-5 px-xs-5 px-sm-4 py-5 d-flex justify-content-center">
         <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d63819.42767435123!2d103.89354017910156!3d1.3479490000000123!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x31da3d68fdc30669%3A0x8741d5f4fa3553ea!2sTemasek%20Polytechnic%20Glocal%20Connect%20Village!5e0!3m2!1sen!2ssg!4v1614714395262!5m2!1sen!2ssg" width="600" height="400" style="border:0;" allowfullscreen="" loading="lazy"></iframe>    </div>
 </div>
-<div class="custom-spacing">
-    
-</div>
+
 
 <!--END CONTACT -->
 
