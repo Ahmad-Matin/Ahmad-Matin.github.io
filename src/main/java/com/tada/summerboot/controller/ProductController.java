@@ -108,21 +108,12 @@ public class ProductController {
         model.addAttribute("sides", sides);
         model.addAttribute("desserts", desserts);
         User user = user_service_implementation.current_user(auth.getName());
-//        int[] postalsectors = {42, 43, 44, 45, 46, 47, 48, 49, 50, 81, 51, 52};
-//        int userPostalCode = Integer.parseInt(user.getPostalcode());
-//        user.setDeliveryCost("8");
-//        for (int i = 0; i < postalsectors.length; i++) {
-//            if(postalsectors[i] != userPostalCode) {
-//                user.setDeliveryCost("10");
-//                return user.deliveryCost;
-//            }
-//        }
         model.addAttribute("user", user);
-//        model.addAttribute("deliveryCost", user.deliveryCost);
         return "products";
         }
 
 // ADD ADMIN PAGE
+
 
     @GetMapping(value="/admin")
     public String adminproducts(Model model){

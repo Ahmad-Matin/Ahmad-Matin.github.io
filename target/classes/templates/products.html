@@ -37,7 +37,7 @@
 
 <!--HEADER-->
 <div class="fixed-top">
-    <div id="custom-navigation" class="navbar navbar-expand-sm my-0 py-2 px-5 custom-navbar navbar-dark">
+    <div id="custom-navigation" class="navbar navbar-expand-sm my-0 py-4 pl-4 py-md-2 px-md-5 custom-navbar navbar-dark">
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarText"
                 aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
@@ -97,7 +97,7 @@ lunch_dining
 
 <!--MENU CATEGORIES-->
 
-<div id="menu-categories" class="d-none d-sm-flex menu-categories justify-content-between px-md-5 hide">
+<div id="menu-categories" class="d-none d-sm-flex menu-categories justify-content-between px-sm-5 hide">
     <a id="burgerMenu" class="menu-category  m-0 py-2 px-3" href="#burgers-container">Burgers</a>
     <a id="sidesMenu" class="menu-category  m-0 py-2 px-3" href="#sides-container">Sides</a>
     <a id="dessertMenu" class="menu-category  m-0 py-2 px-3" href="#desserts-container">Desserts</a>
@@ -196,10 +196,11 @@ lunch_dining
 
 
     <!--    JS CHECKOUT-->
+
     <div id="cart-section" class="d-none d-sm-block card-body shadow-sm pt-2 pt-md-4 col-md-4 col-sm-5 col-xs-1 shadow-sm">
         <div id="cart-heading" class="d-flex flex-row my-2 mx-4 align-items-center">
             <button class="col-1 close-cart p-0 btn btn-light d-xs-block d-sm-none">x</button>
-            <h4 class="col card-name text-center m-0 justify-self-center">Cart</h4>
+            <h4 class="col card-name text-center m-0 mt-4 justify-self-center">Cart</h4>
         </div>
         <div class="position-relative d-flex flex-column">
             <ul id="checkout-list" class="p-0 m-0">
@@ -211,7 +212,7 @@ lunch_dining
             </ul>
 
 
-            <div id="cart-checkout" class="flex flex-column hide position-absolute">
+            <div id="cart-checkout" class="flex flex-column hide align-items-center position-absolute">
                 <div class="total mt-2 mx-4 border-0 d-flex flex-row flex-wrap align-items-center justify-content-between ">
                     <p class="my-0 card-name text-center">Subtotal:</p>
                     <p id="cart-subtotal" class="my-0 card-name text-center"></p>
@@ -234,7 +235,7 @@ lunch_dining
                 </div>
 
                 <div class="d-flex flex-column justify-content-end">
-                    <a id="checkout-button" class="btn px-4 py-2 mx-4 btn-large" th:href="@{checkout}">Checkout</a>
+                    <a id="checkout-button" class="btn px-4 py-2 mx-4 mb-3 btn-large" th:href="@{checkout}">Checkout</a>
                 </div>
             </div>
     <!--    CHECKOUT-->
@@ -243,6 +244,7 @@ lunch_dining
 
 
 </div>
+    </div>
 
 <!--RESPONSIVE CART -->
 

@@ -21,17 +21,17 @@ function showCartItems() {
             `
     <div class="d-flex flex-wrap align-items-center justify-content-between">
         <div class="d-flex flex-row flex-wrap p-0 my-2 mx-4 justify-content-between align-items-start w-100">
-            <img src=${cartItems[i].img} class="checkout-item-img rounded p-0 col col-sm-5 col-lg-4 col-xl-3 mr-2">
-            <div class="col col-sm-6 col-lg-4 col-xl-3 p-0  mb-sm-5 mb-xl-0">
-                <h5 class="checkout card-title text-xs-left text-sm-right text-lg-left">${cartItems[i].name}</h5>
-                <h5 class="checkout card-title text-xs-left text-sm-right text-lg-left">$${cartItems[i].price}</h5>
+            <img src=${cartItems[i].img} class="checkout-item-img rounded p-0 col-6 col-sm-5 col-lg-6 col-xl-3 mr-2">
+            <div class="col-6 col-sm-6 col-lg-6 col-xl-3 p-0  mb-sm-5 mb-xl-0">
+                <h5 class="checkout card-title text-right text-sm-right text-xl-left">${cartItems[i].name}</h5>
+                <h5 class="checkout card-title text-right text-sm-right text-xl-left">$${cartItems[i].price}</h5>
             </div>
-            <div class="d-flex col col-sm-6 col-lg-5 col-xl-3 p-0 justify-content-center align-items-center p-0">
+            <div class="d-flex col-6 col-sm-6 col-xl-3 p-0 align-items-center p-0">
                         <button class="btn d-none btn-warning px-1 remove-button rounded-0">-</button>
-                        <h5 class="checkout card-title text-center quantity m-0">Quantity: ${cartItems[i].quantity}</h5>
+                        <h5 class="checkout card-title text-left quantity m-0">Quantity: ${cartItems[i].quantity}</h5>
                         <button class="btn d-none btn-warning px-1 add-button rounded-0">+</button>
             </div>
-            <h5 class="col col-sm-5 col-lg-4 col-xl-2 checkout card-title p-0 text-right item-price">$${(((cartItems[i].price) * (cartItems[i].quantity)).toFixed(2))}</h5>
+            <h5 class="col-6 col-sm-5 col-lg-4 col-xl-2 checkout card-title p-0 text-right item-price">$${(((cartItems[i].price) * (cartItems[i].quantity)).toFixed(2))}</h5>
         </div>
     </div>
     <hr>
