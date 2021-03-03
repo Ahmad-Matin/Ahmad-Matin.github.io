@@ -32,7 +32,7 @@
     <!--JS -->
     <script src="assets/script.js"></script>
 
-    <title>MCJ Final Project</title>
+    <title>Better Burgers</title>
 </head>
 
 <body>
@@ -54,20 +54,20 @@ lunch_dining
             </ul>
             <ul class="navbar-nav ml-auto">
                 <!--incorporated stuff-->
-                <li sec:authorize="hasRole('ROLE_ADMIN')" class="nav-item mr-sm-2 mr-md-4">
-                    <a class="nav-link custom-navlink" href="/admin">Admin <span
+                <li sec:authorize="hasRole('ROLE_ADMIN')" class="nav-item">
+                    <a class="nav-link custom-navlink" href="/admin">Admin<span
                             class="sr-only">(current)</span></a>
                 </li>
-                <li sec:authorize="isAnonymous()" class="nav-item">
+                <li sec:authorize="isAnonymous()" class="nav-item ml-0 ml-sm-2 ml-md-4">
                     <a class="nav-link custom-navlink" href="/login">Login</a>
                 </li>
-                <li sec:authorize="isAuthenticated()" class="nav-item">
+                <li sec:authorize="isAuthenticated()" class="nav-item ml-0 ml-sm-2 ml-md-4">
                     <a class="nav-link custom-navlink" href="/order">Order</a>
                 </li>
-                <li sec:authorize="isAnonymous()" class="nav-item">
+                <li sec:authorize="isAnonymous()" class="nav-item ml-0 ml-sm-2 ml-md-4">
                     <a class="nav-link custom-navlink" href="/guest-order">Order</a>
                 </li>
-                <li sec:authorize="isAuthenticated()" class="nav-item">
+                <li sec:authorize="isAuthenticated()" class="nav-item ml-0 ml-sm-2 ml-md-4">
                     <form th:action="@{/logout}" method="post">
                         <input type="submit" class="log-out btn btn-light my-2" value="Sign Out"/>
                     </form>
@@ -83,7 +83,7 @@ lunch_dining
     <!--BANNER-->
     <div id="banner">
         <div class="main-title d-flex justify-content-center align-items-center position-relative">
-            <h1 class="main-heading position-absolute text-left p-0 px-md-5">We make delicious burgers.</h1>
+            <h1 class="main-heading position-absolute text-left p-0 px-sm-5">We make Better burgers.</h1>
         </div>
     </div>
 
@@ -154,7 +154,7 @@ lunch_dining
                 <img class="carousel-container" src="../assets/imgs/home-page-photos/yellow-background.jpg" alt="Third slide">
                 <div class="carousel-caption review-1 press d-flex flex-column align-items-center my-5">
                     <h4>Publication 2</h4>
-                    <h3 class="my-5 text-center px-4">"MCJ is redefining the fast food landscape, one hand-crafted burger at a time."</h3>
+                    <h3 class="my-5 text-center px-4">"Better Burgers is redefining the fast food landscape, one artisanal burger at a time."</h3>
                     <p>Name 2</p>
                     <p>Title 2</p>
                 </div>

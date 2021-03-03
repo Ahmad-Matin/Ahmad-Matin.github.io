@@ -185,6 +185,15 @@ visibility: hidden;
 pointer-events:none;
 }
 
+#add-product-form::before {
+display: block;
+content: " ";
+margin-top: -200px;
+height: 200px;
+visibility: hidden;
+pointer-events:none;
+}
+
 
 .orderpage-button {
     background-color: rgb(255, 174, 0);
