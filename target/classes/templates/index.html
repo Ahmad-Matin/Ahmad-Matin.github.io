@@ -120,7 +120,8 @@ lunch_dining
                         </div>
                         <div class="steps-heading col-sm-10 col-md-6 d-flex flex-column justify-content-center align-items-center px-4">
                             <h2 class="mt-4 text-center">Not sure what to get?</h2>
-                             <a class="btn my-4 orderpage-button shadow w-75" href="/order">View menu</a>
+                             <a sec:authorize="isAuthenticated()" class="btn my-4 orderpage-button shadow w-75" href="/order">View menu</a>
+                            <a sec:authorize="isAnonymous()"class="btn my-4 orderpage-button shadow w-75" href="/guest-order">View menu</a>
                               <h2 class="mt-4 text-center">Ready to order?</h2>
                              <a class="btn my-4 orderpage-button shadow w-75" href="/register">Create an account</a>
                         </div>
