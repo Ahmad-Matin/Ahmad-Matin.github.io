@@ -101,6 +101,8 @@ public class UserController {
         return user_service_implementation.getAllUsers();
     }
 
+    @GetMapping(path="/checkout-error")
+    public String checkoutError(){ return "checkout-error"; }
 
 
     @GetMapping(path="/about-us")
