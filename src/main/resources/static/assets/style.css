@@ -221,7 +221,7 @@ height: 100vh;
 }
 
 .contact-section{
-margin: 10% 0;
+margin: 10rem 0;
 }
 
 .carousel-container {
@@ -330,7 +330,7 @@ margin: 10% 0;
  .menu-categories {
     background-color:rgb(255, 202, 132);
     position: sticky;
-    top: 10%;
+    top: 77px;
     z-index: 100;
     padding: 1% 0;
 }
@@ -426,14 +426,14 @@ padding: 0;
 }
 
 
-#checkout-button {
+#checkout-button,  #edit-order-button{
 background-color: #ffc107;
     color: #000;
     border: none;
     font-weight: 700;
 }
 
-#checkout-button:hover {
+#checkout-button:hover, #edit-order-button:hover {
 background-color: rgb(0, 142, 207);
 }
 
@@ -441,15 +441,15 @@ background-color: rgb(0, 142, 207);
  align-self: flex-end;
  position: sticky;
  z-index: 50;
- top: 150px;
+ top: 22%;
 border-radius: 25px;
 }
 
 
 #checkout-container {
-height: 38vh;
+height: 35vh;
  overflow: scroll;
- margin-bottom: 12rem;
+ margin-bottom: 11rem;
  background-color: #fff;
  }
 
@@ -474,21 +474,33 @@ bottom: 0;
 width: 100%;
 border-radius: 0 0 25px 25px;
 background-color: rgb(238, 238, 238);
-height: 13rem;
 overflow: scroll;
-
 }
 
+#cart-heading {
+border-bottom: 3px solid #ffc107;
+}
+
+#checkout-heading{
+border-bottom: 3px solid black;
+}
+
+/*
 #show-cart {
 display:none;
 }
+*/
 
 /*ADMIN */
 
 /* LOGIN */
 .login-img {
     object-fit: cover;
-    max-height: 100vh;
+    height: 100vh;
+}
+
+#login-page, #register-page{
+margin-top: 4rem;
 }
 
 .sign-in-button{
@@ -510,13 +522,6 @@ color:black;
     border-bottom: 1px solid rgb(0, 142, 207);
 }
 
-.login-heading {
-    border: 3px solid white;
-    color: #fff;
-    font-size: 5.5rem;
-    background-color: rgba(204, 204, 204, 0.158);
-}
-
 /*CHECKOUT PAGE */
 
 #checkout-page-total{
@@ -524,13 +529,42 @@ border-radius: 25px;
 background-color: rgb(238, 238, 238);
 }
 
-#checkout-page-section{
-margin-top: 10%;
 
+ #checkout-page-section {
+ margin-top: 10rem;
+ margin-bottom: 5rem;
+ }
+
+ #delivery-notice {
+ border-radius: 25px;
+    background-color:#ffdc6e;
+ }
+
+
+
+
+/*CONFIRMED ORDER PAGE*/
+
+#confirm-order-img{
+max-width: 200px;
+}
+
+#confirm-order-text {
+line-height: 1;
 }
 
 
 /* MEDIA QUERY FOR MEDIUM SCREENS */
+
+@media only screen and (max-width: 991px) {
+#checkout-container{
+height: 25vh;
+margin-bottom: 14rem;
+}
+
+
+}
+/* MEDIA QUERY FOR SMALL SCREENS */
 
 @media only screen and (max-width: 767px) {
 
@@ -540,17 +574,14 @@ h3.greeting{
 font-size:1rem;
 }
     /* LOGIN PAGE */
-    #login-banner {
-        display:none;
-    }
+
+    #login-form, #register-form, #checkout-page-section  {
+        margin-top: 6rem;
+        }
+
 
     #admin-heading {
         font-size: 4rem;
-    }
-
-    
-    .login-heading {
-        display:none;
     }
 
     .menu-heading {
@@ -559,7 +590,7 @@ font-size:1rem;
     }
 
      .menu-categories {
-        top: 10%;
+        top: 78px;
     }
 
     .banner-text{
@@ -570,17 +601,21 @@ font-size:1rem;
         height: 20rem;
     }
 
+
+
+
   }
 
 
-  /* MEDIA QUERY FOR SMALL SCREENS */
+  /* MEDIA QUERY FOR EXTRA SMALL SCREENS */
 
 
 @media only screen and (max-width: 575px) {
 
-h3 {
+h3, h4 {
 font-size: 1.5rem;
 }
+
 
 h5 {
 font-size: 1.1rem;
@@ -595,22 +630,27 @@ font-size: 1rem;
 }
 
 .navbar-nav.ml-auto {
-    margin-bottom: 40vh
+    margin-bottom: 48vh
 }
 
-.nav-link.custom-navlink{
+.nav-link.custom-navlink, .log-out{
     margin: 2% 0;
     font-size: 3rem;
 }
 
+.log-out {
+font-size: 2rem;
+}
+
 .material-icons{
-    font-size: 20px;
+    font-size: 40px;
 }
 
 
   #custom-navigation {
     background-color: rgb(255, 174, 0);
   }
+
 
 .main-heading { 
     font-size: 4rem;
@@ -664,14 +704,11 @@ font-size: 1rem;
 }
 
     /* LOGIN PAGE */
-    #login-banner {
-        display:none;
-    }
-    
-    .login-heading {
-        display:none;
-    }
 
+   #login-form {
+        margin-top: 0;
+        }
+/*PRODUCT PAGE */
  .menu-heading {
         top: 35%;
         font-size: 2.5rem;
@@ -696,7 +733,7 @@ top: 10%;
 }
 
 .cart-margin {
-margin-top: -25%;
+margin-top: 30%;
 }
 
 #cart-section {
@@ -705,12 +742,11 @@ position: relative;
 
 
 #checkout-container {
- margin-bottom: 18vh;
- height: 55vh;
+ height: 35vh;
+ margin-bottom: 10rem
 }
 
 #cart-checkout {
-height: 20vh;
 }
 
 

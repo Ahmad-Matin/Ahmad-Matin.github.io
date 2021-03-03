@@ -1,6 +1,3 @@
-//const burgerContainer = document.getElementById("burger");
-//const sidesContainer = document.getElementById("sides");
-//const dessertsContainer = document.getElementById("dessert");
 const cart = document.getElementById("checkout-container");
 const cartCheckOut = document.getElementById("cart-checkout");
 const emptyCartNotice = document.getElementById("empty-cart");
@@ -31,6 +28,7 @@ const emptyCartNotice = document.getElementById("empty-cart");
     let showCart = document.querySelector("#show-cart");
     showCart.parentElement.classList.remove("d-none");
     banner.classList.remove("d-none");
+
 
   }
   })
@@ -74,58 +72,28 @@ function showCartItems() {
         cartItemInfo.innerHTML =
 
             `
-    <div class="d-flex flex-wrap align-items-center justify-content-between">
-        <div class="d-flex flex-row flex-wrap p-0 my-2 mx-4 justify-content-between align-items-start w-100">
-            <img src=${cartItems[i].img} class="checkout-item-img rounded p-0 col col-sm-5 col-lg-4 col-xl-3 mr-2">
-            <div class="col col-sm-6 col-lg-4 col-xl-3 p-0  mb-sm-5 mb-xl-0">
-                <h5 class="checkout card-title text-xs-left text-sm-right text-lg-left">${cartItems[i].name}</h5>
-                <h5 class="checkout card-title text-xs-left text-sm-right text-lg-left">$${cartItems[i].price}</h5>
-            </div>
-            <div class="d-flex col col-sm-6 col-lg-5 col-xl-3 p-0 justify-content-between align-items-center cart-quantity-container">
-                        <button class="btn btn-warning px-1 remove-button rounded-0">-</button>
-                        <h5 class="checkout card-title text-center quantity m-0">${cartItems[i].quantity}</h5>
-                        <button class="btn btn-warning px-1 add-button rounded-0">+</button>
-            </div>
-            <h5 class="col col-sm-5 col-lg-4 col-xl-2 checkout card-title p-0 text-right item-price">$${(((cartItems[i].price) * (cartItems[i].quantity)).toFixed(2))}</h5>
-        </div>
-    </div>
-    <hr>
+   <div class="d-flex flex-wrap align-items-center justify-content-between">
+           <div class="d-flex flex-row flex-wrap p-0 my-2 mx-4 justify-content-between align-items-start w-100">
+               <img src=${cartItems[i].img} class="checkout-item-img rounded p-0 col col-sm-5 col-lg-4 col-xl-3 mr-2">
+               <div class="col col-sm-6 col-lg-4 col-xl-3 p-0  mb-sm-5 mb-xl-0">
+                   <h5 class="checkout card-title text-xs-left text-sm-right text-lg-left">${cartItems[i].name}</h5>
+                   <h5 class="checkout card-title text-xs-left text-sm-right text-lg-left">$${cartItems[i].price}</h5>
+               </div>
+               <div class="d-flex col col-sm-6 col-lg-5 col-xl-3 p-0 justify-content-between align-items-center cart-quantity-container">
+                           <button class="btn btn-warning px-1 remove-button rounded-0">-</button>
+                           <h5 class="checkout card-title text-center quantity m-0">${cartItems[i].quantity}</h5>
+                           <button class="btn btn-warning px-1 add-button rounded-0">+</button>
+               </div>
+               <h5 class="col col-sm-5 col-lg-4 col-xl-2 checkout card-title p-0 text-right item-price">$${(((cartItems[i].price) * (cartItems[i].quantity)).toFixed(2))}</h5>
+           </div>
+       </div>
+       <hr>
     `
 
         cart.appendChild(cartItemInfo);
     }
 }
-//
-////SPRINGBOOT
-//function showCartItems() {
-//    fetch('http://localhost:8080/cart')
-//    .then(response) => response.json())
-//    .then(response => {
-//    let cartItemsJson = JSON.parse(response);
-//        for (let i = 0; i < cartItems.length; i++) {
-//            const cartItemInfo = document.createElement('li');
-//            cartItemInfo.classList.add("checkout-item");
-//            cartItemInfo.innerHTML =
-//
-//                `
-//        <div class="d-flex flex-wrap align-items-center justify-content-center">
-//            <img src=${cartItems[i].img} class="checkout-item-img rounded p-0 mx-4 my-2 col-xs-8">
-//            <div class="d-flex flex-row row align-items-center p-0 my-2 mx-4 w-100 justify-content-between">
-//                <h5 class="card-title col-sm-12 col-md-8 p-0 my-2 text-left">${cartItems[i].name}</h5>
-//                <h5 class="card-title col-sm-12 col-md-4 p-0 my-2 text-right item-price">$${cartItems[i].price}</h5>
-//            </div>
-//            <div class="d-flex col p-0 my-2 mx-4 justify-content-between align-items-center cart-quantity-container">
-//                <button class="btn btn-warning px-3 remove-button rounded-0">-</button>
-//                <h5 class="card-title text-center quantity w-50 m-0">${cartItems[i].quantity}</h5>
-//                <button class="btn btn-warning px-3 add-button rounded-0">+</button>
-//            </div>
-//        </div>
-//        <hr>
-//        `
-//            cart.appendChild(cartItemInfo);
-//        }
-//    })
-//}
+
 
 function deliveryCostCheck() {
 const postalCodeElement = document.getElementById("postalcode");
@@ -189,6 +157,9 @@ function updateCartTotal() {
 
 //calculate total
     let cartTotal = parseFloat((subTotal + smallOrderFee + deliveryFee).toFixed(2));
+    console.log(cartTotal);
+    console.log(mobileCartTotal);
+    console.log(mobileCartQuantity);
     cartTotalContainer.innerText = `$${cartTotal}`;
     mobileCartTotal.innerText = `$${cartTotal}`;
     mobileCartQuantity.innerText = cartQuantity;
@@ -219,6 +190,8 @@ const itemsInCart = cart.children;
 // const editContainer = document.getElementById("update-container")
 // const addToCartButtons = document.getElementsByClassName("add");
 
+
+
 function storeItem(product) {
     if (localStorage.getItem('cartItems') == null) {
         let newCart = [];
@@ -235,8 +208,6 @@ function storeItem(product) {
     }
 }
 
-
-
 //  ADD ITEM TO CART
 function addItemsToCart(product) {
     const newCartItem = document.createElement('li');
@@ -244,21 +215,21 @@ function addItemsToCart(product) {
     newCartItem.innerHTML =
         `
     <div class="d-flex flex-wrap align-items-center justify-content-between">
-        <div class="d-flex flex-row flex-wrap p-0 my-2 mx-4 justify-content-between align-items-start w-100">
-          <img src=${product.img} class="checkout-item-img rounded p-0 col col-sm-5 col-lg-4 col-xl-3 mr-2">
-            <div class="col col-sm-6 col-lg-4 col-xl-3 p-0 mb-sm-5 mb-xl-0">
-             <h5 class="checkout card-title text-xs-right text-xs-left text-sm-right text-lg-left">${product.name}</h5>
-             <h5 class="checkout card-title text-xs-right text-xs-left text-sm-right text-lg-left">$${product.price}</h5>
-          </div>
-            <div class="d-flex col col-sm-6 col-lg-5 col-xl-3 p-0 justify-content-between align-items-center cart-quantity-container">
-            <button class="btn btn-warning px-1 remove-button rounded-0">-</button>
-            <h5 class="checkout card-title text-center quantity m-0">${product.quantity}</h5>
-            <button class="btn btn-warning px-1 add-button rounded-0">+</button>
-          </div>
-          <h5 class="col col-sm-5 col-lg-4 col-xl-2 checkout card-title p-0 text-right item-price">$${product.price * product.quantity}</h5>
+            <div class="d-flex flex-row flex-wrap p-0 my-2 mx-4 justify-content-between align-items-start w-100">
+              <img src=${product.img} class="checkout-item-img rounded p-0 col col-sm-5 col-lg-4 col-xl-3 mr-2">
+                <div class="col col-sm-6 col-lg-4 col-xl-3 p-0 mb-sm-5 mb-xl-0">
+                 <h5 class="checkout card-title text-xs-right text-xs-left text-sm-right text-lg-left">${product.name}</h5>
+                 <h5 class="checkout card-title text-xs-right text-xs-left text-sm-right text-lg-left">$${product.price}</h5>
+              </div>
+                <div class="d-flex col col-sm-6 col-lg-3 col-xl-3 p-0 justify-content-between align-items-center cart-quantity-container">
+                <button class="btn btn-warning px-1 remove-button rounded-0">-</button>
+                <h5 class="checkout card-title text-center quantity m-0">${product.quantity}</h5>
+                <button class="btn btn-warning px-1 add-button rounded-0">+</button>
+              </div>
+              <h5 class="col col-sm-5 col-lg-4 col-xl-2 checkout card-title p-0 text-right item-price">$${product.price * product.quantity}</h5>
+            </div>
         </div>
-    </div>
-    <hr>
+        <hr>
     `
     cart.appendChild(newCartItem);
     emptyCartNotice.classList.add('hide');
@@ -427,29 +398,6 @@ function recheckCart() {
         cartCheckOut.classList.add('hide');
     }
 }
-
-
-
-
-/*
-function loadProductsFromStorage() {
-let productsJson = localStorage.getItem('products');
-let products = JSON.parse(productsJson);
-    for (let i = 0; i < products.length; i++) {
-        switch (products[i].type) {
-            case ("burger"):
-                addBurger(products[i]);
-                break;
-            case ("sides"):
-                addSides(products[i]);
-                break;
-            case ("dessert"):
-                addDesserts(products[i]);
-                break;
-        }
-    }
-}
-*/
 
 
 

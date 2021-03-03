@@ -28,8 +28,6 @@
     <title>MCJ Final Project | Products</title>
 
     <!--JS -->
-    <script src="../assets/menuCategories.js"></script>
-
 
 </head>
 
@@ -40,7 +38,7 @@
 
 <!--HEADER-->
 <div class="fixed-top yellow-background">
-    <div class="navbar navbar-expand-sm my-0 py-2 px-5 custom-navbar navbar-dark">
+    <div class="navbar navbar-expand-sm py-4 pl-4 py-md-2 px-md-5 custom-navbar navbar-dark">
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarText"
                 aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
@@ -85,13 +83,11 @@ lunch_dining
 
 <!--END HEADER-->
 
-<!--MENU-->
 <!--cards start-->
-<div id="checkout-page-section" class="d-flex flex-row justify-content-around align-items-center py-4 flex-wrap row mx-0">
+<div id="checkout-page-section" class="p-0 d-flex flex-column flex-md-row align-items-start justify-content-center px-4">
     <!--    JS CHECKOUT-->
-    <div id="checkout-cart-section" class="col-xl-6 card-body shadow-sm pt-2 pt-md-4 shadow-sm px-5">
-        <div id="cart-heading" class="d-flex flex-row my-2 mx-4 align-items-center">
-            <button class="col-1 close-cart p-0 btn btn-light d-xs-block d-sm-none">x</button>
+    <div id="checkout-cart-section" class="col-xl-6 card-body pt-2 pt-md-4 px-0 px-md-5 m0 mx-md-4 shadow rounded">
+        <div id="cart-heading" class="d-flex flex-row my-2 mx-4 align-items-center px-5">
             <h4 class="col card-name text-center m-0 justify-self-center">Cart</h4>
         </div>
 
@@ -108,37 +104,55 @@ lunch_dining
 
 
         </div>
+        <div class="d-flex align-items-center justify-content-center">
+            <button id="edit-order-button" class="btn btn-large px-4 py-2 my-4 add" href="/order">Edit Order</button>
+        </div>
     </div>
 
     <!--PAYMENT SECTION -->
-    <div class="col-xl-6 flex flex-column">
-        <div id="checkout-page-total" class="flex flex-column px-5">
-            <div class="total mt-2 mx-4 border-0 d-flex flex-row flex-wrap align-items-center justify-content-between ">
-                <p class="my-0 card-name text-center">Subtotal:</p>
-                <p id="cart-subtotal" class="my-0 card-name text-center"></p>
+    <div class="col-xl-6 flex flex-column p-0 px-md-5 align-items-start mt-5 mt-lg-0 mb-5">
+        <div id="checkout-page-total" class="w-100 flex flex-column px-0 px-md-5 pt-2 pt-md-4 justify-self-start">
+            <div class="p-0 m-0 px-md-4 mb-md-4">
+                <div id="checkout-heading" class="d-flex flex-row my-2 mx-0 mx-md-4 align-items-center px-0 px-md-5">
+                    <h4 class="col card-name text-center m-0 justify-self-center">Checkout</h4>
+                </div>
+                <div class="total mt-3 mx-4 border-0 d-flex flex-row align-items-between justify-content-between">
+                <p class="my-0 card-name text-left">Subtotal:</p>
+                <p id="cart-subtotal" class="my-0 card-name text-right"></p>
             </div>
-            <div class="total my-1 mx-4 border-0 d-flex flex-row flex-wrap align-items-center justify-content-between ">
-                <p class="my-0 card-name text-center">Minimum order:</p>
-                <p class="my-0 card-name text-center">$20</p>
+            <div class="total my-1 mx-4 border-0 d-flex flex-row align-items-between justify-content-between ">
+                <p class="my-0 card-name text-left">Minimum order:</p>
+                <p class="my-0 card-name text-right">$20</p>
             </div>
-            <div class="total my-1 mx-4 border-0 d-flex flex-row flex-wrap align-items-center justify-content-between ">
-                <p class="my-0 card-name text-center">Small order fee:</p>
-                <p id = "small-order" class="my-0 card-name text-center"></p>
+            <div class="total my-1 mx-4 border-0 d-flex flex-row align-items-between justify-content-between ">
+                <p class="my-0 card-name text-leftr">Small order fee:</p>
+                <p id = "small-order" class="my-0 card-name text-right"></p>
             </div>
-            <div class="total my-1 mx-4 border-0 d-flex flex-row flex-wrap align-items-center justify-content-between">
-                <p id="postalcode" class="my-0 card-name text-center" th:text="'Delivery to: ' + ${user.postalcode}"></p>
-                <p id="delivery" class="my-0 card-name text-center"></p>
+            <div class="total my-1 mx-4 border-0 d-flex flex-row  align-items-between justify-content-between">
+                <p id="postalcode" class="my-0 card-name text-left" th:text="'Delivery to: ' + ${user.postalcode}"></p>
+                <p id="delivery" class="my-0 card-name text-right"></p>
             </div>
-            <div class="total my-2 mx-4 border-0 d-flex flex-row flex-wrap align-items-center justify-content-between ">
-                <h3 class="my-0 card-name text-center">Total:</h3>
-                <h3 id="cart-total" class="my-0 card-name text-center"></h3>
+            <div class="total my-2 mx-4 border-0 d-flex flex-row  align-items-between justify-content-between ">
+                <h3 class="mt-2 card-name text-left">Total:</h3>
+                <h3 id="cart-total" class="my-0 card-name text-right"></h3>
             </div>
-            <div class="mx-5">
+           </div>
+            <div class="m-0 m-md-5">
                 <div id="paypal-button-container"></div>
             </div>
         </div>
+            <div id="delivery-notice" class="w-100 flex flex-column p-2 justify-self-start mt-4 mt-md-0 align-self-end">
+                <div class="p-0 m-0 px-md-4 my-2">
+                    <div class="d-flex flex-row my-2 mx-0 mx-md-4 align-items-center px-0 px-md-5">
+                        <h5 class="col card-name text-center m-0 justify-self-center">Delivering to <span th:text="${user.address} + ', ' + ${user.unitno} + ', Singapore ' + ${user.postalcode}"></span></h5>
+                    </div>
+                </div>
+            </div>
     </div>
+
 </div>
+
+
         <!--END MENU-->
 
         <!-- Optional JavaScript; choose one of the two! -->

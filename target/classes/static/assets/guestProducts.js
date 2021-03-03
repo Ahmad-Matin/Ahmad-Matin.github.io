@@ -205,7 +205,7 @@ function addItemsToCart(product) {
              <h5 class="checkout card-title text-xs-right text-xs-left text-sm-right text-lg-left">${product.name}</h5>
              <h5 class="checkout card-title text-xs-right text-xs-left text-sm-right text-lg-left">$${product.price}</h5>
           </div>
-            <div class="d-flex col col-sm-6 col-lg-5 col-xl-3 p-0 justify-content-between align-items-center cart-quantity-container">
+            <div class="d-flex col col-sm-6 col-lg-3 col-xl-3 p-0 justify-content-between align-items-center cart-quantity-container">
             <button class="btn btn-warning px-1 remove-button rounded-0">-</button>
             <h5 class="checkout card-title text-center quantity m-0">${product.quantity}</h5>
             <button class="btn btn-warning px-1 add-button rounded-0">+</button>
