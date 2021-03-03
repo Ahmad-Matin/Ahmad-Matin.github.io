@@ -1,6 +1,7 @@
 
 // FORM VALIDATION FOR REGISTRATION (NOT COMPLETE)
 
+
 function validateForm(field, regex) {
     field.classList.remove("border-info");
     if(regex.test(field.value)) {
@@ -32,6 +33,7 @@ inputs.forEach((input)=> {
 const loginEmail = document.querySelector("#loginEmail");
 const loginPassWord = document.querySelector("#loginPassword");
 
+
 const newFN = document.querySelector("#firstname");
 const newLN = document.querySelector("#lastname");
 const newAddress = document.querySelector("#address");
@@ -48,5 +50,10 @@ const patterns = {
     password: /^[\w!@-]{8,20}$/,
 }
 
+register.addEventListener('submit', function (e){
+
+
+
+})
 
 
